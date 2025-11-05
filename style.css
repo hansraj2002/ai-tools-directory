@@ -1,98 +1,161 @@
-body {
+/* ========== Global Reset ========== */
+* {
   margin: 0;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  background-color: #f5f5f5;
-  color: #333;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", Arial, sans-serif;
+}
+
+body {
+  background-color: #f9fafb;
+  color: #222;
   line-height: 1.6;
 }
 
-/* Navbar */
-.navbar {
-  background-color: #0e0e0e;
+/* ========== Header ========== */
+header {
+  background: #111827;
   color: #fff;
+  padding: 20px 0;
   text-align: center;
-  padding: 1rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
 }
 
-.navbar h1 {
-  margin: 0;
+header h1 {
   font-size: 1.8rem;
+  margin-bottom: 10px;
 }
 
-/* Hero Section */
-.hero {
+nav {
+  margin-top: 10px;
+}
+
+nav a {
+  color: #9ca3af;
+  margin: 0 10px;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #fff;
+}
+
+/* ========== Intro Section ========== */
+.intro {
   text-align: center;
-  padding: 3rem 1rem;
-  background: linear-gradient(135deg, #0e0e0e, #2a2a2a);
-  color: white;
+  padding: 40px 20px;
+  background: #fff;
+  margin: 20px auto;
+  max-width: 900px;
+  border-radius: 10px;
+  box-shadow: 0 3px 8px rgba(0,0,0,0.05);
 }
 
-.hero h2 {
-  font-size: 2.4rem;
-  margin-bottom: 0.5rem;
+.intro h2 {
+  font-size: 1.8rem;
+  color: #111827;
+  margin-bottom: 10px;
 }
 
-.hero p {
-  font-size: 1.1rem;
-  opacity: 0.9;
+.intro p {
+  color: #4b5563;
+  font-size: 1rem;
 }
 
-/* Tools Grid */
-.tools {
+/* ========== Cards ========== */
+.cards {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(270px, 1fr));
-  gap: 1.8rem;
-  padding: 2.5rem;
-  max-width: 1200px;
-  margin: 0 auto;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 20px;
+  max-width: 1100px;
+  margin: 0 auto 50px auto;
 }
 
-.tool-card {
-  background-color: white;
-  padding: 1.8rem;
+.card {
+  background: #fff;
   border-radius: 12px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  box-shadow: 0 3px 10px rgba(0,0,0,0.08);
+  padding: 20px;
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.tool-card:hover {
+.card:hover {
   transform: translateY(-5px);
-  box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.1);
 }
 
-.tool-card h3 {
-  color: #0e0e0e;
-  margin-bottom: 0.6rem;
+.card h3 {
+  color: #1f2937;
+  font-size: 1.3rem;
+  margin-bottom: 10px;
 }
 
-.tool-card p {
+.card p {
+  color: #4b5563;
+  margin-bottom: 15px;
   font-size: 0.95rem;
-  color: #555;
-  margin-bottom: 1rem;
 }
 
-.btn {
+.card a {
   display: inline-block;
-  background-color: #0e0e0e;
-  color: white;
-  padding: 0.7rem 1.3rem;
-  border-radius: 8px;
+  background: #2563eb;
+  color: #fff;
   text-decoration: none;
+  padding: 8px 16px;
+  border-radius: 6px;
   font-weight: 500;
   transition: background 0.3s ease;
 }
 
-.btn:hover {
-  background-color: #333;
+.card a:hover {
+  background: #1e40af;
 }
 
-/* Footer */
+/* ========== Footer ========== */
 footer {
-  background-color: #0e0e0e;
-  color: white;
+  background: #111827;
+  color: #9ca3af;
   text-align: center;
-  padding: 1rem 0;
-  margin-top: 2rem;
+  padding: 25px 10px;
   font-size: 0.9rem;
+  margin-top: 40px;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #9ca3af;
+  margin: 0 8px;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer-links a:hover {
+  color: #fff;
+}
+
+/* ========== Responsive Layout ========== */
+@media (max-width: 768px) {
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .intro {
+    padding: 25px 15px;
+  }
+
+  .cards {
+    grid-template-columns: 1fr;
+  }
+
+  .card {
+    margin: 0 auto;
+    max-width: 400px;
+  }
 }
