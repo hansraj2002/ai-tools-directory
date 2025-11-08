@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Submit Your AI Tool | AI Tools Directory</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+  <header>
+    <h1>🤝 Submit Your AI Tool</h1>
+    <nav>
+      <a href="index.html">Home</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="submit.html" class="active">Submit Tool</a>
+    </nav>
+  </header>
+
+  <section class="intro">
+    <h2>Share Your AI Tool With The World</h2>
+    <p>Submit your AI tool, website, or idea. If it fits our directory, we’ll feature it on the homepage.</p>
+  </section>
+
+  <!-- ✅ Success message (hidden by default) -->
+  <div id="successMessage" class="success-box" style="display:none;">
+    ✅ Your tool has been submitted successfully!  
+    We’ll review it soon.
+  </div>
+
+  <section class="form-section">
+    <form action="https://formspree.io/f/mblqrlde" method="POST" id="submitForm">
+
+      <!-- ✅ Honeypot (spam bot trap) -->
+      <input type="text" name="_gotcha" style="display:none">
+
+      <label>Tool Name</label>
+      <input type="text" name="tool_name" required placeholder="Example: ChatGPT">
+
+      <label>Tool Website Link</label>
+      <input type="url" name="tool_url" required placeholder="https://example.com">
+
+      <label>Description</label>
+      <textarea name="tool_description" required placeholder="Describe what your AI tool does"></textarea>
+
+      <label>Your Email (optional)</label>
+      <input type="email" name="email" placeholder="your@email.com">
+
+      <button type="submit">Submit Tool</button>
+    </form>
+  </section>
+
+  <footer>
+    <p>&copy; 2025 AI Tools Directory | All Rights Reserved</p>
+  </footer>
+
+  <script>
+    // ✅ Show success message without leaving the page
+    document.getElementById("submitForm").addEventListener("submit", function(e){
+      e.preventDefault();
+      const form = e.target;
+
+      fetch(form.action, {
+        method: "POST",
+        body: new FormData(form),
+        headers: { "Accept": "application/json" }
+      }).then(() => {
+        form.reset();
+        document.getElementById("successMessage").style.display = "block";
+      });
+    });
+  </script>
+</body>
+</html>

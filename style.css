@@ -159,3 +159,134 @@ footer {
     max-width: 400px;
   }
 }
+.form-section {
+  max-width: 600px;
+  margin: 30px auto;
+  padding: 20px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+form input, form textarea {
+  padding: 12px;
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  font-size: 16px;
+  width: 100%;
+}
+
+form button {
+  background: #4b79ff;
+  border: none;
+  padding: 14px;
+  border-radius: 8px;
+  color: white;
+  font-size: 17px;
+  cursor: pointer;
+  transition: 0.2s ease;
+}
+
+form button:hover {
+  background: #3656d4;
+}
+
+/* Success message box */
+.success-box {
+  max-width: 600px;
+  margin: 20px auto;
+  padding: 15px;
+  background: #e7ffea;
+  border-left: 6px solid #3cb043;
+  border-radius: 6px;
+  font-size: 16px;
+}
+.category-filter {
+  text-align: center;
+  margin: 20px;
+  flex-wrap: wrap;
+}
+
+.filter-btn {
+  background: #222;
+  color: white;
+  margin: 5px;
+  padding: 10px 18px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.filter-btn:hover {
+  background: #444;
+}
+
+.category-tag {
+  font-size: 13px;
+  color: #666;
+  margin-bottom: 8px;
+  font-style: italic;
+}
+/* Search + Sort */
+#searchInput {
+  padding: 12px;
+  margin: 12px 0;
+  width: 60%;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+#sortSelect {
+  padding: 12px;
+  margin-left: 10px;
+  border-radius: 8px;
+}
+
+/* Pagination */
+.pagination button {
+  margin: 5px;
+  padding: 8px 14px;
+  border: none;
+  background: #333;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.pagination button:hover {
+  background: #555;
+}
+
+/* Dark Mode */
+body.dark {
+  background: #111;
+  color: white;
+}
+
+body.dark .card {
+  background: #222;
+  color: white;
+}
+
+body.dark a {
+  color: #66aaff;
+}
+
+#darkToggle {
+  padding: 10px 18px;
+  background: #222;
+  color: white;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+#darkToggle:hover {
+  background: #444;
+}
+
+

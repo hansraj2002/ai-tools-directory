@@ -1,33 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Discover the latest and most powerful AI tools in one place — AI Tools Directory. Explore ChatGPT, Midjourney, RunwayML, and more.">
-  <meta name="keywords" content="AI tools, artificial intelligence, ChatGPT, Midjourney, AI software, AI apps">
-  <meta name="author" content="Hans Raj">
-
-  <!-- ✅ Google Site Verification -->
-  <meta name="google-site-verification" content="GYQNz8wOxxoA6VhrbLaeS1ii-FZJz0j57Z2GABR4cuE" />
-
-  <!-- ✅ Google Analytics (place inside <head>) -->
-  <script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
-  <script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-    gtag('js', new Date());
-    gtag('config', ' G-143GBNNFQE');
-  </script>
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Discover the latest and most powerful AI tools categorized for easy browsing." />
   <title>AI Tools Directory</title>
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <link rel="stylesheet" href="style.css" />
 </head>
+
 <body>
   <header>
     <h1>🤖 AI Tools Directory</h1>
     <nav>
       <a href="index.html">Home</a>
+      <a href="submit.html">Submit Idea</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
       <a href="privacy.html">Privacy</a>
@@ -35,73 +21,158 @@
   </header>
 
   <section class="intro">
-    <h2>Explore the Latest AI Tools</h2>
-    <p>Discover powerful tools that use artificial intelligence to create, write, design, and automate your work.</p>
+    <h2>Explore AI Tools by Category</h2>
+    <p>Browse through 100+ AI tools sorted by categories like Chatbots, Image Generators, Coding, and more.</p>
+
+    <!-- Search -->
+    <input type="text" id="searchInput" placeholder="Search tools..." onkeyup="searchTools()">
+
+    <!-- Sorting -->
+    <select id="sortSelect" onchange="sortTools()">
+      <option value="az">Sort A–Z</option>
+      <option value="za">Sort Z–A</option>
+    </select>
+
+    <!-- Dark Mode -->
+    <button id="darkToggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
   </section>
 
-  <section class="cards">
-    <div class="card">
-      <h3>ChatGPT</h3>
-      <p>An advanced AI chatbot by OpenAI that can answer questions, write content, and assist with coding.</p>
-      <a href="https://chat.openai.com" target="_blank">Visit ChatGPT</a>
-    </div>
+  <!-- Category Filter -->
+  <section class="category-filter">
+    <button onclick="filterTools('all')">All</button>
+    <button onclick="filterTools('Chatbot')">Chatbots</button>
+    <button onclick="filterTools('Image Generator')">Image Generators</button>
+    <button onclick="filterTools('Video')">Video</button>
+    <button onclick="filterTools('Audio/Voice')">Audio/Voice</button>
+    <button onclick="filterTools('Coding')">Coding</button>
+    <button onclick="filterTools('Research')">Research</button>
+    <button onclick="filterTools('SEO')">SEO</button>
+    <button onclick="filterTools('Productivity')">Productivity</button>
+    <button onclick="filterTools('Marketing')">Marketing</button>
+    <button onclick="filterTools('Automation')">Automation</button>
+    <button onclick="filterTools('Education')">Education</button>
+    <button onclick="filterTools('Design')">Design</button>
+  </section>
 
-    <div class="card">
-      <h3>Midjourney</h3>
-      <p>AI art generator that turns text prompts into stunning images. Perfect for designers and creatives.</p>
-      <a href="https://www.midjourney.com" target="_blank">Try Midjourney</a>
-    </div>
+  <!-- Pagination -->
+  <div id="pagination" class="pagination"></div>
 
-    <div class="card">
-      <h3>Runway ML</h3>
-      <p>A creative AI video editor that helps users remove backgrounds, edit scenes, and enhance videos easily.</p>
-      <a href="https://runwayml.com" target="_blank">Explore Runway ML</a>
-    </div>
-
-    <div class="card">
-      <h3>Claude</h3>
-      <p>Anthropic’s AI assistant that helps with writing, summarization, and analysis — safe and reliable AI chat.</p>
-      <a href="https://claude.ai" target="_blank">Try Claude</a>
-    </div>
-
-    <div class="card">
-      <h3>Perplexity AI</h3>
-      <p>AI-powered search engine that provides direct answers with references — faster than Google for research.</p>
-      <a href="https://www.perplexity.ai" target="_blank">Visit Perplexity AI</a>
-    </div>
-
-    <div class="card">
-      <h3>Leonardo AI</h3>
-      <p>AI art platform that generates game assets, concept art, and more using text prompts.</p>
-      <a href="https://leonardo.ai" target="_blank">Explore Leonardo</a>
-    </div>
-
-    <div class="card">
-      <h3>ElevenLabs</h3>
-      <p>AI voice generator that creates lifelike speech in multiple languages — ideal for videos and podcasts.</p>
-      <a href="https://elevenlabs.io" target="_blank">Try ElevenLabs</a>
-    </div>
-
-    <div class="card">
-      <h3>Notion AI</h3>
-      <p>Smart writing assistant built into Notion — summarize notes, draft posts, and boost productivity.</p>
-      <a href="https://www.notion.so/product/ai" target="_blank">Explore Notion AI</a>
-    </div>
-
-    <div class="card">
-      <h3>Suno AI</h3>
-      <p>Generate music and vocals from text prompts using advanced generative AI models.</p>
-      <a href="https://suno.ai" target="_blank">Visit Suno AI</a>
-    </div>
+  <!-- Dynamic Cards -->
+  <section class="cards" id="tools-container">
+    <p>Loading tools...</p>
   </section>
 
   <footer>
     <p>&copy; 2025 AI Tools Directory | All Rights Reserved</p>
-    <div class="footer-links">
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy Policy</a>
-    </div>
   </footer>
+
+  <!-- ✅ Updated JavaScript with pagination, search, sort, dark mode -->
+  <script>
+    let toolsList = [];
+    let currentPage = 1;
+    const perPage = 12;
+
+    fetch("tools.json")
+      .then(res => res.json())
+      .then(data => {
+        toolsList = data;
+        displayTools(toolsList);
+        setupPagination(toolsList);
+      });
+
+    function displayTools(tools) {
+      const container = document.getElementById("tools-container");
+      container.innerHTML = "";
+
+      const start = (currentPage - 1) * perPage;
+      const paginatedItems = tools.slice(start, start + perPage);
+
+      if (paginatedItems.length === 0) {
+        container.innerHTML = "<p>No tools found.</p>";
+        return;
+      }
+
+      paginatedItems.forEach(tool => {
+        const card = document.createElement("div");
+        card.classList.add("card");
+
+        card.innerHTML = `
+          <h3>${tool.name}</h3>
+          <p>${tool.description}</p>
+          <p class="category-tag">${tool.category}</p>
+          <a href="${tool.link}" target="_blank" onclick="countClick('${tool.name}')">Visit Tool</a>
+        `;
+
+        container.appendChild(card);
+      });
+    }
+
+    function filterTools(category) {
+      currentPage = 1;
+      if (category === "all") {
+        displayTools(toolsList);
+        setupPagination(toolsList);
+      } else {
+        const filtered = toolsList.filter(tool => tool.category === category);
+        displayTools(filtered);
+        setupPagination(filtered);
+      }
+    }
+
+    function searchTools() {
+      const query = document.getElementById("searchInput").value.toLowerCase();
+      const results = toolsList.filter(t =>
+        t.name.toLowerCase().includes(query) ||
+        t.description.toLowerCase().includes(query)
+      );
+      currentPage = 1;
+      displayTools(results);
+      setupPagination(results);
+    }
+
+    function sortTools() {
+      const type = document.getElementById("sortSelect").value;
+
+      if (type === "az") {
+        toolsList.sort((a, b) => a.name.localeCompare(b.name));
+      } else {
+        toolsList.sort((a, b) => b.name.localeCompare(a.name));
+      }
+
+      displayTools(toolsList);
+      setupPagination(toolsList);
+    }
+
+    function setupPagination(items) {
+      const pages = Math.ceil(items.length / perPage);
+      const pagination = document.getElementById("pagination");
+      pagination.innerHTML = "";
+
+      for (let i = 1; i <= pages; i++) {
+        pagination.innerHTML += `<button onclick="goToPage(${i})">${i}</button>`;
+      }
+    }
+
+    function goToPage(page) {
+      currentPage = page;
+      displayTools(toolsList);
+    }
+
+    function countClick(toolName) {
+      let clicks = JSON.parse(localStorage.getItem("clicks")) || {};
+      clicks[toolName] = (clicks[toolName] || 0) + 1;
+      localStorage.setItem("clicks", JSON.stringify(clicks));
+    }
+
+    function toggleDarkMode() {
+      document.body.classList.toggle("dark");
+      localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+    }
+
+    if (localStorage.getItem("darkMode") === "true") {
+      document.body.classList.add("dark");
+    }
+  </script>
+
 </body>
 </html>
