@@ -1,5 +1,4 @@
 [
-  [
   {"name":"ChatGPT","description":"Advanced conversational AI assistant.","link":"https://chat.openai.com","category":"Chatbot"},
   {"name":"Claude AI","description":"AI assistant for reasoning and writing.","link":"https://claude.ai","category":"Chatbot"},
   {"name":"Google Gemini","description":"Google's multimodal AI assistant.","link":"https://gemini.google.com","category":"Chatbot"},
@@ -99,6 +98,4 @@
   {"name":"AgentGPT","description":"AI autonomous agents.","link":"https://agentgpt.reworkd.ai","category":"Automation"},
   {"name":"AutoGPT","description":"AI agent for automated tasks.","link":"https://github.com/Significant-Gravitas/Auto-GPT","category":"Automation"},
   {"name":"God Mode AI","description":"Autonomous AI task executor.","link":"https://godmode.space","category":"Automation"}
-]
-
 ]
