@@ -44,19 +44,4 @@
     <priority>0.85</priority>
   </url>
 
-  <!-- Optional but Recommended: Individual hosted games -->
-  <url>
-    <loc>https://hansraj2002.github.io/quiz-quest/</loc>
-    <lastmod>2025-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
-  <url>
-    <loc>https://hansraj2002.github.io/memory-game/</loc>
-    <lastmod>2025-11-07</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.5</priority>
-  </url>
-
 </urlset>
