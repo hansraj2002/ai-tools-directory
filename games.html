@@ -23,6 +23,7 @@
       padding: 15px;
       text-align: center;
       transition: transform 0.3s ease, box-shadow 0.3s ease;
+      position: relative;
     }
     .game-card:hover {
       transform: translateY(-5px);
@@ -38,7 +39,7 @@
       height: 400px;
       border-radius: 8px;
       border: 1px solid #ccc;
-      margin-bottom: 10px;
+      display: none; /* hide until play */
     }
     .game-card button {
       padding: 10px 16px;
@@ -70,22 +71,22 @@
 
 <section class="intro">
   <h2>Play Fun Games Directly Here</h2>
-  <p>Enjoy web-based games without leaving the page. Click "Fullscreen" to expand the game.</p>
+  <p>Click "Play" to start the game in fullscreen mode.</p>
 </section>
 
 <section class="games-container">
-  <!-- Example Game Card -->
+  <!-- Quiz Game -->
   <div class="game-card">
     <h3>Quiz Game</h3>
-    <iframe id="quizGame" src="https://hansraj2002.github.io/quiz-quest/" frameborder="0"></iframe>
-    <button onclick="openFullscreen('quizGame')">Fullscreen</button>
+    <iframe id="quizGame" data-src="https://hansraj2002.github.io/quiz-quest/" frameborder="0"></iframe>
+    <button onclick="playGame('quizGame')">Play</button>
   </div>
 
-  <!-- You can duplicate this card for more games -->
+  <!-- Memory Game -->
   <div class="game-card">
     <h3>Memory Game</h3>
-    <iframe id="memoryGame" src="https://hansraj2002.github.io/memory-game/" frameborder="0"></iframe>
-    <button onclick="openFullscreen('memoryGame')">Fullscreen</button>
+    <iframe id="memoryGame" data-src="https://hansraj2002.github.io/memory-game/" frameborder="0"></iframe>
+    <button onclick="playGame('memoryGame')">Play</button>
   </div>
 </section>
 
@@ -94,8 +95,18 @@
 </footer>
 
 <script>
-function openFullscreen(iframeId) {
+function playGame(iframeId) {
   const iframe = document.getElementById(iframeId);
+  
+  // Load the game only when play is clicked
+  if(!iframe.src) {
+    iframe.src = iframe.dataset.src;
+  }
+  
+  // Show the iframe
+  iframe.style.display = 'block';
+
+  // Go fullscreen
   if (iframe.requestFullscreen) {
     iframe.requestFullscreen();
   } else if (iframe.mozRequestFullScreen) { /* Firefox */
