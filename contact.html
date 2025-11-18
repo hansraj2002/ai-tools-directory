@@ -2,24 +2,59 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Contact AI Tools Directory for questions, suggestions, or partnerships.">
-  <meta name="keywords" content="AI tools, contact, artificial intelligence, support">
-  <meta name="author" content="Hans Raj">
 
-  <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-143GBNNFQE');
-</script>
+  <!-- Primary SEO -->
+  <title>Contact Us | AI Tools Directory</title>
+  <meta name="description" content="Contact AI Tools Directory for questions, suggestions, or partnership opportunities. We're here to help and respond quickly.">
+  <meta name="keywords" content="contact AI tools, support AI directory, AI help, get in touch">
 
-  <title>Contact - AI Tools Directory</title>
+  <!-- Canonical -->
+  <link rel="canonical" href="https://aitoolsdirectory.site/contact.html">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Contact AI Tools Directory">
+  <meta property="og:description" content="Have a question or suggestion? Get in touch with the AI Tools Directory team.">
+  <meta property="og:url" content="https://aitoolsdirectory.site/contact.html">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://aitoolsdirectory.site/og-image.jpg">
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Contact AI Tools Directory">
+  <meta name="twitter:description" content="Reach out for support, submissions, or feedback.">
+  <meta name="twitter:image" content="https://aitoolsdirectory.site/og-image.jpg">
+
+  <!-- Robots -->
+  <meta name="robots" content="index, follow">
+
+  <!-- Schema: Contact Page -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact AI Tools Directory",
+    "url": "https://aitoolsdirectory.site/contact.html",
+    "about": "Contact page for AI Tools Directory",
+    "mainEntityOfPage": "https://aitoolsdirectory.site/contact.html"
+  }
+  </script>
+
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-143GBNNFQE');
+  </script>
+
 </head>
+
 <body>
   <header>
     <h1>Contact Us</h1>
@@ -34,13 +69,40 @@
   </header>
 
   <section>
-    <h2>Get in Touch</h2>
-    <p>Have suggestions, questions, or partnership ideas? We’d love to hear from you!</p>
-    <p>Email us at: <strong>hansraj.kumararlani@gmail.com</strong></p>
+    <h2>We’d Love to Hear From You</h2>
+    <p>If you have questions, feedback, or suggestions — or if you want to submit an AI tool or collaborate — feel free to reach out using the form below.</p>
+
+    <!-- Contact Form (No changes to structure, safe for static hosting) -->
+    <form action="https://formsubmit.co/hansraj.kumararlani@gmail.com" method="POST" style="max-width: 500px; margin-top: 20px;">
+
+      <!-- Anti-spam -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+
+      <label for="name">Your Name</label>
+      <input type="text" id="name" name="name" required>
+
+      <label for="email">Your Email</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="message">Message</label>
+      <textarea id="message" name="message" rows="5" required></textarea>
+
+      <button type="submit">Send Message</button>
+    </form>
+
+    <h3 style="margin-top:40px;">Business / Partnership Enquiries</h3>
+    <p>For business proposals, advertising, or collaboration opportunities, please write to us and we will respond within 24–48 hours.</p>
+
+    <h3>Tool Submissions</h3>
+    <p>If you want to suggest a new AI tool, please use our dedicated page:</p>
+    <a href="submit.html" style="font-weight: bold;">Submit an AI Tool →</a>
+
   </section>
 
   <footer>
     <p>&copy; 2025 AI Tools Directory</p>
   </footer>
+
 </body>
 </html>

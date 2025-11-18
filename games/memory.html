@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Memory Match</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;color:#111;padding:24px;text-align:center}
+  .card{max-width:720px;margin:18px auto;padding:20px;background:#fff;border-radius:10px}
+  #grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
+  .tile{background:#2563eb;color:#fff;padding:18px;border-radius:8px;cursor:pointer;font-weight:700}
+  .flipped{background:#fff;color:#111;border:2px solid #2563eb}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Memory Match</h1>
+    <p>Flip two tiles. Match all pairs to win.</p>
+    <div id="grid"></div>
+    <div style="margin-top:12px;"><button id="new">New Game</button> <span id="stat"></span></div>
+  </div>
+
+<script>
+const grid = document.getElementById('grid'), stat=document.getElementById('stat');
+let cards=[], first=null, lock=false, moves=0, matches=0;
+function init(){
+  const icons = ['★','✦','✶','✱','❤','☼','☯','♫','⌘','⚑','☻','✿'];
+  const deck = icons.concat(icons).slice(0,12); // 12 pairs => 24 tiles
+  deck.sort(()=>Math.random()-0.5);
+  cards = deck.map((v,i)=>({id:i,val:v,flipped:false,matched:false}));
+  render();
+  moves=0; matches=0; stat.textContent='';
+}
+function render(){
+  grid.innerHTML='';
+  cards.forEach(c=>{
+    const d=document.createElement('div'); d.className='tile'+(c.flipped?' flipped':''); d.textContent=c.flipped||c.matched?c.val:'?';
+    d.onclick = ()=>flip(c.id);
+    grid.appendChild(d);
+  });
+}
+function flip(i){
+  if(lock) return;
+  const c = cards[i];
+  if(c.flipped || c.matched) return;
+  c.flipped=true; render();
+  if(!first){ first = c; return; }
+  lock=true; moves++;
+  if(c.val === first.val){
+    c.matched=true; first.matched=true; matches++; first=null; lock=false;
+    if(matches === cards.length/2) stat.textContent = `You won in ${moves} moves!`;
+  } else {
+    setTimeout(()=>{ c.flipped=false; first.flipped=false; first=null; lock=false; render(); },800);
+  }
+}
+document.getElementById('new').onclick=init;
+init();
+</script>
+</body>
+</html>

@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Typing Speed Challenge</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;color:#111;padding:24px}
+  .card{max-width:800px;margin:18px auto;padding:20px;background:#fff;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
+  textarea{width:100%;height:120px;padding:12px;font-size:16px;border-radius:8px;border:1px solid #ddd}
+  button{padding:10px 14px;border-radius:8px;border:none;background:#2563eb;color:#fff;cursor:pointer;margin-top:10px}
+  .stats{margin-top:12px;font-weight:600}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Word Speed Challenge</h1>
+    <p>Type the passage below as quickly and accurately as possible. Click <strong>Start</strong> to begin.</p>
+
+    <blockquote id="passage">The future of creativity is being shaped by new AI tools that help people build faster, iterate more, and explore ideas without limits.</blockquote>
+
+    <textarea id="input" disabled></textarea>
+    <div>
+      <button id="start">Start</button>
+      <button id="reset" style="background:#ef4444">Reset</button>
+    </div>
+
+    <div class="stats" id="stats">WPM: — | Accuracy: —%</div>
+  </div>
+
+<script>
+const passage = document.getElementById('passage').textContent.trim();
+const txt = document.getElementById('input');
+let startTime, timer, started=false;
+document.getElementById('start').onclick = ()=>{
+  txt.value = '';
+  txt.disabled = false;
+  txt.focus();
+  startTime = Date.now();
+  started = true;
+  document.getElementById('stats').textContent = 'WPM: 0 | Accuracy: 100%';
+};
+document.getElementById('reset').onclick = ()=>{ txt.value=''; txt.disabled=true; started=false; document.getElementById('stats').textContent='WPM: — | Accuracy: —%'; };
+txt.addEventListener('input', ()=>{
+  if(!started) return;
+  const elapsed = (Date.now() - startTime)/1000/60; // minutes
+  const wordsTyped = (txt.value.trim().split(/\s+/).filter(Boolean)).length;
+  const wpm = Math.round(wordsTyped / (elapsed || 1/60));
+  // accuracy
+  let correctChars = 0;
+  for(let i=0;i<Math.min(txt.value.length, passage.length);i++){
+    if(txt.value[i] === passage[i]) correctChars++;
+  }
+  const accuracy = Math.round((correctChars / (txt.value.length || 1)) * 100);
+  document.getElementById('stats').textContent = `WPM: ${wpm} | Accuracy: ${accuracy}%`;
+  if(txt.value.trim() === passage) {
+    txt.disabled = true;
+    alert(`Well done! Final WPM: ${wpm}, Accuracy: ${accuracy}%`);
+  }
+});
+</script>
+</body>
+</html>

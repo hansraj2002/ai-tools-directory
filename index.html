@@ -3,18 +3,47 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Discover the latest and most powerful AI tools categorized for easy browsing." />
-  <title>AI Tools Directory</title>
+  <meta name="description" content="Discover powerful AI tools sorted by category. Browse, search, filter, and explore the best AI apps online.">
+  <title>AI Tools Directory | Explore 100+ AI Tools</title>
   <link rel="stylesheet" href="style.css" />
 
   <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-143GBNNFQE');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}    
+    gtag('js', new Date());
+    gtag('config', 'G-143GBNNFQE');
+  </script>
+
+  <style>
+    /* Badge styling */
+    .badge {
+      display: inline-block;
+      padding: 4px 8px;
+      font-size: 11px;
+      border-radius: 6px;
+      color: white;
+      margin-bottom: 8px;
+      font-weight: 600;
+    }
+    .badge.NEW { background: #22c55e; }
+    .badge.TRENDING { background: #f59e0b; }
+    .badge.VERIFIED { background: #2563eb; }
+
+    /* Icons next to title */
+    .tool-icon {
+      width: 32px;
+      height: 32px;
+      border-radius: 6px;
+      margin-bottom: 10px;
+    }
+
+    .featured-card .tool-icon {
+      width: 40px;
+      height: 40px;
+    }
+  </style>
 
 </head>
 
@@ -31,21 +60,31 @@
     </nav>
   </header>
 
+  <!-- HERO -->
+  <section class="hero">
+    <h2>Discover Powerful AI Tools</h2>
+    <p>Browse 100+ AI tools across 14 categories. Updated weekly!</p>
+    <div class="stats-box">
+      <div class="stat">⚡ 100+ Tools</div>
+      <div class="stat">📁 14 Categories</div>
+      <div class="stat">🚀 Weekly Updates</div>
+    </div>
+  </section>
+
+  <!-- Search / Sort -->
   <section class="intro">
-    <h2>Explore AI Tools by Category</h2>
-    <p>Browse through 100+ AI tools sorted by categories like Chatbots, Image Generators, Coding, and more.</p>
-
-    <!-- Search -->
-    <input type="text" id="searchInput" placeholder="Search tools..." onkeyup="searchTools()">
-
-    <!-- Sorting -->
+    <input type="text" id="searchInput" placeholder="Search tools..." onkeyup="searchTools()" />
     <select id="sortSelect" onchange="sortTools()">
       <option value="az">Sort A–Z</option>
       <option value="za">Sort Z–A</option>
     </select>
-
-    <!-- Dark Mode -->
     <button id="darkToggle" onclick="toggleDarkMode()">🌙 Dark Mode</button>
+  </section>
+
+  <!-- Featured Tools -->
+  <section class="featured-section">
+    <h2 class="featured-title">🔥 Featured Tools</h2>
+    <div class="featured-grid" id="featuredTools"></div>
   </section>
 
   <!-- Category Filter -->
@@ -65,10 +104,9 @@
     <button onclick="filterTools('Design')">Design</button>
   </section>
 
-  <!-- Pagination -->
   <div id="pagination" class="pagination"></div>
 
-  <!-- Dynamic Cards -->
+  <!-- MAIN TOOLS GRID -->
   <section class="cards" id="tools-container">
     <p>Loading tools...</p>
   </section>
@@ -77,7 +115,7 @@
     <p>&copy; 2025 AI Tools Directory | All Rights Reserved</p>
   </footer>
 
-  <!-- ✅ Updated JavaScript with pagination, search, sort, dark mode -->
+  <!-- JS -->
   <script>
     let toolsList = [];
     let currentPage = 1;
@@ -89,7 +127,22 @@
         toolsList = data;
         displayTools(toolsList);
         setupPagination(toolsList);
+        loadFeaturedTools();
       });
+
+    function loadFeaturedTools() {
+      const container = document.getElementById("featuredTools");
+      const popular = toolsList.slice(0, 4);
+
+      container.innerHTML = popular.map(t => `
+        <div class="featured-card">
+          <img src="${t.icon}" class="tool-icon">
+          <h3>${t.name}</h3>
+          ${t.badge ? `<span class="badge ${t.badge}">${t.badge}</span>` : ""}
+          <p>${t.description}</p>
+        </div>
+      `).join("");
+    }
 
     function displayTools(tools) {
       const container = document.getElementById("tools-container");
@@ -108,10 +161,15 @@
         card.classList.add("card");
 
         card.innerHTML = `
+          <img src="${tool.icon}" class="tool-icon">
+
+          ${tool.badge ? `<span class="badge ${tool.badge}">${tool.badge}</span>` : ""}
+
           <h3>${tool.name}</h3>
           <p>${tool.description}</p>
           <p class="category-tag">${tool.category}</p>
-          <a href="${tool.link}" target="_blank" onclick="countClick('${tool.name}')">Visit Tool</a>
+
+          <a href="${tool.link}" target="_blank">Visit Tool</a>
         `;
 
         container.appendChild(card);
@@ -167,12 +225,6 @@
     function goToPage(page) {
       currentPage = page;
       displayTools(toolsList);
-    }
-
-    function countClick(toolName) {
-      let clicks = JSON.parse(localStorage.getItem("clicks")) || {};
-      clicks[toolName] = (clicks[toolName] || 0) + 1;
-      localStorage.setItem("clicks", JSON.stringify(clicks));
     }
 
     function toggleDarkMode() {

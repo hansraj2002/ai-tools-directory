@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Jump Cube</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;color:#111;padding:24px;text-align:center}
+  .card{max-width:600px;margin:18px auto;padding:20px;background:#fff;border-radius:10px}
+  #stage{position:relative;margin:20px auto;background:#111;width:320px;height:160px;border-radius:8px;overflow:hidden}
+  #cube{position:absolute;left:40px;bottom:20px;width:28px;height:28px;background:#10b981;border-radius:4px}
+  .ob{position:absolute;width:20px;height:30px;background:#ef4444;right:-40px;bottom:20px}
+  button{padding:8px 12px;border-radius:8px;border:none;background:#2563eb;color:#fff;cursor:pointer}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>Jump Cube</h1>
+    <p>Press Space or click Jump to avoid obstacles. Survive as long as possible.</p>
+    <div id="stage"><div id="cube"></div></div>
+    <div><button id="jump">Jump</button> <button id="start">Start</button> <span id="score">Score: 0</span></div>
+  </div>
+
+<script>
+const stage=document.getElementById('stage'), cube=document.getElementById('cube');
+let jumping=false, vy=0, gravity=0.9, score=0, interval, spawnInt, obstacles=[];
+function start(){
+  reset();
+  interval = setInterval(loop,20);
+  spawnInt = setInterval(spawn,1400);
+}
+function reset(){ obstacles.forEach(o=>o.remove()); obstacles=[]; cube.style.bottom='20px'; vy=0; jumping=false; score=0; document.getElementById('score').textContent='Score: 0'; clearInterval(interval); clearInterval(spawnInt); }
+function spawn(){
+  const ob=document.createElement('div'); ob.className='ob'; ob.style.right='-40px'; stage.appendChild(ob); obstacles.push(ob);
+}
+function loop(){
+  // cube physics
+  if(jumping){ vy -= 1.6; cube.style.bottom = Math.max(20, parseFloat(cube.style.bottom||20) + vy + gravity + 'px'); }
+  // move obstacles
+  obstacles.forEach((o,i)=>{
+    const r = parseFloat(o.style.right) || -40;
+    const nr = r + 3; o.style.right = nr + 'px';
+    // collision (approx)
+    const obLeft = stage.offsetWidth - nr - o.offsetWidth;
+    const cubeBottom = parseFloat(cube.style.bottom||20);
+    if(obLeft < 80 && obLeft > 40 && cubeBottom < 60){
+      // collision
+      clearInterval(interval); clearInterval(spawnInt); alert('Game over! Score: '+score); 
+    }
+    if(nr > stage.offsetWidth + 60){ o.remove(); obstacles.splice(i,1); score++; document.getElementById('score').textContent='Score: '+score; }
+  });
+}
+function doJump(){ if(jumping) return; jumping=true; vy=12; let j=0; const up = setInterval(()=>{ j++; if(j>25) clearInterval(up);},20);}
+document.getElementById('jump').onclick = ()=> doJump();
+document.getElementById('start').onclick = ()=> start();
+document.addEventListener('keydown',e=>{ if(e.code==='Space') doJump(); });
+</script>
+</body>
+</html>

@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>AI Guessing Game — Think of a Number</title>
+<style>
+  body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;color:#111;padding:24px;text-align:center}
+  .card{max-width:600px;margin:18px auto;padding:20px;background:#fff;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
+  button{padding:10px 16px;border-radius:8px;border:none;background:#2563eb;color:#fff;cursor:pointer;margin:6px}
+  #guess{font-size:2rem;margin:14px 0}
+</style>
+</head>
+<body>
+  <div class="card">
+    <h1>AI Guessing Game</h1>
+    <p>Think of a number between <strong>1 and 100</strong>. I will try to guess it. Tell me if my guess is higher, lower, or correct.</p>
+
+    <div id="guess">—</div>
+    <div>
+      <button id="higher">Higher ⬆️</button>
+      <button id="correct">Correct ✅</button>
+      <button id="lower">Lower ⬇️</button>
+    </div>
+
+    <p id="steps"></p>
+    <button id="start" style="background:#10b981">Start New Game</button>
+  </div>
+
+<script>
+let low, high, mid, steps;
+const gEl = document.getElementById('guess');
+const sEl = document.getElementById('steps');
+function start(){
+  low = 1; high = 100; steps = 0;
+  next();
+}
+function next(){
+  if(low>high){ gEl.textContent = "Impossible — maybe a mistake. Restart."; return; }
+  mid = Math.floor((low+high)/2);
+  steps++;
+  gEl.textContent = mid;
+  sEl.textContent = "Attempts: " + steps;
+}
+document.getElementById('higher').onclick = ()=>{ low = mid + 1; next(); };
+document.getElementById('lower').onclick = ()=>{ high = mid - 1; next(); };
+document.getElementById('correct').onclick = ()=>{
+  gEl.textContent = `Yay! I guessed ${mid} in ${steps} tries 🎉`;
+};
+document.getElementById('start').onclick = start;
+start();
+</script>
+</body>
+</html>

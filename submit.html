@@ -2,23 +2,48 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Submit Your AI Tool | AI Tools Directory</title>
+
+  <!-- SEO -->
+  <title>Submit an AI Tool | AI Tools Directory</title>
+  <meta name="description" content="Submit your AI tool to be featured on AI Tools Directory. Reach thousands of users who explore the latest AI apps and innovations.">
+  <meta name="keywords" content="submit ai tool, add ai tool, feature ai app, ai directory submission">
+
+  <link rel="canonical" href="https://aitoolsdirectory.site/submit.html">
   <link rel="stylesheet" href="style.css">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="Submit an AI Tool">
+  <meta property="og:description" content="Submit your AI tool to be listed on AI Tools Directory.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aitoolsdirectory.site/submit.html">
+
+  <!-- Schema -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Submit AI Tool",
+    "url": "https://aitoolsdirectory.site/submit.html",
+    "description": "Page for submitting AI tools to be listed in the AI Tools Directory."
+  }
+  </script>
+
   <!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-143GBNNFQE');
-</script>
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-143GBNNFQE');
+  </script>
 
 </head>
 
 <body>
   <header>
-    <h1>🤝 Submit Your AI Tool</h1>
+    <h1>Submit an AI Tool</h1>
     <nav>
       <a href="index.html">Home</a>
       <a href="submit.html">Submit Idea</a>
@@ -29,58 +54,62 @@
     </nav>
   </header>
 
-  <section class="intro">
-    <h2>Share Your AI Tool With The World</h2>
-    <p>Submit your AI tool, website, or idea. If it fits our directory, we’ll feature it on the homepage.</p>
-  </section>
+  <section>
+    <h2>Want Your AI Tool Featured?</h2>
+    <p>Fill out the form below to submit your AI tool. If approved, it will appear in our directory and can reach thousands of users looking for new AI solutions.</p>
 
-  <!-- ✅ Success message (hidden by default) -->
-  <div id="successMessage" class="success-box" style="display:none;">
-    ✅ Your tool has been submitted successfully!  
-    We’ll review it soon.
-  </div>
+    <form action="https://formsubmit.co/YOUR_EMAIL_HERE" method="POST" style="max-width: 600px; margin-top: 20px;">
 
-  <section class="form-section">
-    <form action="https://formspree.io/f/mblqrlde" method="POST" id="submitForm">
-
-      <!-- ✅ Honeypot (spam bot trap) -->
-      <input type="text" name="_gotcha" style="display:none">
+      <!-- FormSubmit Settings -->
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" value="New AI Tool Submission">
 
       <label>Tool Name</label>
-      <input type="text" name="tool_name" required placeholder="Example: ChatGPT">
+      <input type="text" name="Tool Name" required>
 
-      <label>Tool Website Link</label>
-      <input type="url" name="tool_url" required placeholder="https://example.com">
+      <label>Category</label>
+      <select name="Category" required>
+        <option value="">Select a category</option>
+        <option>Chatbot</option>
+        <option>Image Generator</option>
+        <option>Video</option>
+        <option>Audio/Voice</option>
+        <option>Coding</option>
+        <option>Research</option>
+        <option>SEO</option>
+        <option>Productivity</option>
+        <option>Marketing</option>
+        <option>Automation</option>
+        <option>Education</option>
+        <option>Design</option>
+        <option>Other</option>
+      </select>
 
-      <label>Description</label>
-      <textarea name="tool_description" required placeholder="Describe what your AI tool does"></textarea>
+      <label>Tool Website / URL</label>
+      <input type="url" name="Tool URL" required>
 
-      <label>Your Email (optional)</label>
-      <input type="email" name="email" placeholder="your@email.com">
+      <label>Description (What does it do?)</label>
+      <textarea name="Description" rows="5" required></textarea>
+
+      <label>Your Email (for follow-up)</label>
+      <input type="email" name="Your Email" required>
 
       <button type="submit">Submit Tool</button>
     </form>
+
+    <h3 style="margin-top:40px;">Why Submit?</h3>
+    <ul>
+      <li>Your tool gets seen by AI enthusiasts and developers</li>
+      <li>Boosts visibility and traffic to your website</li>
+      <li>Free submission, fast approval</li>
+    </ul>
+
   </section>
 
   <footer>
-    <p>&copy; 2025 AI Tools Directory | All Rights Reserved</p>
+    <p>&copy; 2025 AI Tools Directory</p>
   </footer>
 
-  <script>
-    // ✅ Show success message without leaving the page
-    document.getElementById("submitForm").addEventListener("submit", function(e){
-      e.preventDefault();
-      const form = e.target;
-
-      fetch(form.action, {
-        method: "POST",
-        body: new FormData(form),
-        headers: { "Accept": "application/json" }
-      }).then(() => {
-        form.reset();
-        document.getElementById("successMessage").style.display = "block";
-      });
-    });
-  </script>
 </body>
 </html>
