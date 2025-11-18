@@ -1,101 +1,863 @@
 [
-  {"name":"ChatGPT","description":"Advanced conversational AI assistant.","link":"https://chat.openai.com","category":"Chatbot"},
-  {"name":"Claude AI","description":"AI assistant for reasoning and writing.","link":"https://claude.ai","category":"Chatbot"},
-  {"name":"Google Gemini","description":"Google's multimodal AI assistant.","link":"https://gemini.google.com","category":"Chatbot"},
-  {"name":"Microsoft Copilot","description":"AI assistant for productivity and coding.","link":"https://copilot.microsoft.com","category":"Productivity"},
-  {"name":"Perplexity AI","description":"AI search engine with citations.","link":"https://perplexity.ai","category":"Research"},
-  {"name":"Meta Llama","description":"Open-source AI model family.","link":"https://ai.meta.com","category":"Chatbot"},
-  {"name":"Jasper AI","description":"AI for marketing and content creation.","link":"https://jasper.ai","category":"Marketing"},
-  {"name":"Quillbot","description":"Paraphrasing and rewriting tool.","link":"https://quillbot.com","category":"Writing"},
-  {"name":"Copy.ai","description":"Marketing and content writing AI.","link":"https://copy.ai","category":"Marketing"},
-  {"name":"Writesonic","description":"AI writing and SEO content tool.","link":"https://writesonic.com","category":"Writing"},
-  {"name":"Rytr","description":"Fast AI text generator.","link":"https://rytr.me","category":"Writing"},
-  {"name":"Sudowrite","description":"AI helper for creative writing.","link":"https://sudowrite.com","category":"Writing"},
-  {"name":"Midjourney","description":"AI image generator.","link":"https://midjourney.com","category":"Image Generator"},
-  {"name":"DALL·E","description":"AI image generation from text.","link":"https://openai.com/dall-e","category":"Image Generator"},
-  {"name":"Stable Diffusion","description":"Open-source image generation model.","link":"https://stability.ai","category":"Image Generator"},
-  {"name":"Leonardo AI","description":"AI for creative image design.","link":"https://leonardo.ai","category":"Image Generator"},
-  {"name":"Canva AI","description":"Design and AI image/text tools.","link":"https://canva.com","category":"Design"},
-  {"name":"RunwayML","description":"Video editing and AI generation.","link":"https://runwayml.com","category":"Video"},
-  {"name":"Pika Labs","description":"AI video generator from text.","link":"https://pika.art","category":"Video"},
-  {"name":"Synthesia","description":"AI avatar video creation platform.","link":"https://synthesia.io","category":"Video"},
-  {"name":"HeyGen","description":"AI avatar video generator.","link":"https://heygen.com","category":"Video"},
-  {"name":"Descript","description":"AI video/audio editing.","link":"https://descript.com","category":"Audio/Voice"},
-  {"name":"Eleven Labs","description":"High-quality AI voice generator.","link":"https://elevenlabs.io","category":"Audio/Voice"},
-  {"name":"PlayHT","description":"Text-to-speech AI.","link":"https://play.ht","category":"Audio/Voice"},
-  {"name":"Voicemod","description":"AI voice changer.","link":"https://voicemod.net","category":"Audio/Voice"},
-  {"name":"Luma AI","description":"AI video + 3D generation.","link":"https://lumalabs.ai","category":"Video"},
-  {"name":"Firefly (Adobe)","description":"AI art generator by Adobe.","link":"https://www.adobe.com/products/firefly.html","category":"Image Generator"},
-  {"name":"Recraft AI","description":"AI vector and illustration generator.","link":"https://recraft.ai","category":"Design"},
-  {"name":"Krea AI","description":"Live generative AI image tool.","link":"https://krea.ai","category":"Image Generator"},
-  {"name":"Imagine Art","description":"AI image generator.","link":"https://www.imagine.art","category":"Image Generator"},
-  {"name":"Blackbox AI","description":"AI coding assistant.","link":"https://blackbox.ai","category":"Coding"},
-  {"name":"Replit Ghostwriter","description":"AI coding assistant for Replit.","link":"https://replit.com","category":"Coding"},
-  {"name":"Tabnine","description":"AI autocomplete for developers.","link":"https://tabnine.com","category":"Coding"},
-  {"name":"Codeium","description":"AI code generation tool.","link":"https://codeium.com","category":"Coding"},
-  {"name":"GitHub Copilot","description":"AI coding assistant integrated in GitHub.","link":"https://github.com/features/copilot","category":"Coding"},
-  {"name":"HuggingFace","description":"AI model hub and ML tools.","link":"https://huggingface.co","category":"Developer Tools"},
-  {"name":"Kaggle","description":"Data science and AI datasets.","link":"https://kaggle.com","category":"Data"},
-  {"name":"DeepL Write","description":"AI grammar and writing assistant.","link":"https://deepl.com/write","category":"Writing"},
-  {"name":"Grammarly","description":"AI grammar and writing enhancement.","link":"https://grammarly.com","category":"Writing"},
-  {"name":"Frase","description":"AI SEO optimization tool.","link":"https://frase.io","category":"SEO"},
-  {"name":"SurferSEO","description":"AI SEO content builder.","link":"https://surferseo.com","category":"SEO"},
-  {"name":"Ahrefs AI","description":"SEO + keyword AI tools.","link":"https://ahrefs.com","category":"SEO"},
-  {"name":"Semrush AI","description":"SEO and marketing AI tools.","link":"https://semrush.com","category":"SEO"},
-  {"name":"Notion AI","description":"AI productivity and notes enhancer.","link":"https://notion.so","category":"Productivity"},
-  {"name":"Trello AI","description":"Smart project management features.","link":"https://trello.com","category":"Productivity"},
-  {"name":"Zapier AI","description":"Automation using AI triggers.","link":"https://zapier.com","category":"Automation"},
-  {"name":"Make.com","description":"AI workflow automation.","link":"https://make.com","category":"Automation"},
-  {"name":"Tome AI","description":"AI-powered presentation builder.","link":"https://tome.app","category":"Productivity"},
-  {"name":"Beautiful.ai","description":"AI slide and presentation tool.","link":"https://beautiful.ai","category":"Productivity"},
-  {"name":"Gamma AI","description":"AI deck and document generator.","link":"https://gamma.app","category":"Productivity"},
-  {"name":"Murf AI","description":"AI voice generator for videos.","link":"https://murf.ai","category":"Audio/Voice"},
-  {"name":"AIVA","description":"AI music composer.","link":"https://aiva.ai","category":"Audio/Voice"},
-  {"name":"Boomy","description":"AI music generation platform.","link":"https://boomy.com","category":"Audio/Voice"},
-  {"name":"Soundraw","description":"AI royalty-free music generator.","link":"https://soundraw.io","category":"Audio/Voice"},
-  {"name":"Speechify","description":"AI text-to-speech reader.","link":"https://speechify.com","category":"Audio/Voice"},
-  {"name":"Suno AI","description":"AI music generator.","link":"https://suno.com","category":"Audio/Voice"},
-  {"name":"Papercup","description":"AI video dubbing.","link":"https://papercup.com","category":"Audio/Voice"},
-  {"name":"Opus Clip","description":"AI shorts and viral video creator.","link":"https://opus.pro","category":"Video"},
-  {"name":"CapCut AI","description":"AI-powered video editing.","link":"https://capcut.com","category":"Video"},
-  {"name":"Glasp","description":"AI note + web highlighter.","link":"https://glasp.co","category":"Research"},
-  {"name":"Consensus","description":"AI research engine for scientific papers.","link":"https://consensus.app","category":"Research"},
-  {"name":"Scispace","description":"AI that explains research papers.","link":"https://typeset.io","category":"Research"},
-  {"name":"PDF.ai","description":"Chat with your PDFs.","link":"https://pdf.ai","category":"Productivity"},
-  {"name":"Formulate","description":"AI math solver.","link":"https://formulate.ai","category":"Education"},
-  {"name":"Wolfram Alpha","description":"AI math and science solver.","link":"https://wolframalpha.com","category":"Education"},
-  {"name":"TutorAI","description":"AI personalized learning assistant.","link":"https://tutorai.me","category":"Education"},
-  {"name":"Perplexity Pages","description":"AI tool for long research documents.","link":"https://perplexity.ai","category":"Research"},
-  {"name":"Looria","description":"AI that recommends best products.","link":"https://looria.com","category":"Productivity"},
-  {"name":"Tidio AI","description":"AI customer support chatbot.","link":"https://tidio.com","category":"Chatbot"},
-  {"name":"Intercom Fin AI","description":"AI for customer support.","link":"https://intercom.com","category":"Chatbot"},
-  {"name":"LiveChat AI","description":"Automated chat support.","link":"https://livechat.com","category":"Chatbot"},
-  {"name":"Durable AI","description":"AI builds websites instantly.","link":"https://durable.co","category":"Developer Tools"},
-  {"name":"Wix ADI","description":"AI website builder.","link":"https://wix.com","category":"Developer Tools"},
-  {"name":"Framer AI","description":"AI website builder.","link":"https://framer.com","category":"Developer Tools"},
-  {"name":"TeleportHQ","description":"AI UI generator.","link":"https://teleporthq.io","category":"Developer Tools"},
-  {"name":"Gamma App","description":"AI decks and documents.","link":"https://gamma.app","category":"Productivity"},
-  {"name":"Lindy","description":"AI executive assistant.","link":"https://lindy.ai","category":"Productivity"},
-  {"name":"Motion","description":"AI schedule and task manager.","link":"https://usemotion.com","category":"Productivity"},
-  {"name":"Taskade AI","description":"AI project and task management.","link":"https://taskade.com","category":"Productivity"},
-  {"name":"ClickUp AI","description":"AI project management features.","link":"https://clickup.com","category":"Productivity"},
-  {"name":"Simplified","description":"AI design, write, and edit tools.","link":"https://simplified.com","category":"Design"},
-  {"name":"Remove.bg","description":"AI background remover.","link":"https://remove.bg","category":"Image Generator"},
-  {"name":"Cleanup.pictures","description":"AI image object remover.","link":"https://cleanup.pictures","category":"Image Generator"},
-  {"name":"PhotoRoom","description":"AI product photo editor.","link":"https://photoroom.com","category":"Image Generator"},
-  {"name":"Palette.fm","description":"AI colorizer for images.","link":"https://palette.fm","category":"Image Generator"},
-  {"name":"Rewind AI","description":"AI memory search assistant.","link":"https://rewind.ai","category":"Productivity"},
-  {"name":"Otter AI","description":"AI meeting transcription.","link":"https://otter.ai","category":"Productivity"},
-  {"name":"Fireflies AI","description":"AI meeting assistant.","link":"https://fireflies.ai","category":"Productivity"},
-  {"name":"Krisp AI","description":"AI noise cancellation tool.","link":"https://krisp.ai","category":"Audio/Voice"},
-  {"name":"Veed.io","description":"AI video editing tools.","link":"https://veed.io","category":"Video"},
-  {"name":"Clipchamp","description":"AI video editing by Microsoft.","link":"https://clipchamp.com","category":"Video"},
-  {"name":"Magic Eraser","description":"AI removes unwanted objects.","link":"https://magicstudio.com/eraser","category":"Image Generator"},
-  {"name":"Scribble Diffusion","description":"Turns your sketches into artwork.","link":"https://scribblediffusion.com","category":"Image Generator"},
-  {"name":"PromptHero","description":"Prompt search engine.","link":"https://prompthero.com","category":"Productivity"},
-  {"name":"LlamaIndex","description":"AI data indexing framework.","link":"https://llamaindex.ai","category":"Developer Tools"},
-  {"name":"LangChain","description":"Framework for building AI apps.","link":"https://langchain.com","category":"Developer Tools"},
-  {"name":"AgentGPT","description":"AI autonomous agents.","link":"https://agentgpt.reworkd.ai","category":"Automation"},
-  {"name":"AutoGPT","description":"AI agent for automated tasks.","link":"https://github.com/Significant-Gravitas/Auto-GPT","category":"Automation"},
-  {"name":"God Mode AI","description":"Autonomous AI task executor.","link":"https://godmode.space","category":"Automation"}
+  {
+    "name": "ChatGPT",
+    "description": "Advanced conversational AI assistant.",
+    "link": "https://chat.openai.com",
+    "category": "Chatbot",
+    "icon": "https://chat.openai.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Claude AI",
+    "description": "AI assistant for reasoning and writing.",
+    "link": "https://claude.ai",
+    "category": "Chatbot",
+    "icon": "https://claude.ai/assets/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Google Gemini",
+    "description": "Google's multimodal AI assistant.",
+    "link": "https://gemini.google.com",
+    "category": "Chatbot",
+    "icon": "https://gemini.google.com/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Microsoft Copilot",
+    "description": "AI assistant for productivity and coding.",
+    "link": "https://copilot.microsoft.com",
+    "category": "Productivity",
+    "icon": "https://copilot.microsoft.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Perplexity AI",
+    "description": "AI search engine with citations.",
+    "link": "https://perplexity.ai",
+    "category": "Research",
+    "icon": "https://perplexity.ai/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Meta Llama",
+    "description": "Open-source AI model family.",
+    "link": "https://ai.meta.com",
+    "category": "Chatbot",
+    "icon": "https://ai.meta.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Jasper AI",
+    "description": "AI for marketing and content creation.",
+    "link": "https://jasper.ai",
+    "category": "Marketing",
+    "icon": "https://jasper.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Quillbot",
+    "description": "Paraphrasing and rewriting tool.",
+    "link": "https://quillbot.com",
+    "category": "Writing",
+    "icon": "https://quillbot.com/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Copy.ai",
+    "description": "Marketing and content writing AI.",
+    "link": "https://copy.ai",
+    "category": "Marketing",
+    "icon": "https://copy.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Writesonic",
+    "description": "AI writing and SEO content tool.",
+    "link": "https://writesonic.com",
+    "category": "Writing",
+    "icon": "https://writesonic.com/favicon.ico",
+    "badge": ""
+  },
+
+  {
+    "name": "Midjourney",
+    "description": "AI image generator.",
+    "link": "https://midjourney.com",
+    "category": "Image Generator",
+    "icon": "https://midjourney.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "DALL·E",
+    "description": "AI image generation from text.",
+    "link": "https://openai.com/dall-e",
+    "category": "Image Generator",
+    "icon": "https://openai.com/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Stable Diffusion",
+    "description": "Open-source image generation model.",
+    "link": "https://stability.ai",
+    "category": "Image Generator",
+    "icon": "https://stability.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Leonardo AI",
+    "description": "AI for creative image design.",
+    "link": "https://leonardo.ai",
+    "category": "Image Generator",
+    "icon": "https://leonardo.ai/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Canva AI",
+    "description": "Design and AI image/text tools.",
+    "link": "https://canva.com",
+    "category": "Design",
+    "icon": "https://canva.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Firefly (Adobe)",
+    "description": "AI art generator by Adobe.",
+    "link": "https://www.adobe.com/products/firefly.html",
+    "category": "Image Generator",
+    "icon": "https://www.adobe.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Recraft AI",
+    "description": "AI vector and illustration generator.",
+    "link": "https://recraft.ai",
+    "category": "Design",
+    "icon": "https://recraft.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Krea AI",
+    "description": "Live generative AI image tool.",
+    "link": "https://krea.ai",
+    "category": "Image Generator",
+    "icon": "https://krea.ai/favicon.ico",
+    "badge": "NEW"
+  },
+  {
+    "name": "Imagine Art",
+    "description": "AI image generator.",
+    "link": "https://www.imagine.art",
+    "category": "Image Generator",
+    "icon": "https://www.imagine.art/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Blackbox AI",
+    "description": "AI coding assistant.",
+    "link": "https://blackbox.ai",
+    "category": "Coding",
+    "icon": "https://blackbox.ai/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Replit Ghostwriter",
+    "description": "AI coding assistant for Replit.",
+    "link": "https://replit.com",
+    "category": "Coding",
+    "icon": "https://replit.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Tabnine",
+    "description": "AI autocomplete for developers.",
+    "link": "https://tabnine.com",
+    "category": "Coding",
+    "icon": "https://tabnine.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Codeium",
+    "description": "AI code generation tool.",
+    "link": "https://codeium.com",
+    "category": "Coding",
+    "icon": "https://codeium.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "GitHub Copilot",
+    "description": "AI coding assistant integrated in GitHub.",
+    "link": "https://github.com/features/copilot",
+    "category": "Coding",
+    "icon": "https://github.githubassets.com/favicons/favicon.png",
+    "badge": "VERIFIED"
+  },
+
+  {
+    "name": "RunwayML",
+    "description": "Video editing and AI generation.",
+    "link": "https://runwayml.com",
+    "category": "Video",
+    "icon": "https://runwayml.com/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Pika Labs",
+    "description": "AI video generator from text.",
+    "link": "https://pika.art",
+    "category": "Video",
+    "icon": "https://pika.art/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Synthesia",
+    "description": "AI avatar video creation platform.",
+    "link": "https://synthesia.io",
+    "category": "Video",
+    "icon": "https://synthesia.io/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "HeyGen",
+    "description": "AI avatar video generator.",
+    "link": "https://heygen.com",
+    "category": "Video",
+    "icon": "https://heygen.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Opus Clip",
+    "description": "AI shorts and viral video creator.",
+    "link": "https://opus.pro",
+    "category": "Video",
+    "icon": "https://opus.pro/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "CapCut AI",
+    "description": "AI-powered video editing.",
+    "link": "https://capcut.com",
+    "category": "Video",
+    "icon": "https://capcut.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Veed.io",
+    "description": "AI video editing tools.",
+    "link": "https://veed.io",
+    "category": "Video",
+    "icon": "https://veed.io/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Clipchamp",
+    "description": "AI video editing by Microsoft.",
+    "link": "https://clipchamp.com",
+    "category": "Video",
+    "icon": "https://clipchamp.com/favicon.ico",
+    "badge": ""
+  },
+
+  {
+    "name": "Descript",
+    "description": "AI video/audio editing.",
+    "link": "https://descript.com",
+    "category": "Audio/Voice",
+    "icon": "https://descript.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Eleven Labs",
+    "description": "High-quality AI voice generator.",
+    "link": "https://elevenlabs.io",
+    "category": "Audio/Voice",
+    "icon": "https://elevenlabs.io/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "PlayHT",
+    "description": "Text-to-speech AI.",
+    "link": "https://play.ht",
+    "category": "Audio/Voice",
+    "icon": "https://play.ht/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Voicemod",
+    "description": "AI voice changer.",
+    "link": "https://voicemod.net",
+    "category": "Audio/Voice",
+    "icon": "https://voicemod.net/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Murf AI",
+    "description": "AI voice generator for videos.",
+    "link": "https://murf.ai",
+    "category": "Audio/Voice",
+    "icon": "https://murf.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "AIVA",
+    "description": "AI music composer.",
+    "link": "https://aiva.ai",
+    "category": "Audio/Voice",
+    "icon": "https://aiva.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Boomy",
+    "description": "AI music creation platform.",
+    "link": "https://boomy.com",
+    "category": "Audio/Voice",
+    "icon": "https://boomy.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Soundraw",
+    "description": "AI royalty-free music generator.",
+    "link": "https://soundraw.io",
+    "category": "Audio/Voice",
+    "icon": "https://soundraw.io/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Speechify",
+    "description": "AI text-to-speech reader.",
+    "link": "https://speechify.com",
+    "category": "Audio/Voice",
+    "icon": "https://speechify.com/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Suno AI",
+    "description": "AI music generator.",
+    "link": "https://suno.com",
+    "category": "Audio/Voice",
+    "icon": "https://suno.com/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Papercup",
+    "description": "AI video dubbing.",
+    "link": "https://papercup.com",
+    "category": "Audio/Voice",
+    "icon": "https://papercup.com/favicon.ico",
+    "badge": ""
+  },
+
+  {
+    "name": "HuggingFace",
+    "description": "AI model hub and ML tools.",
+    "link": "https://huggingface.co",
+    "category": "Developer Tools",
+    "icon": "https://huggingface.co/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "LlamaIndex",
+    "description": "AI data indexing framework.",
+    "link": "https://llamaindex.ai",
+    "category": "Developer Tools",
+    "icon": "https://llamaindex.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "LangChain",
+    "description": "Framework for building AI apps.",
+    "link": "https://langchain.com",
+    "category": "Developer Tools",
+    "icon": "https://langchain.com/favicon.ico",
+    "badge": ""
+  },
+
+  {
+    "name": "Frase",
+    "description": "AI SEO optimization tool.",
+    "link": "https://frase.io",
+    "category": "SEO",
+    "icon": "https://frase.io/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "SurferSEO",
+    "description": "AI SEO content builder.",
+    "link": "https://surferseo.com",
+    "category": "SEO",
+    "icon": "https://surferseo.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Ahrefs AI",
+    "description": "SEO + keyword AI tools.",
+    "link": "https://ahrefs.com",
+    "category": "SEO",
+    "icon": "https://ahrefs.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Semrush AI",
+    "description": "SEO and marketing AI tools.",
+    "link": "https://semrush.com",
+    "category": "SEO",
+    "icon": "https://semrush.com/favicon.ico",
+    "badge": ""
+  },
+
+  {
+    "name": "Kaggle",
+    "description": "Data science and AI datasets.",
+    "link": "https://kaggle.com",
+    "category": "Data",
+    "icon": "https://kaggle.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Formulate",
+    "description": "AI math solver.",
+    "link": "https://formulate.ai",
+    "category": "Education",
+    "icon": "https://formulate.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Wolfram Alpha",
+    "description": "AI math and science solver.",
+    "link": "https://wolframalpha.com",
+    "category": "Education",
+    "icon": "https://www.wolframalpha.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "TutorAI",
+    "description": "AI personalized learning assistant.",
+    "link": "https://tutorai.me",
+    "category": "Education",
+    "icon": "https://tutorai.me/favicon.ico",
+    "badge": ""
+  },
+
+  {
+    "name": "Notion AI",
+    "description": "AI productivity and notes enhancer.",
+    "link": "https://notion.so",
+    "category": "Productivity",
+    "icon": "https://www.notion.so/front-static/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Trello AI",
+    "description": "Smart project management features.",
+    "link": "https://trello.com",
+    "category": "Productivity",
+    "icon": "https://trello.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Tome AI",
+    "description": "AI-powered presentation builder.",
+    "link": "https://tome.app",
+    "category": "Productivity",
+    "icon": "https://tome.app/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Beautiful.ai",
+    "description": "AI slide and presentation tool.",
+    "link": "https://beautiful.ai",
+    "category": "Productivity",
+    "icon": "https://beautiful.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Gamma AI",
+    "description": "AI deck and document generator.",
+    "link": "https://gamma.app",
+    "category": "Productivity",
+    "icon": "https://gamma.app/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Lindy",
+    "description": "AI executive assistant.",
+    "link": "https://lindy.ai",
+    "category": "Productivity",
+    "icon": "https://lindy.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Motion",
+    "description": "AI schedule and task manager.",
+    "link": "https://usemotion.com",
+    "category": "Productivity",
+    "icon": "https://usemotion.com/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Taskade AI",
+    "description": "AI project and task management.",
+    "link": "https://taskade.com",
+    "category": "Productivity",
+    "icon": "https://taskade.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "ClickUp AI",
+    "description": "AI project management features.",
+    "link": "https://clickup.com",
+    "category": "Productivity",
+    "icon": "https://clickup.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "PDF.ai",
+    "description": "Chat with your PDFs.",
+    "link": "https://pdf.ai",
+    "category": "Productivity",
+    "icon": "https://pdf.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Looria",
+    "description": "AI that recommends best products.",
+    "link": "https://looria.com",
+    "category": "Productivity",
+    "icon": "https://looria.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "PromptHero",
+    "description": "Prompt search engine.",
+    "link": "https://prompthero.com",
+    "category": "Productivity",
+    "icon": "https://prompthero.com/favicon.ico",
+    "badge": ""
+  },
+
+  {
+    "name": "Zapier AI",
+    "description": "Automation using AI triggers.",
+    "link": "https://zapier.com",
+    "category": "Automation",
+    "icon": "https://zapier.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Make.com",
+    "description": "AI workflow automation.",
+    "link": "https://make.com",
+    "category": "Automation",
+    "icon": "https://www.make.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "AgentGPT",
+    "description": "AI autonomous agents.",
+    "link": "https://agentgpt.reworkd.ai",
+    "category": "Automation",
+    "icon": "https://agentgpt.reworkd.ai/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "AutoGPT",
+    "description": "AI agent for automated tasks.",
+    "link": "https://github.com/Significant-Gravitas/Auto-GPT",
+    "category": "Automation",
+    "icon": "https://github.githubassets.com/favicons/favicon.png",
+    "badge": ""
+  },
+  {
+    "name": "God Mode AI",
+    "description": "Autonomous AI task executor.",
+    "link": "https://godmode.space",
+    "category": "Automation",
+    "icon": "https://godmode.space/favicon.ico",
+    "badge": ""
+  },
+
+  {
+    "name": "Glasp",
+    "description": "AI note + web highlighter.",
+    "link": "https://glasp.co",
+    "category": "Research",
+    "icon": "https://glasp.co/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Consensus",
+    "description": "AI research engine for scientific papers.",
+    "link": "https://consensus.app",
+    "category": "Research",
+    "icon": "https://consensus.app/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Scispace",
+    "description": "AI that explains research papers.",
+    "link": "https://typeset.io",
+    "category": "Research",
+    "icon": "https://typeset.io/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Perplexity Pages",
+    "description": "AI tool for long research documents.",
+    "link": "https://perplexity.ai",
+    "category": "Research",
+    "icon": "https://perplexity.ai/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Quillbot",
+    "description": "Paraphrasing and rewriting tool.",
+    "link": "https://quillbot.com",
+    "category": "Writing",
+    "icon": "https://quillbot.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Copy.ai",
+    "description": "Marketing and content writing AI.",
+    "link": "https://copy.ai",
+    "category": "Writing",
+    "icon": "https://copy.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Writesonic",
+    "description": "AI writing and SEO content tool.",
+    "link": "https://writesonic.com",
+    "category": "Writing",
+    "icon": "https://writesonic.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Rytr",
+    "description": "Fast AI text generator.",
+    "link": "https://rytr.me",
+    "category": "Writing",
+    "icon": "https://rytr.me/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Sudowrite",
+    "description": "AI helper for creative writing.",
+    "link": "https://sudowrite.com",
+    "category": "Writing",
+    "icon": "https://sudowrite.com/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "DeepL Write",
+    "description": "AI grammar and writing assistant.",
+    "link": "https://deepl.com/write",
+    "category": "Writing",
+    "icon": "https://www.deepl.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Grammarly",
+    "description": "AI grammar and writing enhancement.",
+    "link": "https://grammarly.com",
+    "category": "Writing",
+    "icon": "https://grammarly.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+
+  {
+    "name": "Frase",
+    "description": "AI SEO optimization tool.",
+    "link": "https://frase.io",
+    "category": "SEO",
+    "icon": "https://frase.io/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "SurferSEO",
+    "description": "AI SEO content builder.",
+    "link": "https://surferseo.com",
+    "category": "SEO",
+    "icon": "https://surferseo.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Ahrefs AI",
+    "description": "SEO + keyword AI tools.",
+    "link": "https://ahrefs.com",
+    "category": "SEO",
+    "icon": "https://ahrefs.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Semrush AI",
+    "description": "SEO and marketing AI tools.",
+    "link": "https://semrush.com",
+    "category": "SEO",
+    "icon": "https://www.semrush.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+
+  {
+    "name": "Canva AI",
+    "description": "Design and AI image/text tools.",
+    "link": "https://canva.com",
+    "category": "Design",
+    "icon": "https://www.canva.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Recraft AI",
+    "description": "AI vector and illustration generator.",
+    "link": "https://recraft.ai",
+    "category": "Design",
+    "icon": "https://recraft.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Simplified",
+    "description": "AI design, write, and edit tools.",
+    "link": "https://simplified.com",
+    "category": "Design",
+    "icon": "https://simplified.com/favicon.ico",
+    "badge": ""
+  },
+
+  {
+    "name": "RunwayML",
+    "description": "Video editing and AI generation.",
+    "link": "https://runwayml.com",
+    "category": "Video",
+    "icon": "https://runwayml.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Pika Labs",
+    "description": "AI video generator from text.",
+    "link": "https://pika.art",
+    "category": "Video",
+    "icon": "https://pika.art/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Synthesia",
+    "description": "AI avatar video creation platform.",
+    "link": "https://synthesia.io",
+    "category": "Video",
+    "icon": "https://synthesia.io/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "HeyGen",
+    "description": "AI avatar video generator.",
+    "link": "https://heygen.com",
+    "category": "Video",
+    "icon": "https://heygen.com/favicon.ico",
+    "badge": "TRENDING"
+  },
+
+  {
+    "name": "Midjourney",
+    "description": "AI image generator.",
+    "link": "https://midjourney.com",
+    "category": "Image Generator",
+    "icon": "https://midjourney.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "DALL·E",
+    "description": "AI image generation from text.",
+    "link": "https://openai.com/dall-e",
+    "category": "Image Generator",
+    "icon": "https://openai.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Stable Diffusion",
+    "description": "Open-source image generation model.",
+    "link": "https://stability.ai",
+    "category": "Image Generator",
+    "icon": "https://stability.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Leonardo AI",
+    "description": "AI for creative image design.",
+    "link": "https://leonardo.ai",
+    "category": "Image Generator",
+    "icon": "https://leonardo.ai/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Krea AI",
+    "description": "Live generative AI image tool.",
+    "link": "https://krea.ai",
+    "category": "Image Generator",
+    "icon": "https://krea.ai/favicon.ico",
+    "badge": "TRENDING"
+  },
+  {
+    "name": "Imagine Art",
+    "description": "AI image generator.",
+    "link": "https://www.imagine.art",
+    "category": "Image Generator",
+    "icon": "https://www.imagine.art/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Firefly (Adobe)",
+    "description": "AI art generator by Adobe.",
+    "link": "https://www.adobe.com/products/firefly.html",
+    "category": "Image Generator",
+    "icon": "https://www.adobe.com/favicon.ico",
+    "badge": "VERIFIED"
+  },
+  {
+    "name": "Remove.bg",
+    "description": "AI background remover.",
+    "link": "https://remove.bg",
+    "category": "Image Generator",
+    "icon": "https://remove.bg/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Cleanup.pictures",
+    "description": "AI image object remover.",
+    "link": "https://cleanup.pictures",
+    "category": "Image Generator",
+    "icon": "https://cleanup.pictures/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "PhotoRoom",
+    "description": "AI product photo editor.",
+    "link": "https://photoroom.com",
+    "category": "Image Generator",
+    "icon": "https://photoroom.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Palette.fm",
+    "description": "AI colorizer for images.",
+        "link": "https://palette.fm",
+    "category": "Image Generator",
+    "icon": "https://palette.fm/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Magic Eraser",
+    "description": "AI removes unwanted objects.",
+    "link": "https://magicstudio.com/eraser",
+    "category": "Image Generator",
+    "icon": "https://magicstudio.com/favicon.ico",
+    "badge": ""
+  },
+  {
+    "name": "Scribble Diffusion",
+    "description": "Turns your sketches into artwork.",
+    "link": "https://scribblediffusion.com",
+    "category": "Image Generator",
+    "icon": "https://scribblediffusion.com/favicon.ico",
+    "badge": ""
+  }
 ]
