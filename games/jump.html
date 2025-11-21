@@ -1,58 +1,260 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Jump Cube</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Jump Cube – Online Reflex Game</title>
+<meta name="description" content="Play Jump Cube! Tap or press Space to jump and avoid red obstacles. Fast, fun, mobile-friendly reflex game.">
+<link rel="canonical" href="https://aitoolsdirectory.site/games/jump.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Jump Cube – Reflex Game">
+<meta property="og:description" content="Tap to jump and avoid obstacles. A fast reflex browser game.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aitoolsdirectory.site/games/jump.html">
+<meta property="og:image" content="https://aitoolsdirectory.site/assets/og-jump.png">
+
+<!-- JSON-LD Game Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Game",
+  "name":"Jump Cube",
+  "genre":["Arcade","Reflex","Runner"],
+  "applicationCategory":"Game",
+  "operatingSystem":"Web Browser",
+  "url":"https://aitoolsdirectory.site/games/jump.html"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-143GBNNFQE');
+</script>
+
 <style>
-  body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;color:#111;padding:24px;text-align:center}
-  .card{max-width:600px;margin:18px auto;padding:20px;background:#fff;border-radius:10px}
-  #stage{position:relative;margin:20px auto;background:#111;width:320px;height:160px;border-radius:8px;overflow:hidden}
-  #cube{position:absolute;left:40px;bottom:20px;width:28px;height:28px;background:#10b981;border-radius:4px}
-  .ob{position:absolute;width:20px;height:30px;background:#ef4444;right:-40px;bottom:20px}
-  button{padding:8px 12px;border-radius:8px;border:none;background:#2563eb;color:#fff;cursor:pointer}
+  body{
+    font-family:"Poppins",Arial,sans-serif;
+    background:#f3f4f6;
+    padding:25px;
+    text-align:center;
+  }
+
+  .card{
+    max-width:600px;
+    margin:20px auto;
+    padding:20px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+  }
+
+  h1{margin-bottom:6px;}
+
+  .tags{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:12px;
+  }
+  .tag{
+    padding:4px 10px;
+    background:#e5e7eb;
+    border-radius:20px;
+    font-size:12px;
+    font-weight:600;
+  }
+
+  #stage{
+    position:relative;
+    margin:20px auto;
+    background:#0f172a;
+    width:320px;
+    height:160px;
+    border-radius:8px;
+    overflow:hidden;
+  }
+
+  #cube{
+    position:absolute;
+    width:28px;
+    height:28px;
+    background:#10b981;
+    border-radius:5px;
+    left:40px;
+    bottom:20px;
+  }
+
+  .ob{
+    position:absolute;
+    width:22px;
+    height:30px;
+    background:#ef4444;
+    bottom:20px;
+    right:-40px;
+    border-radius:4px;
+  }
+
+  button{
+    padding:10px 16px;
+    margin:6px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.2s;
+  }
+  button:hover{background:#1e40af;}
+
+  #start{background:#10b981;}
+  #start:hover{background:#0d966b;}
+
+  #score{font-weight:700;margin-left:10px;}
 </style>
 </head>
+
 <body>
   <div class="card">
     <h1>Jump Cube</h1>
-    <p>Press Space or click Jump to avoid obstacles. Survive as long as possible.</p>
-    <div id="stage"><div id="cube"></div></div>
-    <div><button id="jump">Jump</button> <button id="start">Start</button> <span id="score">Score: 0</span></div>
+
+    <div class="tags">
+      <div class="tag">Arcade</div>
+      <div class="tag">Reflex</div>
+      <div class="tag">Runner</div>
+    </div>
+
+    <p>Tap or press Space to jump. Avoid red obstacles as long as you can!</p>
+
+    <div id="stage">
+      <div id="cube"></div>
+    </div>
+
+    <div>
+      <button id="jump">Jump</button>
+      <button id="start">Start</button>
+      <span id="score">Score: 0</span>
+    </div>
   </div>
 
 <script>
-const stage=document.getElementById('stage'), cube=document.getElementById('cube');
-let jumping=false, vy=0, gravity=0.9, score=0, interval, spawnInt, obstacles=[];
-function start(){
-  reset();
-  interval = setInterval(loop,20);
-  spawnInt = setInterval(spawn,1400);
+const stage = document.getElementById("stage");
+const cube = document.getElementById("cube");
+
+let cubeBottom = 20;
+let velocity = 0;
+let gravity = -0.7;
+
+let isJumping = false;
+let score = 0;
+let gameInterval = null;
+let spawnInterval = null;
+
+let obstacles = [];
+
+// Start game
+document.getElementById("start").onclick = startGame;
+
+// Jump button
+document.getElementById("jump").onclick = jump;
+
+// Spacebar
+document.addEventListener("keydown", e => {
+  if(e.code === "Space") jump();
+});
+
+// Mobile tap-to-jump
+stage.addEventListener("click", jump);
+
+// RESET GAME
+function resetGame() {
+  // Remove obstacles
+  obstacles.forEach(o => o.remove());
+  obstacles = [];
+
+  cubeBottom = 20;
+  velocity = 0;
+  isJumping = false;
+  score = 0;
+  document.getElementById("score").textContent = "Score: 0";
+
+  clearInterval(gameInterval);
+  clearInterval(spawnInterval);
+
+  cube.style.bottom = cubeBottom + "px";
 }
-function reset(){ obstacles.forEach(o=>o.remove()); obstacles=[]; cube.style.bottom='20px'; vy=0; jumping=false; score=0; document.getElementById('score').textContent='Score: 0'; clearInterval(interval); clearInterval(spawnInt); }
-function spawn(){
-  const ob=document.createElement('div'); ob.className='ob'; ob.style.right='-40px'; stage.appendChild(ob); obstacles.push(ob);
+
+// START GAME
+function startGame() {
+  resetGame();
+
+  gameInterval = setInterval(gameLoop, 20);
+  spawnInterval = setInterval(spawnObstacle, 1300);
 }
-function loop(){
-  // cube physics
-  if(jumping){ vy -= 1.6; cube.style.bottom = Math.max(20, parseFloat(cube.style.bottom||20) + vy + gravity + 'px'); }
-  // move obstacles
-  obstacles.forEach((o,i)=>{
-    const r = parseFloat(o.style.right) || -40;
-    const nr = r + 3; o.style.right = nr + 'px';
-    // collision (approx)
-    const obLeft = stage.offsetWidth - nr - o.offsetWidth;
-    const cubeBottom = parseFloat(cube.style.bottom||20);
-    if(obLeft < 80 && obLeft > 40 && cubeBottom < 60){
-      // collision
-      clearInterval(interval); clearInterval(spawnInt); alert('Game over! Score: '+score); 
+
+// JUMP
+function jump() {
+  if (isJumping) return;
+
+  isJumping = true;
+  velocity = 10;  // fixed jump strength
+}
+
+// CREATE OBSTACLE
+function spawnObstacle() {
+  const ob = document.createElement("div");
+  ob.className = "ob";
+  ob.style.right = "-40px";
+
+  stage.appendChild(ob);
+  obstacles.push(ob);
+}
+
+// GAME LOOP
+function gameLoop() {
+  // Update cube physics
+  cubeBottom += velocity;
+  velocity += gravity;
+
+  if (cubeBottom <= 20) {
+    cubeBottom = 20;
+    isJumping = false;
+  }
+  cube.style.bottom = cubeBottom + "px";
+
+  // Move obstacles
+  obstacles.forEach((o, index) => {
+    const currentRight = parseFloat(o.style.right);
+    o.style.right = currentRight + 3 + "px";
+
+    // Collision detection
+    const obX = stage.offsetWidth - (currentRight + o.offsetWidth);
+    if (obX < 80 && obX > 40 && cubeBottom < 50) {
+      gameOver();
     }
-    if(nr > stage.offsetWidth + 60){ o.remove(); obstacles.splice(i,1); score++; document.getElementById('score').textContent='Score: '+score; }
+
+    // Passed obstacle
+    if (currentRight > stage.offsetWidth + 30) {
+      o.remove();
+      obstacles.splice(index, 1);
+      score++;
+      document.getElementById("score").textContent = "Score: " + score;
+    }
   });
 }
-function doJump(){ if(jumping) return; jumping=true; vy=12; let j=0; const up = setInterval(()=>{ j++; if(j>25) clearInterval(up);},20);}
-document.getElementById('jump').onclick = ()=> doJump();
-document.getElementById('start').onclick = ()=> start();
-document.addEventListener('keydown',e=>{ if(e.code==='Space') doJump(); });
+
+// GAME OVER
+function gameOver() {
+  clearInterval(gameInterval);
+  clearInterval(spawnInterval);
+  alert("Game Over! Score: " + score);
+}
 </script>
 </body>
 </html>

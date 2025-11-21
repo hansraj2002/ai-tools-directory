@@ -1,58 +1,224 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Memory Match</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>Memory Match – Play Online</title>
+<meta name="description" content="Play Memory Match! Flip tiles, find matching pairs, and test your memory. Mobile-friendly and smooth gameplay.">
+<link rel="canonical" href="https://aitoolsdirectory.site/games/memory.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Memory Match – Free Puzzle Game">
+<meta property="og:description" content="Flip cards and match pairs in this free memory puzzle game. Works great on mobile.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aitoolsdirectory.site/games/memory.html">
+<meta property="og:image" content="https://aitoolsdirectory.site/assets/og-memory.png">
+
+<!-- Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Game",
+  "name":"Memory Match",
+  "genre":["Puzzle","Memory","Logic"],
+  "applicationCategory":"Game",
+  "operatingSystem":"Web Browser",
+  "url":"https://aitoolsdirectory.site/games/memory.html"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-143GBNNFQE');
+</script>
+
 <style>
-  body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;color:#111;padding:24px;text-align:center}
-  .card{max-width:720px;margin:18px auto;padding:20px;background:#fff;border-radius:10px}
-  #grid{display:grid;grid-template-columns:repeat(6,1fr);gap:10px}
-  .tile{background:#2563eb;color:#fff;padding:18px;border-radius:8px;cursor:pointer;font-weight:700}
-  .flipped{background:#fff;color:#111;border:2px solid #2563eb}
+  body{
+    font-family:"Poppins",Arial,sans-serif;
+    background:#f3f4f6;
+    text-align:center;
+    padding:25px;
+  }
+
+  .card{
+    max-width:750px;
+    margin:0 auto;
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  }
+
+  .tags span{
+    padding:6px 12px;
+    background:#e5e7eb;
+    border-radius:20px;
+    font-size:12px;
+    margin:4px;
+    display:inline-block;
+  }
+
+  #grid{
+    display:grid;
+    grid-template-columns:repeat(6,1fr);
+    gap:10px;
+    margin-top:20px;
+  }
+
+  @media(max-width:600px){
+    #grid{
+      grid-template-columns:repeat(4,1fr);
+    }
+  }
+
+  .tile{
+    background:#2563eb;
+    color:#fff;
+    padding:20px 0;
+    border-radius:10px;
+    cursor:pointer;
+    font-size:22px;
+    font-weight:700;
+    transition:0.25s;
+    user-select:none;
+  }
+
+  .tile.flipped{
+    background:#fff;
+    color:#111;
+    border:2px solid #2563eb;
+    transform:scale(1.05);
+  }
+
+  .tile.matched{
+    background:#10b981;
+    color:#fff;
+    transform:scale(0.9);
+    pointer-events:none;
+  }
+
+  button{
+    padding:10px 16px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    border-radius:8px;
+    cursor:pointer;
+    margin-top:14px;
+  }
 </style>
 </head>
+
 <body>
-  <div class="card">
-    <h1>Memory Match</h1>
-    <p>Flip two tiles. Match all pairs to win.</p>
-    <div id="grid"></div>
-    <div style="margin-top:12px;"><button id="new">New Game</button> <span id="stat"></span></div>
+<div class="card">
+  <h1>Memory Match</h1>
+
+  <div class="tags">
+    <span>Memory</span>
+    <span>Puzzle</span>
+    <span>Logic</span>
   </div>
 
+  <p>Flip two tiles and try to match all pairs!</p>
+
+  <div id="grid"></div>
+
+  <button id="new">New Game</button>
+  <p id="stat" style="margin-top:8px;font-weight:600"></p>
+</div>
+
 <script>
-const grid = document.getElementById('grid'), stat=document.getElementById('stat');
-let cards=[], first=null, lock=false, moves=0, matches=0;
+const grid = document.getElementById("grid");
+const stat = document.getElementById("stat");
+
+let cards = [];
+let first = null;
+let lock = false;
+let moves = 0;
+let matches = 0;
+
 function init(){
-  const icons = ['★','✦','✶','✱','❤','☼','☯','♫','⌘','⚑','☻','✿'];
-  const deck = icons.concat(icons).slice(0,12); // 12 pairs => 24 tiles
-  deck.sort(()=>Math.random()-0.5);
-  cards = deck.map((v,i)=>({id:i,val:v,flipped:false,matched:false}));
+  const icons = ["★","✦","✶","✱","❤","☼","☯","♫","⌘","⚑","☻","✿"];
+  let deck = icons.concat(icons); // 24 tiles (12 pairs)
+
+  deck.sort(() => Math.random() - 0.5);
+
+  cards = deck.map((val, id) => ({
+    id,
+    val,
+    flipped:false,
+    matched:false
+  }));
+
+  first = null;
+  lock = false;
+  moves = 0;
+  matches = 0;
+  stat.textContent = "";
   render();
-  moves=0; matches=0; stat.textContent='';
 }
+
 function render(){
-  grid.innerHTML='';
+  grid.innerHTML="";
   cards.forEach(c=>{
-    const d=document.createElement('div'); d.className='tile'+(c.flipped?' flipped':''); d.textContent=c.flipped||c.matched?c.val:'?';
-    d.onclick = ()=>flip(c.id);
+    const d = document.createElement("div");
+    d.className = "tile";
+    if(c.flipped) d.classList.add("flipped");
+    if(c.matched) d.classList.add("matched");
+
+    d.textContent = (c.flipped || c.matched) ? c.val : "❔";
+
+    d.onclick = ()=> flip(c.id);
+
     grid.appendChild(d);
   });
 }
-function flip(i){
+
+function flip(id){
   if(lock) return;
-  const c = cards[i];
+
+  const c = cards[id];
   if(c.flipped || c.matched) return;
-  c.flipped=true; render();
-  if(!first){ first = c; return; }
-  lock=true; moves++;
+
+  c.flipped = true;
+  render();
+
+  if(!first){
+    first = c;
+    return;
+  }
+
+  lock = true;
+  moves++;
+
   if(c.val === first.val){
-    c.matched=true; first.matched=true; matches++; first=null; lock=false;
-    if(matches === cards.length/2) stat.textContent = `You won in ${moves} moves!`;
+    c.matched = true;
+    first.matched = true;
+    matches++;
+    lock = false;
+    first = null;
+
+    if(matches === cards.length / 2){
+      stat.textContent = `🎉 You won in ${moves} moves!`;
+    }
   } else {
-    setTimeout(()=>{ c.flipped=false; first.flipped=false; first=null; lock=false; render(); },800);
+    setTimeout(()=>{
+      c.flipped = false;
+      first.flipped = false;
+      first = null;
+      lock = false;
+      render();
+    },800);
   }
 }
-document.getElementById('new').onclick=init;
+
+document.getElementById("new").onclick = init;
+
 init();
 </script>
 </body>

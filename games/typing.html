@@ -1,62 +1,238 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Typing Speed Challenge</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Typing Speed Challenge – Test Your WPM</title>
+
+<meta name="description" content="Typing Speed Challenge! Test your typing speed, accuracy, and WPM. Mobile-friendly typing test with live accuracy and highlighting.">
+<link rel="canonical" href="https://aitoolsdirectory.site/games/typing.html">
+
+<!-- OG Tags -->
+<meta property="og:title" content="Typing Speed Challenge – Test Your WPM">
+<meta property="og:description" content="Fast, fun typing test. Track speed, accuracy, and live mistakes. Optimized for mobile.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aitoolsdirectory.site/games/typing.html">
+<meta property="og:image" content="https://aitoolsdirectory.site/assets/og-typing.png">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Game",
+  "name":"Typing Speed Challenge",
+  "genre":["Typing","Speed Test","Education"],
+  "applicationCategory":"Game",
+  "url":"https://aitoolsdirectory.site/games/typing.html"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+gtag("js", new Date());
+gtag("config", "G-143GBNNFQE");
+</script>
+
 <style>
-  body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;color:#111;padding:24px}
-  .card{max-width:800px;margin:18px auto;padding:20px;background:#fff;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
-  textarea{width:100%;height:120px;padding:12px;font-size:16px;border-radius:8px;border:1px solid #ddd}
-  button{padding:10px 14px;border-radius:8px;border:none;background:#2563eb;color:#fff;cursor:pointer;margin-top:10px}
-  .stats{margin-top:12px;font-weight:600}
+  body {
+    font-family: "Poppins", Arial, sans-serif;
+    background: #f3f4f6;
+    padding: 20px;
+  }
+
+  .card {
+    max-width: 900px;
+    margin: 20px auto;
+    background: #fff;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px rgba(0,0,0,.08);
+  }
+
+  h1 { margin-bottom: 10px; }
+
+  .tags span {
+    background: #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 20px;
+    margin-right: 6px;
+    font-size: 12px;
+  }
+
+  #passage {
+    font-size: 18px;
+    line-height: 1.6;
+    background: #f9fafb;
+    padding: 16px;
+    border-radius: 10px;
+    border-left: 5px solid #2563eb;
+    user-select: none;
+    white-space: pre-wrap;
+  }
+
+  #typedDisplay span.correct { color: #10b981; }
+  #typedDisplay span.wrong { color: #ef4444; }
+
+  textarea {
+    width: 100%;
+    height: 130px;
+    padding: 14px;
+    font-size: 16px;
+    border-radius: 8px;
+    border: 1px solid #ddd;
+    margin-top: 15px;
+  }
+
+  button {
+    padding: 10px 16px;
+    border: none;
+    border-radius: 8px;
+    margin: 8px;
+    cursor: pointer;
+    background: #2563eb;
+    color: white;
+    font-size: 15px;
+  }
+
+  #reset { background: #ef4444; }
+
+  .stats {
+    margin-top: 14px;
+    font-weight: 600;
+  }
+
+  .difficulty-btn {
+    background: #6b7280;
+    font-size: 13px;
+  }
+
+  @media(max-width:600px){
+    textarea{ height: 100px; }
+  }
 </style>
 </head>
+
 <body>
-  <div class="card">
-    <h1>Word Speed Challenge</h1>
-    <p>Type the passage below as quickly and accurately as possible. Click <strong>Start</strong> to begin.</p>
+<div class="card">
+  <h1>Typing Speed Challenge</h1>
 
-    <blockquote id="passage">The future of creativity is being shaped by new AI tools that help people build faster, iterate more, and explore ideas without limits.</blockquote>
-
-    <textarea id="input" disabled></textarea>
-    <div>
-      <button id="start">Start</button>
-      <button id="reset" style="background:#ef4444">Reset</button>
-    </div>
-
-    <div class="stats" id="stats">WPM: — | Accuracy: —%</div>
+  <div class="tags">
+    <span>Typing</span>
+    <span>Speed Test</span>
+    <span>Skill</span>
   </div>
 
+  <p>Type the passage below as quickly and accurately as possible.</p>
+
+  <div id="typedDisplay"></div>
+
+  <blockquote id="passage">
+The future of creativity is being shaped by new AI tools that help people build faster, iterate more, and explore ideas without limits.
+  </blockquote>
+
+  <textarea id="input" disabled></textarea>
+
+  <div>
+    <button id="start">Start</button>
+    <button id="reset">Reset</button>
+
+    <button class="difficulty-btn" data-mode="easy">Easy</button>
+    <button class="difficulty-btn" data-mode="medium">Medium</button>
+    <button class="difficulty-btn" data-mode="hard">Hard</button>
+  </div>
+
+  <div class="stats" id="stats">
+    WPM: — | Accuracy: —%
+  </div>
+</div>
+
 <script>
-const passage = document.getElementById('passage').textContent.trim();
-const txt = document.getElementById('input');
-let startTime, timer, started=false;
-document.getElementById('start').onclick = ()=>{
-  txt.value = '';
-  txt.disabled = false;
-  txt.focus();
-  startTime = Date.now();
-  started = true;
-  document.getElementById('stats').textContent = 'WPM: 0 | Accuracy: 100%';
+let baseText = document.getElementById("passage").textContent.trim();
+const input = document.getElementById("input");
+const stats = document.getElementById("stats");
+const typedDisplay = document.getElementById("typedDisplay");
+
+let startTime = null;
+let started = false;
+
+// Difficulty modes (changes passage)
+const passages = {
+  easy: "AI helps people create faster and learn new skills every day.",
+  medium: "Artificial intelligence is transforming the way humans work, learn, and communicate across many industries.",
+  hard: "As generative models rapidly evolve, the boundaries between machine intelligence and human creativity continue to shift, opening new possibilities."
 };
-document.getElementById('reset').onclick = ()=>{ txt.value=''; txt.disabled=true; started=false; document.getElementById('stats').textContent='WPM: — | Accuracy: —%'; };
-txt.addEventListener('input', ()=>{
-  if(!started) return;
-  const elapsed = (Date.now() - startTime)/1000/60; // minutes
-  const wordsTyped = (txt.value.trim().split(/\s+/).filter(Boolean)).length;
-  const wpm = Math.round(wordsTyped / (elapsed || 1/60));
-  // accuracy
-  let correctChars = 0;
-  for(let i=0;i<Math.min(txt.value.length, passage.length);i++){
-    if(txt.value[i] === passage[i]) correctChars++;
+
+function updateDisplay() {
+  const typed = input.value;
+  let html = "";
+
+  for (let i = 0; i < typed.length; i++) {
+    if (typed[i] === baseText[i]) {
+      html += `<span class="correct">${typed[i]}</span>`;
+    } else {
+      html += `<span class="wrong">${typed[i] || ""}</span>`;
+    }
   }
-  const accuracy = Math.round((correctChars / (txt.value.length || 1)) * 100);
-  document.getElementById('stats').textContent = `WPM: ${wpm} | Accuracy: ${accuracy}%`;
-  if(txt.value.trim() === passage) {
-    txt.disabled = true;
-    alert(`Well done! Final WPM: ${wpm}, Accuracy: ${accuracy}%`);
+
+  typedDisplay.innerHTML = html;
+}
+
+function updateStats() {
+  const typed = input.value;
+
+  if (!started) return;
+
+  const elapsedMin = (Date.now() - startTime) / 60000;
+  const words = typed.trim().split(/\s+/).filter(Boolean).length;
+  const wpm = Math.round(words / (elapsedMin || 1/60));
+
+  let correct = 0;
+  for (let i = 0; i < typed.length; i++) {
+    if (typed[i] === baseText[i]) correct++;
   }
+  const accuracy = Math.round((correct / (typed.length || 1)) * 100);
+
+  stats.textContent = `WPM: ${wpm} | Accuracy: ${accuracy}%`;
+
+  if (typed === baseText) {
+    input.disabled = true;
+    alert(`Finished! WPM: ${wpm} | Accuracy: ${accuracy}%`);
+  }
+}
+
+document.getElementById("start").onclick = () => {
+  input.value = "";
+  typedDisplay.textContent = "";
+  input.disabled = false;
+  input.focus();
+  started = true;
+  startTime = Date.now();
+};
+
+document.getElementById("reset").onclick = () => {
+  input.value = "";
+  typedDisplay.textContent = "";
+  input.disabled = true;
+  started = false;
+  stats.textContent = "WPM: — | Accuracy: —%";
+};
+
+input.addEventListener("input", () => {
+  updateDisplay();
+  updateStats();
+});
+
+// Difficulty Handling
+document.querySelectorAll(".difficulty-btn").forEach(btn => {
+  btn.onclick = () => {
+    let mode = btn.dataset.mode;
+    baseText = passages[mode];
+    document.getElementById("passage").textContent = baseText;
+    document.getElementById("reset").click();
+  };
 });
 </script>
 </body>

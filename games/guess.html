@@ -3,20 +3,133 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>AI Guessing Game — Think of a Number</title>
+
+<title>AI Guessing Game — Think of a Number (1–100)</title>
+<meta name="description" content="Play the AI Guessing Game! Think of a number between 1 and 100 and let the AI guess it using smart logic. Fast, fun, mobile-friendly, and no signup required.">
+<meta name="keywords" content="AI guessing game, number guesser, guess my number, online game, brain games, logic games, play free games">
+
+<link rel="canonical" href="https://aitoolsdirectory.site/games/guess.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="AI Guessing Game — Think of a Number">
+<meta property="og:description" content="Think of a number 1–100. AI will guess it! Fun & fast logic game.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aitoolsdirectory.site/games/guess.html">
+<meta property="og:image" content="https://aitoolsdirectory.site/assets/og-guess.png">
+
+<!-- Twitter -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="AI Guessing Game — Online Logic Game">
+<meta name="twitter:description" content="AI tries to guess your secret number. Fun, fast, and mobile-friendly.">
+<meta name="twitter:image" content="https://aitoolsdirectory.site/assets/og-guess.png">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Game",
+  "name": "AI Guessing Game",
+  "description": "Think of a number between 1 and 100 and let the AI guess it using binary logic.",
+  "genre": ["Logic","Brain Game","Puzzle"],
+  "applicationCategory": "Game",
+  "operatingSystem": "Web Browser",
+  "url": "https://aitoolsdirectory.site/games/guess.html"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-143GBNNFQE');
+</script>
+
 <style>
-  body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;color:#111;padding:24px;text-align:center}
-  .card{max-width:600px;margin:18px auto;padding:20px;background:#fff;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.06)}
-  button{padding:10px 16px;border-radius:8px;border:none;background:#2563eb;color:#fff;cursor:pointer;margin:6px}
-  #guess{font-size:2rem;margin:14px 0}
+  body{
+    font-family:"Poppins",Arial,sans-serif;
+    background:#f3f4f6;
+    color:#111;
+    padding:24px;
+    text-align:center;
+  }
+
+  .card{
+    max-width:600px;
+    margin:20px auto;
+    padding:25px;
+    background:#fff;
+    border-radius:14px;
+    box-shadow:0 5px 20px rgba(0,0,0,0.08);
+    animation:fadeIn .5s ease;
+  }
+
+  h1{font-size:2rem;margin-bottom:10px;}
+
+  .tags{
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    margin-bottom:18px;
+  }
+  .tag{
+    padding:4px 10px;
+    font-size:12px;
+    border-radius:20px;
+    background:#e5e7eb;
+    font-weight:600;
+  }
+
+  #guess{
+    font-size:2.8rem;
+    margin:18px 0;
+    font-weight:700;
+    color:#1e3a8a;
+  }
+
+  button{
+    padding:12px 18px;
+    border-radius:10px;
+    border:none;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:16px;
+    margin:6px;
+    font-weight:600;
+    transition:.2s;
+  }
+
+  button:hover{background:#1d4ed8;}
+
+  #start{background:#10b981;}
+  #start:hover{background:#0d946b;}
+
+  #steps{
+    margin-top:12px;
+    font-weight:600;
+    color:#444;
+  }
+
+  @keyframes fadeIn {from{opacity:0;transform:translateY(10px);} to{opacity:1;}}
 </style>
 </head>
+
 <body>
   <div class="card">
     <h1>AI Guessing Game</h1>
-    <p>Think of a number between <strong>1 and 100</strong>. I will try to guess it. Tell me if my guess is higher, lower, or correct.</p>
+
+    <div class="tags">
+      <div class="tag">Logic</div>
+      <div class="tag">Brain Game</div>
+      <div class="tag">Guessing</div>
+    </div>
+
+    <p>Think of a number between <strong>1 and 100</strong>. I will guess it.</p>
 
     <div id="guess">—</div>
+
     <div>
       <button id="higher">Higher ⬆️</button>
       <button id="correct">Correct ✅</button>
@@ -24,30 +137,42 @@
     </div>
 
     <p id="steps"></p>
-    <button id="start" style="background:#10b981">Start New Game</button>
+
+    <button id="start">Start New Game</button>
   </div>
 
 <script>
 let low, high, mid, steps;
-const gEl = document.getElementById('guess');
-const sEl = document.getElementById('steps');
+
+const gEl = document.getElementById("guess");
+const sEl = document.getElementById("steps");
+
 function start(){
-  low = 1; high = 100; steps = 0;
+  low = 1;
+  high = 100;
+  steps = 0;
   next();
 }
+
 function next(){
-  if(low>high){ gEl.textContent = "Impossible — maybe a mistake. Restart."; return; }
-  mid = Math.floor((low+high)/2);
+  if(low > high){
+    gEl.textContent = "Impossible — maybe you clicked wrong 😅";
+    return;
+  }
+  mid = Math.floor((low + high) / 2);
   steps++;
   gEl.textContent = mid;
   sEl.textContent = "Attempts: " + steps;
 }
-document.getElementById('higher').onclick = ()=>{ low = mid + 1; next(); };
-document.getElementById('lower').onclick = ()=>{ high = mid - 1; next(); };
-document.getElementById('correct').onclick = ()=>{
-  gEl.textContent = `Yay! I guessed ${mid} in ${steps} tries 🎉`;
+
+document.getElementById("higher").onclick = ()=>{ low = mid + 1; next(); };
+document.getElementById("lower").onclick = ()=>{ high = mid - 1; next(); };
+document.getElementById("correct").onclick = ()=>{
+  gEl.textContent = `🎉 I guessed ${mid} in ${steps} tries!`;
 };
-document.getElementById('start').onclick = start;
+
+document.getElementById("start").onclick = start;
+
 start();
 </script>
 </body>

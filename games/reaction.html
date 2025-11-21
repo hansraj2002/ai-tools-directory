@@ -3,61 +3,187 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Reaction Time Test</title>
+
+<title>Reaction Time Test – How Fast Are You?</title>
+<meta name="description" content="Test your reaction speed! Wait for the screen to turn green and tap as fast as you can. Works on mobile and desktop.">
+<link rel="canonical" href="https://aitoolsdirectory.site/games/reaction.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Reaction Time Test – Play Online">
+<meta property="og:description" content="Tap when the screen turns green and measure your reaction speed. Play free on any device.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aitoolsdirectory.site/games/reaction.html">
+<meta property="og:image" content="https://aitoolsdirectory.site/assets/og-reaction.png">
+
+<!-- Schema Markup -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Game",
+  "name":"Reaction Time Test",
+  "genre":["Reflex","Reaction","Speed Test"],
+  "url":"https://aitoolsdirectory.site/games/reaction.html",
+  "applicationCategory":"Game"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+<script>
+window.dataLayer = window.dataLayer || [];
+function gtag(){ dataLayer.push(arguments); }
+gtag('js', new Date());
+gtag('config', 'G-143GBNNFQE');
+</script>
+
 <style>
-  body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;color:#111;padding:24px;text-align:center}
-  .card{max-width:600px;margin:20px auto;padding:20px;background:#fff;border-radius:10px}
-  #box{width:100%;height:200px;border-radius:10px;background:#ef4444;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.4rem;cursor:pointer}
-  button{margin-top:14px;padding:10px 14px;border-radius:8px;border:none;background:#2563eb;color:#fff}
+  body{
+    font-family: "Poppins", Arial, sans-serif;
+    background:#f3f4f6;
+    margin:0;
+    padding:20px;
+    text-align:center;
+  }
+
+  .card{
+    max-width:650px;
+    margin:auto;
+    padding:20px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  }
+
+  .tags span{
+    background:#e5e7eb;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:12px;
+    margin:4px;
+    display:inline-block;
+  }
+
+  #box{
+    width:100%;
+    height:240px;
+    border-radius:12px;
+    margin-top:18px;
+    background:#ef4444;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:#fff;
+    font-size:1.6rem;
+    user-select:none;
+    transition:background 0.25s;
+    cursor:pointer;
+  }
+
+  @media(max-width:600px){
+    #box{
+      height:200px;
+      font-size:1.4rem;
+    }
+  }
+
+  button{
+    padding:10px 16px;
+    margin-top:14px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    cursor:pointer;
+    font-size:15px;
+  }
 </style>
 </head>
+
 <body>
-  <div class="card">
-    <h1>Reaction Time Test</h1>
-    <p>Wait for green, then click as fast as you can.</p>
-    <div id="box">Click to start</div>
-    <div id="result" style="margin-top:12px;font-weight:700"></div>
-    <button id="reset" style="display:none">Try again</button>
+
+<div class="card">
+  <h1>Reaction Time Test</h1>
+
+  <div class="tags">
+    <span>Reaction</span>
+    <span>Reflex</span>
+    <span>Speed Test</span>
   </div>
 
+  <p>Wait for the screen to turn green, then tap as fast as you can!</p>
+
+  <div id="box" data-state="">Click to start</div>
+
+  <div id="result" style="margin-top:14px;font-size:1.2rem;font-weight:700"></div>
+
+  <button id="reset" style="display:none">Try Again</button>
+</div>
+
 <script>
-let start, timeout;
-const box = document.getElementById('box');
-const res = document.getElementById('result');
-const reset = document.getElementById('reset');
-box.onclick = ()=>{
-  if(box.dataset.state === 'ready') {
-    // clicked too early
-    res.textContent = "Too soon! Wait for green.";
-    clearTimeout(timeout);
-    box.style.background = '#ef4444';
-    box.textContent = "Click to start";
-    box.dataset.state = '';
-    reset.style.display = 'inline-block';
+let startTime = 0;
+let waitTimeout = null;
+
+const box = document.getElementById("box");
+const result = document.getElementById("result");
+const resetBtn = document.getElementById("reset");
+
+function startTest(){
+  box.dataset.state = "waiting";
+  box.style.background = "#f59e0b";
+  box.textContent = "Get ready...";
+
+  const delay = Math.random() * 2000 + 1200;
+
+  waitTimeout = setTimeout(()=>{
+    box.dataset.state = "go";
+    startTime = performance.now();
+    box.style.background = "#10b981";
+    box.textContent = "TAP NOW!";
+  }, delay);
+}
+
+box.onclick = () => {
+  const state = box.dataset.state;
+
+  if(state === ""){
+    // Start new test
+    result.textContent = "";
+    resetBtn.style.display = "none";
+    startTest();
     return;
   }
-  // start test
-  box.style.background = '#f59e0b';
-  box.textContent = "Get ready...";
-  box.dataset.state = 'waiting';
-  timeout = setTimeout(()=> {
-    start = Date.now();
-    box.style.background = '#10b981';
-    box.textContent = "CLICK!";
-    box.dataset.state = 'go';
-  }, Math.random()*2000 + 1000);
-};
-box.addEventListener('click', ()=>{
-  if(box.dataset.state==='go') {
-    const t = Date.now() - start;
-    res.textContent = `Reaction time: ${t} ms`;
-    box.textContent = "Click to start";
-    box.style.background = '#ef4444';
-    box.dataset.state = '';
-    reset.style.display = 'inline-block';
+
+  if(state === "waiting"){
+    // Clicked too early
+    clearTimeout(waitTimeout);
+    box.dataset.state = "";
+    box.style.background = "#ef4444";
+    box.textContent = "Too soon!";
+    result.textContent = "You clicked too early. Wait for green.";
+    resetBtn.style.display = "inline-block";
+    return;
   }
-});
-reset.onclick = ()=>{ res.textContent=''; reset.style.display='none'; box.textContent='Click to start'; box.style.background='#ef4444'; box.dataset.state=''; clearTimeout(timeout); };
+
+  if(state === "go"){
+    // Calculate reaction time
+    const reaction = Math.floor(performance.now() - startTime);
+    result.textContent = `⚡ Reaction Time: ${reaction} ms`;
+    box.dataset.state = "";
+    box.style.background = "#ef4444";
+    box.textContent = "Click to start";
+    resetBtn.style.display = "inline-block";
+  }
+};
+
+resetBtn.onclick = () => {
+  box.dataset.state = "";
+  box.style.background = "#ef4444";
+  box.textContent = "Click to start";
+  result.textContent = "";
+  resetBtn.style.display = "none";
+  clearTimeout(waitTimeout);
+};
 </script>
+
 </body>
 </html>

@@ -1,66 +1,244 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<title>Maze Runner</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+
+<title>AI Maze Runner – Online Puzzle Game</title>
+<meta name="description" content="Play Maze Runner! Navigate the randomly generated maze and reach the goal. Works on mobile with swipe controls.">
+<link rel="canonical" href="https://aitoolsdirectory.site/games/maze.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="AI Maze Runner – Puzzle Maze Game">
+<meta property="og:description" content="Navigate the maze and reach the goal. A fun AI-themed puzzle game.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aitoolsdirectory.site/games/maze.html">
+<meta property="og:image" content="https://aitoolsdirectory.site/assets/og-maze.png">
+
+<!-- JSON-LD Game Schema -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Game",
+  "name":"AI Maze Runner",
+  "genre":["Puzzle","Maze","Logic Game"],
+  "applicationCategory":"Game",
+  "operatingSystem":"Web Browser",
+  "url":"https://aitoolsdirectory.site/games/maze.html"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-143GBNNFQE');
+</script>
+
 <style>
-  body{font-family:Arial,Helvetica,sans-serif;background:#f9fafb;color:#111;padding:24px;text-align:center}
-  .card{max-width:640px;margin:18px auto;padding:20px;background:#fff;border-radius:10px}
-  #grid{display:grid;grid-template-columns:repeat(12,32px);gap:2px;justify-content:center}
-  .cell{width:32px;height:32px;background:#e6e7ea;border-radius:4px}
-  .wall{background:#111}
-  .player{background:#10b981}
-  .goal{background:#f59e0b}
-  button{padding:8px 12px;border-radius:8px;border:none;background:#2563eb;color:#fff;cursor:pointer;margin-top:10px}
+  body{
+    font-family:"Poppins",Arial,sans-serif;
+    background:#f3f4f6;
+    padding:25px;
+    text-align:center;
+  }
+
+  .card{
+    max-width:650px;
+    margin:0 auto;
+    padding:20px;
+    background:#fff;
+    border-radius:12px;
+    box-shadow:0 6px 20px rgba(0,0,0,0.08);
+  }
+
+  #grid{
+    display:grid;
+    grid-template-columns:repeat(12,28px);
+    gap:3px;
+    justify-content:center;
+    margin:20px auto;
+  }
+
+  .cell{
+    width:28px;
+    height:28px;
+    border-radius:4px;
+    background:#e5e7eb;
+    transition:0.1s;
+  }
+
+  .wall{ background:#1f2937; }
+  .player{ background:#10b981; box-shadow:0 0 8px rgba(0,255,130,0.7); }
+  .goal{ background:#f59e0b; box-shadow:0 0 6px rgba(255,180,0,0.7); }
+
+  button{
+    padding:10px 16px;
+    margin:8px;
+    border:none;
+    border-radius:8px;
+    background:#2563eb;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.2s;
+  }
+  button:hover{ background:#1e40af; }
+
+  /* Mobile Controls */
+  .controls{
+    display:none;
+    margin-top:15px;
+  }
+  .controls button{
+    width:70px;
+    height:50px;
+    font-size:20px;
+  }
+
+  @media(max-width:600px){
+    #grid{
+      grid-template-columns:repeat(12,24px);
+    }
+    .cell{
+      width:24px;height:24px;
+    }
+    .controls{
+      display:flex;
+      flex-wrap:wrap;
+      justify-content:center;
+      gap:10px;
+    }
+  }
 </style>
 </head>
+
 <body>
   <div class="card">
     <h1>AI Maze Runner</h1>
-    <p>Reach the orange goal. Use arrow keys.</p>
+
+    <div style="margin-bottom:10px;">
+      <span class="tag" style="padding:6px 10px;background:#e5e7eb;border-radius:20px;font-size:12px;">Puzzle</span>
+      <span class="tag" style="padding:6px 10px;background:#e5e7eb;border-radius:20px;font-size:12px;">Maze</span>
+      <span class="tag" style="padding:6px 10px;background:#e5e7eb;border-radius:20px;font-size:12px;">Logic</span>
+    </div>
+
+    <p>Use arrow keys or swipe to reach the yellow goal!</p>
+
     <div id="grid"></div>
-    <div><button id="regen">New Maze</button> <span id="hint" style="margin-left:12px"></span></div>
+
+    <button id="regen">New Maze</button>
+
+    <!-- Mobile control buttons -->
+    <div class="controls">
+      <button onclick="move(-1,0)">⬆️</button>
+      <div style="display:flex;gap:10px;">
+        <button onclick="move(0,-1)">⬅️</button>
+        <button onclick="move(0,1)">➡️</button>
+      </div>
+      <button onclick="move(1,0)">⬇️</button>
+    </div>
   </div>
 
 <script>
-const gridEl=document.getElementById('grid');
-let map=[], rows=12, cols=12, player={r:1,c:1}, goal={r:10,c:10};
-function gen(){
-  map = Array.from({length:rows},()=>Array.from({length:cols},()=>0));
-  // random walls
-  for(let r=0;r<rows;r++) for(let c=0;c<cols;c++){
-    if((r===0||c===0||r===rows-1||c===cols-1)) map[r][c]=1;
-    else if(Math.random()<0.23) map[r][c]=1;
-  }
-  player={r:1,c:1}; goal={r:rows-2,c:cols-2};
-  map[player.r][player.c]=0; map[goal.r][goal.c]=0;
-  render();
-}
-function render(){
-  gridEl.innerHTML='';
+const gridEl = document.getElementById("grid");
+
+let rows = 12, cols = 12;
+let map = [];
+let player = { r:1, c:1 };
+let goal = { r: rows-2, c: cols-2 };
+
+function generateMaze(){
+  map = Array.from({length:rows}, () => Array(cols).fill(0));
+
+  // Outer walls
   for(let r=0;r<rows;r++){
     for(let c=0;c<cols;c++){
-      const d=document.createElement('div'); d.className='cell';
-      if(map[r][c]===1) d.classList.add('wall');
-      if(r===player.r && c===player.c) d.classList.add('player');
-      if(r===goal.r && c===goal.c) d.classList.add('goal');
+      if(r===0 || c===0 || r===rows-1 || c===cols-1){
+        map[r][c] = 1;
+      } else if(Math.random() < 0.22){
+        map[r][c] = 1;
+      }
+    }
+  }
+
+  // Make sure start + end are open
+  player = { r:1, c:1 };
+  goal = { r:rows-2, c:cols-2 };
+  map[player.r][player.c] = 0;
+  map[goal.r][goal.c] = 0;
+
+  render();
+}
+
+function render(){
+  gridEl.innerHTML = "";
+
+  for(let r=0;r<rows;r++){
+    for(let c=0;c<cols;c++){
+      const d = document.createElement("div");
+      d.className = "cell";
+
+      if(map[r][c] === 1) d.classList.add("wall");
+      if(r === player.r && c === player.c) d.classList.add("player");
+      if(r === goal.r && c === goal.c) d.classList.add("goal");
+
       gridEl.appendChild(d);
     }
   }
 }
-function move(dr,dc){
-  const nr=player.r+dr, nc=player.c+dc;
-  if(map[nr] && map[nr][nc]===0){ player.r=nr; player.c=nc; render(); checkWin(); }
+
+function move(dr, dc){
+  const nr = player.r + dr;
+  const nc = player.c + dc;
+
+  if(map[nr] && map[nr][nc] === 0){
+    player.r = nr;
+    player.c = nc;
+    render();
+    checkWin();
+  }
 }
-function checkWin(){ if(player.r===goal.r && player.c===goal.c) { alert('You reached the goal!'); } }
-document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowUp') move(-1,0);
-  if(e.key==='ArrowDown') move(1,0);
-  if(e.key==='ArrowLeft') move(0,-1);
-  if(e.key==='ArrowRight') move(0,1);
+
+function checkWin(){
+  if(player.r === goal.r && player.c === goal.c){
+    setTimeout(()=> alert("🎉 You reached the goal!"), 50);
+  }
+}
+
+// Keyboard controls
+document.addEventListener("keydown", e => {
+  if(e.key === "ArrowUp") move(-1,0);
+  if(e.key === "ArrowDown") move(1,0);
+  if(e.key === "ArrowLeft") move(0,-1);
+  if(e.key === "ArrowRight") move(0,1);
 });
-document.getElementById('regen').onclick=gen;
-gen();
+
+// Swipe controls (mobile)
+let startX = 0, startY = 0;
+document.addEventListener("touchstart", e => {
+  startX = e.touches[0].clientX;
+  startY = e.touches[0].clientY;
+});
+document.addEventListener("touchend", e => {
+  let dx = e.changedTouches[0].clientX - startX;
+  let dy = e.changedTouches[0].clientY - startY;
+
+  if(Math.abs(dx) > Math.abs(dy)){
+    if(dx > 20) move(0,1);
+    else if(dx < -20) move(0,-1);
+  } else {
+    if(dy > 20) move(1,0);
+    else if(dy < -20) move(-1,0);
+  }
+});
+
+document.getElementById("regen").onclick = generateMaze;
+
+generateMaze();
 </script>
+
 </body>
 </html>
