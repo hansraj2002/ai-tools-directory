@@ -1,0 +1,537 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+<title>Turbo Drift — Top-Down Car Racing (Mobile & Desktop)</title>
+<meta name="description" content="Turbo Drift — a realistic top-down car racing game with smooth physics, traffic AI, mobile touch steering, tilt controls and local high-scores." />
+<link rel="canonical" href="https://aitoolsdirectory.site/games/car-racer.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Turbo Drift — Top-Down Car Racing">
+<meta property="og:description" content="Play Turbo Drift: realistic top-down racing with mobile steering, keyboard controls and obstacles.">
+<meta property="og:type" content="game">
+<meta property="og:url" content="https://aitoolsdirectory.site/games/car-racer.html">
+<meta property="og:image" content="https://aitoolsdirectory.site/assets/og-car.png">
+
+<!-- JSON-LD -->
+<script type="application/ld+json">
+{
+  "@context":"https://schema.org",
+  "@type":"Game",
+  "name":"Turbo Drift",
+  "description":"Top-down car racing game with physics, mobile steering, and traffic AI.",
+  "applicationCategory":"Game",
+  "operatingSystem":"Web Browser",
+  "url":"https://aitoolsdirectory.site/games/car-racer.html",
+  "genre":["Racing","Arcade","Simulation"]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-143GBNNFQE');
+</script>
+
+<style>
+  :root{
+    --bg: #0f1724;
+    --panel:#0b1220;
+    --accent:#ff5a3c;
+    --accent-2:#2563eb;
+    --muted:#94a3b8;
+  }
+  html,body{height:100%;margin:0;font-family:"Poppins",Arial,Helvetica,sans-serif;background:linear-gradient(180deg,#071027,#071827);color:#e6eefc}
+  .wrap{max-width:1150px;margin:12px auto;padding:14px;display:flex;flex-direction:column;gap:12px}
+  header{display:flex;align-items:center;justify-content:space-between}
+  header h1{font-size:1.2rem;margin:0}
+  main{display:flex;gap:12px}
+  #viewport{flex:1;background:linear-gradient(180deg,#0b1220,#071022);border-radius:12px;padding:10px;position:relative;overflow:hidden;box-shadow:0 10px 30px rgba(2,6,23,0.6)}
+  canvas{display:block;width:100%;height:auto;border-radius:8px;background:#0b1220}
+  .panel{width:320px;background:rgba(255,255,255,0.03);border-radius:12px;padding:12px;box-shadow:0 6px 20px rgba(2,6,23,0.6)}
+  .stat{display:flex;justify-content:space-between;padding:6px 0;font-weight:700;color:var(--muted)}
+  .controls{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .btn{background:var(--accent-2);border:none;color:white;padding:10px 12px;border-radius:8px;cursor:pointer;font-weight:700}
+  .btn.small{padding:8px 10px;font-size:13px}
+  .touchControls{display:none;position:absolute;left:50%;transform:translateX(-50%);bottom:18px;gap:10px;z-index:6}
+  .touchBtn{width:60px;height:60px;border-radius:10px;background:rgba(0,0,0,0.45);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22px;user-select:none}
+  .hud{position:absolute;top:12px;left:12px;background:rgba(10,14,20,0.6);padding:8px;border-radius:8px;font-weight:700;z-index:6}
+  .centerMsg{position:absolute;left:50%;top:10%;transform:translateX(-50%);background:rgba(0,0,0,0.6);padding:10px 14px;border-radius:10px;font-size:18px;font-weight:800;display:none;z-index:9}
+  footer{display:flex;justify-content:space-between;color:var(--muted);font-size:13px;padding-top:8px}
+  @media(max-width:980px){main{flex-direction:column} .panel{width:100%} .touchControls{display:flex}}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header>
+    <h1>🏁 Turbo Drift</h1>
+    <nav style="color:var(--muted)">Top-down racing — keyboard, touch & tilt</nav>
+  </header>
+
+  <main>
+    <div id="viewport" aria-label="Game viewport">
+      <div class="hud" id="hud">Speed: 0 km/h</div>
+      <div class="centerMsg" id="centerMsg">Paused</div>
+      <canvas id="gameCanvas" width="900" height="600" tabindex="0"></canvas>
+
+      <!-- touch controls -->
+      <div class="touchControls" id="touchControls" aria-hidden="false">
+        <div class="touchBtn" id="steerLeft">◀</div>
+        <div class="touchBtn" id="accel">⬆</div>
+        <div class="touchBtn" id="steerRight">▶</div>
+        <div class="touchBtn" id="brake">⬇</div>
+      </div>
+    </div>
+
+    <aside class="panel" aria-label="Game panel">
+      <div style="font-weight:900">Race Control</div>
+
+      <div class="stat"><span>Score</span><span id="score">0</span></div>
+      <div class="stat"><span>Distance</span><span id="distance">0 m</span></div>
+      <div class="stat"><span>Health</span><span id="health">100%</span></div>
+      <div class="stat"><span>Laps</span><span id="laps">0</span></div>
+
+      <div class="controls">
+        <button class="btn" id="startBtn">Start</button>
+        <button class="btn small" id="pauseBtn">Pause</button>
+        <button class="btn small" id="resetBtn">Reset</button>
+      </div>
+
+      <div style="margin-top:10px">
+        <label style="font-weight:800">Difficulty</label>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn small" data-diff="easy">Easy</button>
+          <button class="btn small" data-diff="normal" style="background:#f59e0b">Normal</button>
+          <button class="btn small" data-diff="hard" style="background:#ef4444">Hard</button>
+        </div>
+      </div>
+
+      <div style="margin-top:12px">
+        <label style="font-weight:800">High Scores</label>
+        <ol id="highscores" style="margin-left:14px;margin-top:8px;font-weight:700"></ol>
+      </div>
+
+      <div style="margin-top:12px">
+        <button class="btn small" id="soundBtn">Sound: On</button>
+      </div>
+
+      <div style="margin-top:10px;color:var(--muted);font-size:13px">
+        Controls: Arrow keys / WASD (desktop). Touch buttons or tilt (mobile).
+      </div>
+    </aside>
+  </main>
+
+  <footer>
+    <div>© 2025 AI Tools Directory</div>
+    <div>Uploaded file: <code>/mnt/data/HansRaj_CurriculumVitae.pdf</code></div>
+  </footer>
+</div>
+
+<script>
+/* Turbo Drift — top-down car racing game
+   Features:
+   - responsive canvas with keyboard focus (canvas tabindex + focus on click)
+   - keyboard (arrow/WASD), touch buttons, device tilt steering
+   - simple car physics (speed, accel, brake, steering)
+   - procedural obstacles (traffic cones, rival cars)
+   - collision + health
+   - score & distance + local high scores
+   - GA already included in head
+*/
+
+/* Canvas setup and scaling */
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+let W = canvas.width, H = canvas.height;
+
+function fitCanvas(){
+  const vp = document.getElementById('viewport');
+  const rect = vp.getBoundingClientRect();
+  const aspect = W/H;
+  let width = rect.width;
+  let height = Math.round(width / aspect);
+  if(height > rect.height){
+    height = rect.height;
+    width = Math.round(height * aspect);
+  }
+  canvas.style.width = width + 'px';
+  canvas.style.height = height + 'px';
+}
+window.addEventListener('resize', fitCanvas);
+fitCanvas();
+
+/* Focus canvas so keyboard events work on desktop */
+canvas.addEventListener('click', ()=>canvas.focus());
+
+/* Game state */
+let running=false, paused=false;
+let difficulty='normal';
+let soundOn=true;
+const hud = document.getElementById('hud');
+const centerMsg = document.getElementById('centerMsg');
+
+let lastTime = performance.now();
+let obstacles = [];
+let rivals = [];
+let particles = [];
+let distance = 0, score = 0, laps = 0;
+
+/* Car */
+const car = {
+  x: W/2, y: H - 140, angle: 0,
+  speed: 0, maxSpeed: 10,
+  accel: 0.18, brake: 0.4, friction: 0.03,
+  steer: 2.4, width: 48, height: 80, health: 100
+};
+
+/* Input */
+const input = { left:false, right:false, accel:false, brake:false };
+
+document.addEventListener('keydown', e=>{
+  if(e.code==='ArrowLeft' || e.code==='KeyA') input.left = true;
+  if(e.code==='ArrowRight' || e.code==='KeyD') input.right = true;
+  if(e.code==='ArrowUp' || e.code==='KeyW') input.accel = true;
+  if(e.code==='ArrowDown' || e.code==='KeyS') input.brake = true;
+  if(e.code==='KeyP') togglePause();
+});
+document.addEventListener('keyup', e=>{
+  if(e.code==='ArrowLeft' || e.code==='KeyA') input.left = false;
+  if(e.code==='ArrowRight' || e.code==='KeyD') input.right = false;
+  if(e.code==='ArrowUp' || e.code==='KeyW') input.accel = false;
+  if(e.code==='ArrowDown' || e.code==='KeyS') input.brake = false;
+});
+
+/* Touch controls */
+['steerLeft','steerRight','accel','brake'].forEach(id=>{
+  const el = document.getElementById(id);
+  el && el.addEventListener('touchstart', e=>{
+    e.preventDefault();
+    if(id==='steerLeft') input.left=true;
+    if(id==='steerRight') input.right=true;
+    if(id==='accel') input.accel=true;
+    if(id==='brake') input.brake=true;
+  });
+  el && el.addEventListener('touchend', e=>{
+    e.preventDefault();
+    if(id==='steerLeft') input.left=false;
+    if(id==='steerRight') input.right=false;
+    if(id==='accel') input.accel=false;
+    if(id==='brake') input.brake=false;
+  });
+});
+
+/* Device tilt support (steering) */
+if(window.DeviceOrientationEvent){
+  window.addEventListener('deviceorientation', e=>{
+    const gamma = e.gamma || 0; // left-right tilt
+    input.left = gamma < -8;
+    input.right = gamma > 8;
+  });
+}
+
+/* UI bindings */
+document.getElementById('startBtn').onclick = ()=> startGame();
+document.getElementById('pauseBtn').onclick = ()=> togglePause();
+document.getElementById('resetBtn').onclick = ()=> { resetGame(); running=false; centerMsg.style.display='none'; };
+document.getElementById('soundBtn').onclick = ()=> { soundOn = !soundOn; document.getElementById('soundBtn').textContent = 'Sound: ' + (soundOn? 'On' : 'Off'); };
+document.querySelectorAll('[data-diff]').forEach(btn=> btn.onclick = ()=> difficulty = btn.dataset.diff );
+
+/* audio synth (simple) */
+const AudioCtx = window.AudioContext || window.webkitAudioContext;
+const audioCtx = AudioCtx ? new AudioCtx() : null;
+function beep(freq, dur, vol=0.02){
+  if(!audioCtx || !soundOn) return;
+  const o = audioCtx.createOscillator();
+  const g = audioCtx.createGain();
+  o.type='sine'; o.frequency.value = freq;
+  g.gain.value = vol;
+  o.connect(g); g.connect(audioCtx.destination);
+  o.start();
+  setTimeout(()=> o.stop(), dur);
+}
+
+/* High scores */
+function loadHighscores(){
+  const data = JSON.parse(localStorage.getItem('turbo_high')||'[]');
+  renderHighscores(data);
+}
+function saveHighscore(v){
+  const data = JSON.parse(localStorage.getItem('turbo_high')||'[]');
+  data.push({score:v, date:Date.now()});
+  data.sort((a,b)=>b.score-a.score);
+  localStorage.setItem('turbo_high', JSON.stringify(data.slice(0,5)));
+  renderHighscores(JSON.parse(localStorage.getItem('turbo_high')));
+}
+function renderHighscores(list){
+  const el = document.getElementById('highscores');
+  el.innerHTML = '';
+  (list||[]).slice(0,5).forEach(i=>{
+    const li = document.createElement('li'); li.textContent = `${i.score} pts`;
+    el.appendChild(li);
+  });
+}
+
+/* spawn obstacles & rivals */
+let spawnTimer = 0;
+function spawnObstacle(){
+  const kind = Math.random() < 0.6 ? 'cone' : 'rival';
+  const laneX = Math.random() * (W - 160) + 80;
+  if(kind === 'cone'){
+    obstacles.push({x: laneX, y: -60, w: 26, h: 26, vy: 2 + Math.random()*1.6});
+  } else {
+    rivals.push({x: laneX, y: -120, w:48, h:96, vy: 2.2 + Math.random()*1.6, speedAdj: Math.random()*0.6 - 0.3});
+  }
+}
+
+/* physics & update loop */
+function startGame(){
+  resetGame();
+  running=true; paused=false; lastTime=performance.now(); requestAnimationFrame(loop);
+  // unlock audio on user gesture if needed
+  if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+}
+function togglePause(){
+  paused = !paused;
+  centerMsg.style.display = paused ? 'block' : 'none';
+  centerMsg.textContent = paused ? 'Paused' : '';
+  if(!paused){ lastTime = performance.now(); requestAnimationFrame(loop); }
+}
+function resetGame(){
+  obstacles=[]; rivals=[]; particles=[];
+  car.x = W/2; car.y = H - 140; car.angle = 0; car.speed = 0; car.health = 100;
+  distance = 0; score = 0; laps=0;
+  hud.textContent = 'Speed: 0 km/h';
+  document.getElementById('score').textContent = '0';
+  document.getElementById('distance').textContent = '0 m';
+  document.getElementById('health').textContent = '100%';
+  document.getElementById('laps').textContent = '0';
+  spawnTimer = 0;
+}
+
+/* collision detection */
+function rectsIntersect(a,b){
+  return !(b.x > a.x + a.w || b.x + b.w < a.x || b.y > a.y + a.h || b.y + b.h < a.y);
+}
+
+/* rendering helpers */
+function roundRect(x,y,w,h,r,fill=true){
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+  if(fill) ctx.fill();
+}
+
+/* main loop */
+function loop(now){
+  if(!running || paused) return;
+  const dt = Math.min(40, now - lastTime) / 16.67; // normalized delta
+  lastTime = now;
+
+  // input -> physics
+  if(input.accel){ car.speed += car.accel * dt; if(car.speed > car.maxSpeed) car.speed = car.maxSpeed; }
+  else { car.speed -= car.friction * dt; if(car.speed < 0) car.speed = 0; }
+  if(input.brake){ car.speed = Math.max(0, car.speed - car.brake * dt); }
+
+  // steering based on speed
+  if(input.left) car.angle -= car.steer * (car.speed/6 + 0.4) * dt;
+  if(input.right) car.angle += car.steer * (car.speed/6 + 0.4) * dt;
+
+  // move car forward in direction of angle
+  const rad = car.angle * Math.PI / 180;
+  car.x += Math.sin(rad) * car.speed * dt;
+  car.y -= Math.cos(rad) * car.speed * dt;
+
+  // boundary clamp
+  const margin = 40;
+  car.x = Math.max(margin, Math.min(W - margin, car.x));
+  car.y = Math.max(80, Math.min(H - 80, car.y));
+
+  // spawn obstacles/rivals based on difficulty
+  spawnTimer += now - (lastSpawn || now);
+  lastSpawn = now;
+  const spawnInterval = difficulty === 'hard' ? 900 : difficulty === 'normal' ? 1300 : 1800;
+  if(spawnTimer > spawnInterval){
+    spawnTimer = 0;
+    spawnObstacle();
+  }
+
+  // update obstacles
+  for(let i = obstacles.length -1; i>=0; i--){
+    const o = obstacles[i];
+    o.y += o.vy * dt;
+    // collision check (approx with car rect)
+    const carRect = {x: car.x - car.width/2, y: car.y - car.height/2, w: car.width, h: car.height};
+    const orect = {x: o.x - o.w/2, y: o.y - o.h/2, w: o.w, h: o.h};
+    if(orect.y > H + 200){ obstacles.splice(i,1); continue; }
+    if(rectsIntersect(carRect, orect)){
+      car.health -= 14;
+      obstacles.splice(i,1);
+      beep(220,120,0.04);
+    }
+  }
+
+  // update rivals
+  for(let i = rivals.length -1; i>=0; i--){
+    const r = rivals[i];
+    r.y += (r.vy + r.speedAdj * 2) * dt;
+    // simple lateral wiggle
+    r.x += Math.sin((now + i*100)/500) * 0.6;
+    if(r.y > H + 200) rivals.splice(i,1);
+    // collision
+    const carRect = {x: car.x - car.width/2, y: car.y - car.height/2, w: car.width, h: car.height};
+    const rrect = {x: r.x - r.w/2, y: r.y - r.h/2, w: r.w, h: r.h};
+    if(rectsIntersect(carRect, rrect)){
+      car.health -= 20;
+      rivals.splice(i,1);
+      beep(120,200,0.06);
+    }
+  }
+
+  // scoring and distance
+  distance += car.speed * 1.2 * dt;
+  score += Math.floor(car.speed * 0.02 * dt);
+  if(distance > 10000){ laps += 1; distance = 0; score += 500; document.getElementById('laps').textContent = laps; }
+
+  // particles decay
+  for(let i=particles.length-1;i>=0;i--){
+    particles[i].life -= 16.67 * dt;
+    particles[i].x += particles[i].vx * dt;
+    particles[i].y += particles[i].vy * dt;
+    if(particles[i].life <= 0) particles.splice(i,1);
+  }
+
+  // update UI
+  hud.textContent = `Speed: ${Math.round(car.speed*12)} km/h`;
+  document.getElementById('score').textContent = Math.round(score);
+  document.getElementById('distance').textContent = `${Math.round(distance)} m`;
+  document.getElementById('health').textContent = `${Math.max(0, Math.round(car.health))}%`;
+
+  if(car.health <= 0){
+    endGame();
+    return;
+  }
+
+  renderScene();
+  requestAnimationFrame(loop);
+}
+
+/* end game */
+function endGame(){
+  running = false;
+  centerMsg.style.display = 'block';
+  centerMsg.textContent = 'You crashed';
+  if(score > 0) saveHighscore(Math.round(score));
+  beep(80,500,0.07);
+}
+
+/* render */
+function renderScene(){
+  ctx.clearRect(0,0,W,H);
+
+  // road background
+  ctx.fillStyle = '#101624';
+  ctx.fillRect(0,0,W,H);
+
+  // moving road stripes for visual speed
+  ctx.fillStyle = '#1e293b';
+  ctx.fillRect(80,0,W-160,H);
+  ctx.strokeStyle = '#334155';
+  ctx.lineWidth = 6;
+  for(let y = (Date.now()/6)%40; y < H; y += 40){
+    ctx.beginPath();
+    ctx.moveTo(W/2 - 6, y);
+    ctx.lineTo(W/2 - 6, y+20);
+    ctx.stroke();
+    ctx.beginPath();
+    ctx.moveTo(W/2 + 6, y);
+    ctx.lineTo(W/2 + 6, y+20);
+    ctx.stroke();
+  }
+
+  // obstacles
+  ctx.fillStyle = '#ffb366';
+  obstacles.forEach(o=>{
+    roundRect(o.x - o.w/2, o.y - o.h/2, o.w, o.h, 6);
+  });
+
+  // rivals
+  rivals.forEach(r=>{
+    ctx.fillStyle = '#ef4444';
+    roundRect(r.x - r.w/2, r.y - r.h/2, r.w, r.h, 8);
+    // windows
+    ctx.fillStyle = '#0b1220';
+    ctx.fillRect(r.x - r.w/4, r.y - r.h/4, r.w/2, r.h/6);
+  });
+
+  // car (player)
+  ctx.save();
+  ctx.translate(car.x, car.y);
+  ctx.rotate(car.angle * Math.PI/180);
+  // shadow
+  ctx.fillStyle = 'rgba(0,0,0,0.4)';
+  ctx.fillRect(-car.width/2+6, car.height/2-8, car.width-12, 10);
+  // body
+  ctx.fillStyle = '#10b981';
+  roundRect(-car.width/2, -car.height/2, car.width, car.height, 8);
+  // windshield
+  ctx.fillStyle = '#071827';
+  ctx.fillRect(-car.width/2+8, -car.height/2+10, car.width-16, 18);
+  ctx.restore();
+
+  // particles
+  particles.forEach(p=>{
+    ctx.fillStyle = p.color || '#fff';
+    ctx.globalAlpha = Math.max(0, p.life/400);
+    ctx.fillRect(p.x, p.y, 3,3);
+    ctx.globalAlpha = 1;
+  });
+}
+
+/* helper - small particles on collisions */
+function spawnParticles(x,y,count){
+  for(let i=0;i<count;i++){
+    particles.push({x:x + Math.random()*20-10, y:y + Math.random()*20-10, vx:Math.random()*3-1.5, vy:Math.random()*-2, life:200 + Math.random()*500, color:'#ffcc00'});
+  }
+}
+
+/* init */
+let lastSpawn = performance.now();
+function init(){
+  W = canvas.width; H = canvas.height;
+  car.x = W/2; car.y = H - 140;
+  fitCanvas();
+  loadHighscores();
+  resetGame();
+}
+init();
+
+/* attach UI */
+document.getElementById('startBtn').onclick = ()=>{
+  if(audioCtx && audioCtx.state === 'suspended') audioCtx.resume();
+  startGame();
+};
+document.getElementById('pauseBtn').onclick = ()=> togglePause();
+document.getElementById('resetBtn').onclick = ()=> resetGame();
+
+/* make canvas focusable and focused for keyboard */
+canvas.setAttribute('tabindex','0');
+canvas.addEventListener('click', ()=> canvas.focus());
+canvas.addEventListener('keydown', e=> { /* keep for future if needed */ });
+
+/* resume animation frame if running manually */
+(function idle(){
+  if(!running) renderScene();
+  requestAnimationFrame(idle);
+})();
+
+</script>
+</body>
+</html>

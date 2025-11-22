@@ -1,0 +1,642 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width,initial-scale=1" />
+
+<title>Drive Fury — Top-Down Driving Game</title>
+<meta name="description" content="Drive Fury — realistic top-down driving game. Steer, accelerate, avoid traffic and obstacles. Mobile + desktop friendly.">
+<meta name="keywords" content="driving game, car game, mobile game, browser game, HTML5 game, top-down racer">
+<link rel="canonical" href="https://aitoolsdirectory.site/games/drive.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Drive Fury — Top-Down Driving Game">
+<meta property="og:description" content="Drive Fury — realistic top-down driving game. Steer, accelerate, avoid traffic and obstacles. Mobile + desktop friendly.">
+<meta property="og:type" content="game">
+<meta property="og:url" content="https://aitoolsdirectory.site/games/drive.html">
+<meta property="og:image" content="https://aitoolsdirectory.site/assets/og-drive.png">
+
+<!-- JSON-LD (Game Schema) -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Game",
+  "name": "Drive Fury",
+  "description": "Top-down driving game with realistic steering, mobile controls and obstacles.",
+  "applicationCategory": "Game",
+  "operatingSystem": "Web Browser",
+  "url": "https://aitoolsdirectory.site/games/drive.html",
+  "genre": ["Racing","Arcade","Simulation"]
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-143GBNNFQE');
+</script>
+
+<style>
+  :root{
+    --card-bg:#fff;
+    --accent:#2563eb;
+    --accent-dark:#1e40af;
+    --ui:#111827;
+    --muted:#6b7280;
+  }
+  html,body{height:100%;margin:0}
+  body{
+    font-family:"Poppins",Arial,Helvetica,sans-serif;
+    background: linear-gradient(180deg,#e6eefc 0%, #f3f6fb 100%);
+    color:var(--ui);
+    -webkit-font-smoothing:antialiased;
+    -moz-osx-font-smoothing:grayscale;
+    display:flex;flex-direction:column;align-items:center;gap:16px;padding:18px;
+  }
+
+  header{
+    width:100%;max-width:1100px;display:flex;align-items:center;justify-content:space-between;
+  }
+  header h1{font-size:1.25rem;margin:0}
+  header nav a{color:var(--muted);text-decoration:none;margin-left:12px;font-weight:600}
+  .card{
+    width:100%;max-width:1100px;background:var(--card-bg);border-radius:14px;padding:12px 14px;
+    box-shadow:0 8px 30px rgba(16,24,40,0.06);
+    display:flex;flex-direction:column;align-items:center;
+  }
+
+  /* game area */
+  #gameWrap{width:100%;max-width:900px;display:flex;flex-direction:row;gap:12px;align-items:flex-start}
+  #viewport{
+    display:block;
+    background:#8b9cb8;border-radius:12px;overflow:hidden;flex:1;
+    box-shadow:inset 0 -30px 60px rgba(0,0,0,0.15);
+    position:relative;
+  }
+
+  canvas{display:block;width:100%;height:auto;background:transparent}
+
+  /* sidebar UI */
+  .ui{
+    width:260px;min-width:220px;background:#fff;border-radius:12px;padding:12px;box-shadow:0 6px 16px rgba(2,6,23,0.04);
+    display:flex;flex-direction:column;gap:12px;
+  }
+  .ui .stat{display:flex;justify-content:space-between;font-weight:700;padding:6px 0}
+  .controls{display:flex;gap:8px;flex-wrap:wrap}
+  .btn{background:var(--accent);border:none;color:white;padding:8px 12px;border-radius:8px;cursor:pointer;font-weight:700}
+  .btn.secondary{background:#10b981}
+  .small{padding:6px 8px;font-size:13px}
+  .toggle{display:flex;gap:8px;align-items:center}
+
+  /* mobile touch controls overlay */
+  .touchControls{
+    display:none;
+    width:100%;
+    position: absolute;
+    bottom:12px;
+    left:0;
+    pointer-events:none;
+    justify-content:center;
+    gap:14px;
+    z-index:6;
+  }
+  .touchGroup{pointer-events:auto;display:flex;gap:8px;align-items:center;}
+  .touchBtn{width:64px;height:64px;border-radius:10px;background:rgba(0,0,0,0.6);color:white;display:flex;align-items:center;justify-content:center;font-size:22px}
+
+  /* speedometer & overlay */
+  .hud{
+    position:absolute;left:14px;top:14px;background:rgba(255,255,255,0.85);padding:8px;border-radius:8px;font-weight:700;z-index:5;
+  }
+
+  .centerMsg{
+    position:absolute;left:50%;top:8%;transform:translateX(-50%);background:rgba(0,0,0,0.5);color:white;padding:8px 12px;border-radius:10px;font-weight:700;z-index:7;
+  }
+
+  footer{width:100%;max-width:1100px;font-size:13px;color:var(--muted);display:flex;justify-content:space-between}
+  @media(max-width:900px){
+    #gameWrap{flex-direction:column}
+    .ui{width:100%}
+    .touchControls{display:flex}
+    header nav{display:none}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <h1>🚗 Drive Fury</h1>
+  <nav>
+    <a href="/index.html">Home</a>
+    <a href="/games.html">Games</a>
+  </nav>
+</header>
+
+<div class="card">
+  <div id="gameWrap">
+    <div id="viewport" aria-label="Game viewport">
+      <div class="hud" id="hud">Speed: 0 km/h</div>
+      <div class="centerMsg" id="centerMsg" style="display:none">Paused</div>
+      <canvas id="gameCanvas" width="720" height="1080"></canvas>
+
+      <!-- Mobile controls -->
+      <div class="touchControls" id="touchControls" aria-hidden="false">
+        <div class="touchGroup" style="margin-right:20px;">
+          <div class="touchBtn" id="btnLeft">◀</div>
+          <div class="touchBtn" id="btnRight">▶</div>
+        </div>
+        <div class="touchGroup">
+          <div class="touchBtn" id="btnBrake">⬇</div>
+          <div class="touchBtn" id="btnAccel">⬆</div>
+        </div>
+      </div>
+    </div>
+
+    <aside class="ui" aria-label="Game controls">
+      <div style="display:flex;justify-content:space-between;align-items:center">
+        <div style="font-weight:800">Drive Fury</div>
+        <div style="color:var(--muted)">Arcade • Simulation</div>
+      </div>
+
+      <div class="stat"><span>Score</span><span id="score">0</span></div>
+      <div class="stat"><span>Distance</span><span id="distance">0 m</span></div>
+      <div class="stat"><span>Health</span><span id="health">100%</span></div>
+
+      <div class="controls">
+        <button class="btn" id="startBtn">Start</button>
+        <button class="btn small" id="pauseBtn">Pause</button>
+        <button class="btn small" id="resetBtn">Reset</button>
+      </div>
+
+      <div>
+        <label style="font-weight:700;font-size:13px">Difficulty</label>
+        <div style="display:flex;gap:8px;margin-top:8px">
+          <button class="btn small" data-diff="easy">Easy</button>
+          <button class="btn small" data-diff="normal" style="background:#f59e0b">Normal</button>
+          <button class="btn small" data-diff="hard" style="background:#ef4444">Hard</button>
+        </div>
+      </div>
+
+      <div style="margin-top:8px">
+        <label style="font-weight:700;font-size:13px">High Scores</label>
+        <ol id="highscores" style="margin:8px 0 0 14px;padding:0;font-weight:600"></ol>
+      </div>
+
+      <div style="margin-top:12px">
+        <label style="font-weight:700;font-size:13px">Sound</label>
+        <div class="toggle">
+          <button class="btn small" id="soundBtn">Toggle</button>
+          <span style="color:var(--muted);font-size:13px">On / Off</span>
+        </div>
+      </div>
+
+      <div style="margin-top:8px;color:var(--muted);font-size:13px">Controls: Arrow keys / WASD on desktop. Touch controls on mobile.</div>
+    </aside>
+  </div>
+</div>
+
+<footer>
+  <div>© 2025 AI Tools Directory</div>
+  <div>Built with ❤️ — mobile & desktop</div>
+</footer>
+
+<script>
+/*
+ Drive Fury — top-down driving game (single file)
+ - Canvas rendering, responsive scaling
+ - Simple car physics (accel, brake, friction, steering)
+ - Lane-based obstacle spawning with variable speeds
+ - Collision detection
+ - Score, distance, health, high-score storage
+ - Keyboard + touch controls
+*/
+
+// Canvas + scaling
+const canvas = document.getElementById('gameCanvas');
+const ctx = canvas.getContext('2d');
+
+let vw = canvas.width, vh = canvas.height;
+function fitCanvas(){
+  const container = document.getElementById('viewport');
+  const rect = container.getBoundingClientRect();
+  const aspect = vw/vh;
+  let w = rect.width;
+  let h = Math.round(w / aspect);
+  if(h > rect.height){
+    h = rect.height;
+    w = Math.round(h * aspect);
+  }
+  canvas.style.width = w + 'px';
+  canvas.style.height = h + 'px';
+}
+window.addEventListener('resize', fitCanvas);
+fitCanvas();
+
+/* GAME STATE */
+let running = false, paused = false;
+let difficulty = 'normal';
+let soundOn = true;
+
+const hud = document.getElementById('hud');
+const centerMsg = document.getElementById('centerMsg');
+
+const scoreEl = document.getElementById('score');
+const distEl = document.getElementById('distance');
+const healthEl = document.getElementById('health');
+const highscoresEl = document.getElementById('highscores');
+
+const startBtn = document.getElementById('startBtn');
+const pauseBtn = document.getElementById('pauseBtn');
+const resetBtn = document.getElementById('resetBtn');
+const soundBtn = document.getElementById('soundBtn');
+
+const scoreBase = { easy:1, normal:2, hard:3 };
+
+/* PLAYER CAR */
+const car = {
+  x: vw/2,
+  y: vh - 220,
+  width: 46,
+  height: 80,
+  angle: 0,
+  speed: 0,
+  maxSpeed: 8,
+  accel: 0.25,
+  brake: 0.5,
+  friction: 0.05,
+  steerSpeed: 2.6,
+  health: 100
+};
+
+/* ROAD / LANE setup */
+const laneCount = 3;
+const laneWidth = 200; // virtual
+const road = {
+  width: laneCount * laneWidth,
+  x: (vw - laneCount*laneWidth)/2,
+  scroll: 0,
+};
+
+/* Obstacles & traffic */
+let obstacles = [];
+let spawnTimer = 0;
+let spawnInterval = 1000; // ms
+let lastTime = 0;
+let totalDistance = 0;
+let score = 0;
+
+/* High scores (localStorage) */
+function loadHighscores(){
+  const data = JSON.parse(localStorage.getItem('drive_highscores') || '[]');
+  renderHighscores(data);
+}
+function saveHighscore(val){
+  const data = JSON.parse(localStorage.getItem('drive_highscores') || '[]');
+  data.push({score: val, date: Date.now()});
+  data.sort((a,b)=>b.score-a.score);
+  localStorage.setItem('drive_highscores', JSON.stringify(data.slice(0,5)));
+  renderHighscores(JSON.parse(localStorage.getItem('drive_highscores')));
+}
+function renderHighscores(data){
+  highscoresEl.innerHTML = '';
+  (data||[]).slice(0,5).forEach(d=>{
+    const li = document.createElement('li');
+    li.textContent = `${d.score} pts`;
+    highscoresEl.appendChild(li);
+  });
+}
+
+/* Helpers */
+function rand(min,max){ return Math.random()*(max-min)+min; }
+function laneX(i){ // lane center x
+  const left = (vw - road.width)/2 + 0.5*(vw - vw) + 20; // adjust a bit
+  const start = (vw - road.width)/2;
+  return start + laneWidth*(i+0.5);
+}
+
+/* Setup initial */
+loadHighscores();
+
+/* Draw functions */
+function drawRoad(){
+  const startX = (vw - road.width)/2;
+  // road background
+  ctx.fillStyle = '#2b394b';
+  ctx.fillRect(startX, 0, road.width, vh);
+
+  // lane separators (dashed)
+  ctx.strokeStyle = '#e6eefc';
+  ctx.lineWidth = 6;
+  for(let i=1;i<laneCount;i++){
+    const x = startX + laneWidth*i;
+    ctx.beginPath();
+    const dashLen = 30;
+    let y = (road.scroll% (dashLen*2)) - dashLen*2;
+    while(y < vh+dashLen){
+      ctx.moveTo(x, y);
+      ctx.lineTo(x, y+dashLen);
+      y += dashLen*2;
+    }
+    ctx.stroke();
+  }
+
+  // roadside shading
+  ctx.fillStyle = '#89a3c0';
+  ctx.fillRect(0,0,startX,vh);
+  ctx.fillRect(startX+road.width,0,vw - (startX+road.width),vh);
+}
+
+function drawCar(){
+  // simple car body with rotation
+  ctx.save();
+  ctx.translate(car.x, car.y);
+  ctx.rotate(car.angle * Math.PI / 180);
+  // shadow
+  ctx.fillStyle = 'rgba(0,0,0,0.25)';
+  ctx.fillRect(-car.width/2+4, -car.height/2+14, car.width, 18);
+  // body
+  ctx.fillStyle = '#10b981';
+  roundRect(ctx,-car.width/2, -car.height/2, car.width, car.height, 8, true, false);
+  // windshield
+  ctx.fillStyle = '#0f172a';
+  ctx.fillRect(-car.width/2+6, -car.height/2+8, car.width-12, 20);
+  ctx.restore();
+}
+
+function roundRect(ctx,x,y,w,h,r,fill,stroke){
+  if(typeof r==='undefined') r=5;
+  ctx.beginPath();
+  ctx.moveTo(x+r,y);
+  ctx.arcTo(x+w,y,x+w,y+h,r);
+  ctx.arcTo(x+w,y+h,x,y+h,r);
+  ctx.arcTo(x,y+h,x,y,r);
+  ctx.arcTo(x,y,x+w,y,r);
+  ctx.closePath();
+  if(fill) ctx.fill();
+  if(stroke) ctx.stroke();
+}
+
+/* Obstacles */
+function spawnObstacle(){
+  const lane = Math.floor(rand(0,laneCount));
+  const width = rand(40, 80);
+  const height = rand(80, 130);
+  const x = (vw - road.width)/2 + laneWidth*lane + (laneWidth - width)/2;
+  const y = -height - 20;
+  const type = Math.random() < 0.15 ? 'barrier' : 'car';
+  const speed = rand(1.5, 3.5) + (difficulty==='hard'?2: difficulty==='normal'?1:0);
+  obstacles.push({x,y,width,height,lane,type,speed});
+}
+
+/* collision helper */
+function rectsIntersect(r1,r2){
+  return !(r2.x > r1.x + r1.width || 
+           r2.x + r2.width < r1.x || 
+           r2.y > r1.y + r1.height ||
+           r2.y + r2.height < r1.y);
+}
+
+/* update & draw obstacles */
+function updateObstacles(dt){
+  for(let i=obstacles.length-1;i>=0;i--){
+    const o = obstacles[i];
+    o.y += o.speed * (car.speed/4 + 1) * dt * 0.6;
+    // draw
+    ctx.fillStyle = (o.type==='barrier'?'#ef4444':'#4b5563');
+    roundRect(ctx,o.x, o.y, o.width, o.height, 6, true, false);
+    // remove if off screen (past bottom)
+    if(o.y > vh + 200){ obstacles.splice(i,1); score += Math.round(1*scoreBase[difficulty]); }
+  }
+}
+
+/* game update loop */
+function update(t){
+  if(!running || paused) return;
+  const now = t || performance.now();
+  const dt = (now - lastTime)/16.67; // normalization ~60fps
+  lastTime = now;
+
+  // physics: speed, friction
+  // accelerate/brake controlled by keyboard flags
+  if(inputState.accel){
+    car.speed += car.accel * dt;
+  } else if(inputState.brake){
+    car.speed -= car.brake * dt;
+  } else {
+    // natural friction
+    car.speed -= car.friction * dt;
+  }
+  car.speed = Math.max(-2, Math.min(car.speed, car.maxSpeed));
+
+  // steering affects angle and x-position
+  if(inputState.left){
+    car.angle -= car.steerSpeed * (car.speed/4 + 0.6) * dt;
+    car.x -= 4 * (car.speed/4 + 0.6) * dt;
+  }
+  if(inputState.right){
+    car.angle += car.steerSpeed * (car.speed/4 + 0.6) * dt;
+    car.x += 4 * (car.speed/4 + 0.6) * dt;
+  }
+  // keep car within road bounds
+  const leftBound = (vw - road.width)/2 + 10;
+  const rightBound = (vw + road.width)/2 - 10;
+  car.x = Math.max(leftBound + car.width/2, Math.min(car.x, rightBound - car.width/2));
+
+  // road scroll
+  road.scroll += car.speed*2 * dt;
+  totalDistance += car.speed * 2 * dt;
+  // spawn obstacles
+  spawnTimer += (now - (lastSpawnTime || now));
+  lastSpawnTime = now;
+  if(spawnTimer > spawnInterval - (difficulty==='hard'?300: difficulty==='normal'?150:0)){
+    spawnTimer = 0;
+    if(obstacles.length < 7) spawnObstacle();
+  }
+
+  // render scene
+  render();
+
+  // update obstacles and check collisions
+  updateObstacles(dt);
+
+  // collisions (approx)
+  const playerRect = {
+    x: car.x - car.width/2,
+    y: car.y - car.height/2,
+    width: car.width,
+    height: car.height
+  };
+  for(let i=0;i<obstacles.length;i++){
+    const o = obstacles[i];
+    const orect = {x: o.x, y: o.y, width: o.width, height: o.height};
+    if(rectsIntersect(playerRect, orect)){
+      // collision response
+      car.health -= (o.type === 'barrier' ? 35 : 18);
+      // small push back
+      car.speed = Math.max( -1, car.speed - 1.6 );
+      // particle / flash effect
+      flashScreen();
+      // remove obstacle
+      obstacles.splice(i,1);
+      if(car.health <= 0){
+        car.health = 0;
+        endGame();
+        return;
+      }
+      break;
+    }
+  }
+
+  // update HUD
+  hud.textContent = `Speed: ${Math.max(0,Math.round(car.speed*25))} km/h`;
+  scoreEl.textContent = Math.round(score);
+  distEl.textContent = `${Math.round(totalDistance)} m`;
+  healthEl.textContent = `${Math.round(car.health)}%`;
+
+  // schedule next frame
+  requestAnimationFrame(update);
+}
+
+/* render full scene */
+function render(){
+  // clear
+  ctx.clearRect(0,0,vw,vh);
+
+  // road
+  drawRoad();
+
+  // roadside objects (simple trees)
+  for(let i=0;i<8;i++){
+    const tx = (i%2===0 ? 20 : vw-40);
+    const ty = (i*140 + (road.scroll%140));
+    ctx.fillStyle = '#0f172a';
+    ctx.fillRect(tx, (ty%vh) - 60, 8, 40);
+    ctx.fillStyle = '#064e3b';
+    ctx.beginPath();
+    ctx.arc(tx+4, (ty%vh)-60, 20, 0, Math.PI*2);
+    ctx.fill();
+  }
+
+  // center road lines / obstacles are drawn separately
+  // player car
+  drawCar();
+}
+
+/* flash effect */
+let flashAlpha = 0;
+function flashScreen(){
+  flashAlpha = 0.8;
+  const fade = setInterval(()=>{
+    flashAlpha -= 0.08;
+    if(flashAlpha <= 0){ flashAlpha = 0; clearInterval(fade); }
+  },30);
+  (function f(){
+    if(flashAlpha <=0) return;
+    ctx.fillStyle = `rgba(255,0,0,${flashAlpha})`;
+    ctx.fillRect(0,0,vw,vh);
+    requestAnimationFrame(f);
+  })();
+}
+
+/* game control */
+let lastSpawnTime = 0;
+function startGame(){
+  resetGame();
+  running = true;
+  paused = false;
+  centerMsg.style.display = 'none';
+  lastTime = performance.now();
+  requestAnimationFrame(update);
+}
+function pauseGame(){
+  paused = !paused;
+  centerMsg.style.display = paused ? 'block' : 'none';
+  centerMsg.textContent = paused ? 'Paused' : '';
+  if(!paused) lastTime = performance.now();
+}
+function resetGame(){
+  obstacles = [];
+  car.x = vw/2;
+  car.y = vh - 220;
+  car.angle = 0; car.speed = 0; car.health = 100;
+  spawnTimer = 0; score = 0; totalDistance = 0;
+  hud.textContent = 'Speed: 0 km/h';
+  scoreEl.textContent = '0';
+  distEl.textContent = '0 m';
+  healthEl.textContent = '100%';
+  lastSpawnTime = performance.now();
+}
+
+/* end game */
+function endGame(){
+  running = false;
+  centerMsg.style.display = 'block';
+  centerMsg.textContent = 'You Crashed!';
+  // save highscore if > 0
+  if(score > 0) saveHighscore(Math.round(score));
+  setTimeout(()=> {
+    centerMsg.textContent = 'Restart to play again';
+  }, 900);
+}
+
+/* input handling */
+const inputState = {left:false,right:false,accel:false,brake:false};
+
+document.addEventListener('keydown', e=>{
+  if(e.key === 'ArrowLeft' || e.key === 'a') inputState.left = true;
+  if(e.key === 'ArrowRight' || e.key === 'd') inputState.right = true;
+  if(e.key === 'ArrowUp' || e.key === 'w') inputState.accel = true;
+  if(e.key === 'ArrowDown' || e.key === 's') inputState.brake = true;
+  if(e.key === 'p') pauseGame();
+});
+document.addEventListener('keyup', e=>{
+  if(e.key === 'ArrowLeft' || e.key === 'a') inputState.left = false;
+  if(e.key === 'ArrowRight' || e.key === 'd') inputState.right = false;
+  if(e.key === 'ArrowUp' || e.key === 'w') inputState.accel = false;
+  if(e.key === 'ArrowDown' || e.key === 's') inputState.brake = false;
+});
+
+/* touch buttons */
+document.getElementById('btnLeft').addEventListener('touchstart', e=>{ e.preventDefault(); inputState.left = true; });
+document.getElementById('btnLeft').addEventListener('touchend', e=>{ e.preventDefault(); inputState.left = false; });
+
+document.getElementById('btnRight').addEventListener('touchstart', e=>{ e.preventDefault(); inputState.right = true; });
+document.getElementById('btnRight').addEventListener('touchend', e=>{ e.preventDefault(); inputState.right = false; });
+
+document.getElementById('btnAccel').addEventListener('touchstart', e=>{ e.preventDefault(); inputState.accel = true; });
+document.getElementById('btnAccel').addEventListener('touchend', e=>{ e.preventDefault(); inputState.accel = false; });
+
+document.getElementById('btnBrake').addEventListener('touchstart', e=>{ e.preventDefault(); inputState.brake = true; });
+document.getElementById('btnBrake').addEventListener('touchend', e=>{ e.preventDefault(); inputState.brake = false; });
+
+/* UI events */
+startBtn.onclick = ()=> startGame();
+pauseBtn.onclick = ()=> pauseGame();
+resetBtn.onclick = ()=> { resetGame(); running=false; centerMsg.style.display='none'; };
+
+soundBtn.onclick = ()=> { soundOn = !soundOn; soundBtn.textContent = soundOn ? 'Sound: On' : 'Sound: Off'; };
+
+/* difficulty */
+document.querySelectorAll('[data-diff]').forEach(btn=>{
+  btn.onclick = ()=> {
+    difficulty = btn.dataset.diff;
+    spawnInterval = difficulty === 'hard' ? 700 : difficulty === 'normal' ? 1000 : 1400;
+  };
+});
+
+/* start smaller loop to render static view when not running */
+(function idleRender(){
+  render();
+  requestAnimationFrame(idleRender);
+})();
+
+/* initial */
+resetGame();
+fitCanvas();
+loadHighscores();
+
+</script>
+</body>
+</html>

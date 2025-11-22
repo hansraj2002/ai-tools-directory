@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+
+<title>Helicopter Rescue — Play Free Online</title>
+<meta name="description" content="Play Helicopter Rescue — a smooth, realistic flying game with obstacles, animated helicopter graphics, and mobile/desktop support." />
+<meta name="keywords" content="helicopter game, rescue game, flying game, mobile helicopter, desktop helicopter, mini games, play online" />
+<meta name="robots" content="index, follow">
+
+<link rel="canonical" href="https://aitoolsdirectory.site/games/helicopter-rescue.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Helicopter Rescue — Play Online">
+<meta property="og:description" content="A realistic helicopter flying game with obstacles, animations and smooth controls.">
+<meta property="og:type" content="game">
+<meta property="og:url" content="https://aitoolsdirectory.site/games/helicopter-rescue.html">
+<meta property="og:image" content="https://aitoolsdirectory.site/assets/helicopter-og.png">
+
+<!-- Twitter Card -->
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Helicopter Rescue — Play Online">
+<meta name="twitter:description" content="Fly a realistic helicopter and dodge obstacles. Works on phone and desktop.">
+<meta name="twitter:image" content="https://aitoolsdirectory.site/assets/helicopter-og.png">
+
+<!-- JSON-LD Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Game",
+  "name": "Helicopter Rescue",
+  "description": "A realistic helicopter flying game with animated rotors, obstacles, and mobile/desktop controls.",
+  "genre": ["Arcade", "Flying", "Rescue"],
+  "applicationCategory": "Game",
+  "operatingSystem": "Web Browser",
+  "url": "https://aitoolsdirectory.site/games/helicopter-rescue.html"
+}
+</script>
+
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-143GBNNFQE');
+</script>
+
+<style>
+  body {
+    background: #0a0f1a;
+    color: #fff;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    padding: 0;
+    margin: 0;
+  }
+
+  .card {
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+  }
+
+  canvas {
+    background: linear-gradient(#0c1b33, #0a0f1a);
+    border-radius: 12px;
+    display: block;
+    margin: 0 auto;
+  }
+
+  #info {
+    margin-top: 10px;
+    font-size: 18px;
+  }
+
+  .mobile-controls {
+    display: none;
+    margin-top: 15px;
+  }
+
+  .btn {
+    padding: 18px 28px;
+    background: #2563eb;
+    color: white;
+    border-radius: 10px;
+    border: none;
+    font-size: 20px;
+    margin: 5px;
+    width: 40%;
+  }
+
+  @media (max-width: 768px) {
+    .mobile-controls { display: block; }
+  }
+</style>
+</head>
+
+<body>
+
+<div class="card">
+  <h1>🚁 Helicopter Rescue</h1>
+  <p>Fly the helicopter, dodge obstacles, and survive as long as possible!</p>
+
+  <canvas id="game" width="800" height="400"></canvas>
+
+  <div id="info">Press SPACE or UP to fly — Mobile users tap UP.</div>
+
+  <!-- Mobile controls -->
+  <div class="mobile-controls">
+    <button class="btn" id="flyBtn">UP ⬆️</button>
+  </div>
+</div>
+
+<script>
+const canvas = document.getElementById("game");
+const ctx = canvas.getContext("2d");
+
+/* ---------------- HELICOPTER OBJECT ---------------- */
+let heli = {
+  x: 80,
+  y: 200,
+  vy: 0,
+  gravity: 0.4,
+  lift: -8,
+  rotorAngle: 0
+};
+
+let obstacles = [];
+let score = 0;
+let alive = true;
+let flying = false;
+
+/* ---------------- KEYBOARD ---------------- */
+document.addEventListener("keydown", e => {
+  if (["Space", "ArrowUp", "KeyW"].includes(e.code)) flying = true;
+});
+document.addEventListener("keyup", e => {
+  if (["Space", "ArrowUp", "KeyW"].includes(e.code)) flying = false;
+});
+
+/* ---------------- MOBILE ---------------- */
+flyBtn.onmousedown = () => flying = true;
+flyBtn.onmouseup = () => flying = false;
+flyBtn.ontouchstart = e => { flying = true; e.preventDefault(); };
+flyBtn.ontouchend = () => flying = false;
+
+/* ---------------- SPAWN OBSTACLES ---------------- */
+function spawnObstacle() {
+  const gap = 140;
+  const topHeight = Math.random() * 200 + 40;
+  obstacles.push({
+    x: canvas.width,
+    top: topHeight,
+    bottom: topHeight + gap,
+    width: 50
+  });
+}
+setInterval(spawnObstacle, 1800);
+
+/* ---------------- DRAW HELICOPTER ---------------- */
+function drawHelicopter() {
+  const { x, y } = heli;
+
+  /* Body */
+  ctx.fillStyle = "#4ade80";
+  ctx.fillRect(x, y, 45, 24);
+
+  /* Cockpit */
+  ctx.fillStyle = "#1e293b";
+  ctx.fillRect(x + 30, y + 4, 12, 16);
+
+  /* Tail Boom */
+  ctx.fillStyle = "#4ade80";
+  ctx.fillRect(x - 30, y + 8, 30, 8);
+
+  /* Rear Rotor */
+  ctx.fillStyle = "#93c5fd";
+  ctx.fillRect(x - 34, y + 4, 12, 4);
+
+  /* Spinning Top Rotor */
+  heli.rotorAngle += 0.3;
+  ctx.save();
+  ctx.translate(x + 20, y - 4);
+  ctx.rotate(heli.rotorAngle);
+  ctx.fillStyle = "#93c5fd";
+  ctx.fillRect(-50, -2, 100, 4);
+  ctx.restore();
+}
+
+/* ---------------- GAME LOOP ---------------- */
+function loop() {
+  if (!alive) return;
+
+  ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+  /* Gravity + Lift */
+  heli.vy += heli.gravity;
+  if (flying) heli.vy = heli.lift;
+  heli.y += heli.vy;
+
+  /* Boundaries */
+  if (heli.y < 0) heli.y = 0;
+  if (heli.y > canvas.height - 40) heli.y = canvas.height - 40;
+
+  /* Draw helicopter */
+  drawHelicopter();
+
+  /* Draw & update obstacles */
+  ctx.fillStyle = "#ef4444";
+
+  obstacles.forEach(ob => {
+    ob.x -= 4;
+
+    // Top pillar
+    ctx.fillRect(ob.x, 0, ob.width, ob.top);
+
+    // Bottom pillar
+    ctx.fillRect(ob.x, ob.bottom, ob.width, canvas.height - ob.bottom);
+
+    // Collision detection
+    if (
+      heli.x < ob.x + ob.width &&
+      heli.x + 45 > ob.x &&
+      (heli.y < ob.top || heli.y + 24 > ob.bottom)
+    ) {
+      gameOver();
+    }
+
+    // Score when passed
+    if (ob.x + ob.width < 0) {
+      obstacles.shift();
+      score++;
+    }
+  });
+
+  /* Score text */
+  ctx.fillStyle = "#fff";
+  ctx.font = "20px Arial";
+  ctx.fillText("Score: " + score, 20, 30);
+
+  requestAnimationFrame(loop);
+}
+
+function gameOver() {
+  alive = false;
+  ctx.fillStyle = "#fff";
+  ctx.font = "40px Arial";
+  ctx.fillText("GAME OVER", canvas.width / 2 - 120, canvas.height / 2);
+}
+
+/* Start */
+loop();
+</script>
+
+</body>
+</html>
