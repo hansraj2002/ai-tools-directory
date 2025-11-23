@@ -54,7 +54,7 @@
       <a href="submit.html">Submit Idea</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
+      <a href="policy.html">Privacy & Terms</a>
       <a href="games.html">Games</a>
     </nav>
   </header>
@@ -81,77 +81,77 @@
     <!-- Game 1 -->
     <div class="card">
       <h3>AI Guessing Game</h3>
-      <p>Think of anything and the AI tries to guess it in 20 questions.</p>
+      <p>A quick logic challenge where you try to guess the hidden number in as few attempts as possible.</p>
       <a href="games/guess.html" target="_blank" onclick="trackGame('AI Guessing Game')">Play Now</a>
     </div>
 
     <!-- Game 2 -->
     <div class="card">
       <h3>Word Speed Challenge</h3>
-      <p>Test your typing speed and accuracy under time pressure.</p>
+      <p>Test your typing accuracy and speed in real-time with a live WPM and accuracy tracker.</p>
       <a href="games/typing.html" target="_blank" onclick="trackGame('Word Speed Challenge')">Play Now</a>
     </div>
 
     <!-- Game 3 -->
     <div class="card">
       <h3>Reaction Time Test</h3>
-      <p>Measure your reflexes! Tap when the screen turns green.</p>
+      <p>Measure how fast your brain responds. Tap the screen or click instantly when the signal appears.</p>
       <a href="games/reaction.html" target="_blank" onclick="trackGame('Reaction Time Test')">Play Now</a>
     </div>
 
     <!-- Game 4 -->
     <div class="card">
       <h3>2048 AI Edition</h3>
-      <p>Slide tiles, merge numbers, and reach 2048!</p>
+      <p>Swipe, merge tiles, and strategise your way to the legendary 2048 tile — simple but addictive.</p>
       <a href="games/2048.html" target="_blank" onclick="trackGame('2048 AI Edition')">Play Now</a>
     </div>
 
     <!-- Game 5 -->
     <div class="card">
       <h3>Memory Match</h3>
-      <p>Flip cards and match pairs. Train your memory.</p>
+      <p>A classic card-matching puzzle that strengthens your focus, memory, and concentration skills.</p>
       <a href="games/memory.html" target="_blank" onclick="trackGame('Memory Match')">Play Now</a>
     </div>
 
     <!-- Game 6 -->
     <div class="card">
       <h3>Snake Neo</h3>
-      <p>Classic Snake with modern neon visuals.</p>
+      <p>A modern version of the classic snake arcade game. Eat food to grow and avoid hitting the walls.</p>
       <a href="games/snake.html" target="_blank" onclick="trackGame('Snake Neo')">Play Now</a>
     </div>
 
     <!-- Game 7 -->
     <div class="card">
       <h3>AI Maze Runner</h3>
-      <p>Escape randomly generated mazes as quickly as possible.</p>
+      <p>Navigate through randomly generated mazes and find your way to the exit before time runs out.</p>
       <a href="games/maze.html" target="_blank" onclick="trackGame('Maze Runner')">Play Now</a>
     </div>
 
     <!-- Game 8 -->
     <div class="card">
       <h3>Jump Cube</h3>
-      <p>Jump over obstacles and survive as long as possible.</p>
+      <p>A fast-paced obstacle-runner where timing your jumps is the key to survival.</p>
       <a href="games/jump.html" target="_blank" onclick="trackGame('Jump Cube')">Play Now</a>
     </div>
 
     <!-- Game: Car Racer -->
     <div class="card">
     <h3>Car Racer</h3>
-    <p>Race through traffic, avoid crashes, and set the highest score!</p>
+    <p>A top-down racing game featuring smooth controls, traffic obstacles, and high-speed drifting. Play on mobile or desktop and beat your best distance.</p>
     <a href="games/car-racer.html" target="_blank" onclick="trackGame('Car Racer')">Play Now</a>
     </div>
 
     <!-- Game: Helicopter 2 -->
     <div class="card">
       <h3>Helicopter 2</h3>
-      <p>Fly the helicopter, dodge obstacles, and survive as long as possible.</p>
+      <p>Fly your helicopter through moving obstacles, dodge danger, and survive as long as you can. Fully optimised for both desktop (keyboard) and mobile (touch).</p>
       <a href="games/helicopter2.html" target="_blank" onclick="trackGame('Helicopter 2')">Play Now</a>
     </div>
 
     <!-- Game: Drive -->
     <div class="card">
       <h3>Drive</h3>
-      <p>A smooth 2D driving game with obstacles — great on both mobile and desktop.</p>
+      <p>A realistic forward-driving challenge with dynamic road obstacles and smooth lane-switch controls. Test your reflexes and stay alive as the speed increases.</p>
       <a href="games/drive.html" target="_blank" onclick="trackGame('Drive')">Play Now</a>
     </div>
 
@@ -162,6 +162,69 @@
   <footer>
     <p>&copy; 2025 AI Tools Directory</p>
   </footer>
+
+<!-- ================= COOKIE CONSENT (GDPR + AdSense) ================= -->
+<style>
+  #cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background: #111827;
+    color: #fff;
+    padding: 18px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    display: none;
+    z-index: 9999;
+    animation: slideUp 0.5s ease;
+  }
+
+  #cookie-banner button {
+    background: #2563eb;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  #cookie-banner a {
+    color: #93c5fd;
+    text-decoration: underline;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+  }
+</style>
+
+<div id="cookie-banner">
+  We use cookies to improve your experience, analyse traffic, and show personalised ads (Google AdSense).
+  Read our <a href="policy.html" target="_blank">Privacy & Terms</a>.
+  <button id="cookie-accept">Accept</button>
+</div>
+
+<script>
+  // Show banner only if not accepted before
+  if (!localStorage.getItem("cookie_consent")) {
+    document.getElementById("cookie-banner").style.display = "block";
+  }
+
+  document.getElementById("cookie-accept").addEventListener("click", () => {
+    localStorage.setItem("cookie_consent", "yes");
+    document.getElementById("cookie-banner").style.display = "none";
+  });
+</script>
+<!-- ================= END COOKIE CONSENT ================= -->
+
 
 </body>
 </html>

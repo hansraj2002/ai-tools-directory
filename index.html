@@ -55,7 +55,7 @@
       <a href="submit.html">Submit Idea</a>
       <a href="about.html">About</a>
       <a href="contact.html">Contact</a>
-      <a href="privacy.html">Privacy</a>
+      <a href="policy.html">Privacy & Terms</a>
       <a href="games.html">Games</a>
     </nav>
   </header>
@@ -86,6 +86,40 @@
     <h2 class="featured-title">🔥 Featured Tools</h2>
     <div class="featured-grid" id="featuredTools"></div>
   </section>
+
+<!-- SEO Content Section -->
+<section class="seo-content" style="max-width:1100px;margin:30px auto;padding:10px 20px;line-height:1.65;">
+  <h2 style="font-size:1.8rem;margin-bottom:10px;font-weight:600;">What Is AI Tools Directory?</h2>
+  <p>
+    AI Tools Directory is a curated hub of the best AI applications available online. Whether you are looking for
+    AI tools for writing, coding, design, automation, marketing, research, or productivity, our directory helps you
+    quickly discover the right platform for your needs. All tools are listed with clear descriptions, categories,
+    and direct links, making it easy to explore what modern AI can do for you.
+  </p>
+
+  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">Why Millions Are Turning to AI Tools</h3>
+  <p>
+    Artificial intelligence is rapidly reshaping how people work, learn, and create. Businesses use AI to automate
+    tasks, students use it to study faster, and creators use it to produce content in seconds. Our platform brings
+    these innovations together in one place, helping you stay ahead with tools that save time, boost performance,
+    and unlock creativity.
+  </p>
+
+  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">How We Organize AI Tools</h3>
+  <p>
+    Each tool in our directory is grouped by category such as Chatbots, Image Generators, Video AI, SEO, Audio/Voice,
+    Education, Developer Tools, and Automation. This makes browsing simple and intuitive. You can also use search and
+    sorting options to instantly find exactly what you're looking for.
+  </p>
+
+  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">Our Mission</h3>
+  <p>
+    Our goal is to help individuals, developers, businesses, and creators discover useful and innovative AI 
+    technologies. We update the directory regularly with new tools, improved filters, and upcoming features to make
+    the browsing experience even better.
+  </p>
+</section>
+
 
   <!-- Category Filter -->
   <section class="category-filter">
@@ -236,6 +270,68 @@
       document.body.classList.add("dark");
     }
   </script>
+
+<!-- ================= COOKIE CONSENT (GDPR + AdSense) ================= -->
+<style>
+  #cookie-banner {
+    position: fixed;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    max-width: 600px;
+    background: #111827;
+    color: #fff;
+    padding: 18px 20px;
+    border-radius: 12px;
+    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    display: none;
+    z-index: 9999;
+    animation: slideUp 0.5s ease;
+  }
+
+  #cookie-banner button {
+    background: #2563eb;
+    border: none;
+    padding: 10px 18px;
+    border-radius: 8px;
+    color: #fff;
+    font-size: 14px;
+    cursor: pointer;
+    margin-left: 10px;
+  }
+
+  #cookie-banner a {
+    color: #93c5fd;
+    text-decoration: underline;
+  }
+
+  @keyframes slideUp {
+    from { opacity: 0; transform: translate(-50%, 10px); }
+    to   { opacity: 1; transform: translate(-50%, 0); }
+  }
+</style>
+
+<div id="cookie-banner">
+  We use cookies to improve your experience, analyse traffic, and show personalised ads (Google AdSense).
+  Read our <a href="policy.html" target="_blank">Privacy & Terms</a>.
+  <button id="cookie-accept">Accept</button>
+</div>
+
+<script>
+  // Show banner only if not accepted before
+  if (!localStorage.getItem("cookie_consent")) {
+    document.getElementById("cookie-banner").style.display = "block";
+  }
+
+  document.getElementById("cookie-accept").addEventListener("click", () => {
+    localStorage.setItem("cookie_consent", "yes");
+    document.getElementById("cookie-banner").style.display = "none";
+  });
+</script>
+<!-- ================= END COOKIE CONSENT ================= -->
 
 </body>
 </html>
