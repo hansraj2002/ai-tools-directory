@@ -52,7 +52,179 @@
     gtag('js', new Date());
     gtag('config', 'G-143GBNNFQE');
   </script>
+<style>
+  /* ===== Header Container ===== */
+header {
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6); /* Professional AI blue gradient */
+    color: #ffffff;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+/* ===== Site Title ===== */
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-align: center;
+}
+
+/* ===== Navigation Menu ===== */
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+header nav a {
+    text-decoration: none;
+    color: #ffffff;
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: rgba(255,255,255,0.05); /* subtle transparent buttons */
+}
+
+/* ===== Hover Effect ===== */
+header nav a::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: #facc15; /* gold accent */
+    width: 0%;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+header nav a:hover {
+    background-color: rgba(255,255,255,0.15);
+    color: #fef3c7;
+}
+
+/* ===== Responsive Styling ===== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    header nav a {
+        text-align: center;
+    }
+}
+
+/* ===== General Section Styling ===== */
+section {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    background: rgba(59, 130, 246, 0.03); /* subtle AI blue tint */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    color: #1e293b; /* soft dark text */
+}
+
+/* ===== Headings ===== */
+section h2 {
+    font-size: 1.9rem;
+    color: #1e3a8a; /* deep professional blue */
+    font-weight: 700;
+    margin-top: 30px;
+    margin-bottom: 12px;
+    letter-spacing: 0.5px;
+}
+
+/* ===== Paragraphs ===== */
+section p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #334155;
+}
+
+/* ===== Lists ===== */
+section ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+section ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    color: #1e293b;
+}
+
+section ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #3b82f6; /* blue check mark for AI theme */
+    font-weight: bold;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    section {
+        padding: 25px 15px;
+    }
+
+    section h2 {
+        font-size: 1.6rem;
+    }
+
+    section p, section ul li {
+        font-size: 1rem;
+    }
+}
+
+/* ===== Footer Styling ===== */
+footer {
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6); /* Matches header gradient */
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 15px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    border-radius: 10px 10px 0 0;
+}
+
+/* Footer Paragraph */
+footer p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+</style>
 
 </head>
 

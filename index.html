@@ -44,8 +44,571 @@
       width: 40px;
       height: 40px;
     }
-  </style>
+    nav{
+  display:flex;
+  justify-content:center;
+  gap:20px;
+  padding:14px;
+  background:linear-gradient(90deg,#60a5fa,#a78bfa,#f9a8d4);
+}
 
+nav a{
+  color:#ffffff;
+  text-decoration:none;
+  font-size:15px;
+  font-weight:500;
+  padding:6px 14px;
+  border-radius:18px;
+  transition:.3s;
+}
+
+nav a:hover{
+  background:rgba(255,255,255,.25);
+}
+
+@media(max-width:768px){
+  nav{flex-wrap:wrap;gap:12px;}
+}
+
+.hero{
+  padding:70px 16px;
+  text-align:center;
+  background:linear-gradient(135deg,#60a5fa,#a78bfa,#f9a8d4);
+  color:#ffffff;
+}
+
+.hero h2{
+  font-size:2.4rem;
+  font-weight:700;
+  margin-bottom:10px;
+}
+
+.hero p{
+  font-size:1.1rem;
+  opacity:.95;
+  margin-bottom:30px;
+}
+
+.stats-box{
+  display:flex;
+  justify-content:center;
+  gap:18px;
+  flex-wrap:wrap;
+}
+
+.stat{
+  background:rgba(255,255,255,.22);
+  backdrop-filter:blur(8px);
+  padding:12px 18px;
+  border-radius:16px;
+  font-weight:600;
+  font-size:15px;
+  box-shadow:0 8px 20px rgba(0,0,0,.08);
+  transition:.3s;
+}
+
+.stat:hover{
+  transform:translateY(-4px);
+  background:rgba(255,255,255,.32);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .hero h2{font-size:2rem;}
+  .stat{font-size:14px;}
+}
+
+
+.intro{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:14px;
+  padding:28px 16px;
+  flex-wrap:wrap;
+  background:linear-gradient(135deg,#e0f2fe,#ede9fe,#fce7f3);
+}
+
+/* INPUTS */
+.intro input,
+.intro select,
+.intro button{
+  padding:12px 16px;
+  font-size:14px;
+  border-radius:14px;
+  border:1px solid #dbeafe;
+  outline:none;
+  transition:.3s;
+}
+
+/* SEARCH */
+.intro input{
+  min-width:240px;
+}
+
+/* SELECT */
+.intro select{
+  background:#ffffff;
+  cursor:pointer;
+}
+
+/* BUTTON */
+.intro button{
+  background:linear-gradient(90deg,#60a5fa,#a78bfa);
+  color:#fff;
+  border:none;
+  font-weight:600;
+  cursor:pointer;
+}
+
+.intro button:hover{
+  transform:translateY(-2px);
+  opacity:.9;
+}
+
+/* FOCUS EFFECT */
+.intro input:focus,
+.intro select:focus{
+  border-color:#93c5fd;
+  box-shadow:0 0 0 3px rgba(147,197,253,.4);
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .intro input{width:100%;}
+}
+
+/* FEATURED SECTION */
+.featured-section{
+  padding:60px 16px;
+  background:linear-gradient(135deg,#eef2ff,#fdf2f8);
+  text-align:center;
+}
+
+/* TITLE */
+.featured-title{
+  font-size:2rem;
+  font-weight:700;
+  margin-bottom:35px;
+  background:linear-gradient(90deg,#6366f1,#ec4899);
+  -webkit-background-clip:text;
+  -webkit-text-fill-color:transparent;
+}
+
+/* GRID */
+.featured-grid{
+  max-width:1100px;
+  margin:auto;
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+  gap:22px;
+}
+
+/* CARD */
+.featured-card{
+  background:#ffffff;
+  border-radius:20px;
+  padding:22px;
+  text-align:left;
+  box-shadow:0 12px 30px rgba(99,102,241,.12);
+  transition:.35s;
+  position:relative;
+  overflow:hidden;
+}
+
+/* Gradient border glow */
+.featured-card::before{
+  content:"";
+  position:absolute;
+  inset:0;
+  padding:2px;
+  border-radius:20px;
+  background:linear-gradient(135deg,#60a5fa,#a78bfa,#f9a8d4);
+  -webkit-mask:
+    linear-gradient(#fff 0 0) content-box,
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite:xor;
+          mask-composite:exclude;
+}
+
+/* Hover */
+.featured-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 18px 40px rgba(99,102,241,.25);
+}
+
+/* ICON */
+.featured-card img{
+  width:42px;
+  height:42px;
+  border-radius:10px;
+  margin-bottom:12px;
+}
+
+/* NAME */
+.featured-card h3{
+  font-size:1.1rem;
+  font-weight:600;
+  margin-bottom:8px;
+}
+
+/* DESC */
+.featured-card p{
+  font-size:14px;
+  line-height:1.6;
+  opacity:.85;
+}
+
+/* BADGE */
+.featured-card .badge{
+  display:inline-block;
+  margin-bottom:10px;
+  font-size:11px;
+  font-weight:600;
+  padding:4px 10px;
+  border-radius:999px;
+  background:linear-gradient(90deg,#22c55e,#4ade80);
+  color:#fff;
+}
+
+/* MOBILE */
+@media(max-width:768px){
+  .featured-title{font-size:1.7rem;}
+}
+
+/* ==========================
+  CATEGORY FILTER
+========================== */
+.category-filter {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap:12px;
+  padding:30px 16px;
+  background: #f5f3ff;
+  border-radius:16px;
+  margin:40px auto;
+  max-width:1100px;
+}
+
+/* BUTTON STYLE */
+.category-filter button {
+  background: linear-gradient(90deg,#6366f1,#a78bfa,#f472b6);
+  color:#fff;
+  border:none;
+  padding:10px 18px;
+  border-radius:20px;
+  font-size:14px;
+  font-weight:600;
+  cursor:pointer;
+  transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT */
+.category-filter button:hover {
+  transform: translateY(-3px);
+  box-shadow:0 8px 20px rgba(99,102,241,.25);
+  opacity:.95;
+}
+
+/* ACTIVE BUTTON (OPTIONAL) */
+.category-filter button.active {
+  background: linear-gradient(90deg,#22c55e,#4ade80);
+  color:#fff;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  .category-filter {
+    gap:10px;
+    padding:20px 10px;
+  }
+  .category-filter button {
+    font-size:13px;
+    padding:8px 14px;
+  }
+}
+
+/* ==========================
+  MAIN TOOLS GRID
+========================== */
+.cards {
+  max-width: 1100px;
+  margin: 40px auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+  padding: 0 16px;
+}
+
+/* TOOL CARD */
+.cards .card {
+  background: #ffffff;
+  border-radius: 20px;
+  padding: 20px;
+  text-align: left;
+  box-shadow: 0 10px 28px rgba(99,102,241,0.08);
+  transition: transform 0.35s, box-shadow 0.35s;
+  position: relative;
+}
+
+.cards .card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 18px 40px rgba(99,102,241,0.2);
+}
+
+/* ICON */
+.cards .card img.tool-icon {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  margin-bottom: 12px;
+}
+
+/* NAME */
+.cards .card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+/* DESCRIPTION */
+.cards .card p {
+  font-size: 14px;
+  line-height: 1.6;
+  color: #334155;
+  margin-bottom: 10px;
+}
+
+/* CATEGORY TAG */
+.cards .card .category-tag {
+  display: inline-block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #4f46e5;
+  background: #e0e7ff;
+  padding: 4px 10px;
+  border-radius: 999px;
+  margin-bottom: 8px;
+}
+
+/* VISIT BUTTON */
+.cards .card a {
+  display: inline-block;
+  text-decoration: none;
+  background: linear-gradient(90deg,#6366f1,#a78bfa);
+  color: #fff;
+  padding: 8px 14px;
+  font-size: 13px;
+  border-radius: 14px;
+  font-weight: 600;
+  transition: transform 0.3s, opacity 0.3s;
+}
+
+.cards .card a:hover {
+  transform: translateY(-2px);
+  opacity: 0.9;
+}
+
+/* ==========================
+  PAGINATION
+========================== */
+.pagination {
+  display: flex;
+  justify-content: center;
+  gap: 8px;
+  margin: 30px auto;
+  flex-wrap: wrap;
+}
+
+.pagination button {
+  padding: 8px 14px;
+  border-radius: 14px;
+  border: none;
+  font-weight: 600;
+  background: linear-gradient(90deg,#6366f1,#a78bfa);
+  color: #fff;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+.pagination button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(99,102,241,0.25);
+  opacity: 0.9;
+}
+
+.pagination button.active {
+  background: linear-gradient(90deg,#22c55e,#4ade80);
+  color: #fff;
+}
+
+/* ==========================
+  MOBILE RESPONSIVE
+========================== */
+@media(max-width:768px){
+  .cards {
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap:16px;
+  }
+  .cards .card img.tool-icon { width:36px; height:36px; }
+  .cards .card h3{ font-size:1rem; }
+  .cards .card p{ font-size:13px; }
+  .cards .card a{ font-size:12px; padding:6px 12px; }
+  .pagination button{ font-size:12px; padding:6px 10px; }
+}
+
+/* ==========================
+  SEO / CONTENT SECTIONS
+========================== */
+.seo-content {
+  max-width: 1100px;
+  margin: 40px auto;
+  padding: 30px 24px;
+  line-height: 1.75;
+  background: #f5f3ff;
+  border-radius: 20px;
+  box-shadow: 0 12px 30px rgba(99,102,241,0.08);
+  color: #1e293b;
+  transition: all 0.3s ease;
+}
+
+/* HEADINGS */
+.seo-content h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 16px;
+  background: linear-gradient(90deg,#6366f1,#ec4899);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.seo-content h3 {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-top: 28px;
+  margin-bottom: 12px;
+  color: #4f46e5;
+}
+
+/* PARAGRAPHS */
+.seo-content p {
+  font-size: 15px;
+  color: #334155;
+  margin-bottom: 20px;
+  line-height: 1.7;
+}
+
+/* LINKS */
+.seo-content a {
+  color: #6366f1;
+  text-decoration: underline;
+  transition: all 0.3s;
+}
+
+.seo-content a:hover {
+  color: #ec4899;
+  text-decoration: none;
+}
+
+/* CARD / BOX FEEL FOR SECTIONS */
+.seo-content:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 18px 40px rgba(99,102,241,0.15);
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  .seo-content {
+    padding: 20px 16px;
+  }
+  .seo-content h2 { font-size: 1.7rem; }
+  .seo-content h3 { font-size: 1.2rem; }
+  .seo-content p { font-size: 14px; }
+}
+
+/* ==========================
+  FOOTER
+========================== */
+footer {
+  background: linear-gradient(90deg, #6366f1, #a78bfa, #f472b6);
+  color: #fff;
+  text-align: center;
+  padding: 25px 16px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 12px 12px 0 0;
+  box-shadow: 0 -4px 20px rgba(99,102,241,0.15);
+  transition: all 0.3s ease;
+}
+
+/* HOVER EFFECT (optional subtle) */
+footer:hover {
+  background: linear-gradient(90deg, #4f46e5, #c084fc, #f9a8d4);
+  transform: translateY(-2px);
+  box-shadow: 0 -6px 25px rgba(99,102,241,0.2);
+}
+
+/* LINKS INSIDE FOOTER */
+footer a {
+  color: #fef3c7;
+  text-decoration: underline;
+  transition: color 0.3s;
+}
+
+footer a:hover {
+  color: #fde68a;
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  footer {
+    font-size: 13px;
+    padding: 20px 12px;
+  }
+}
+/* ==========================
+  HEADER
+========================== */
+header {
+  text-align: center;
+  padding: 30px 16px;
+  background: #f5f3ff;
+  border-radius: 0 0 20px 20px;
+  box-shadow: 0 8px 25px rgba(99,102,241,0.1);
+  transition: all 0.3s ease;
+}
+
+/* HEADER TITLE */
+header h1 {
+  font-size: 2.4rem;
+  font-weight: 700;
+  margin: 0;
+  background: linear-gradient(90deg,#6366f1,#ec4899,#f472b6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  line-height: 1.2;
+}
+
+/* OPTIONAL: Hover effect for title */
+header:hover h1 {
+  transform: translateY(-2px);
+  text-shadow: 0 8px 20px rgba(99,102,241,0.2);
+}
+
+/* MOBILE RESPONSIVE */
+@media(max-width:768px){
+  header h1 {
+    font-size: 2rem;
+  }
+  header {
+    padding: 25px 12px;
+  }
+}
+  </style>
+ 
+
+ 
 </head>
 
 <body>
@@ -89,6 +652,30 @@
   </section>
 
 <!-- SEO Content Section -->
+
+  <!-- Category Filter -->
+  <section class="category-filter">
+    <button onclick="filterTools('all')">All</button>
+    <button onclick="filterTools('Chatbot')">Chatbots</button>
+    <button onclick="filterTools('Image Generator')">Image Generators</button>
+    <button onclick="filterTools('Video')">Video</button>
+    <button onclick="filterTools('Audio/Voice')">Audio/Voice</button>
+    <button onclick="filterTools('Coding')">Coding</button>
+    <button onclick="filterTools('Research')">Research</button>
+    <button onclick="filterTools('SEO')">SEO</button>
+    <button onclick="filterTools('Productivity')">Productivity</button>
+    <button onclick="filterTools('Marketing')">Marketing</button>
+    <button onclick="filterTools('Automation')">Automation</button>
+    <button onclick="filterTools('Education')">Education</button>
+    <button onclick="filterTools('Design')">Design</button>
+  </section>
+
+  <div id="pagination" class="pagination"></div>
+
+  <!-- MAIN TOOLS GRID -->
+  <section class="cards" id="tools-container">
+    <p>Loading tools...</p>
+  </section>
 <section class="seo-content" style="max-width:1100px;margin:30px auto;padding:10px 20px;line-height:1.65;">
   <h2 style="font-size:1.8rem;margin-bottom:10px;font-weight:600;">What Is AI Tools Directory?</h2>
   <p>
@@ -118,8 +705,7 @@
     Our goal is to help individuals, developers, businesses, and creators discover useful and innovative AI 
     technologies. We update the directory regularly with new tools, improved filters, and upcoming features to make
     the browsing experience even better.
-  </p>
-</section>
+  </p></section>
 
 <!-- EXPANDED EDITORIAL CONTENT -->
 <section class="seo-content" style="max-width:1100px;margin:30px auto;padding:10px 20px;line-height:1.75;">
@@ -177,30 +763,6 @@
     our directory is designed to be a reliable starting point for discovering innovative tools.
   </p>
 </section>
-
-  <!-- Category Filter -->
-  <section class="category-filter">
-    <button onclick="filterTools('all')">All</button>
-    <button onclick="filterTools('Chatbot')">Chatbots</button>
-    <button onclick="filterTools('Image Generator')">Image Generators</button>
-    <button onclick="filterTools('Video')">Video</button>
-    <button onclick="filterTools('Audio/Voice')">Audio/Voice</button>
-    <button onclick="filterTools('Coding')">Coding</button>
-    <button onclick="filterTools('Research')">Research</button>
-    <button onclick="filterTools('SEO')">SEO</button>
-    <button onclick="filterTools('Productivity')">Productivity</button>
-    <button onclick="filterTools('Marketing')">Marketing</button>
-    <button onclick="filterTools('Automation')">Automation</button>
-    <button onclick="filterTools('Education')">Education</button>
-    <button onclick="filterTools('Design')">Design</button>
-  </section>
-
-  <div id="pagination" class="pagination"></div>
-
-  <!-- MAIN TOOLS GRID -->
-  <section class="cards" id="tools-container">
-    <p>Loading tools...</p>
-  </section>
 
   <footer>
     <p>&copy; 2025 AI Tools Directory | All Rights Reserved</p>

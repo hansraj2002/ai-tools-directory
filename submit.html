@@ -38,7 +38,289 @@
     gtag('js', new Date());
     gtag('config', 'G-143GBNNFQE');
   </script>
+<style>
+  /* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Poppins', sans-serif;
+}
 
+/* Header Styling */
+header {
+  width: 100%;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Purple to Blue gradient */
+  color: white;
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+header .container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header h1.logo {
+  font-size: 1.8rem;
+  font-weight: 700;
+  cursor: pointer;
+  background: linear-gradient(90deg, #ff416c, #ff4b2b); /* Gradient logo text */
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+/* Navigation Menu */
+nav {
+  position: relative;
+}
+
+nav ul.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 25px;
+}
+
+nav ul.nav-links li a {
+  text-decoration: none;
+  color: #f5f5f5;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  padding: 5px 0;
+}
+
+nav ul.nav-links li a:hover {
+  color: #ffeb3b; /* Bright Yellow on hover */
+  border-bottom: 2px solid #ffeb3b;
+}
+
+/* Hamburger Menu (for mobile) */
+.hamburger {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  gap: 5px;
+}
+
+.hamburger span {
+  height: 3px;
+  width: 25px;
+  background: #ffeb3b; /* Yellow bars for contrast */
+  border-radius: 2px;
+}
+
+/* Responsive */
+@media screen and (max-width: 900px) {
+  nav ul.nav-links {
+    position: absolute;
+    top: 70px;
+    right: 0;
+    background: linear-gradient(135deg, #6a11cb, #2575fc);
+    width: 100%;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    padding: 20px 0;
+    display: none;
+  }
+
+  nav ul.nav-links.active {
+    display: flex;
+  }
+
+  .hamburger {
+    display: flex;
+  }
+}
+
+/* ===== Form Container Styling ===== */
+form {
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 35px 30px;
+    background: rgba(59, 130, 246, 0.05); /* subtle AI blue tint */
+    border-radius: 18px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+/* ===== Labels ===== */
+form label {
+    font-weight: 500;
+    color: #1e3a8a; /* deep blue for AI/professional vibe */
+    margin-bottom: 5px;
+}
+
+/* ===== Inputs, Select, Textarea ===== */
+form input,
+form select,
+form textarea {
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #cbd5e1; /* soft gray border */
+    font-size: 1rem;
+    transition: all 0.3s ease;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Focus Effect */
+form input:focus,
+form select:focus,
+form textarea:focus {
+    outline: none;
+    border-color: #3b82f6;
+    box-shadow: 0 0 10px rgba(59,130,246,0.3);
+}
+
+/* ===== Submit Button ===== */
+form button {
+    padding: 14px 0;
+    font-size: 1rem;
+    font-weight: 600;
+    border: none;
+    border-radius: 12px;
+    cursor: pointer;
+    color: #ffffff;
+    background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+    transition: all 0.3s ease;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6);
+    box-shadow: 0 8px 18px rgba(30,58,138,0.3);
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    form {
+        padding: 25px 15px;
+        gap: 15px;
+    }
+
+    form label,
+    form input,
+    form select,
+    form textarea,
+    form button {
+        font-size: 0.95rem;
+    }
+}
+
+/* ===== Section Styling ===== */
+section {
+    max-width: 850px;
+    margin: 50px auto;
+    padding: 30px 25px;
+    background: rgba(59, 130, 246, 0.03); /* subtle AI blue tint */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    line-height: 1.8;
+    color: #1e293b; /* soft dark text */
+}
+
+/* ===== Headings ===== */
+section h2 {
+    font-size: 2rem;
+    font-weight: 700;
+    color: #1e3a8a; /* deep professional blue */
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+section h3 {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1e40af;
+    margin-top: 20px;
+    margin-bottom: 12px;
+}
+
+/* ===== Paragraphs ===== */
+section p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    color: #334155;
+}
+
+/* ===== Lists ===== */
+section ul {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom: 20px;
+}
+
+section ul li {
+    position: relative;
+    padding-left: 25px;
+    margin-bottom: 12px;
+    font-size: 1.05rem;
+    color: #1e293b;
+}
+
+section ul li::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #3b82f6; /* blue check mark for AI theme */
+    font-weight: bold;
+}
+
+/* ===== Responsive ===== */
+@media (max-width: 768px) {
+    section {
+        padding: 25px 15px;
+    }
+
+    section h2 {
+        font-size: 1.7rem;
+    }
+
+    section h3 {
+        font-size: 1.3rem;
+    }
+
+    section p,
+    section ul li {
+        font-size: 1rem;
+    }
+}
+/* ===== Footer Styling ===== */
+footer {
+    background: linear-gradient(90deg, #1e3a8a, #3b82f6); /* Matches header gradient */
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 15px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    border-radius: 10px 10px 0 0; /* rounded top corners */
+}
+
+/* Footer Paragraph */
+footer p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+</style>
 
 </head>
 

@@ -43,7 +43,206 @@
     gtag('js', new Date());
     gtag('config', 'G-143GBNNFQE');
   </script>
+<style>
+  /* ===== Header Container ===== */
+header {
+    background: linear-gradient(90deg, #3b82f6, #1e3a8a); /* Bright AI-blue gradient */
+    color: #ffffff;
+    padding: 20px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    border-radius: 10px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
 
+/* ===== Site Title ===== */
+header h1 {
+    font-size: 2rem;
+    font-weight: 700;
+    margin-bottom: 15px;
+    letter-spacing: 1px;
+    text-align: center;
+    color: #ffffff;
+}
+
+/* ===== Navigation Menu ===== */
+header nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+/* ===== Nav Links ===== */
+header nav a {
+    text-decoration: none;
+    color: #dbeafe; /* Light blue text */
+    font-weight: 500;
+    padding: 10px 18px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+    position: relative;
+    background-color: rgba(255,255,255,0.05); /* subtle hover background */
+}
+
+/* ===== Hover Effect ===== */
+header nav a::after {
+    content: '';
+    display: block;
+    height: 3px;
+    background-color: #60a5fa; /* cyan underline */
+    width: 0%;
+    transition: width 0.3s;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+}
+
+header nav a:hover::after {
+    width: 100%;
+}
+
+header nav a:hover {
+    background-color: rgba(255,255,255,0.15);
+    color: #ffffff; /* bright white on hover */
+}
+
+/* ===== Responsive Styling ===== */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.6rem;
+    }
+
+    header nav {
+        flex-direction: column;
+        gap: 12px;
+    }
+
+    header nav a {
+        text-align: center;
+    }
+}
+/* ===== Intro Section ===== */
+.intro {
+    max-width: 900px;
+    margin: 50px auto;
+    padding: 35px 25px;
+    background: rgba(59, 130, 246, 0.05); /* subtle bright AI-blue tint */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1e293b; /* soft dark text for readability */
+    line-height: 1.8;
+    text-align: center;
+}
+
+/* ===== Headings ===== */
+.intro h2 {
+    font-size: 2rem;
+    color: #1e3a8a; /* deep AI blue */
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+/* ===== Paragraphs ===== */
+.intro p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: #334155;
+}
+
+/* ===== Responsive Styling ===== */
+@media (max-width: 768px) {
+    .intro {
+        padding: 25px 15px;
+    }
+
+    .intro h2 {
+        font-size: 1.7rem;
+    }
+
+    .intro p {
+        font-size: 1rem;
+    }
+}
+/* ===== SEO Content Section ===== */
+.seo-content {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 30px 25px;
+    background: rgba(59, 130, 246, 0.03); /* subtle AI-blue tint */
+    border-radius: 15px;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    color: #1e293b; /* soft dark text for readability */
+    line-height: 1.75;
+}
+
+/* ===== Headings ===== */
+.seo-content h2 {
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: #1e3a8a; /* deep AI blue */
+    margin-bottom: 12px;
+}
+
+.seo-content h3 {
+    font-size: 1.4rem;
+    font-weight: 600;
+    color: #2563eb; /* medium AI blue */
+    margin-top: 20px;
+    margin-bottom: 8px;
+}
+
+/* ===== Paragraphs ===== */
+.seo-content p {
+    font-size: 1.1rem;
+    margin-bottom: 18px;
+    color: #334155;
+}
+
+/* ===== Footer Styling ===== */
+footer {
+    background: linear-gradient(90deg, #3b82f6, #1e3a8a); /* matches header/nav gradient */
+    color: #ffffff;
+    text-align: center;
+    padding: 25px 15px;
+    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
+    border-radius: 10px 10px 0 0;
+}
+
+footer p {
+    margin: 0;
+    font-weight: 500;
+    font-size: 1rem;
+}
+
+/* ===== Responsive Styling ===== */
+@media (max-width: 768px) {
+    .seo-content {
+        padding: 20px 15px;
+    }
+
+    .seo-content h2 {
+        font-size: 1.6rem;
+    }
+
+    .seo-content h3 {
+        font-size: 1.3rem;
+    }
+
+    .seo-content p {
+        font-size: 1rem;
+    }
+
+    footer p {
+        font-size: 0.9rem;
+    }
+}
+</style>
 
 </head>
 
@@ -68,54 +267,6 @@
   </section>
 
 <!-- EDUCATIONAL & EDITORIAL CONTENT -->
-<section class="seo-content" style="max-width:1100px;margin:30px auto;padding:10px 20px;line-height:1.75;">
-  <h2 style="font-size:1.9rem;margin-bottom:12px;font-weight:600;">
-    Why Play Browser-Based AI Games?
-  </h2>
-
-  <p>
-    Browser-based games offer instant entertainment without downloads, installations, or accounts.
-    At AI Tools Directory, our games collection focuses on lightweight, accessible experiences that
-    challenge the mind, improve cognitive skills, and provide quick entertainment for users of all ages.
-  </p>
-
-  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
-    Skill-Based Games That Train Your Brain
-  </h3>
-  <p>
-    Many of the games featured on this page are designed to improve reaction time, memory, logic,
-    and hand-eye coordination. Typing challenges enhance speed and accuracy, puzzle games strengthen
-    problem-solving skills, and reaction tests measure cognitive responsiveness.
-  </p>
-
-  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
-    Mobile and Desktop Friendly Gameplay
-  </h3>
-  <p>
-    All games are optimised for both desktop and mobile devices. Whether you are using a keyboard,
-    mouse, or touch screen, each game is designed to run smoothly across modern browsers.
-    This makes the games suitable for short breaks, casual play, or focused skill improvement.
-  </p>
-
-  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
-    Safe, Free, and Easy to Play
-  </h3>
-  <p>
-    Our games are completely free to play and do not require account creation or personal information.
-    We prioritise simple gameplay mechanics, fast loading times, and a distraction-free experience.
-    This ensures users can enjoy games safely while exploring other AI-related tools on our platform.
-  </p>
-
-  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
-    How This Games Library Fits Into AI Tools Directory
-  </h3>
-  <p>
-    While AI Tools Directory primarily focuses on discovering useful AI applications,
-    this games section offers a lighter, interactive experience for users.
-    It complements our educational mission by showcasing logic, pattern recognition,
-    and skill-based challenges in an engaging format.
-  </p>
-</section>
 
   <!-- AI GAMES GRID -->
   <section class="cards" id="games-container">
@@ -210,6 +361,55 @@
 
 
   </section>
+  <section class="seo-content" style="max-width:1100px;margin:30px auto;padding:10px 20px;line-height:1.75;">
+  <h2 style="font-size:1.9rem;margin-bottom:12px;font-weight:600;">
+    Why Play Browser-Based AI Games?
+  </h2>
+
+  <p>
+    Browser-based games offer instant entertainment without downloads, installations, or accounts.
+    At AI Tools Directory, our games collection focuses on lightweight, accessible experiences that
+    challenge the mind, improve cognitive skills, and provide quick entertainment for users of all ages.
+  </p>
+
+  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
+    Skill-Based Games That Train Your Brain
+  </h3>
+  <p>
+    Many of the games featured on this page are designed to improve reaction time, memory, logic,
+    and hand-eye coordination. Typing challenges enhance speed and accuracy, puzzle games strengthen
+    problem-solving skills, and reaction tests measure cognitive responsiveness.
+  </p>
+
+  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
+    Mobile and Desktop Friendly Gameplay
+  </h3>
+  <p>
+    All games are optimised for both desktop and mobile devices. Whether you are using a keyboard,
+    mouse, or touch screen, each game is designed to run smoothly across modern browsers.
+    This makes the games suitable for short breaks, casual play, or focused skill improvement.
+  </p>
+
+  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
+    Safe, Free, and Easy to Play
+  </h3>
+  <p>
+    Our games are completely free to play and do not require account creation or personal information.
+    We prioritise simple gameplay mechanics, fast loading times, and a distraction-free experience.
+    This ensures users can enjoy games safely while exploring other AI-related tools on our platform.
+  </p>
+
+  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
+    How This Games Library Fits Into AI Tools Directory
+  </h3>
+  <p>
+    While AI Tools Directory primarily focuses on discovering useful AI applications,
+    this games section offers a lighter, interactive experience for users.
+    It complements our educational mission by showcasing logic, pattern recognition,
+    and skill-based challenges in an engaging format.
+  </p>
+</section>
+
 
   <footer>
     <p>&copy; 2025 AI Tools Directory</p>
