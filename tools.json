@@ -859,5 +859,109 @@
     "category": "Image Generator",
     "icon": "https://scribblediffusion.com/favicon.ico",
     "badge": ""
+  },
+  {
+    "name": "MCP360",
+    "description": "MCP360 is a unified platform that connects AI agents to 100+ external tools through a single integration, enabling scalable, standardized workflows without needing separate configurations.",
+    "link": "https://mcp360.ai/",
+    "category": "Automation",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "Fast Image AI",
+    "description": "Fast Image AI (fastimage.ai) instantly transforms your photos into stunning artworks in popular styles like Studio Ghibli and sketch. Just in time for Christmas, the platform has newly added 13 exclusive Christmas-themed style conversion features. You can easily customize image elements and create eye-catching visuals in mere seconds—it’s the perfect choice for social media profiles, cover images, or creative projects.",
+    "link": "https://fastimage.ai/ai-cartoon-generator",
+    "category": "Image Generator",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "VibeKeys",
+    "description": "VibeKeys is a minimalist hardware keypad for AI-first coding. Use tactile keys to accept/reject AI suggestions, toggle voice input, and navigate with a precision rotary knob. Built for Claude Code, Cursor, Copilot & more.",
+    "link": "https://vibekeys.dev/",
+    "category": "Coding",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "MultiChat",
+    "description": "MultipleChat is a multi-AI collaboration platform that allows users to interact with leading AI models such as ChatGPT, Claude, Gemini, and Grok in one workspace. Models can compare answers, debate ideas, and verify information to produce a more accurate final response. The platform also includes prompt optimization, document analysis, web search with citations, and project-based AI workflows.",
+    "link": "https://multiple.chat/",
+    "category": "Productivity",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "Cflow",
+    "description": "Cflow is a no-code workflow automation platform that helps businesses automate approvals, streamline operations, and improve process efficiency without coding.",
+    "link": "https://www.cflowapps.com/",
+    "category": "Automation",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "TurboChat",
+    "description": "TurboChat is a modern AI chat platform that enables users and companies to interact with advanced artificial intelligence in real time. It focuses on speed, usability and powerful AI responses, making it ideal for productivity, assistance and automated conversations.",
+    "link": "https://theturbochat.com",
+    "category": "Productivity",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "Interview AIBOX",
+    "description": "Interview AIBOX is an AI interview and written-test assistant for job seekers. It supports real-time transcription, screenshot-based coding help, structured response guidance, resume optimization, and post-interview recap across technical, coding, and behavioral interviews.",
+    "link": "https://interviewaibox.co/",
+    "category": "Coding",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "PleaseSignMe",
+    "description": "PleaseSignMe.com is a free e-signature platform that lets users upload documents, add signature fields, and share secure signing links, with legal compliance and fast, trackable signing workflows.",
+    "link": "https://pleasesignme.com",
+    "category": "Productivity",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "GetSeedance2",
+    "description": "GetSeedance2 is a browser-based AI video generator for short-form work. You can start from a text prompt or a reference image, choose the model and main output settings, and generate in one place.",
+    "link": "https://getseedance2.com",
+    "category": "Video",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "LinkedIn Outreach Analyzer",
+    "description": "The LinkedIn Outreach Analyzer by Growfluence is a free tool that scores your message’s reply potential and provides targeted improvements to increase response rates.",
+    "link": "https://growfluencehub.com/resources/tools/linkedin-outreach-analyzer/",
+    "category": "Marketing",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "Productokit",
+    "description": "Productokit is a privacy-first browser toolkit for creators, marketers, and operators. It helps teams prepare Google Ads images, polish text, review consent workflows, run AI checks, and use finance calculators without signups or uploads.",
+    "link": "https://www.productokit.com/",
+    "category": "SEO",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "Hyperlambda",
+    "description": "Hyperlambda is a natural-language-first programming language for building secure, deterministic AI backends, APIs, and workflows using structured execution.",
+    "link": "https://hyperlambda.dev",
+    "category": "Coding",
+    "icon": "",
+    "badge": ""
+  },
+  {
+    "name": "PraySong",
+    "description": "PraySong creates personalized original songs from family stories, memories, and emotions. Professional songwriters craft custom lyrics and melodies, delivering studio-quality recordings in 7 days for meaningful gifts and memorial moments.",
+    "link": "https://praysong.net/",
+    "category": "PraySong",
+    "icon": "",
+    "badge": ""
   }
 ]
