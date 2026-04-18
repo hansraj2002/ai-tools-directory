@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Free AI Tools | AI Tools Directory</title>
+  <meta name="description" content="Use free AI tools like text generator, keyword generator, and LinkedIn helper directly in your browser.">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <style>
+    body {
+      font-family: Arial;
+      margin: 0;
+      background: #f5f5f5;
+    }
+
+    header {
+      text-align: center;
+      padding: 20px;
+      background: #6366f1;
+      color: white;
+    }
+
+    nav a {
+      color: white;
+      margin: 0 10px;
+      text-decoration: none;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      padding: 20px;
+    }
+
+    .tool-box {
+      background: white;
+      padding: 20px;
+      margin-bottom: 30px;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+    }
+
+    textarea, input {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+    }
+
+    button {
+      margin-top: 10px;
+      padding: 10px;
+      background: #6366f1;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #4f46e5;
+    }
+
+    .result {
+      margin-top: 15px;
+      background: #f9fafb;
+      padding: 10px;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+<header>
+  <h1>🧰 Free AI Tools</h1>
+  <nav>
+      <a href="/">Home</a>
+      <a href="submit.html">Submit Idea</a>
+      <a href="about.html">About</a>
+      <a href="contact.html">Contact</a>
+      <a href="policy.html">Privacy & Terms</a>
+      <a href="tools.html">Tools</a>
+      <a href="games.html">Games</a>
+    </nav>
+</header>
+
+<div class="container">
+
+  <h2>Use AI Tools Instantly</h2>
+  <p>No signup required. Try these tools directly.</p>
+
+  <!-- TEXT GENERATOR -->
+  <div class="tool-box">
+    <h3>📝 AI Text Generator</h3>
+    <textarea id="textInput" placeholder="Enter topic..."></textarea>
+    <button onclick="generateText()">Generate</button>
+    <div class="result" id="textOutput"></div>
+  </div>
+
+  <!-- KEYWORD GENERATOR -->
+  <div class="tool-box">
+    <h3>🔍 Keyword Generator</h3>
+    <input type="text" id="keywordInput" placeholder="Enter topic">
+    <button onclick="generateKeywords()">Generate</button>
+    <div class="result" id="keywordOutput"></div>
+  </div>
+
+  <!-- LINKEDIN HELPER -->
+  <div class="tool-box">
+    <h3>💼 LinkedIn Message Improver</h3>
+    <textarea id="msgInput" placeholder="Paste your message"></textarea>
+    <button onclick="improveMessage()">Improve</button>
+    <div class="result" id="msgOutput"></div>
+  </div>
+
+</div>
+
+<script>
+function generateText(){
+  const input = document.getElementById("textInput").value;
+
+  if(!input){
+    alert("Enter a topic");
+    return;
+  }
+
+  const responses = [
+    `${input} is becoming increasingly important in today's world.`,
+    `Many experts believe ${input} will shape the future.`,
+    `Learning about ${input} can improve productivity and innovation.`
+  ];
+
+  document.getElementById("textOutput").innerText =
+    responses[Math.floor(Math.random()*responses.length)];
+}
+
+function generateKeywords(){
+  const base = document.getElementById("keywordInput").value;
+
+  if(!base){
+    alert("Enter a keyword");
+    return;
+  }
+
+  const keywords = [
+    `${base} tips`,
+    `${base} for beginners`,
+    `best ${base} tools`,
+    `${base} 2026`,
+    `how to use ${base}`
+  ];
+
+  document.getElementById("keywordOutput").innerHTML =
+    keywords.map(k => `<div>${k}</div>`).join("");
+}
+
+function improveMessage(){
+  const msg = document.getElementById("msgInput").value;
+
+  if(!msg){
+    alert("Enter message");
+    return;
+  }
+
+  document.getElementById("msgOutput").innerText =
+    "Hi, I hope you're doing well. I came across your profile and found it interesting.\n\n" +
+    msg +
+    "\n\nLooking forward to connecting!";
+}
+</script>
+
+</body>
+</html>

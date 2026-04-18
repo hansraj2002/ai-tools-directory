@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>AI Text Generator</title>
+<style>
+body{font-family:Arial;padding:20px;background:#f5f5f5;}
+textarea,button{width:100%;padding:10px;margin-top:10px;}
+.result{background:#fff;padding:15px;margin-top:10px;border-radius:8px;}
+</style>
+</head>
+
+<body>
+
+<h1>📝 AI Text Generator</h1>
+
+<textarea id="input" placeholder="Enter topic..."></textarea>
+<button onclick="generate()">Generate</button>
+
+<div class="result" id="output"></div>
+
+<script>
+function generate(){
+  const input = document.getElementById("input").value;
+
+  if(!input){
+    alert("Enter something");
+    return;
+  }
+
+  const responses = [
+    `Here is a short paragraph about ${input}: ${input} is becoming increasingly important in today's world.`,
+    `${input} plays a key role in modern industries and continues to evolve rapidly.`,
+    `Understanding ${input} can help improve productivity and innovation.`
+  ];
+
+  document.getElementById("output").innerText =
+    responses[Math.floor(Math.random()*responses.length)];
+}
+</script>
+
+</body>
+</html>

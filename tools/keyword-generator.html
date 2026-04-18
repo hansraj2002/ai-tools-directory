@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Keyword Generator</title>
+</head>
+
+<body>
+
+<h1>🔍 Keyword Generator</h1>
+
+<input type="text" id="keyword" placeholder="Enter topic">
+<button onclick="generateKeywords()">Generate</button>
+
+<ul id="list"></ul>
+
+<script>
+function generateKeywords(){
+  const base = document.getElementById("keyword").value;
+  const list = document.getElementById("list");
+  list.innerHTML = "";
+
+  const keywords = [
+    `${base} tips`,
+    `${base} for beginners`,
+    `best ${base} tools`,
+    `${base} 2026`,
+    `how to use ${base}`
+  ];
+
+  keywords.forEach(k=>{
+    const li = document.createElement("li");
+    li.innerText = k;
+    list.appendChild(li);
+  });
+}
+</script>
+
+</body>
+</html>
