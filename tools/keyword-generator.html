@@ -2,22 +2,197 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Keyword Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>Free Keyword Generator Tool | AI Tools Directory</title>
+<meta name="description" content="Generate SEO keywords instantly. Free keyword generator tool for bloggers, marketers, and SEO beginners. No signup required.">
+<meta name="keywords" content="keyword generator, SEO keywords, free keyword tool, blog keywords, search keywords">
+
+<link rel="canonical" href="https://aitoolsdirectory.site/tools/keyword-generator.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Free Keyword Generator Tool">
+<meta property="og:description" content="Generate SEO-friendly keywords instantly for your content.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aitoolsdirectory.site/tools/keyword-generator.html">
+
+<!-- Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Keyword Generator Tool",
+  "url": "https://aitoolsdirectory.site/tools/keyword-generator.html",
+  "applicationCategory": "SEO Tool",
+  "operatingSystem": "All",
+  "description": "A free keyword generator tool that helps users generate SEO keywords instantly."
+}
+</script>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+/* ===== HEADER (MATCH GAMES PAGE STYLE) ===== */
+header {
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  color: #fff;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  margin-bottom: 10px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav a {
+  color: #dbeafe;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+/* ===== CONTENT ===== */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.tool-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+input {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+ul {
+  margin-top: 15px;
+}
+
+/* ===== SEO CONTENT ===== */
+.seo-content {
+  margin-top: 40px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* ===== FOOTER ===== */
+footer {
+  margin-top: 40px;
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+</style>
+
 </head>
 
 <body>
 
-<h1>🔍 Keyword Generator</h1>
+<header>
+  <h1>🔍 Keyword Generator</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="../submit.html">Submit Idea</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../policy.html">Privacy & Terms</a>
+    <a href="../tools.html">Tools</a>
+    <a href="../games.html">Games</a>
+  </nav>
+</header>
 
-<input type="text" id="keyword" placeholder="Enter topic">
-<button onclick="generateKeywords()">Generate</button>
+<div class="container">
 
-<ul id="list"></ul>
+  <!-- TOOL -->
+  <div class="tool-box">
+    <h2>Generate SEO Keywords Instantly</h2>
+    <p>Enter a topic and get keyword ideas for SEO, blogs, and marketing.</p>
+
+    <input type="text" id="keyword" placeholder="e.g. AI tools">
+    <button onclick="generateKeywords()">Generate Keywords</button>
+
+    <ul id="list"></ul>
+  </div>
+
+  <!-- SEO CONTENT -->
+  <div class="seo-content">
+    <h2>What is a Keyword Generator?</h2>
+    <p>
+      A keyword generator helps you discover search terms people use on Google.
+      These keywords improve your SEO and help you create content that ranks.
+    </p>
+
+    <h3>Why Keywords Matter</h3>
+    <p>
+      Without keywords, your content won’t reach the right audience.
+      Using the right phrases increases traffic and visibility.
+    </p>
+
+    <h3>How to Use This Tool</h3>
+    <p>
+      Enter a topic, generate keywords, and use them in your blog titles,
+      headings, and meta descriptions.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 AI Tools Directory</p>
+</footer>
 
 <script>
 function generateKeywords(){
   const base = document.getElementById("keyword").value;
   const list = document.getElementById("list");
+
+  if(!base){
+    alert("Please enter a keyword");
+    return;
+  }
+
   list.innerHTML = "";
 
   const keywords = [
@@ -25,7 +200,12 @@ function generateKeywords(){
     `${base} for beginners`,
     `best ${base} tools`,
     `${base} 2026`,
-    `how to use ${base}`
+    `how to use ${base}`,
+    `${base} guide`,
+    `${base} examples`,
+    `${base} ideas`,
+    `${base} strategy`,
+    `${base} tutorial`
   ];
 
   keywords.forEach(k=>{

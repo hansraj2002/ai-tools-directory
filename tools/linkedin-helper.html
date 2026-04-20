@@ -2,31 +2,186 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>LinkedIn Message Improver</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>LinkedIn Message Improver | AI Tools Directory</title>
+
+<meta name="description" content="Improve your LinkedIn messages instantly with this free AI-style tool. Make your outreach more professional and increase reply rates.">
+<meta name="keywords" content="linkedin message generator, linkedin outreach tool, improve linkedin message, networking message">
+
+<link rel="canonical" href="https://aitoolsdirectory.site/tools/linkedin-helper.html">
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: #6366f1;
+  color: white;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.tool-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+textarea, select {
+  width: 100%;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+.result {
+  margin-top: 20px;
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 8px;
+  white-space: pre-line;
+}
+
+.info {
+  margin-top: 20px;
+  line-height: 1.6;
+}
+</style>
+
 </head>
 
 <body>
 
-<h1>💼 LinkedIn Message Improver</h1>
+<header>
+  <h1>💼 LinkedIn Message Improver</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="../submit.html">Submit Idea</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../policy.html">Privacy & Terms</a>
+    <a href="../tools.html">Tools</a>
+    <a href="../games.html">Games</a>
+  </nav>
+</header>
 
-<textarea id="msg" placeholder="Paste your message"></textarea>
-<button onclick="improve()">Improve</button>
+<div class="container">
 
-<p id="result"></p>
+  <div class="tool-box">
+    <h2>Improve Your LinkedIn Outreach</h2>
+    <p>Make your messages more professional and increase your chances of getting replies.</p>
+
+    <textarea id="msg" placeholder="Paste your LinkedIn message here..."></textarea>
+
+    <select id="tone">
+      <option value="professional">Professional</option>
+      <option value="friendly">Friendly</option>
+      <option value="confident">Confident</option>
+    </select>
+
+    <button onclick="improve()">Improve Message</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <div class="info">
+    <h3>Why Improve Your LinkedIn Messages?</h3>
+    <p>
+      A well-written LinkedIn message increases your chances of getting replies, building connections,
+      and landing opportunities. Small improvements in tone and clarity can make a big difference.
+    </p>
+
+    <h3>Tips for Better Outreach</h3>
+    <p>
+      Personalize your message, keep it short, and clearly state your intention.
+      Avoid generic messages and focus on adding value to the conversation.
+    </p>
+  </div>
+
+</div>
 
 <script>
 function improve(){
   const msg = document.getElementById("msg").value;
+  const tone = document.getElementById("tone").value;
 
   if(!msg){
-    alert("Enter message");
+    alert("Please enter a message");
     return;
   }
 
-  document.getElementById("result").innerText =
-  "Improved version:\n\n" +
-  "Hi, I hope you're doing well. I came across your profile and found it really interesting. " +
-  msg + " Looking forward to connecting!";
+  let improved = "";
+
+  if(tone === "professional"){
+    improved =
+`Hi [Name],
+
+I hope you're doing well. I came across your profile and was impressed by your experience.
+
+${msg}
+
+I would love to connect and learn more from you.
+
+Best regards,`;
+  }
+
+  else if(tone === "friendly"){
+    improved =
+`Hey [Name] 😊
+
+I came across your profile and thought it was really interesting!
+
+${msg}
+
+Would be great to connect and chat sometime!`;
+  }
+
+  else if(tone === "confident"){
+    improved =
+`Hi [Name],
+
+I came across your profile and found your work very relevant.
+
+${msg}
+
+I’d be happy to connect and explore potential opportunities.
+
+Best,`;
+  }
+
+  document.getElementById("result").innerText = improved;
 }
 </script>
 

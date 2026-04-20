@@ -2,29 +2,172 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>Text Summarizer</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Free Text Summarizer Tool | AI Tools Directory</title>
+
+<meta name="description" content="Summarize long text instantly with this free AI-style text summarizer tool. Extract key sentences and save time.">
+<meta name="keywords" content="text summarizer, AI summarizer, summarize text online, free summarizer tool">
+
+<link rel="canonical" href="https://aitoolsdirectory.site/tools/text-summarizer.html">
+
 <style>
-body { font-family: Arial; text-align:center; padding:40px; }
-textarea { width:80%; height:150px; }
-button { padding:10px 20px; margin-top:10px; }
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+header {
+  text-align: center;
+  padding: 20px;
+  background: #6366f1;
+  color: white;
+}
+
+nav a {
+  color: white;
+  margin: 0 10px;
+  text-decoration: none;
+}
+
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.tool-box {
+  background: white;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+textarea {
+  width: 100%;
+  height: 180px;
+  padding: 10px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+.result {
+  margin-top: 20px;
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+.info {
+  margin-top: 20px;
+  line-height: 1.6;
+}
 </style>
+
 </head>
 
 <body>
 
-<h1>📝 Text Summarizer</h1>
-<p>Paste your text below:</p>
+<header>
+  <h1>📝 Text Summarizer</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="../submit.html">Submit Idea</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../policy.html">Privacy & Terms</a>
+    <a href="../tools.html">Tools</a>
+    <a href="../games.html">Games</a>
+  </nav>
+</header>
 
-<textarea id="input"></textarea><br>
-<button onclick="summarize()">Summarize</button>
+<div class="container">
 
-<h3>Summary:</h3>
-<p id="output"></p>
+  <div class="tool-box">
+    <h2>Summarize Text Instantly</h2>
+    <p>Paste your text and get a short summary based on key sentences.</p>
+
+    <textarea id="input" placeholder="Paste your long text here..."></textarea>
+
+    <button onclick="summarize()">Summarize</button>
+
+    <div class="result" id="output"></div>
+  </div>
+
+  <div class="info">
+    <h3>How This Tool Works</h3>
+    <p>
+      This summarizer identifies important words and ranks sentences based on relevance.
+      It then extracts the most meaningful sentences to create a concise summary.
+    </p>
+
+    <h3>Why Use a Text Summarizer?</h3>
+    <p>
+      Summarizing helps you quickly understand long articles, notes, or documents
+      without reading everything. It is useful for students, researchers, and professionals.
+    </p>
+  </div>
+
+</div>
 
 <script>
 function summarize(){
   let text = document.getElementById("input").value;
-  let summary = text.split(".").slice(0,2).join(".") + ".";
+
+  if(!text || text.length < 20){
+    alert("Please enter enough text to summarize.");
+    return;
+  }
+
+  let sentences = text.match(/[^\.!\?]+[\.!\?]+/g);
+
+  if(!sentences){
+    document.getElementById("output").innerText = "Not enough valid sentences.";
+    return;
+  }
+
+  let wordFreq = {};
+  let words = text.toLowerCase().replace(/[^\w\s]/g, "").split(/\s+/);
+
+  words.forEach(word => {
+    if(word.length > 3){
+      wordFreq[word] = (wordFreq[word] || 0) + 1;
+    }
+  });
+
+  let sentenceScores = sentences.map(sentence => {
+    let score = 0;
+    let sentenceWords = sentence.toLowerCase().split(/\s+/);
+
+    sentenceWords.forEach(word => {
+      if(wordFreq[word]){
+        score += wordFreq[word];
+      }
+    });
+
+    return { sentence, score };
+  });
+
+  sentenceScores.sort((a,b) => b.score - a.score);
+
+  let summary = sentenceScores.slice(0, 2).map(s => s.sentence).join(" ");
+
   document.getElementById("output").innerText = summary;
 }
 </script>

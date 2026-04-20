@@ -2,36 +2,200 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<title>AI Text Generator</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>Free AI Text Generator | AI Tools Directory</title>
+<meta name="description" content="Generate AI text instantly for blogs, captions, and ideas. Free online AI text generator with no signup required.">
+<meta name="keywords" content="AI text generator, content generator, blog generator, writing tool, free AI writing">
+
+<link rel="canonical" href="https://aitoolsdirectory.site/tools/text-generator.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Free AI Text Generator">
+<meta property="og:description" content="Generate high-quality text instantly using this free AI text tool.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aitoolsdirectory.site/tools/text-generator.html">
+
+<!-- Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "AI Text Generator",
+  "url": "https://aitoolsdirectory.site/tools/text-generator.html",
+  "applicationCategory": "Writing Tool",
+  "operatingSystem": "All",
+  "description": "A free AI text generator tool that creates content instantly based on user input."
+}
+</script>
+
 <style>
-body{font-family:Arial;padding:20px;background:#f5f5f5;}
-textarea,button{width:100%;padding:10px;margin-top:10px;}
-.result{background:#fff;padding:15px;margin-top:10px;border-radius:8px;}
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav a {
+  color: #dbeafe;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+/* CONTENT */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.tool-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+textarea {
+  width: 100%;
+  padding: 12px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+.result {
+  margin-top: 15px;
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 8px;
+}
+
+/* SEO CONTENT */
+.seo-content {
+  margin-top: 40px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 40px;
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
 </style>
 </head>
 
 <body>
 
-<h1>📝 AI Text Generator</h1>
+<header>
+  <h1>📝 AI Text Generator</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="../submit.html">Submit Idea</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../policy.html">Privacy & Terms</a>
+    <a href="../tools.html">Tools</a>
+    <a href="../games.html">Games</a>
+  </nav>
+</header>
 
-<textarea id="input" placeholder="Enter topic..."></textarea>
-<button onclick="generate()">Generate</button>
+<div class="container">
 
-<div class="result" id="output"></div>
+  <!-- TOOL -->
+  <div class="tool-box">
+    <h2>Generate Text Instantly</h2>
+    <p>Enter a topic and generate quick AI-style content for blogs, captions, or ideas.</p>
+
+    <textarea id="input" placeholder="e.g. AI in healthcare"></textarea>
+    <button onclick="generate()">Generate Text</button>
+
+    <div class="result" id="output"></div>
+  </div>
+
+  <!-- SEO CONTENT -->
+  <div class="seo-content">
+    <h2>What is an AI Text Generator?</h2>
+    <p>
+      An AI text generator is a tool that creates written content based on a topic or input.
+      It helps users quickly generate ideas, paragraphs, and drafts without writing from scratch.
+    </p>
+
+    <h3>Why Use an AI Writing Tool?</h3>
+    <p>
+      AI writing tools save time and improve productivity. Whether you're writing blogs,
+      social media posts, or emails, these tools help you get started instantly.
+    </p>
+
+    <h3>How to Use This Tool</h3>
+    <p>
+      Enter a topic, click generate, and get a ready-made paragraph.
+      You can regenerate multiple times to get different variations.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 AI Tools Directory</p>
+</footer>
 
 <script>
 function generate(){
   const input = document.getElementById("input").value;
 
   if(!input){
-    alert("Enter something");
+    alert("Please enter a topic");
     return;
   }
 
   const responses = [
-    `Here is a short paragraph about ${input}: ${input} is becoming increasingly important in today's world.`,
-    `${input} plays a key role in modern industries and continues to evolve rapidly.`,
-    `Understanding ${input} can help improve productivity and innovation.`
+    `${input} is becoming increasingly important in today's digital world. Businesses and individuals are leveraging it to improve efficiency and innovation.`,
+    `In recent years, ${input} has gained massive attention due to its impact on technology and society. Understanding it can open new opportunities.`,
+    `${input} plays a key role in shaping the future. From automation to decision-making, it continues to evolve rapidly across industries.`,
+    `Learning about ${input} can help individuals stay ahead in a competitive world. It enhances productivity and supports smarter solutions.`,
+    `${input} is widely used today and continues to grow in importance. It offers new possibilities for businesses, developers, and creators.`
   ];
 
   document.getElementById("output").innerText =

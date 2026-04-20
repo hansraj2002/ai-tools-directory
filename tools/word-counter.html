@@ -1,23 +1,198 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<title>Word Counter</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<!-- SEO -->
+<title>Free Word Counter Tool | AI Tools Directory</title>
+<meta name="description" content="Count words, characters, and text length instantly. Free online word counter tool for students, writers, and bloggers.">
+<meta name="keywords" content="word counter, character counter, text counter, word count tool, free writing tool">
+
+<link rel="canonical" href="https://aitoolsdirectory.site/tools/word-counter.html">
+
+<!-- Open Graph -->
+<meta property="og:title" content="Free Word Counter Tool">
+<meta property="og:description" content="Count words and characters instantly with this free tool.">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://aitoolsdirectory.site/tools/word-counter.html">
+
+<!-- Schema -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebApplication",
+  "name": "Word Counter Tool",
+  "url": "https://aitoolsdirectory.site/tools/word-counter.html",
+  "applicationCategory": "Writing Tool",
+  "operatingSystem": "All",
+  "description": "A free online word counter tool to count words and characters instantly."
+}
+</script>
+
+<style>
+body {
+  font-family: Arial;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+/* HEADER */
+header {
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+
+nav {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+nav a {
+  color: #dbeafe;
+  text-decoration: none;
+  padding: 8px 14px;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.1);
+}
+
+nav a:hover {
+  background: rgba(255,255,255,0.25);
+  color: #fff;
+}
+
+/* CONTENT */
+.container {
+  max-width: 900px;
+  margin: auto;
+  padding: 20px;
+}
+
+.tool-box {
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+}
+
+textarea {
+  width: 100%;
+  height: 150px;
+  padding: 12px;
+  margin-top: 10px;
+}
+
+button {
+  margin-top: 10px;
+  padding: 12px;
+  width: 100%;
+  background: #6366f1;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+button:hover {
+  background: #4f46e5;
+}
+
+.result {
+  margin-top: 15px;
+  background: #f9fafb;
+  padding: 15px;
+  border-radius: 8px;
+  font-weight: bold;
+}
+
+/* SEO CONTENT */
+.seo-content {
+  margin-top: 40px;
+  background: white;
+  padding: 20px;
+  border-radius: 12px;
+}
+
+/* FOOTER */
+footer {
+  margin-top: 40px;
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  color: white;
+  text-align: center;
+  padding: 20px;
+}
+</style>
 </head>
 
-<body style="text-align:center; padding:40px; font-family:Arial;">
+<body>
 
-<h1>📊 Word Counter</h1>
+<header>
+  <h1>📊 Word Counter</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="../submit.html">Submit Idea</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../policy.html">Privacy & Terms</a>
+    <a href="../tools.html">Tools</a>
+    <a href="../games.html">Games</a>
+  </nav>
+</header>
 
-<textarea id="text" style="width:80%; height:150px;"></textarea><br><br>
+<div class="container">
 
-<button onclick="count()">Count</button>
+  <!-- TOOL -->
+  <div class="tool-box">
+    <h2>Count Words and Characters Instantly</h2>
+    <p>Paste or type your text below to get an instant word and character count.</p>
 
-<h3 id="result"></h3>
+    <textarea id="text" placeholder="Start typing or paste your text..."></textarea>
+    <button onclick="count()">Count Text</button>
+
+    <div class="result" id="result"></div>
+  </div>
+
+  <!-- SEO CONTENT -->
+  <div class="seo-content">
+    <h2>What is a Word Counter?</h2>
+    <p>
+      A word counter is a tool that calculates the number of words and characters in a piece of text.
+      It is widely used by students, writers, bloggers, and professionals to meet writing limits and improve content quality.
+    </p>
+
+    <h3>Why Use a Word Counter?</h3>
+    <p>
+      Word limits are important for essays, assignments, articles, and SEO content.
+      This tool helps ensure your writing meets the required length while maintaining clarity and structure.
+    </p>
+
+    <h3>How to Use This Tool</h3>
+    <p>
+      Simply paste or type your content into the text box and click “Count Text.”
+      The tool will instantly display the number of words and characters.
+    </p>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 AI Tools Directory</p>
+</footer>
 
 <script>
 function count(){
-  let text = document.getElementById("text").value;
-  let words = text.trim().split(/\s+/).length;
+  let text = document.getElementById("text").value.trim();
+
+  if(!text){
+    alert("Please enter some text");
+    return;
+  }
+
+  let words = text.split(/\s+/).filter(word => word.length > 0).length;
   let chars = text.length;
 
   document.getElementById("result").innerText =
