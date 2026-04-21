@@ -13,252 +13,279 @@
 <meta property="og:description" content="Tap to jump and avoid obstacles. A fast reflex browser game.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://aitoolsdirectory.site/games/jump.html">
-<meta property="og:image" content="https://aitoolsdirectory.site/assets/og-jump.png">
 
-<!-- JSON-LD Game Schema -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Game",
-  "name":"Jump Cube",
-  "genre":["Arcade","Reflex","Runner"],
-  "applicationCategory":"Game",
-  "operatingSystem":"Web Browser",
-  "url":"https://aitoolsdirectory.site/games/jump.html"
-}
-</script>
-
-<!-- Google Analytics -->
+<!-- Analytics -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
 <script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-143GBNNFQE');
+window.dataLayer = window.dataLayer || [];
+function gtag(){dataLayer.push(arguments);}
+gtag('js', new Date());
+gtag('config', 'G-143GBNNFQE');
 </script>
 
 <style>
-  body{
-    font-family:"Poppins",Arial,sans-serif;
-    background:#f3f4f6;
-    padding:25px;
-    text-align:center;
-  }
 
-  .card{
-    max-width:600px;
-    margin:20px auto;
-    padding:20px;
-    background:#fff;
-    border-radius:12px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-  }
+/* ===== HEADER ===== */
+header {
+  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
 
-  h1{margin-bottom:6px;}
+header h1 {
+  margin-bottom: 10px;
+}
 
-  .tags{
-    display:flex;
-    justify-content:center;
-    gap:8px;
-    margin-bottom:12px;
-  }
-  .tag{
-    padding:4px 10px;
-    background:#e5e7eb;
-    border-radius:20px;
-    font-size:12px;
-    font-weight:600;
-  }
+nav a {
+  color: #dbeafe;
+  margin: 0 10px;
+  text-decoration: none;
+}
 
-  #stage{
-    position:relative;
-    margin:20px auto;
-    background:#0f172a;
-    width:320px;
-    height:160px;
-    border-radius:8px;
-    overflow:hidden;
-  }
+nav a:hover {
+  color: white;
+}
 
-  #cube{
-    position:absolute;
-    width:28px;
-    height:28px;
-    background:#10b981;
-    border-radius:5px;
-    left:40px;
-    bottom:20px;
-  }
+/* ===== GAME UI ===== */
+body{
+  font-family: Arial;
+  background:#f3f4f6;
+  margin:0;
+}
 
-  .ob{
-    position:absolute;
-    width:22px;
-    height:30px;
-    background:#ef4444;
-    bottom:20px;
-    right:-40px;
-    border-radius:4px;
-  }
+.container{
+  max-width:700px;
+  margin:30px auto;
+  text-align:center;
+}
 
-  button{
-    padding:10px 16px;
-    margin:6px;
-    border:none;
-    border-radius:8px;
-    background:#2563eb;
-    color:white;
-    font-size:16px;
-    cursor:pointer;
-    transition:0.2s;
-  }
-  button:hover{background:#1e40af;}
+.card{
+  background:#fff;
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 5px 20px rgba(0,0,0,0.1);
+}
 
-  #start{background:#10b981;}
-  #start:hover{background:#0d966b;}
+#stage{
+  position:relative;
+  margin:20px auto;
+  background:#0f172a;
+  width:320px;
+  height:160px;
+  border-radius:8px;
+  overflow:hidden;
+}
 
-  #score{font-weight:700;margin-left:10px;}
+/* PLAYER */
+#cube{
+  position:absolute;
+  width:28px;
+  height:28px;
+  background:#10b981;
+  left:40px;
+  bottom:20px;
+  border-radius:5px;
+}
+
+/* OBSTACLES */
+.ob{
+  position:absolute;
+  width:22px;
+  height:30px;
+  background:#ef4444;
+  bottom:20px;
+  right:-40px;
+}
+
+/* BUTTONS */
+button{
+  padding:10px 16px;
+  margin:6px;
+  border:none;
+  border-radius:8px;
+  background:#2563eb;
+  color:white;
+  cursor:pointer;
+}
+
+button:hover{
+  background:#1e40af;
+}
+
+#start{background:#10b981;}
+#restart{background:#ef4444;}
+
+#score{
+  font-weight:700;
+  margin-left:10px;
+}
+
+/* GAME OVER */
+#gameOver{
+  display:none;
+  margin-top:15px;
+  font-size:18px;
+  color:#ef4444;
+}
+
 </style>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5221741784747764"
-     crossorigin="anonymous"></script>
-
 </head>
 
 <body>
+
+<header>
+  <h1>🎮 Jump Cube</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="../submit.html">Submit Idea</a>
+    <a href="../about.html">About</a>
+    <a href="../contact.html">Contact</a>
+    <a href="../policy.html">Privacy & Terms</a>
+    <a href="../tools.html">Tools</a>
+    <a href="../games.html">Games</a>
+  </nav>
+</header>
+
+<div class="container">
+
   <div class="card">
-    <h1>Jump Cube</h1>
 
-    <div class="tags">
-      <div class="tag">Arcade</div>
-      <div class="tag">Reflex</div>
-      <div class="tag">Runner</div>
-    </div>
-
-    <p>Tap or press Space to jump. Avoid red obstacles as long as you can!</p>
+    <p>📱 Tap, click, or press <b>Space</b> to jump and avoid obstacles.</p>
 
     <div id="stage">
       <div id="cube"></div>
     </div>
 
     <div>
-      <button id="jump">Jump</button>
       <button id="start">Start</button>
+      <button id="restart">Restart</button>
       <span id="score">Score: 0</span>
     </div>
+
+    <div id="gameOver">Game Over!</div>
+
   </div>
 
+</div>
+
 <script>
+
 const stage = document.getElementById("stage");
 const cube = document.getElementById("cube");
 
 let cubeBottom = 20;
 let velocity = 0;
-let gravity = -0.7;
+let gravity = -0.6;
 
-let isJumping = false;
 let score = 0;
-let gameInterval = null;
-let spawnInterval = null;
+let speed = 3;
 
+let gameInterval, spawnInterval;
 let obstacles = [];
+let running = false;
 
-// Start game
+// CONTROLS
 document.getElementById("start").onclick = startGame;
+document.getElementById("restart").onclick = startGame;
 
-// Jump button
-document.getElementById("jump").onclick = jump;
-
-// Spacebar
 document.addEventListener("keydown", e => {
   if(e.code === "Space") jump();
 });
 
-// Mobile tap-to-jump
 stage.addEventListener("click", jump);
 
-// RESET GAME
-function resetGame() {
-  // Remove obstacles
-  obstacles.forEach(o => o.remove());
-  obstacles = [];
+// START GAME
+function startGame(){
+  reset();
+  running = true;
 
-  cubeBottom = 20;
-  velocity = 0;
-  isJumping = false;
-  score = 0;
-  document.getElementById("score").textContent = "Score: 0";
+  gameInterval = setInterval(gameLoop, 20);
+  spawnInterval = setInterval(spawnObstacle, 1200);
+}
+
+// RESET
+function reset(){
+  obstacles.forEach(o=>o.remove());
+  obstacles=[];
+
+  cubeBottom=20;
+  velocity=0;
+  score=0;
+  speed=3;
+
+  document.getElementById("score").innerText="Score: 0";
+  document.getElementById("gameOver").style.display="none";
 
   clearInterval(gameInterval);
   clearInterval(spawnInterval);
-
-  cube.style.bottom = cubeBottom + "px";
-}
-
-// START GAME
-function startGame() {
-  resetGame();
-
-  gameInterval = setInterval(gameLoop, 20);
-  spawnInterval = setInterval(spawnObstacle, 1300);
 }
 
 // JUMP
-function jump() {
-  if (isJumping) return;
+function jump(){
+  if(!running) return;
 
-  isJumping = true;
-  velocity = 10;  // fixed jump strength
+  if(cubeBottom <= 21){
+    velocity = 10;
+  }
 }
 
-// CREATE OBSTACLE
-function spawnObstacle() {
+// SPAWN OBSTACLE
+function spawnObstacle(){
   const ob = document.createElement("div");
   ob.className = "ob";
   ob.style.right = "-40px";
-
   stage.appendChild(ob);
   obstacles.push(ob);
 }
 
 // GAME LOOP
-function gameLoop() {
-  // Update cube physics
+function gameLoop(){
+
   cubeBottom += velocity;
   velocity += gravity;
 
-  if (cubeBottom <= 20) {
+  if(cubeBottom <= 20){
     cubeBottom = 20;
-    isJumping = false;
   }
+
   cube.style.bottom = cubeBottom + "px";
 
-  // Move obstacles
-  obstacles.forEach((o, index) => {
-    const currentRight = parseFloat(o.style.right);
-    o.style.right = currentRight + 3 + "px";
+  obstacles.forEach((o,i)=>{
 
-    // Collision detection
-    const obX = stage.offsetWidth - (currentRight + o.offsetWidth);
-    if (obX < 80 && obX > 40 && cubeBottom < 50) {
+    let r = parseFloat(o.style.right);
+    o.style.right = (r + speed) + "px";
+
+    let obX = stage.offsetWidth - (r + o.offsetWidth);
+
+    // COLLISION
+    if(obX < 80 && obX > 40 && cubeBottom < 50){
       gameOver();
     }
 
-    // Passed obstacle
-    if (currentRight > stage.offsetWidth + 30) {
+    // SCORE
+    if(r > stage.offsetWidth){
       o.remove();
-      obstacles.splice(index, 1);
+      obstacles.splice(i,1);
       score++;
-      document.getElementById("score").textContent = "Score: " + score;
+      speed += 0.1; // increase difficulty
+
+      document.getElementById("score").innerText="Score: "+score;
     }
+
   });
 }
 
 // GAME OVER
-function gameOver() {
+function gameOver(){
+  running = false;
   clearInterval(gameInterval);
   clearInterval(spawnInterval);
-  alert("Game Over! Score: " + score);
+
+  document.getElementById("gameOver").style.display="block";
 }
+
 </script>
+
 </body>
 </html>
