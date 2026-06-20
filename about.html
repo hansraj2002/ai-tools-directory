@@ -2,49 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Primary SEO -->
   <title>About Us | AI Tools Directory</title>
-  <meta name="description" content="Learn more about AI Tools Directory — a platform created to help people discover the world's best AI tools for productivity, creativity, business, and learning.">
-  <meta name="keywords" content="AI tools, artificial intelligence, about AI directory, technology resources, AI platforms">
-
-  <!-- Canonical -->
+  <meta name="description" content="Learn about AI Tools Directory — an independent platform helping students, creators, developers and businesses discover the best AI tools available today.">
   <link rel="canonical" href="https://aitoolsdirectory.site/about.html">
-
-  <!-- Open Graph -->
   <meta property="og:title" content="About AI Tools Directory">
   <meta property="og:description" content="We help creators, developers, students, and businesses discover the most powerful AI tools available today.">
   <meta property="og:url" content="https://aitoolsdirectory.site/about.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://aitoolsdirectory.site/og-image.jpg">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="About AI Tools Directory">
-  <meta name="twitter:description" content="Discover our mission to make AI tools accessible to everyone.">
-  <meta name="twitter:image" content="https://aitoolsdirectory.site/og-image.jpg">
-
-  <!-- Robots -->
   <meta name="robots" content="index, follow">
-
-  <!-- Schema: Organization -->
-  <script type="application/ld+json">
-  {
-    "@context": "https://schema.org",
-    "@type": "Organization",
-    "name": "AI Tools Directory",
-    "url": "https://aitoolsdirectory.site/",
-    "logo": "https://aitoolsdirectory.site/og-image.jpg",
-    "sameAs": []
-  }
-  </script>
-
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <!-- Google Analytics -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About AI Tools Directory",
+    "url": "https://aitoolsdirectory.site/about.html",
+    "description": "Learn about the team and mission behind AI Tools Directory.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Tools Directory",
+      "url": "https://aitoolsdirectory.site/"
+    }
+  }
+  </script>
+
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -52,327 +36,241 @@
     gtag('js', new Date());
     gtag('config', 'G-143GBNNFQE');
   </script>
-<style>
-  /* ===== Header Container ===== */
-header {
-    background: linear-gradient(90deg, #1e3a8a, #3b82f6); /* Professional AI blue gradient */
-    color: #ffffff;
-    padding: 20px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-/* ===== Site Title ===== */
-header h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-    text-align: center;
-}
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; }
 
-/* ===== Navigation Menu ===== */
-header nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-header nav a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 500;
-    padding: 10px 18px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    position: relative;
-    background-color: rgba(255,255,255,0.05); /* subtle transparent buttons */
-}
-
-/* ===== Hover Effect ===== */
-header nav a::after {
-    content: '';
-    display: block;
-    height: 3px;
-    background-color: #facc15; /* gold accent */
-    width: 0%;
-    transition: width 0.3s;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-header nav a:hover::after {
-    width: 100%;
-}
-
-header nav a:hover {
-    background-color: rgba(255,255,255,0.15);
-    color: #fef3c7;
-}
-
-/* ===== Responsive Styling ===== */
-@media (max-width: 768px) {
+    header {
+      text-align: center; padding: 28px 16px;
+      background: #f5f3ff; border-radius: 0 0 20px 20px;
+      box-shadow: 0 8px 25px rgba(99,102,241,.1);
+    }
     header h1 {
-        font-size: 1.6rem;
+      font-size: 2rem; font-weight: 700;
+      background: linear-gradient(90deg,#6366f1,#ec4899,#f472b6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    nav {
+      display: flex; justify-content: center; gap: 16px; padding: 12px;
+      background: linear-gradient(90deg,#60a5fa,#a78bfa,#f9a8d4); flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff; text-decoration: none; font-size: 14px; font-weight: 500;
+      padding: 5px 12px; border-radius: 16px; transition: .3s;
+    }
+    nav a:hover { background: rgba(255,255,255,.25); }
+
+    .page-hero {
+      background: linear-gradient(135deg,#6366f1,#a78bfa,#f472b6);
+      color: #fff; text-align: center; padding: 60px 16px;
+    }
+    .page-hero h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 12px; }
+    .page-hero p { font-size: 1.1rem; opacity: .92; max-width: 600px; margin: 0 auto; }
+
+    .content-wrap { max-width: 900px; margin: 40px auto; padding: 0 16px; display: grid; gap: 28px; }
+
+    .card {
+      background: #fff; border-radius: 20px; padding: 32px;
+      box-shadow: 0 8px 28px rgba(99,102,241,.08);
+    }
+    .card h2 {
+      font-size: 1.5rem; font-weight: 700; margin-bottom: 16px;
+      background: linear-gradient(90deg,#6366f1,#ec4899);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .card h3 { font-size: 1.1rem; font-weight: 600; color: #4f46e5; margin: 20px 0 8px; }
+    .card p { font-size: 15px; line-height: 1.8; color: #334155; margin-bottom: 14px; }
+    .card p:last-child { margin-bottom: 0; }
+
+    .values-grid {
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+      gap: 16px; margin-top: 16px;
+    }
+    .value-item {
+      background: #f5f3ff; border-radius: 16px; padding: 20px; text-align: center;
+    }
+    .value-item .icon { font-size: 2rem; margin-bottom: 10px; }
+    .value-item strong { display: block; font-size: 15px; font-weight: 600; color: #4f46e5; margin-bottom: 6px; }
+    .value-item span { font-size: 13px; color: #475569; line-height: 1.5; }
+
+    .faq-item { border-bottom: 1px solid #e2e8f0; padding: 18px 0; }
+    .faq-item:last-child { border-bottom: none; padding-bottom: 0; }
+    .faq-item strong { display: block; font-size: 15px; font-weight: 600; color: #1e293b; margin-bottom: 8px; }
+    .faq-item p { font-size: 14px; color: #475569; line-height: 1.7; margin: 0; }
+
+    .cta-banner {
+      background: linear-gradient(135deg,#6366f1,#a78bfa);
+      border-radius: 20px; padding: 36px; text-align: center; color: #fff;
+    }
+    .cta-banner h2 { font-size: 1.6rem; font-weight: 700; margin-bottom: 10px; -webkit-text-fill-color: #fff; }
+    .cta-banner p { font-size: 15px; opacity: .92; margin-bottom: 22px; }
+    .cta-banner a {
+      display: inline-block; background: #fff; color: #6366f1;
+      padding: 12px 28px; border-radius: 14px; font-weight: 700;
+      text-decoration: none; transition: .3s;
+    }
+    .cta-banner a:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(0,0,0,.2); }
+
+    footer {
+      background: linear-gradient(90deg,#6366f1,#a78bfa,#f472b6);
+      color: #fff; text-align: center; padding: 22px; font-size: 14px; margin-top: 40px;
     }
 
-    header nav {
-        flex-direction: column;
-        gap: 12px;
+    #cookie-banner {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      width: 90%; max-width: 600px; background: #111827; color: #fff;
+      padding: 18px 20px; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,.25);
+      font-size: 15px; display: none; z-index: 9999;
     }
-
-    header nav a {
-        text-align: center;
+    #cookie-banner button {
+      background: #2563eb; border: none; padding: 10px 18px; border-radius: 8px;
+      color: #fff; font-size: 14px; cursor: pointer; margin-left: 10px;
     }
-}
+    #cookie-banner a { color: #93c5fd; text-decoration: underline; }
 
-/* ===== General Section Styling ===== */
-section {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 30px 25px;
-    background: rgba(59, 130, 246, 0.03); /* subtle AI blue tint */
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.8;
-    color: #1e293b; /* soft dark text */
-}
-
-/* ===== Headings ===== */
-section h2 {
-    font-size: 1.9rem;
-    color: #1e3a8a; /* deep professional blue */
-    font-weight: 700;
-    margin-top: 30px;
-    margin-bottom: 12px;
-    letter-spacing: 0.5px;
-}
-
-/* ===== Paragraphs ===== */
-section p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: #334155;
-}
-
-/* ===== Lists ===== */
-section ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 20px;
-}
-
-section ul li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 12px;
-    font-size: 1.05rem;
-    color: #1e293b;
-}
-
-section ul li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: #3b82f6; /* blue check mark for AI theme */
-    font-weight: bold;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-    section {
-        padding: 25px 15px;
+    @media(max-width:600px) {
+      .page-hero h2 { font-size: 1.7rem; }
+      .card { padding: 22px; }
     }
-
-    section h2 {
-        font-size: 1.6rem;
-    }
-
-    section p, section ul li {
-        font-size: 1rem;
-    }
-}
-
-/* ===== Footer Styling ===== */
-footer {
-    background: linear-gradient(90deg, #1e3a8a, #3b82f6); /* Matches header gradient */
-    color: #ffffff;
-    text-align: center;
-    padding: 25px 15px;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
-    border-radius: 10px 10px 0 0;
-}
-
-/* Footer Paragraph */
-footer p {
-    margin: 0;
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-/* Responsive Footer */
-@media (max-width: 768px) {
-    footer p {
-        font-size: 0.9rem;
-    }
-}
-</style>
-
+  </style>
 </head>
-
 <body>
-  <header>
-    <h1>About AI Tools Directory</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="submit.html">Submit Idea</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="policy.html">Privacy & Terms</a>
-      <a href="tools.html">Tools</a>
-      <a href="games.html">Games</a>
-    </nav>
-  </header>
 
-  <section>
-  <h2>Who We Are</h2>
-  <p>
-    AI Tools Directory is an independent online platform created to help students, professionals,
-    developers, entrepreneurs, and creators discover useful and trustworthy artificial intelligence tools.
-    Our goal is to make it easier for people to explore modern AI technologies without confusion or technical barriers.
-  </p>
+<header>
+  <h1>🤖 AI Tools Directory</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="submit.html">Submit Idea</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="policy.html">Privacy & Terms</a>
+    <a href="tools.html">Tools</a>
+    <a href="games.html">Games</a>
+  </nav>
+</header>
 
-  <p>
-    The rapid growth of artificial intelligence has introduced thousands of new tools across writing,
-    design, automation, education, marketing, and software development. While innovation is exciting,
-    it can be difficult to identify which tools are genuinely helpful. AI Tools Directory exists to solve
-    this problem by curating, organising, and presenting AI tools in a clear and accessible way.
-  </p>
+<div class="page-hero">
+  <h2>About AI Tools Directory</h2>
+  <p>An independent platform helping everyday people find the right AI tools for their work, creativity, and learning — without the confusion.</p>
+</div>
 
-  <h2>Our Mission</h2>
-  <p>
-    Our mission is to make artificial intelligence more approachable and practical for everyday use.
-    We focus on clarity, simplicity, and usefulness so visitors can quickly understand what each tool does
-    and how it may help them.
-  </p>
+<div class="content-wrap">
 
-  <ul style="margin: 20px 0 20px 20px; line-height: 1.8;">
-    <li>✔ Help users discover AI tools efficiently</li>
-    <li>✔ Provide clear and unbiased tool descriptions</li>
-    <li>✔ Support learning, productivity, and creativity</li>
-    <li>✔ Maintain a clean and user-friendly browsing experience</li>
-  </ul>
+  <div class="card">
+    <h2>Who We Are</h2>
+    <p>AI Tools Directory is an independent online resource built for anyone trying to make sense of the fast-moving world of artificial intelligence. We started this platform because discovering genuinely useful AI tools was becoming harder as the market grew — not easier.</p>
+    <p>There are now thousands of AI applications available across writing, design, video, audio, coding, education, research, and automation. Many are excellent. Many are overhyped. Knowing the difference takes time that most people do not have. Our job is to do that work for you.</p>
+    <p>We curate, categorise, and describe AI tools in plain language, making it simple for students, professionals, creators, and businesses to find what they actually need and get started quickly.</p>
 
-  <h2>How the Directory Is Maintained</h2>
-  <p>
-    All content on AI Tools Directory is reviewed and maintained manually. Tool listings are added,
-    updated, or removed based on relevance, functionality, and usefulness. We do not accept paid
-    placements or promotional rankings that could compromise the integrity of the directory.
-  </p>
+    <h3>What Makes Us Different</h3>
+    <p>Unlike tool lists that are auto-generated or affiliate-driven, every entry in our directory is reviewed and written by hand. We do not rank tools based on who pays us. We organise them by category, use case, and verified quality so you can browse with confidence.</p>
+    <p>We also keep things up to date. AI moves fast, and a tool description that was accurate six months ago may no longer reflect what the platform actually offers. We revisit listings regularly to ensure what you read matches what you will find.</p>
+  </div>
 
-  <p>
-    We regularly update descriptions, categories, and links to ensure accuracy. This ongoing maintenance
-    helps visitors rely on the platform as a dependable reference point when exploring AI technologies.
-  </p>
+  <div class="card">
+    <h2>Our Mission & Values</h2>
+    <p>Our mission is to make artificial intelligence more approachable and practical for everyday people — not just developers and tech enthusiasts.</p>
+    <div class="values-grid">
+      <div class="value-item">
+        <div class="icon">🎯</div>
+        <strong>Clarity</strong>
+        <span>Plain-language descriptions anyone can understand, without jargon.</span>
+      </div>
+      <div class="value-item">
+        <div class="icon">⚖️</div>
+        <strong>Independence</strong>
+        <span>Tool rankings are never influenced by payments or partnerships.</span>
+      </div>
+      <div class="value-item">
+        <div class="icon">🔄</div>
+        <strong>Accuracy</strong>
+        <span>Listings are reviewed and updated regularly as tools evolve.</span>
+      </div>
+      <div class="value-item">
+        <div class="icon">🌍</div>
+        <strong>Accessibility</strong>
+        <span>Designed for everyone — from first-timers to seasoned professionals.</span>
+      </div>
+    </div>
+  </div>
 
-  <h2>Transparency & Independence</h2>
-  <p>
-    AI Tools Directory operates independently and is not affiliated with the companies listed unless
-    explicitly stated. Any external links lead to third-party websites, and users are encouraged to
-    review each tool’s own policies and terms before use.
-  </p>
+  <div class="card">
+    <h2>How the Directory Works</h2>
+    <p>We currently list over 97 AI tools across 14 categories including Chatbots, Image Generators, Video AI, Audio and Voice, Coding Assistants, SEO, Marketing, Research, Productivity, Automation, Education, Design, Writing, and Developer Tools.</p>
 
-  <p>
-    To support website hosting, development, and maintenance costs, the site may display advertisements
-    through platforms such as Google AdSense. Advertising does not influence tool selection or ranking.
-  </p>
+    <h3>How Tools Are Selected</h3>
+    <p>Each tool we list must meet a basic standard: it needs to be genuinely useful, actively maintained, and relevant to a real use case. We do not list tools that are abandoned, misleading, or purely promotional. When a tool no longer meets our standards, it is removed.</p>
 
-  <h2>Looking Ahead</h2>
-  <p>
-    As the platform grows, we plan to expand with additional features such as user feedback,
-    educational articles, curated recommendations, and deeper insights into emerging AI trends.
-    Our long-term vision is to build a reliable resource that evolves alongside artificial intelligence.
-  </p>
+    <h3>How Tools Are Described</h3>
+    <p>Every tool description is written in clear, factual language. We focus on what the tool actually does, who it is for, and how it fits into a real workflow. We avoid superlatives and marketing language. If a tool is free, we say so. If it requires a subscription, that is noted too.</p>
 
-  <p>
-    Thank you for visiting AI Tools Directory and being part of our growing community.
-  </p>
-</section>
+    <h3>How Often We Update</h3>
+    <p>We review and refresh tool listings on a rolling basis, with major updates published weekly. New tools are added as they emerge and prove their value. We also accept community submissions through our <a href="submit.html" style="color:#6366f1;">Submit a Tool</a> page, which are reviewed before being added.</p>
+  </div>
 
-  <footer>
-    <p>&copy; 2025 AI Tools Directory</p>
-  </footer>
+  <div class="card">
+    <h2>Transparency & Advertising</h2>
+    <p>AI Tools Directory is independently owned and operated. We are not affiliated with or employed by any of the companies whose tools we list, unless explicitly stated in a listing.</p>
+    <p>To cover the costs of hosting, development, and content maintenance, this website may display advertisements through Google AdSense and similar platforms. Advertising revenue does not influence which tools are listed, how they are described, or how they are ranked. Our editorial decisions are made independently.</p>
+    <p>If you ever feel a listing is inaccurate or misleading, please contact us. We take editorial integrity seriously and will investigate and correct any errors promptly.</p>
+  </div>
 
-<!-- ================= COOKIE CONSENT (GDPR + AdSense) ================= -->
-<style>
-  #cookie-banner {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 600px;
-    background: #111827;
-    color: #fff;
-    padding: 18px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    display: none;
-    z-index: 9999;
-    animation: slideUp 0.5s ease;
-  }
+  <div class="card">
+    <h2>Frequently Asked Questions</h2>
 
-  #cookie-banner button {
-    background: #2563eb;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
+    <div class="faq-item">
+      <strong>Is AI Tools Directory free to use?</strong>
+      <p>Yes, completely. Browsing, searching, and using the directory costs nothing. Some tools we link to may have their own paid plans, which is indicated in their descriptions.</p>
+    </div>
 
-  #cookie-banner a {
-    color: #93c5fd;
-    text-decoration: underline;
-  }
+    <div class="faq-item">
+      <strong>Can I submit a tool to the directory?</strong>
+      <p>Yes. We welcome submissions from developers and tool creators. Visit our <a href="submit.html" style="color:#6366f1;">Submit a Tool</a> page to get started. All submissions are manually reviewed before being published.</p>
+    </div>
 
-  @keyframes slideUp {
-    from { opacity: 0; transform: translate(-50%, 10px); }
-    to   { opacity: 1; transform: translate(-50%, 0); }
-  }
-</style>
+    <div class="faq-item">
+      <strong>Do you accept paid placements or sponsored listings?</strong>
+      <p>No. We do not accept payments in exchange for listings, featured placement, or altered descriptions. Every tool listed is there on merit.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>How can I report an outdated or incorrect listing?</strong>
+      <p>Please use our <a href="contact.html" style="color:#6366f1;">Contact page</a> to let us know. We aim to review and correct reported issues within 48 hours.</p>
+    </div>
+
+    <div class="faq-item">
+      <strong>What categories do you cover?</strong>
+      <p>We currently cover 14 categories: Chatbots, Image Generators, Video, Audio and Voice, Coding, Research, SEO, Productivity, Marketing, Automation, Education, Design, Writing, and Developer Tools. New categories are added as the AI landscape grows.</p>
+    </div>
+  </div>
+
+  <div class="cta-banner">
+    <h2>Ready to Explore?</h2>
+    <p>Browse over 97 curated AI tools across 14 categories — all free to discover.</p>
+    <a href="/">Browse the Directory →</a>
+  </div>
+
+</div>
+
+<footer>
+  <p>&copy; 2025 AI Tools Directory | All Rights Reserved</p>
+</footer>
 
 <div id="cookie-banner">
   We use cookies to improve your experience, analyse traffic, and show personalised ads (Google AdSense).
   Read our <a href="policy.html" target="_blank">Privacy & Terms</a>.
   <button id="cookie-accept">Accept</button>
 </div>
-
 <script>
-  // Show banner only if not accepted before
   if (!localStorage.getItem("cookie_consent")) {
     document.getElementById("cookie-banner").style.display = "block";
   }
-
   document.getElementById("cookie-accept").addEventListener("click", () => {
     localStorage.setItem("cookie_consent", "yes");
     document.getElementById("cookie-banner").style.display = "none";
   });
 </script>
-<!-- ================= END COOKIE CONSENT ================= -->
-
 
 </body>
 </html>

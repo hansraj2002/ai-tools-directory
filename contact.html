@@ -2,49 +2,33 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- Primary SEO -->
   <title>Contact Us | AI Tools Directory</title>
-  <meta name="description" content="Contact AI Tools Directory for questions, suggestions, or partnership opportunities. We're here to help and respond quickly.">
-  <meta name="keywords" content="contact AI tools, support AI directory, AI help, get in touch">
-
-  <!-- Canonical -->
+  <meta name="description" content="Contact AI Tools Directory for questions, tool submissions, feedback, or business enquiries. We typically respond within 24–48 hours.">
   <link rel="canonical" href="https://aitoolsdirectory.site/contact.html">
-
-  <!-- Open Graph -->
   <meta property="og:title" content="Contact AI Tools Directory">
-  <meta property="og:description" content="Have a question or suggestion? Get in touch with the AI Tools Directory team.">
+  <meta property="og:description" content="Have a question or want to submit an AI tool? Get in touch with the AI Tools Directory team.">
   <meta property="og:url" content="https://aitoolsdirectory.site/contact.html">
   <meta property="og:type" content="website">
-  <meta property="og:image" content="https://aitoolsdirectory.site/og-image.jpg">
-
-  <!-- Twitter -->
-  <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="Contact AI Tools Directory">
-  <meta name="twitter:description" content="Reach out for support, submissions, or feedback.">
-  <meta name="twitter:image" content="https://aitoolsdirectory.site/og-image.jpg">
-
-  <!-- Robots -->
   <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <!-- Schema: Contact Page -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "ContactPage",
     "name": "Contact AI Tools Directory",
     "url": "https://aitoolsdirectory.site/contact.html",
-    "about": "Contact page for AI Tools Directory",
-    "mainEntityOfPage": "https://aitoolsdirectory.site/contact.html"
+    "description": "Contact page for AI Tools Directory — questions, submissions, feedback, and partnerships.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Tools Directory",
+      "url": "https://aitoolsdirectory.site/"
+    }
   }
   </script>
 
-  <link rel="stylesheet" href="style.css">
-  <link rel="icon" type="image/x-icon" href="favicon.ico">
-
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -53,305 +37,267 @@
     gtag('config', 'G-143GBNNFQE');
   </script>
 
-<style>
-  /* ===== General Header Styling ===== */
-header {
-    background: linear-gradient(90deg, #1e3a8a, #3b82f6); /* Modern deep blue gradient */
-    color: #ffffff;
-    padding: 20px 50px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 6px 15px rgba(0,0,0,0.1);
-    border-radius: 12px;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; }
 
-/* ===== Site Title ===== */
-header h1 {
-    font-size: 2.2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-    color: #e0f2fe; /* Light blue title for contrast */
-}
-
-/* ===== Navigation Menu ===== */
-header nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 25px;
-}
-
-header nav a {
-    text-decoration: none;
-    color: #ffffff;
-    font-weight: 500;
-    padding: 10px 18px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.05); /* subtle transparent buttons */
-}
-
-/* ===== Hover Effect ===== */
-header nav a::after {
-    content: '';
-    display: block;
-    height: 3px;
-    background-color: #facc15; /* gold/yellow accent */
-    width: 0%;
-    transition: width 0.3s;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-header nav a:hover::after {
-    width: 100%;
-}
-
-header nav a:hover {
-    background-color: rgba(255,255,255,0.15);
-    color: #fef3c7; /* soft gold text on hover */
-}
-
-/* ===== Responsive Styling ===== */
-@media (max-width: 768px) {
+    header {
+      text-align: center; padding: 28px 16px;
+      background: #f5f3ff; border-radius: 0 0 20px 20px;
+      box-shadow: 0 8px 25px rgba(99,102,241,.1);
+    }
     header h1 {
-        font-size: 1.8rem;
-        text-align: center;
+      font-size: 2rem; font-weight: 700;
+      background: linear-gradient(90deg,#6366f1,#ec4899,#f472b6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    nav {
+      display: flex; justify-content: center; gap: 16px; padding: 12px;
+      background: linear-gradient(90deg,#60a5fa,#a78bfa,#f9a8d4); flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff; text-decoration: none; font-size: 14px; font-weight: 500;
+      padding: 5px 12px; border-radius: 16px; transition: .3s;
+    }
+    nav a:hover { background: rgba(255,255,255,.25); }
+
+    .page-hero {
+      background: linear-gradient(135deg,#6366f1,#a78bfa,#f472b6);
+      color: #fff; text-align: center; padding: 60px 16px;
+    }
+    .page-hero h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 12px; }
+    .page-hero p { font-size: 1.05rem; opacity: .92; max-width: 580px; margin: 0 auto; }
+
+    .content-wrap {
+      max-width: 960px; margin: 40px auto; padding: 0 16px;
+      display: grid; grid-template-columns: 1fr 1fr; gap: 24px;
+    }
+    @media(max-width:700px) { .content-wrap { grid-template-columns: 1fr; } }
+
+    .card {
+      background: #fff; border-radius: 20px; padding: 30px;
+      box-shadow: 0 8px 28px rgba(99,102,241,.08);
+    }
+    .card.full { grid-column: 1 / -1; }
+
+    .card h2 {
+      font-size: 1.4rem; font-weight: 700; margin-bottom: 16px;
+      background: linear-gradient(90deg,#6366f1,#ec4899);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .card h3 { font-size: 1rem; font-weight: 600; color: #4f46e5; margin: 18px 0 8px; }
+    .card p { font-size: 14px; line-height: 1.75; color: #334155; margin-bottom: 12px; }
+    .card p:last-child { margin-bottom: 0; }
+    .card a { color: #6366f1; font-weight: 600; }
+
+    /* Contact options */
+    .contact-options { display: grid; gap: 14px; margin-top: 4px; }
+    .contact-option {
+      background: #f5f3ff; border-radius: 14px; padding: 18px;
+      display: flex; gap: 14px; align-items: flex-start;
+    }
+    .contact-option .icon { font-size: 1.6rem; flex-shrink: 0; margin-top: 2px; }
+    .contact-option strong { display: block; font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 4px; }
+    .contact-option span { font-size: 13px; color: #475569; line-height: 1.5; }
+
+    /* Form */
+    .form-group { display: flex; flex-direction: column; gap: 6px; margin-bottom: 16px; }
+    .form-group label { font-size: 13px; font-weight: 600; color: #4f46e5; }
+    .form-group input,
+    .form-group select,
+    .form-group textarea {
+      padding: 11px 14px; border-radius: 12px; border: 1.5px solid #e2e8f0;
+      font-size: 14px; font-family: inherit; transition: .3s; width: 100%;
+    }
+    .form-group input:focus,
+    .form-group select:focus,
+    .form-group textarea:focus {
+      outline: none; border-color: #a78bfa;
+      box-shadow: 0 0 0 3px rgba(167,139,250,.2);
+    }
+    .form-group textarea { resize: vertical; min-height: 120px; }
+    .submit-btn {
+      width: 100%; padding: 13px; border: none; border-radius: 14px; cursor: pointer;
+      background: linear-gradient(90deg,#6366f1,#a78bfa); color: #fff;
+      font-size: 15px; font-weight: 700; font-family: inherit; transition: .3s;
+    }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(99,102,241,.3); }
+
+    /* Response time badge */
+    .response-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #dcfce7; color: #16a34a; font-size: 12px; font-weight: 600;
+      padding: 6px 12px; border-radius: 999px; margin-bottom: 16px;
     }
 
-    header nav {
-        flex-direction: column;
-        gap: 12px;
+    footer {
+      background: linear-gradient(90deg,#6366f1,#a78bfa,#f472b6);
+      color: #fff; text-align: center; padding: 22px; font-size: 14px; margin-top: 40px;
     }
 
-    header nav a {
-        text-align: center;
+    #cookie-banner {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      width: 90%; max-width: 600px; background: #111827; color: #fff;
+      padding: 18px 20px; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,.25);
+      font-size: 15px; display: none; z-index: 9999;
     }
-}
-/* ===== General Form Styling ===== */
-form {
-    max-width: 600px;
-    margin: 50px auto;
-    padding: 30px 25px;
-    background: rgba(59, 130, 246, 0.05); /* light AI blue tint */
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0,0,0,0.05);
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-/* ===== Labels ===== */
-form label {
-    font-weight: 500;
-    margin-bottom: 5px;
-    color: #1e3a8a; /* deep blue for AI/professional vibe */
-}
-
-/* ===== Inputs & Textarea ===== */
-form input,
-form textarea {
-    padding: 12px 15px;
-    border-radius: 10px;
-    border: 1px solid #cbd5e1;
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* ===== Focus Effect ===== */
-form input:focus,
-form textarea:focus {
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 8px rgba(59,130,246,0.3);
-}
-
-/* ===== Button Styling ===== */
-form button {
-    padding: 12px 0;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 10px;
-    cursor: pointer;
-    color: #ffffff;
-    background: linear-gradient(90deg, #3b82f6, #1e3a8a);
-    transition: all 0.3s ease;
-}
-
-form button:hover {
-    background: linear-gradient(90deg, #1e3a8a, #3b82f6);
-    box-shadow: 0 6px 15px rgba(30,58,138,0.3);
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-    form {
-        padding: 25px 15px;
-        gap: 15px;
+    #cookie-banner button {
+      background: #2563eb; border: none; padding: 10px 18px; border-radius: 8px;
+      color: #fff; font-size: 14px; cursor: pointer; margin-left: 10px;
     }
-
-    form label {
-        font-size: 0.95rem;
-    }
-
-    form input,
-    form textarea,
-    form button {
-        font-size: 0.95rem;
-    }
-}
-/* ===== Footer Styling ===== */
-footer {
-    background: linear-gradient(90deg, #1e3a8a, #3b82f6); /* Matches header gradient */
-    color: #ffffff;
-    text-align: center;
-    padding: 20px 0;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-shadow: 0 -4px 10px rgba(0,0,0,0.1);
-}
-
-/* Footer Text */
-footer p {
-    margin: 0;
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-/* Responsive */
-@media (max-width: 768px) {
-    footer p {
-        font-size: 0.9rem;
-    }
-}
-</style>
+    #cookie-banner a { color: #93c5fd; text-decoration: underline; }
+  </style>
 </head>
-
 <body>
-  <header>
-    <h1>Contact Us</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="submit.html">Submit Idea</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="policy.html">Privacy & Terms</a>
-      <a href="tools.html">Tools</a>
-      <a href="games.html">Games</a>
-    </nav>
-  </header>
 
-  <section>
-    <h2>We’d Love to Hear From You</h2>
-    <p>If you have questions, feedback, or suggestions — or if you want to submit an AI tool or collaborate — feel free to reach out using the form below.</p>
+<header>
+  <h1>🤖 AI Tools Directory</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="submit.html">Submit Idea</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="policy.html">Privacy & Terms</a>
+    <a href="tools.html">Tools</a>
+    <a href="games.html">Games</a>
+  </nav>
+</header>
 
-    <!-- Contact Form (No changes to structure, safe for static hosting) -->
-    <form action="https://formsubmit.co/hansraj.kumararlani@gmail.com" method="POST" style="max-width: 500px; margin-top: 20px;">
+<div class="page-hero">
+  <h2>Get In Touch</h2>
+  <p>Questions, feedback, tool submissions, or partnership enquiries — we read every message and respond within 24–48 hours.</p>
+</div>
 
-      <!-- Anti-spam -->
+<div class="content-wrap">
+
+  <!-- Contact form -->
+  <div class="card full">
+    <h2>Send Us a Message</h2>
+    <div class="response-badge">⚡ Typical response within 24–48 hours</div>
+
+    <form action="https://formsubmit.co/hansraj.kumararlani@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false">
       <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" value="New message from AI Tools Directory">
 
-      <label for="name">Your Name</label>
-      <input type="text" id="name" name="name" required>
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;">
+        <div class="form-group">
+          <label for="name">Your Name *</label>
+          <input type="text" id="name" name="name" placeholder="Jane Smith" required>
+        </div>
+        <div class="form-group">
+          <label for="email">Your Email *</label>
+          <input type="email" id="email" name="email" placeholder="jane@example.com" required>
+        </div>
+      </div>
 
-      <label for="email">Your Email</label>
-      <input type="email" id="email" name="email" required>
+      <div class="form-group">
+        <label for="subject">Reason for Contact *</label>
+        <select id="subject" name="subject" required>
+          <option value="" disabled selected>Select a topic…</option>
+          <option value="General Question">General Question</option>
+          <option value="Tool Submission">I want to submit an AI tool</option>
+          <option value="Report Incorrect Listing">Report an incorrect or outdated listing</option>
+          <option value="Business / Partnership">Business or Partnership Enquiry</option>
+          <option value="Feedback">Feedback or Suggestion</option>
+          <option value="Other">Other</option>
+        </select>
+      </div>
 
-      <label for="message">Message</label>
-      <textarea id="message" name="message" rows="5" required></textarea>
+      <div class="form-group">
+        <label for="message">Your Message *</label>
+        <textarea id="message" name="message" placeholder="Tell us what's on your mind…" required></textarea>
+      </div>
 
-      <button type="submit">Send Message</button>
+      <p style="font-size:12px;color:#94a3b8;margin-bottom:16px;">
+        Your contact details are used only to respond to your message and are never shared or sold.
+      </p>
+
+      <button type="submit" class="submit-btn">Send Message →</button>
     </form>
+  </div>
 
-    <p style="margin-top:20px;font-size:14px;color:#555;">
-  We do not sell or share your contact details. Messages are used only to respond to your enquiry.
-</p>
+  <!-- Contact options -->
+  <div class="card">
+    <h2>What We Can Help With</h2>
+    <div class="contact-options">
+      <div class="contact-option">
+        <div class="icon">🔧</div>
+        <div>
+          <strong>Tool Submissions</strong>
+          <span>Want your AI tool listed? Submit it via our <a href="submit.html">Submit a Tool</a> page or mention it in your message. We review every submission manually.</span>
+        </div>
+      </div>
+      <div class="contact-option">
+        <div class="icon">📝</div>
+        <div>
+          <strong>Report an Inaccuracy</strong>
+          <span>If a tool listing is outdated, incorrect, or the link is broken, let us know and we will fix it within 48 hours.</span>
+        </div>
+      </div>
+      <div class="contact-option">
+        <div class="icon">🤝</div>
+        <div>
+          <strong>Business Enquiries</strong>
+          <span>For partnerships, collaboration opportunities, or advertising enquiries, please select the relevant option in the form.</span>
+        </div>
+      </div>
+      <div class="contact-option">
+        <div class="icon">💬</div>
+        <div>
+          <strong>General Feedback</strong>
+          <span>We actively use user feedback to improve the directory. If something is not working or could be better, we want to hear it.</span>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <!-- FAQ -->
+  <div class="card">
+    <h2>Before You Write</h2>
 
-    <h3 style="margin-top:40px;">Business / Partnership Enquiries</h3>
-    <p>For business proposals, advertising, or collaboration opportunities, please write to us and we will respond within 24–48 hours.</p>
+    <h3>How quickly will you reply?</h3>
+    <p>We aim to respond to all messages within 24 to 48 hours on business days. Partnership and business enquiries may take slightly longer.</p>
 
-    <h3>Tool Submissions</h3>
-    <p>If you want to suggest a new AI tool, please use our dedicated page:</p>
-    <a href="submit.html" style="font-weight: bold;">Submit an AI Tool →</a>
+    <h3>I want to submit a tool — where do I go?</h3>
+    <p>The quickest route is our dedicated <a href="submit.html">Submit a Tool</a> page. Alternatively, use the form here and select "Tool Submission" as the topic.</p>
 
-  </section>
+    <h3>Do you accept guest posts or sponsored content?</h3>
+    <p>We do not currently publish guest posts. Sponsored listings are not available as this would compromise the independence of the directory.</p>
 
-  <footer>
-    <p>&copy; 2025 AI Tools Directory</p>
-  </footer>
+    <h3>My tool is listed incorrectly — what should I do?</h3>
+    <p>Use the form above, select "Report an incorrect listing", and describe the issue. We will review and update it promptly.</p>
 
-<!-- ================= COOKIE CONSENT (GDPR + AdSense) ================= -->
-<style>
-  #cookie-banner {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 600px;
-    background: #111827;
-    color: #fff;
-    padding: 18px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    display: none;
-    z-index: 9999;
-    animation: slideUp 0.5s ease;
-  }
+    <h3>Can I advertise on AI Tools Directory?</h3>
+    <p>We serve ads through Google AdSense. For direct advertising enquiries, please use the contact form and select "Business or Partnership Enquiry".</p>
+  </div>
 
-  #cookie-banner button {
-    background: #2563eb;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
+</div>
 
-  #cookie-banner a {
-    color: #93c5fd;
-    text-decoration: underline;
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translate(-50%, 10px); }
-    to   { opacity: 1; transform: translate(-50%, 0); }
-  }
-</style>
+<footer>
+  <p>&copy; 2025 AI Tools Directory | All Rights Reserved</p>
+</footer>
 
 <div id="cookie-banner">
   We use cookies to improve your experience, analyse traffic, and show personalised ads (Google AdSense).
   Read our <a href="policy.html" target="_blank">Privacy & Terms</a>.
   <button id="cookie-accept">Accept</button>
 </div>
-
 <script>
-  // Show banner only if not accepted before
   if (!localStorage.getItem("cookie_consent")) {
     document.getElementById("cookie-banner").style.display = "block";
   }
-
   document.getElementById("cookie-accept").addEventListener("click", () => {
     localStorage.setItem("cookie_consent", "yes");
     document.getElementById("cookie-banner").style.display = "none";
   });
-</script>
-<!-- ================= END COOKIE CONSENT ================= -->
 
+  // Responsive form grid on mobile
+  if (window.innerWidth < 600) {
+    const grid = document.querySelector('form > div[style*="grid"]');
+    if (grid) grid.style.gridTemplateColumns = '1fr';
+  }
+</script>
 
 </body>
 </html>
