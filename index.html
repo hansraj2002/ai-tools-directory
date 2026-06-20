@@ -607,7 +607,29 @@ header:hover h1 {
 }
   </style>
  
+<!-- 
+  PASTE THIS INSIDE <head> of your index.html, before </head>
+  This adds Schema.org structured data for the whole directory
+-->
 
+<!-- Schema: WebSite + ItemList -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AI Tools Directory",
+  "url": "https://aitoolsdirectory.site/",
+  "description": "Discover and compare 100+ AI tools across 14 categories including chatbots, image generators, coding assistants, video tools, and more.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://aitoolsdirectory.site/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
  
 </head>
 
@@ -771,126 +793,151 @@ header:hover h1 {
   </footer>
 
   <!-- JS -->
-  <script>
-    let toolsList = [];
-    let currentPage = 1;
-    const perPage = 12;
+  <!--
+  REPLACE the entire <script> block in your index.html 
+  (the one starting with: let toolsList = []; )
+  with this updated version. 
+  Key change: cards now link to individual /tool/{slug}.html pages
+-->
 
-    fetch("tools.json")
-      .then(res => res.json())
-      .then(data => {
-        toolsList = data;
-        displayTools(toolsList);
-        setupPagination(toolsList);
-        loadFeaturedTools();
-      });
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "AI Tools Directory",
+  "url": "https://aitoolsdirectory.site/",
+  "description": "Discover and compare 100+ AI tools across 14 categories including chatbots, image generators, coding assistants, video tools, and more.",
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": {
+      "@type": "EntryPoint",
+      "urlTemplate": "https://aitoolsdirectory.site/?q={search_term_string}"
+    },
+    "query-input": "required name=search_term_string"
+  }
+}
+</script>
 
-    function loadFeaturedTools() {
-      const container = document.getElementById("featuredTools");
-      const popular = toolsList.slice(0, 4);
+<script>
+  let toolsList = [];
+  let currentPage = 1;
+  const perPage = 12;
 
-      container.innerHTML = popular.map(t => `
-        <div class="featured-card">
-          <img src="${t.icon}" class="tool-icon">
-          <h3>${t.name}</h3>
-          ${t.badge ? `<span class="badge ${t.badge}">${t.badge}</span>` : ""}
-          <p>${t.description}</p>
-        </div>
-      `).join("");
-    }
-
-    function displayTools(tools) {
-      const container = document.getElementById("tools-container");
-      container.innerHTML = "";
-
-      const start = (currentPage - 1) * perPage;
-      const paginatedItems = tools.slice(start, start + perPage);
-
-      if (paginatedItems.length === 0) {
-        container.innerHTML = "<p>No tools found.</p>";
-        return;
-      }
-
-      paginatedItems.forEach(tool => {
-        const card = document.createElement("div");
-        card.classList.add("card");
-
-        card.innerHTML = `
-          <img src="${tool.icon}" class="tool-icon">
-
-          ${tool.badge ? `<span class="badge ${tool.badge}">${tool.badge}</span>` : ""}
-
-          <h3>${tool.name}</h3>
-          <p>${tool.description}</p>
-          <p class="category-tag">${tool.category}</p>
-
-          <a href="${tool.link}" target="_blank">Visit Tool</a>
-        `;
-
-        container.appendChild(card);
-      });
-    }
-
-    function filterTools(category) {
-      currentPage = 1;
-      if (category === "all") {
-        displayTools(toolsList);
-        setupPagination(toolsList);
-      } else {
-        const filtered = toolsList.filter(tool => tool.category === category);
-        displayTools(filtered);
-        setupPagination(filtered);
-      }
-    }
-
-    function searchTools() {
-      const query = document.getElementById("searchInput").value.toLowerCase();
-      const results = toolsList.filter(t =>
-        t.name.toLowerCase().includes(query) ||
-        t.description.toLowerCase().includes(query)
-      );
-      currentPage = 1;
-      displayTools(results);
-      setupPagination(results);
-    }
-
-    function sortTools() {
-      const type = document.getElementById("sortSelect").value;
-
-      if (type === "az") {
-        toolsList.sort((a, b) => a.name.localeCompare(b.name));
-      } else {
-        toolsList.sort((a, b) => b.name.localeCompare(a.name));
-      }
-
+  fetch("tools.json")
+    .then(res => res.json())
+    .then(data => {
+      toolsList = data;
       displayTools(toolsList);
       setupPagination(toolsList);
+      loadFeaturedTools();
+    });
+
+  function loadFeaturedTools() {
+    const container = document.getElementById("featuredTools");
+    const popular = toolsList.filter(t => t.badge === "VERIFIED").slice(0, 4);
+
+    container.innerHTML = popular.map(t => `
+      <a href="/tool/${t.slug}.html" class="featured-card" style="text-decoration:none;color:inherit;">
+        ${t.icon ? `<img src="${t.icon}" class="tool-icon" alt="${t.name} logo" onerror="this.style.display='none'">` : `<div style="width:40px;height:40px;border-radius:10px;background:linear-gradient(135deg,#6366f1,#a78bfa);margin-bottom:12px;"></div>`}
+        <h3>${t.name}</h3>
+        ${t.badge ? `<span class="badge ${t.badge}">${t.badge}</span>` : ""}
+        <p>${t.description}</p>
+      </a>
+    `).join("");
+  }
+
+  function displayTools(tools) {
+    const container = document.getElementById("tools-container");
+    container.innerHTML = "";
+
+    const start = (currentPage - 1) * perPage;
+    const paginatedItems = tools.slice(start, start + perPage);
+
+    if (paginatedItems.length === 0) {
+      container.innerHTML = "<p>No tools found.</p>";
+      return;
     }
 
-    function setupPagination(items) {
-      const pages = Math.ceil(items.length / perPage);
-      const pagination = document.getElementById("pagination");
-      pagination.innerHTML = "";
+    paginatedItems.forEach(tool => {
+      const card = document.createElement("div");
+      card.classList.add("card");
 
-      for (let i = 1; i <= pages; i++) {
-        pagination.innerHTML += `<button onclick="goToPage(${i})">${i}</button>`;
-      }
-    }
+      card.innerHTML = `
+        ${tool.icon ? `<img src="${tool.icon}" class="tool-icon" alt="${tool.name} logo" onerror="this.style.display='none'">` : ``}
+        ${tool.badge ? `<span class="badge ${tool.badge}">${tool.badge}</span>` : ""}
+        <h3>${tool.name}</h3>
+        <p>${tool.description}</p>
+        <p class="category-tag">${tool.category}</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px;">
+          <a href="/tool/${tool.slug}.html">Full Review</a>
+          <a href="${tool.link}" target="_blank" rel="noopener" style="background:linear-gradient(90deg,#22c55e,#4ade80);">Visit Tool ↗</a>
+        </div>
+      `;
 
-    function goToPage(page) {
-      currentPage = page;
+      container.appendChild(card);
+    });
+  }
+
+  function filterTools(category) {
+    currentPage = 1;
+    if (category === "all") {
       displayTools(toolsList);
+      setupPagination(toolsList);
+    } else {
+      const filtered = toolsList.filter(tool => tool.category === category);
+      displayTools(filtered);
+      setupPagination(filtered);
     }
+  }
 
-    function toggleDarkMode() {
-      document.body.classList.toggle("dark");
-      localStorage.setItem("darkMode", document.body.classList.contains("dark"));
-    }
+  function searchTools() {
+    const query = document.getElementById("searchInput").value.toLowerCase();
+    const results = toolsList.filter(t =>
+      t.name.toLowerCase().includes(query) ||
+      t.description.toLowerCase().includes(query)
+    );
+    currentPage = 1;
+    displayTools(results);
+    setupPagination(results);
+  }
 
-    if (localStorage.getItem("darkMode") === "true") {
-      document.body.classList.add("dark");
+  function sortTools() {
+    const type = document.getElementById("sortSelect").value;
+    if (type === "az") {
+      toolsList.sort((a, b) => a.name.localeCompare(b.name));
+    } else {
+      toolsList.sort((a, b) => b.name.localeCompare(a.name));
     }
-  </script>
+    displayTools(toolsList);
+    setupPagination(toolsList);
+  }
+
+  function setupPagination(items) {
+    const pages = Math.ceil(items.length / perPage);
+    const pagination = document.getElementById("pagination");
+    pagination.innerHTML = "";
+    for (let i = 1; i <= pages; i++) {
+      pagination.innerHTML += `<button onclick="goToPage(${i})" class="${i===currentPage?'active':''}">${i}</button>`;
+    }
+  }
+
+  function goToPage(page) {
+    currentPage = page;
+    displayTools(toolsList);
+    setupPagination(toolsList);
+    window.scrollTo({top: 0, behavior: 'smooth'});
+  }
+
+  function toggleDarkMode() {
+    document.body.classList.toggle("dark");
+    localStorage.setItem("darkMode", document.body.classList.contains("dark"));
+  }
+
+  if (localStorage.getItem("darkMode") === "true") {
+    document.body.classList.add("dark");
+  }
+</script>
+
 
 <!-- ================= COOKIE CONSENT (GDPR + AdSense) ================= -->
 <style>
