@@ -2,32 +2,32 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <title>Privacy & Terms | AI Tools Directory</title>
-  <meta name="description" content="Read the Privacy Policy and Terms of Service for AI Tools Directory. Learn how we collect, use, and protect data under GDPR compliance.">
-
+  <title>Privacy Policy & Terms of Service | AI Tools Directory</title>
+  <meta name="description" content="Privacy Policy and Terms of Service for AI Tools Directory. Learn how we collect, use, and protect your data, including our use of Google AdSense and Analytics.">
   <link rel="canonical" href="https://aitoolsdirectory.site/policy.html">
-  <link rel="stylesheet" href="style.css">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Privacy & Terms - AI Tools Directory">
-  <meta property="og:description" content="Learn how AI Tools Directory protects your data and the rules of using our website.">
+  <meta property="og:title" content="Privacy Policy & Terms of Service | AI Tools Directory">
+  <meta property="og:description" content="Read our Privacy Policy and Terms of Service for AI Tools Directory.">
   <meta property="og:type" content="website">
+  <meta name="robots" content="index, follow">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Privacy & Terms",
+    "name": "Privacy Policy & Terms of Service",
     "url": "https://aitoolsdirectory.site/policy.html",
-    "description": "Combined Privacy Policy and Terms of Service for AI Tools Directory."
+    "description": "Privacy Policy and Terms of Service for AI Tools Directory.",
+    "publisher": {
+      "@type": "Organization",
+      "name": "AI Tools Directory",
+      "url": "https://aitoolsdirectory.site/"
+    }
   }
   </script>
 
-  <!-- Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -35,409 +35,428 @@
     gtag('js', new Date());
     gtag('config', 'G-143GBNNFQE');
   </script>
-<style>
-  /* ===== Header Container ===== */
-header {
-    background: linear-gradient(90deg, #3b82f6, #1e3a8a); /* Bright AI-blue gradient */
-    color: #ffffff;
-    padding: 20px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-/* ===== Site Title ===== */
-header h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-    text-align: center;
-    color: #ffffff;
-}
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; }
 
-/* ===== Navigation Menu ===== */
-header nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* ===== Nav Links ===== */
-header nav a {
-    text-decoration: none;
-    color: #dbeafe; /* Light blue text for professional AI vibe */
-    font-weight: 500;
-    padding: 10px 18px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    position: relative;
-    background-color: rgba(255,255,255,0.05); /* subtle transparent hover */
-}
-
-/* ===== Hover Effect ===== */
-header nav a::after {
-    content: '';
-    display: block;
-    height: 3px;
-    background-color: #60a5fa; /* bright cyan underline */
-    width: 0%;
-    transition: width 0.3s;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-header nav a:hover::after {
-    width: 100%;
-}
-
-header nav a:hover {
-    background-color: rgba(255,255,255,0.15);
-    color: #ffffff; /* bright white on hover */
-}
-
-/* ===== Responsive Styling ===== */
-@media (max-width: 768px) {
+    header {
+      text-align: center; padding: 28px 16px;
+      background: #f5f3ff; border-radius: 0 0 20px 20px;
+      box-shadow: 0 8px 25px rgba(99,102,241,.1);
+    }
     header h1 {
-        font-size: 1.6rem;
+      font-size: 2rem; font-weight: 700;
+      background: linear-gradient(90deg,#6366f1,#ec4899,#f472b6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    nav {
+      display: flex; justify-content: center; gap: 16px; padding: 12px;
+      background: linear-gradient(90deg,#60a5fa,#a78bfa,#f9a8d4); flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff; text-decoration: none; font-size: 14px; font-weight: 500;
+      padding: 5px 12px; border-radius: 16px; transition: .3s;
+    }
+    nav a:hover { background: rgba(255,255,255,.25); }
+
+    .page-hero {
+      background: linear-gradient(135deg,#6366f1,#a78bfa,#f472b6);
+      color: #fff; text-align: center; padding: 52px 16px;
+    }
+    .page-hero h2 { font-size: 2rem; font-weight: 700; margin-bottom: 10px; }
+    .page-hero p { font-size: 1rem; opacity: .92; }
+
+    /* Sticky sidebar TOC + main layout */
+    .policy-layout {
+      max-width: 1000px; margin: 40px auto; padding: 0 16px;
+      display: grid; grid-template-columns: 220px 1fr; gap: 28px; align-items: start;
+    }
+    @media(max-width:720px) { .policy-layout { grid-template-columns: 1fr; } }
+
+    .toc {
+      background: #fff; border-radius: 16px; padding: 22px;
+      box-shadow: 0 8px 24px rgba(99,102,241,.08); position: sticky; top: 20px;
+    }
+    .toc h3 { font-size: 13px; font-weight: 700; text-transform: uppercase; letter-spacing: .5px; color: #94a3b8; margin-bottom: 14px; }
+    .toc a {
+      display: block; font-size: 13px; color: #4f46e5; text-decoration: none;
+      padding: 6px 0; border-bottom: 1px solid #f1f5f9; transition: .2s;
+    }
+    .toc a:last-child { border-bottom: none; }
+    .toc a:hover { color: #ec4899; padding-left: 4px; }
+    .toc .section-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      color: #a78bfa; margin: 14px 0 4px; letter-spacing: .5px;
+    }
+    @media(max-width:720px) { .toc { display: none; } }
+
+    .policy-content { display: grid; gap: 24px; }
+
+    .policy-card {
+      background: #fff; border-radius: 20px; padding: 30px;
+      box-shadow: 0 8px 24px rgba(99,102,241,.07);
+      scroll-margin-top: 24px;
+    }
+    .policy-card .card-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 1px; color: #a78bfa; margin-bottom: 8px;
+    }
+    .policy-card h2 {
+      font-size: 1.35rem; font-weight: 700; margin-bottom: 18px;
+      background: linear-gradient(90deg,#6366f1,#ec4899);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .policy-card h3 { font-size: 1rem; font-weight: 600; color: #4f46e5; margin: 20px 0 8px; }
+    .policy-card h3:first-of-type { margin-top: 0; }
+    .policy-card p { font-size: 14px; line-height: 1.8; color: #334155; margin-bottom: 12px; }
+    .policy-card p:last-child { margin-bottom: 0; }
+    .policy-card ul { margin: 8px 0 14px 0; padding-left: 0; list-style: none; }
+    .policy-card ul li {
+      font-size: 14px; color: #334155; padding: 5px 0 5px 20px;
+      position: relative; line-height: 1.65;
+    }
+    .policy-card ul li::before { content: "•"; position: absolute; left: 6px; color: #a78bfa; font-weight: 700; }
+    .policy-card a { color: #6366f1; }
+
+    /* Last updated badge */
+    .last-updated {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: #f0fdf4; color: #16a34a; font-size: 12px; font-weight: 600;
+      padding: 5px 12px; border-radius: 999px; margin-bottom: 18px;
     }
 
-    header nav {
-        flex-direction: column;
-        gap: 12px;
+    /* AdSense disclosure highlight */
+    .adsense-box {
+      background: #eff6ff; border-left: 4px solid #3b82f6;
+      border-radius: 0 12px 12px 0; padding: 16px 18px; margin: 14px 0;
+    }
+    .adsense-box p { margin: 0; font-size: 13px; color: #1e40af; line-height: 1.7; }
+    .adsense-box strong { color: #1d4ed8; }
+
+    footer {
+      background: linear-gradient(90deg,#6366f1,#a78bfa,#f472b6);
+      color: #fff; text-align: center; padding: 22px; font-size: 14px; margin-top: 40px;
     }
 
-    header nav a {
-        text-align: center;
+    #cookie-banner {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      width: 90%; max-width: 600px; background: #111827; color: #fff;
+      padding: 18px 20px; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,.25);
+      font-size: 15px; display: none; z-index: 9999;
     }
-}
-
-/* ===== Section Container ===== */
-section {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 35px 25px;
-    background: rgba(59, 130, 246, 0.05); /* subtle bright AI-blue tint */
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #1e293b; /* dark text for readability */
-    line-height: 1.8;
-}
-
-/* ===== Headings ===== */
-section h2 {
-    font-size: 2rem;
-    color: #1e3a8a; /* deep AI blue */
-    font-weight: 700;
-    margin-top: 30px;
-    margin-bottom: 15px;
-}
-
-section h3 {
-    font-size: 1.5rem;
-    color: #2563eb; /* medium AI blue */
-    font-weight: 600;
-    margin-top: 20px;
-    margin-bottom: 12px;
-}
-
-section h4 {
-    font-size: 1.2rem;
-    color: #3b82f6; /* bright AI blue */
-    font-weight: 500;
-    margin-top: 15px;
-    margin-bottom: 8px;
-}
-
-/* ===== Paragraphs ===== */
-section p {
-    font-size: 1.1rem;
-    margin-bottom: 18px;
-    color: #334155;
-}
-
-/* ===== Lists ===== */
-section ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 20px;
-}
-
-section ul li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 12px;
-    font-size: 1.05rem;
-    color: #1e293b;
-}
-
-section ul li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: #3b82f6; /* bright AI blue checkmark */
-    font-weight: bold;
-}
-
-/* ===== Horizontal Rules ===== */
-section hr {
-    border: none;
-    border-top: 2px solid rgba(59,130,246,0.3);
-    margin: 35px 0;
-    border-radius: 2px;
-}
-
-/* ===== Footer Styling ===== */
-footer {
-    background: linear-gradient(90deg, #3b82f6, #1e3a8a); /* matches header/nav gradient */
-    color: #ffffff;
-    text-align: center;
-    padding: 25px 15px;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
-    border-radius: 10px 10px 0 0;
-}
-
-footer p {
-    margin: 0;
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-/* ===== Responsive Styling ===== */
-@media (max-width: 768px) {
-    section {
-        padding: 25px 15px;
+    #cookie-banner button {
+      background: #2563eb; border: none; padding: 10px 18px; border-radius: 8px;
+      color: #fff; font-size: 14px; cursor: pointer; margin-left: 10px;
     }
-
-    section h2 {
-        font-size: 1.7rem;
-    }
-
-    section h3 {
-        font-size: 1.4rem;
-    }
-
-    section h4 {
-        font-size: 1.1rem;
-    }
-
-    section p,
-    section ul li {
-        font-size: 1rem;
-    }
-
-    footer p {
-        font-size: 0.9rem;
-    }
-}
-</style>
-
+    #cookie-banner a { color: #93c5fd; text-decoration: underline; }
+  </style>
 </head>
-
 <body>
 
-  <header>
-    <h1>Privacy Policy & Terms of Service</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="submit.html">Submit Idea</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="policy.html">Privacy & Terms</a>
-      <a href="tools.html">Tools</a>
-      <a href="games.html">Games</a>
-    </nav>
-  </header>
+<header>
+  <h1>🤖 AI Tools Directory</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="submit.html">Submit Idea</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="policy.html">Privacy & Terms</a>
+    <a href="tools.html">Tools</a>
+    <a href="games.html">Games</a>
+  </nav>
+</header>
 
-  <section>
+<div class="page-hero">
+  <h2>Privacy Policy &amp; Terms of Service</h2>
+  <p>Effective date: 1 November 2025 &nbsp;·&nbsp; Applies to: aitoolsdirectory.site</p>
+</div>
 
-    <!-- PRIVACY POLICY -->
-    <h2>Privacy Policy</h2>
-    <p>Welcome to AI Tools Directory (“we”, “our”, “us”). This page explains how we collect, use, and protect your information when you visit: <strong>https://aitoolsdirectory.site</strong>.</p>
-    <p>We comply with UK GDPR, EU GDPR, and worldwide privacy regulations.</p>
+<div class="policy-layout">
 
-    <h3>Information We Collect</h3>
+  <!-- Table of Contents (desktop sticky) -->
+  <aside class="toc">
+    <h3>Contents</h3>
+    <div class="section-label">Privacy Policy</div>
+    <a href="#who-we-are">Who We Are</a>
+    <a href="#data-we-collect">Data We Collect</a>
+    <a href="#how-we-use-data">How We Use Data</a>
+    <a href="#cookies">Cookies</a>
+    <a href="#advertising">Advertising (AdSense)</a>
+    <a href="#third-parties">Third-Party Services</a>
+    <a href="#your-rights">Your Rights</a>
+    <a href="#data-retention">Data Retention</a>
+    <a href="#children">Children's Privacy</a>
+    <a href="#external-links">External Links</a>
+    <a href="#policy-updates">Policy Updates</a>
+    <div class="section-label">Terms of Service</div>
+    <a href="#acceptance">Acceptance</a>
+    <a href="#permitted-use">Permitted Use</a>
+    <a href="#tool-listings">Tool Listings</a>
+    <a href="#disclaimers">Disclaimers</a>
+    <a href="#liability">Liability</a>
+    <a href="#ip">Intellectual Property</a>
+    <a href="#termination">Termination</a>
+    <a href="#governing-law">Governing Law</a>
+    <a href="#contact-policy">Contact</a>
+  </aside>
 
-    <h4>1. Personal Information (Provided by You)</h4>
-    <p>When you use our website, you may provide:</p>
-    <ul>
-      <li>Name</li>
-      <li>Email address</li>
-      <li>Tool submission data</li>
-      <li>Messages or inquiries</li>
-    </ul>
+  <div class="policy-content">
 
-    <h4>2. Automatically Collected Data</h4>
-    <p>We collect anonymized data including:</p>
-    <ul>
-      <li>IP address (anonymized)</li>
-      <li>Device & browser info</li>
-      <li>Pages visited</li>
-      <li>Time spent on the website</li>
-      <li>Clicks and interactions</li>
-    </ul>
+    <!-- ======================== PRIVACY POLICY ======================== -->
 
-    <h4>3. Cookies</h4>
-    <p>We use cookies for analytics, performance, and improving user experience.</p>
+    <div class="policy-card" id="who-we-are">
+      <div class="card-label">Privacy Policy</div>
+      <h2>1. Who We Are</h2>
+      <p>AI Tools Directory ("we", "us", "our") operates the website at <strong>https://aitoolsdirectory.site</strong>. We are an independent online platform that curates and lists artificial intelligence tools for public discovery. We are not affiliated with any AI company unless explicitly stated.</p>
+      <p>This Privacy Policy explains what personal data we collect, why we collect it, how it is used, and the rights you have over it. By using our website, you agree to the practices described in this policy.</p>
+      <p>For any privacy-related questions, you can reach us via the <a href="contact.html">Contact page</a>.</p>
+    </div>
 
-    <h3>How We Use Your Information</h3>
-    <ul>
-      <li>To improve website performance</li>
-      <li>To respond to contact messages</li>
-      <li>To process AI tool submissions</li>
-      <li>To analyze website usage</li>
-    </ul>
+    <div class="policy-card" id="data-we-collect">
+      <h2>2. Data We Collect</h2>
 
-    <h3>Third-Party Services</h3>
-    <p>We use:</p>
-    <ul>
-      <li><strong>Google Analytics</strong> — anonymous traffic tracking</li>
-      <li><strong>Google AdSense</strong> — personalised or non-personalised ads</li>
-      <li><strong>FormSubmit</strong> — secure form handling</li>
-    </ul>
+      <h3>Information You Provide Directly</h3>
+      <p>When you interact with forms on our website — such as the Contact form or Tool Submission form — you may provide:</p>
+      <ul>
+        <li>Your name</li>
+        <li>Your email address</li>
+        <li>The content of your message or submission</li>
+      </ul>
+      <p>This information is submitted via FormSubmit, a third-party form service, and is sent directly to us by email. We do not store this data in a database on our servers.</p>
 
-    <h3>Your GDPR Rights</h3>
-    <ul>
-      <li>Access your data</li>
-      <li>Correct inaccurate data</li>
-      <li>Request deletion</li>
-      <li>Withdraw consent</li>
-      <li>Opt-out of data processing</li>
-    </ul>
+      <h3>Information Collected Automatically</h3>
+      <p>When you visit our website, certain technical data is collected automatically by our analytics and advertising services. This may include:</p>
+      <ul>
+        <li>Your anonymised IP address</li>
+        <li>Browser type and version</li>
+        <li>Device type (desktop, mobile, tablet)</li>
+        <li>Operating system</li>
+        <li>Pages visited and time spent on each page</li>
+        <li>Referring website (how you arrived at our site)</li>
+        <li>General geographic location (country or region level)</li>
+      </ul>
+      <p>This data is collected through Google Analytics and does not identify you personally. We use it solely to understand how visitors use the site so we can improve it.</p>
 
-    <p>You may contact us via the form on the Contact page for any of these requests.</p>
+      <h3>Advertising Data</h3>
+      <p>We use Google AdSense to display advertisements. Google AdSense may collect data including your IP address, browser, device, and browsing behaviour across websites in order to serve personalised advertisements. This is governed by Google's own privacy policy, which you can read at <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
+    </div>
 
-    <h3>External Links</h3>
-    <p>Some AI tools lead to external websites. We are not responsible for third-party privacy policies.</p>
+    <div class="policy-card" id="how-we-use-data">
+      <h2>3. How We Use Your Data</h2>
+      <p>We use the data we collect for the following purposes only:</p>
+      <ul>
+        <li>To respond to messages and enquiries you send us</li>
+        <li>To review and process AI tool submissions</li>
+        <li>To analyse website traffic and improve site performance</li>
+        <li>To display relevant advertisements through Google AdSense</li>
+        <li>To comply with legal obligations where applicable</li>
+      </ul>
+      <p>We do not sell your personal data to third parties. We do not use your data for automated decision-making or profiling. We do not share your contact information with advertisers.</p>
+    </div>
 
-    <h3>Children’s Privacy</h3>
-    <p>We do not knowingly collect information from children under 13.</p>
+    <div class="policy-card" id="cookies">
+      <h2>4. Cookies</h2>
+      <p>Our website uses cookies — small text files stored on your device — to provide certain functionality and to support analytics and advertising. The types of cookies we use are:</p>
 
-    <h3>Updates</h3>
-    <p>This policy may be updated periodically. Last updated: <strong>November 2025</strong>.</p>
+      <h3>Essential Cookies</h3>
+      <p>These are necessary for the website to function correctly. They store your cookie consent preference so that the consent banner does not reappear on every visit. These cannot be disabled without affecting your experience.</p>
 
-    <hr><br>
+      <h3>Analytics Cookies (Google Analytics)</h3>
+      <p>Google Analytics uses cookies to track anonymised usage statistics. These help us understand how visitors navigate the site. You can opt out of Google Analytics tracking by installing the <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener">Google Analytics Opt-out Browser Add-on</a>.</p>
 
-    <!-- TERMS OF SERVICE -->
-    <h2>Terms of Service</h2>
+      <h3>Advertising Cookies (Google AdSense)</h3>
+      <p>Google AdSense uses cookies to serve ads that are relevant to your interests, based on your browsing activity. These are third-party cookies set by Google, not by us directly.</p>
 
-    <h3>1. Acceptance of Terms</h3>
-    <p>By using this website, you agree to follow these Terms of Service.</p>
+      <div class="adsense-box">
+        <p><strong>Managing advertising cookies:</strong> You can opt out of personalised advertising by visiting <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ad Settings</a> or by visiting <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener">aboutads.info</a>. You can also manage all cookies through your browser settings, though disabling all cookies may affect site functionality.</p>
+      </div>
 
-    <h3>2. Allowed Use</h3>
-    <p>You may use our website to browse, search, and explore AI tools and games.</p>
-    <p>You agree NOT to:</p>
-    <ul>
-      <li>Use the website for illegal activities</li>
-      <li>Scrape or copy tool listings</li>
-      <li>Upload harmful code</li>
-      <li>Exploit or disrupt the website</li>
-    </ul>
+      <p>We display a cookie consent banner on your first visit. By clicking "Accept", you consent to the use of analytics and advertising cookies as described above. You may withdraw consent at any time by clearing your browser cookies and refusing consent on the next visit.</p>
+    </div>
 
-    <h3>3. AI Tool Listings</h3>
-    <p>We list third-party tools. We do not own or operate these tools and are not responsible for their content.</p>
+    <div class="policy-card" id="advertising">
+      <h2>5. Advertising — Google AdSense</h2>
 
-    <h3>4. No Guarantees</h3>
-    <p>We do not guarantee accuracy, completeness, availability, or reliability of tools and information. Use is at your own risk.</p>
+      <div class="adsense-box">
+        <p><strong>Important disclosure:</strong> This website uses Google AdSense, a third-party advertising service operated by Google LLC. Google AdSense displays advertisements on this website and may use cookies and web beacons to collect data about your visits to this and other websites in order to serve you relevant ads.</p>
+      </div>
 
-    <h3>5. Limitation of Liability</h3>
-    <p>We are not liable for:</p>
-    <ul>
-      <li>Data loss</li>
-      <li>Account issues</li>
-      <li>Third-party tool actions</li>
-      <li>Website downtime or errors</li>
-    </ul>
+      <p>Google's use of advertising cookies enables it and its partners to serve ads based on your prior visits to our website and other websites across the internet. This is sometimes called "interest-based advertising" or "personalised advertising".</p>
 
-    <h3>6. Termination</h3>
-    <p>We may restrict or terminate access for any harmful or abusive activity.</p>
+      <p>We do not control the content of ads served by Google AdSense, and ad content does not reflect our editorial views or endorsements. Advertising revenue helps us cover the costs of running and maintaining this directory.</p>
 
-    <h3>7. Intellectual Property</h3>
-    <p>All text, icons, layout, and design on this site belong to AI Tools Directory. You may not copy or reuse them without written permission.</p>
+      <h3>Your Advertising Choices</h3>
+      <p>You have the following options to control how your data is used for advertising:</p>
+      <ul>
+        <li>Visit <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener">Google Ad Settings</a> to opt out of personalised ads from Google</li>
+        <li>Visit <a href="https://optout.networkadvertising.org/" target="_blank" rel="noopener">NAI Opt-Out</a> to opt out of interest-based advertising from multiple ad networks</li>
+        <li>Use your browser's private/incognito mode to limit cookie-based tracking</li>
+        <li>Install an ad blocker or privacy browser extension</li>
+      </ul>
+      <p>Please note that opting out of personalised ads does not mean you will see no ads — it means the ads shown will be less relevant to your interests.</p>
+    </div>
 
-    <h3>8. Changes to Terms</h3>
-    <p>We may update these Terms occasionally. Continued use means acceptance of new terms.</p>
+    <div class="policy-card" id="third-parties">
+      <h2>6. Third-Party Services</h2>
+      <p>We use the following third-party services, each with their own privacy policies:</p>
 
-    <hr><br>
+      <h3>Google Analytics</h3>
+      <p>Used to track anonymised website traffic and user behaviour. Data is processed by Google LLC under their privacy policy. No personally identifiable information is collected through Analytics. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy →</a></p>
 
-    <h2>Contact</h2>
-    <p>If you have questions about these Privacy or Terms sections, contact us via the contact form.</p>
+      <h3>Google AdSense</h3>
+      <p>Used to display advertisements. Google may collect data to serve relevant ads. <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">Google Privacy Policy →</a></p>
 
-  </section>
+      <h3>FormSubmit</h3>
+      <p>Used to handle contact and submission forms. When you submit a form, your data is processed by FormSubmit and forwarded to us by email. FormSubmit does not store your data permanently. <a href="https://formsubmit.co/privacy" target="_blank" rel="noopener">FormSubmit Privacy Policy →</a></p>
 
-  <footer>
-    <p>&copy; 2025 AI Tools Directory</p>
-  </footer>
+      <p>We do not share your data with any other third parties. We do not use any social media tracking pixels, affiliate tracking, or retargeting technologies beyond what is described above.</p>
+    </div>
 
-<!-- ================= COOKIE CONSENT (GDPR + AdSense) ================= -->
-<style>
-  #cookie-banner {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 600px;
-    background: #111827;
-    color: #fff;
-    padding: 18px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    display: none;
-    z-index: 9999;
-    animation: slideUp 0.5s ease;
-  }
+    <div class="policy-card" id="your-rights">
+      <h2>7. Your Rights (GDPR &amp; UK GDPR)</h2>
+      <p>If you are located in the United Kingdom or European Economic Area, you have the following rights regarding your personal data under the UK GDPR and EU GDPR:</p>
+      <ul>
+        <li><strong>Right of Access</strong> — You can request a copy of any personal data we hold about you.</li>
+        <li><strong>Right to Rectification</strong> — You can ask us to correct inaccurate personal data.</li>
+        <li><strong>Right to Erasure</strong> — You can request that we delete your personal data where we have no legitimate reason to keep it.</li>
+        <li><strong>Right to Restrict Processing</strong> — You can ask us to pause how we use your data in certain circumstances.</li>
+        <li><strong>Right to Data Portability</strong> — You can request your data in a structured, machine-readable format.</li>
+        <li><strong>Right to Object</strong> — You can object to us processing your data for direct marketing or legitimate interest purposes.</li>
+        <li><strong>Right to Withdraw Consent</strong> — Where processing is based on consent (e.g. cookies), you can withdraw consent at any time.</li>
+      </ul>
+      <p>To exercise any of these rights, please contact us using the <a href="contact.html">Contact page</a>. We will respond within 30 days. You also have the right to lodge a complaint with the <a href="https://ico.org.uk/" target="_blank" rel="noopener">Information Commissioner's Office (ICO)</a> if you are in the UK, or your local data protection authority in the EU.</p>
+    </div>
 
-  #cookie-banner button {
-    background: #2563eb;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
+    <div class="policy-card" id="data-retention">
+      <h2>8. Data Retention</h2>
+      <p>We retain personal data only as long as necessary:</p>
+      <ul>
+        <li><strong>Contact form messages</strong> — kept in our email inbox for up to 12 months, then deleted.</li>
+        <li><strong>Tool submissions</strong> — retained for as long as the listing is live, then archived or deleted.</li>
+        <li><strong>Analytics data</strong> — retained by Google Analytics for 14 months by default (anonymised).</li>
+        <li><strong>Cookie consent records</strong> — stored in your browser's local storage until you clear it.</li>
+      </ul>
+      <p>You may request earlier deletion of any personal data by contacting us directly.</p>
+    </div>
 
-  #cookie-banner a {
-    color: #93c5fd;
-    text-decoration: underline;
-  }
+    <div class="policy-card" id="children">
+      <h2>9. Children's Privacy</h2>
+      <p>AI Tools Directory is not directed at children under the age of 13. We do not knowingly collect personal information from children. If you are a parent or guardian and believe your child has provided us with personal information, please contact us and we will delete it promptly.</p>
+      <p>If you are under 13, please do not submit any personal information through our contact or submission forms.</p>
+    </div>
 
-  @keyframes slideUp {
-    from { opacity: 0; transform: translate(-50%, 10px); }
-    to   { opacity: 1; transform: translate(-50%, 0); }
-  }
-</style>
+    <div class="policy-card" id="external-links">
+      <h2>10. External Links</h2>
+      <p>Our directory contains links to third-party AI tools and external websites. When you click a link and leave our site, you are subject to the privacy policy of the destination website. We have no control over and accept no responsibility for the content, privacy practices, or terms of external sites.</p>
+      <p>We encourage you to review the privacy policy of any third-party website before providing personal information to it.</p>
+    </div>
+
+    <div class="policy-card" id="policy-updates">
+      <h2>11. Updates to This Policy</h2>
+      <div class="last-updated">✓ Last updated: 1 November 2025</div>
+      <p>We may update this Privacy Policy from time to time to reflect changes in our practices, legal requirements, or the services we use. When we make significant changes, we will update the "Last updated" date at the top of this page.</p>
+      <p>We encourage you to review this page periodically. Continued use of the website after any changes constitutes your acceptance of the updated policy.</p>
+    </div>
+
+    <!-- ======================== TERMS OF SERVICE ======================== -->
+
+    <div class="policy-card" id="acceptance">
+      <div class="card-label">Terms of Service</div>
+      <h2>1. Acceptance of Terms</h2>
+      <p>By accessing and using the website at <strong>https://aitoolsdirectory.site</strong>, you agree to be bound by these Terms of Service. If you do not agree with any part of these terms, please do not use this website.</p>
+      <p>These Terms apply to all visitors, users, and anyone who submits content to the website.</p>
+    </div>
+
+    <div class="policy-card" id="permitted-use">
+      <h2>2. Permitted Use</h2>
+      <p>You may use AI Tools Directory to browse, search, filter, and discover AI tools for personal, educational, or professional purposes. You agree not to:</p>
+      <ul>
+        <li>Use the website for any unlawful purpose or in violation of any applicable law or regulation</li>
+        <li>Scrape, copy, reproduce, or republish tool listings, descriptions, or any website content without written permission</li>
+        <li>Attempt to gain unauthorised access to any part of the website or its underlying systems</li>
+        <li>Upload, transmit, or introduce any malicious code, viruses, or harmful software</li>
+        <li>Use automated bots or scripts to access, query, or interact with the site</li>
+        <li>Misrepresent your identity or affiliation when submitting tools or contact forms</li>
+        <li>Interfere with or disrupt the operation or performance of the website</li>
+      </ul>
+    </div>
+
+    <div class="policy-card" id="tool-listings">
+      <h2>3. Tool Listings</h2>
+      <p>AI Tools Directory lists third-party artificial intelligence tools for informational and discovery purposes only. We do not own, operate, develop, or maintain any of the tools listed in the directory.</p>
+      <p>We make reasonable efforts to ensure listings are accurate and up to date, but we cannot guarantee that every listing reflects the current state of a third-party product. Tool descriptions, pricing, features, and availability may change without notice.</p>
+      <p>Links to external tools are provided as a convenience. Clicking these links will take you to third-party websites governed by their own terms and privacy policies.</p>
+    </div>
+
+    <div class="policy-card" id="disclaimers">
+      <h2>4. Disclaimers</h2>
+      <p>This website and all content within it is provided on an "as is" and "as available" basis without warranties of any kind, either express or implied. We do not warrant that:</p>
+      <ul>
+        <li>The website will be available at all times or free from errors</li>
+        <li>Any information on the site is complete, accurate, or current</li>
+        <li>Any tool listed will perform as described or meet your specific requirements</li>
+        <li>External links will always be active or lead to safe content</li>
+      </ul>
+      <p>Use of this website and any tools discovered through it is entirely at your own risk.</p>
+    </div>
+
+    <div class="policy-card" id="liability">
+      <h2>5. Limitation of Liability</h2>
+      <p>To the fullest extent permitted by applicable law, AI Tools Directory and its operators shall not be liable for any direct, indirect, incidental, special, or consequential damages arising from:</p>
+      <ul>
+        <li>Your use of or inability to use this website</li>
+        <li>Any errors, inaccuracies, or omissions in directory content</li>
+        <li>Actions taken by third-party tools or services discovered through the directory</li>
+        <li>Unauthorised access to or alteration of your data</li>
+        <li>Any other matter relating to your use of the site</li>
+      </ul>
+      <p>This limitation applies whether the liability arises in contract, tort, negligence, or any other theory, even if we have been advised of the possibility of such damages.</p>
+    </div>
+
+    <div class="policy-card" id="ip">
+      <h2>6. Intellectual Property</h2>
+      <p>All original content on AI Tools Directory — including but not limited to text, tool descriptions, layout, design, and code — is the property of AI Tools Directory and is protected by applicable copyright and intellectual property law.</p>
+      <p>You may not copy, reproduce, republish, distribute, or create derivative works from any content on this site without our prior written permission. Tool names, logos, and brand assets displayed in listings belong to their respective owners and are used for identification purposes only.</p>
+    </div>
+
+    <div class="policy-card" id="termination">
+      <h2>7. Termination</h2>
+      <p>We reserve the right to restrict, suspend, or terminate access to this website at our discretion, without notice, in cases of harmful, abusive, or unlawful activity. This includes but is not limited to misuse of submission forms, scraping, or any activity that disrupts normal site operation.</p>
+    </div>
+
+    <div class="policy-card" id="governing-law">
+      <h2>8. Governing Law</h2>
+      <p>These Terms of Service are governed by and construed in accordance with the laws of England and Wales. Any disputes arising in connection with these terms shall be subject to the exclusive jurisdiction of the courts of England and Wales.</p>
+    </div>
+
+    <div class="policy-card" id="contact-policy">
+      <h2>9. Contact Us</h2>
+      <p>If you have any questions about this Privacy Policy or these Terms of Service, or wish to exercise your data rights, please contact us via the <a href="contact.html">Contact page</a>. We aim to respond to all enquiries within 48 hours.</p>
+      <p style="margin-top:14px;font-size:13px;color:#64748b;">This page was last reviewed and updated on 1 November 2025.</p>
+    </div>
+
+  </div><!-- end policy-content -->
+</div><!-- end policy-layout -->
+
+<footer>
+  <p>&copy; 2025 AI Tools Directory | All Rights Reserved</p>
+</footer>
 
 <div id="cookie-banner">
   We use cookies to improve your experience, analyse traffic, and show personalised ads (Google AdSense).
   Read our <a href="policy.html" target="_blank">Privacy & Terms</a>.
   <button id="cookie-accept">Accept</button>
 </div>
-
 <script>
-  // Show banner only if not accepted before
   if (!localStorage.getItem("cookie_consent")) {
     document.getElementById("cookie-banner").style.display = "block";
   }
-
   document.getElementById("cookie-accept").addEventListener("click", () => {
     localStorage.setItem("cookie_consent", "yes");
     document.getElementById("cookie-banner").style.display = "none";
   });
 </script>
-<!-- ================= END COOKIE CONSENT ================= -->
-
 
 </body>
 </html>
