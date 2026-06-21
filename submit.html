@@ -2,35 +2,29 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO -->
   <title>Submit an AI Tool | AI Tools Directory</title>
-  <meta name="description" content="Submit your AI tool to be featured on AI Tools Directory. Reach thousands of users who explore the latest AI apps and innovations.">
-  <meta name="keywords" content="submit ai tool, add ai tool, feature ai app, ai directory submission">
-
+  <meta name="description" content="Submit your AI tool to be featured on AI Tools Directory. Reach thousands of users exploring the latest AI apps and innovations. Free listing, manual review.">
   <link rel="canonical" href="https://aitoolsdirectory.site/submit.html">
   <link rel="stylesheet" href="style.css">
-
-  <!-- Open Graph -->
-  <meta property="og:title" content="Submit an AI Tool">
-  <meta property="og:description" content="Submit your AI tool to be listed on AI Tools Directory.">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta property="og:title" content="Submit an AI Tool | AI Tools Directory">
+  <meta property="og:description" content="Submit your AI tool to be listed in our curated directory. Free, manual review, no paid placements.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aitoolsdirectory.site/submit.html">
+  <meta name="robots" content="index, follow">
 
-  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Submit AI Tool",
+    "name": "Submit an AI Tool",
     "url": "https://aitoolsdirectory.site/submit.html",
-    "description": "Page for submitting AI tools to be listed in the AI Tools Directory."
+    "description": "Submit your AI tool for review and listing in AI Tools Directory.",
+    "publisher": { "@type": "Organization", "name": "AI Tools Directory", "url": "https://aitoolsdirectory.site/" }
   }
   </script>
 
-  <!-- Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
@@ -38,459 +32,264 @@
     gtag('js', new Date());
     gtag('config', 'G-143GBNNFQE');
   </script>
-<style>
-  /* General Reset */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: 'Poppins', sans-serif;
-}
 
-/* Header Styling */
-header {
-  width: 100%;
-  background: linear-gradient(135deg, #6a11cb, #2575fc); /* Purple to Blue gradient */
-  color: white;
-  position: sticky;
-  top: 0;
-  z-index: 1000;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
-}
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; }
 
-header .container {
-  max-width: 1200px;
-  margin: 0 auto;
-  padding: 15px 20px;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-}
+    header { text-align: center; padding: 28px 16px; background: #f5f3ff; border-radius: 0 0 20px 20px; box-shadow: 0 8px 25px rgba(99,102,241,.1); }
+    header h1 { font-size: 2rem; font-weight: 700; background: linear-gradient(90deg,#6366f1,#ec4899,#f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    nav { display: flex; justify-content: center; gap: 16px; padding: 12px; background: linear-gradient(90deg,#60a5fa,#a78bfa,#f9a8d4); flex-wrap: wrap; }
+    nav a { color: #fff; text-decoration: none; font-size: 14px; font-weight: 500; padding: 5px 12px; border-radius: 16px; transition: .3s; }
+    nav a:hover { background: rgba(255,255,255,.25); }
 
-header h1.logo {
-  font-size: 1.8rem;
-  font-weight: 700;
-  cursor: pointer;
-  background: linear-gradient(90deg, #ff416c, #ff4b2b); /* Gradient logo text */
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-}
+    .page-hero { background: linear-gradient(135deg,#6366f1,#a78bfa,#f472b6); color: #fff; text-align: center; padding: 56px 16px; }
+    .page-hero h2 { font-size: 2.1rem; font-weight: 700; margin-bottom: 10px; }
+    .page-hero p { font-size: 1.05rem; opacity: .92; max-width: 560px; margin: 0 auto; }
 
-/* Navigation Menu */
-nav {
-  position: relative;
-}
+    .wrap { max-width: 960px; margin: 40px auto; padding: 0 16px; display: grid; grid-template-columns: 1fr 380px; gap: 24px; align-items: start; }
+    @media(max-width:740px) { .wrap { grid-template-columns: 1fr; } }
 
-nav ul.nav-links {
-  list-style: none;
-  display: flex;
-  gap: 25px;
-}
+    .card { background: #fff; border-radius: 20px; padding: 30px; box-shadow: 0 8px 28px rgba(99,102,241,.08); }
+    .card h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 16px; background: linear-gradient(90deg,#6366f1,#ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .card h3 { font-size: 1rem; font-weight: 600; color: #4f46e5; margin: 20px 0 8px; }
+    .card p { font-size: 14px; line-height: 1.8; color: #334155; margin-bottom: 12px; }
+    .card p:last-child { margin-bottom: 0; }
 
-nav ul.nav-links li a {
-  text-decoration: none;
-  color: #f5f5f5;
-  font-weight: 500;
-  transition: all 0.3s ease;
-  padding: 5px 0;
-}
-
-nav ul.nav-links li a:hover {
-  color: #ffeb3b; /* Bright Yellow on hover */
-  border-bottom: 2px solid #ffeb3b;
-}
-
-/* Hamburger Menu (for mobile) */
-.hamburger {
-  display: none;
-  flex-direction: column;
-  cursor: pointer;
-  gap: 5px;
-}
-
-.hamburger span {
-  height: 3px;
-  width: 25px;
-  background: #ffeb3b; /* Yellow bars for contrast */
-  border-radius: 2px;
-}
-
-/* Responsive */
-@media screen and (max-width: 900px) {
-  nav ul.nav-links {
-    position: absolute;
-    top: 70px;
-    right: 0;
-    background: linear-gradient(135deg, #6a11cb, #2575fc);
-    width: 100%;
-    flex-direction: column;
-    align-items: center;
-    gap: 15px;
-    padding: 20px 0;
-    display: none;
-  }
-
-  nav ul.nav-links.active {
-    display: flex;
-  }
-
-  .hamburger {
-    display: flex;
-  }
-}
-
-/* ===== Form Container Styling ===== */
-form {
-    max-width: 700px;
-    margin: 50px auto;
-    padding: 35px 30px;
-    background: rgba(59, 130, 246, 0.05); /* subtle AI blue tint */
-    border-radius: 18px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    gap: 18px;
-}
-
-/* ===== Labels ===== */
-form label {
-    font-weight: 500;
-    color: #1e3a8a; /* deep blue for AI/professional vibe */
-    margin-bottom: 5px;
-}
-
-/* ===== Inputs, Select, Textarea ===== */
-form input,
-form select,
-form textarea {
-    padding: 12px 15px;
-    border-radius: 12px;
-    border: 1px solid #cbd5e1; /* soft gray border */
-    font-size: 1rem;
-    transition: all 0.3s ease;
-    width: 100%;
-    box-sizing: border-box;
-}
-
-/* Focus Effect */
-form input:focus,
-form select:focus,
-form textarea:focus {
-    outline: none;
-    border-color: #3b82f6;
-    box-shadow: 0 0 10px rgba(59,130,246,0.3);
-}
-
-/* ===== Submit Button ===== */
-form button {
-    padding: 14px 0;
-    font-size: 1rem;
-    font-weight: 600;
-    border: none;
-    border-radius: 12px;
-    cursor: pointer;
-    color: #ffffff;
-    background: linear-gradient(90deg, #3b82f6, #1e3a8a);
-    transition: all 0.3s ease;
-    margin-top: 10px;
-}
-
-form button:hover {
-    background: linear-gradient(90deg, #1e3a8a, #3b82f6);
-    box-shadow: 0 8px 18px rgba(30,58,138,0.3);
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-    form {
-        padding: 25px 15px;
-        gap: 15px;
+    /* Form */
+    .form-group { display: flex; flex-direction: column; gap: 5px; margin-bottom: 16px; }
+    .form-group label { font-size: 13px; font-weight: 600; color: #4f46e5; }
+    .form-group input, .form-group select, .form-group textarea {
+      padding: 11px 14px; border-radius: 12px; border: 1.5px solid #e2e8f0;
+      font-size: 14px; font-family: inherit; transition: .3s; width: 100%;
     }
-
-    form label,
-    form input,
-    form select,
-    form textarea,
-    form button {
-        font-size: 0.95rem;
+    .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+      outline: none; border-color: #a78bfa; box-shadow: 0 0 0 3px rgba(167,139,250,.2);
     }
-}
-
-/* ===== Section Styling ===== */
-section {
-    max-width: 850px;
-    margin: 50px auto;
-    padding: 30px 25px;
-    background: rgba(59, 130, 246, 0.03); /* subtle AI blue tint */
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    line-height: 1.8;
-    color: #1e293b; /* soft dark text */
-}
-
-/* ===== Headings ===== */
-section h2 {
-    font-size: 2rem;
-    font-weight: 700;
-    color: #1e3a8a; /* deep professional blue */
-    margin-top: 20px;
-    margin-bottom: 12px;
-}
-
-section h3 {
-    font-size: 1.5rem;
-    font-weight: 600;
-    color: #1e40af;
-    margin-top: 20px;
-    margin-bottom: 12px;
-}
-
-/* ===== Paragraphs ===== */
-section p {
-    font-size: 1.1rem;
-    margin-bottom: 20px;
-    color: #334155;
-}
-
-/* ===== Lists ===== */
-section ul {
-    list-style: none;
-    padding-left: 0;
-    margin-bottom: 20px;
-}
-
-section ul li {
-    position: relative;
-    padding-left: 25px;
-    margin-bottom: 12px;
-    font-size: 1.05rem;
-    color: #1e293b;
-}
-
-section ul li::before {
-    content: "✔";
-    position: absolute;
-    left: 0;
-    color: #3b82f6; /* blue check mark for AI theme */
-    font-weight: bold;
-}
-
-/* ===== Responsive ===== */
-@media (max-width: 768px) {
-    section {
-        padding: 25px 15px;
+    .form-group textarea { resize: vertical; min-height: 110px; }
+    .submit-btn {
+      width: 100%; padding: 13px; border: none; border-radius: 14px; cursor: pointer;
+      background: linear-gradient(90deg,#6366f1,#a78bfa); color: #fff;
+      font-size: 15px; font-weight: 700; font-family: inherit; transition: .3s;
     }
+    .submit-btn:hover { transform: translateY(-2px); box-shadow: 0 8px 20px rgba(99,102,241,.3); }
 
-    section h2 {
-        font-size: 1.7rem;
-    }
+    /* Criteria list */
+    .criteria { list-style: none; padding: 0; margin: 12px 0; }
+    .criteria li { font-size: 14px; color: #334155; padding: 8px 0 8px 24px; position: relative; border-bottom: 1px solid #f1f5f9; line-height: 1.6; }
+    .criteria li:last-child { border-bottom: none; }
+    .criteria li::before { content: "✓"; position: absolute; left: 0; color: #22c55e; font-weight: 700; }
+    .criteria li.no::before { content: "✗"; color: #ef4444; }
 
-    section h3 {
-        font-size: 1.3rem;
-    }
+    /* Benefits */
+    .benefits { display: grid; gap: 12px; margin-top: 12px; }
+    .benefit { background: #f5f3ff; border-radius: 14px; padding: 14px 16px; display: flex; gap: 12px; align-items: flex-start; }
+    .benefit .icon { font-size: 1.4rem; flex-shrink: 0; }
+    .benefit strong { display: block; font-size: 13px; font-weight: 600; color: #4f46e5; margin-bottom: 3px; }
+    .benefit span { font-size: 12px; color: #64748b; line-height: 1.5; }
 
-    section p,
-    section ul li {
-        font-size: 1rem;
-    }
-}
-/* ===== Footer Styling ===== */
-footer {
-    background: linear-gradient(90deg, #1e3a8a, #3b82f6); /* Matches header gradient */
-    color: #ffffff;
-    text-align: center;
-    padding: 25px 15px;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
-    border-radius: 10px 10px 0 0; /* rounded top corners */
-}
+    /* Timeline */
+    .timeline { margin-top: 12px; }
+    .step { display: flex; gap: 14px; margin-bottom: 16px; align-items: flex-start; }
+    .step-num { width: 28px; height: 28px; border-radius: 50%; background: linear-gradient(135deg,#6366f1,#a78bfa); color: #fff; font-size: 13px; font-weight: 700; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .step-text strong { display: block; font-size: 14px; font-weight: 600; color: #1e293b; margin-bottom: 3px; }
+    .step-text span { font-size: 13px; color: #64748b; line-height: 1.5; }
 
-/* Footer Paragraph */
-footer p {
-    margin: 0;
-    font-weight: 500;
-    font-size: 1rem;
-}
+    footer { background: linear-gradient(90deg,#6366f1,#a78bfa,#f472b6); color: #fff; text-align: center; padding: 22px; font-size: 14px; margin-top: 40px; }
 
-/* Responsive Footer */
-@media (max-width: 768px) {
-    footer p {
-        font-size: 0.9rem;
-    }
-}
-</style>
-
+    #cookie-banner { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 600px; background: #111827; color: #fff; padding: 18px 20px; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,.25); font-size: 15px; display: none; z-index: 9999; }
+    #cookie-banner button { background: #2563eb; border: none; padding: 10px 18px; border-radius: 8px; color: #fff; font-size: 14px; cursor: pointer; margin-left: 10px; }
+    #cookie-banner a { color: #93c5fd; text-decoration: underline; }
+  </style>
 </head>
-
 <body>
-  <header>
-    <h1>Submit an AI Tool</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="submit.html">Submit Idea</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="policy.html">Privacy & Terms</a>
-      <a href="tools.html">Tools</a>
-      <a href="games.html">Games</a>
-    </nav>
-  </header>
 
-  <section>
-  <h2>Submit an AI Tool for Review</h2>
-  <p>
-    AI Tools Directory accepts submissions from developers, startups, and creators who want to showcase
-    useful artificial intelligence tools. All submissions are reviewed manually to ensure they provide
-    genuine value to users before being listed in the directory.
-  </p>
+<header>
+  <h1>🤖 AI Tools Directory</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="submit.html">Submit Idea</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="policy.html">Privacy & Terms</a>
+    <a href="tools.html">Tools</a>
+    <a href="games.html">Games</a>
+  </nav>
+</header>
 
-  <p>
-    Submitting a tool does not guarantee approval. Our editorial process focuses on relevance, usability,
-    originality, and transparency. We aim to maintain a high-quality directory that helps visitors discover
-    practical and trustworthy AI solutions.
-  </p>
+<div class="page-hero">
+  <h2>Submit Your AI Tool</h2>
+  <p>Get your tool in front of thousands of users actively searching for AI solutions. Free listing, manual review.</p>
+</div>
 
-  <h3>How the Review Process Works</h3>
-  <ul style="margin: 15px 0 20px 20px; line-height: 1.8;">
-    <li>✔ Submitted tools are reviewed by a human editor</li>
-    <li>✔ We verify the tool’s functionality and public availability</li>
-    <li>✔ We check descriptions for clarity and accuracy</li>
-    <li>✔ Low-quality, misleading, or duplicate tools are rejected</li>
-  </ul>
+<div class="wrap">
 
-  <p>
-    We do not accept automated submissions, spam, or misleading promotions. Tools that violate laws,
-    misuse user data, or offer deceptive claims will not be listed.
-  </p>
+  <!-- Left: Form -->
+  <div class="card">
+    <h2>Tool Submission Form</h2>
+    <p>Fill in the details below. All submissions are reviewed by a human editor within 3–5 business days.</p>
 
-  <form action="https://formsubmit.co/hansraj.kumararlani@gmail.com" method="POST" style="max-width: 600px; margin-top: 30px;">
+    <form action="https://formsubmit.co/hansraj.kumararlani@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_subject" value="New AI Tool Submission">
 
-    <!-- FormSubmit Settings -->
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_subject" value="New AI Tool Submission">
+      <div class="form-group">
+        <label for="toolname">Tool Name *</label>
+        <input type="text" id="toolname" name="Tool Name" placeholder="e.g. MyAI Writer" required>
+      </div>
 
-    <label>Tool Name</label>
-    <input type="text" name="Tool Name" required>
+      <div class="form-group">
+        <label for="toolurl">Tool Website URL *</label>
+        <input type="url" id="toolurl" name="Tool URL" placeholder="https://mytool.com" required>
+      </div>
 
-    <label>Category</label>
-    <select name="Category" required>
-      <option value="">Select a category</option>
-      <option>Chatbot</option>
-      <option>Image Generator</option>
-      <option>Video</option>
-      <option>Audio/Voice</option>
-      <option>Coding</option>
-      <option>Research</option>
-      <option>SEO</option>
-      <option>Productivity</option>
-      <option>Marketing</option>
-      <option>Automation</option>
-      <option>Education</option>
-      <option>Design</option>
-      <option>Other</option>
-    </select>
+      <div class="form-group">
+        <label for="category">Category *</label>
+        <select id="category" name="Category" required>
+          <option value="" disabled selected>Select a category…</option>
+          <option>Chatbot</option>
+          <option>Image Generator</option>
+          <option>Video</option>
+          <option>Audio/Voice</option>
+          <option>Coding</option>
+          <option>Research</option>
+          <option>SEO</option>
+          <option>Productivity</option>
+          <option>Marketing</option>
+          <option>Automation</option>
+          <option>Education</option>
+          <option>Design</option>
+          <option>Writing</option>
+          <option>Developer Tools</option>
+          <option>Other</option>
+        </select>
+      </div>
 
-    <label>Tool Website / URL</label>
-    <input type="url" name="Tool URL" required>
+      <div class="form-group">
+        <label for="description">Tool Description *</label>
+        <textarea id="description" name="Description" placeholder="Describe what your tool does, who it's for, and what makes it useful. Minimum 50 words." required></textarea>
+      </div>
 
-    <label>Detailed Description</label>
-    <textarea name="Description" rows="5" required></textarea>
+      <div class="form-group">
+        <label for="pricing">Pricing Model</label>
+        <select id="pricing" name="Pricing">
+          <option value="" disabled selected>Select pricing…</option>
+          <option>Free</option>
+          <option>Freemium (free + paid plans)</option>
+          <option>Paid only</option>
+          <option>Free trial available</option>
+          <option>Open source</option>
+        </select>
+      </div>
 
-    <label>Your Email (for follow-up)</label>
-    <input type="email" name="Your Email" required>
+      <div class="form-group">
+        <label for="email">Your Email (for follow-up) *</label>
+        <input type="email" id="email" name="Your Email" placeholder="you@company.com" required>
+      </div>
 
-    <button type="submit">Submit Tool</button>
-  </form>
+      <p style="font-size:12px;color:#94a3b8;margin-bottom:16px;">Submission is free. Your email is used only to communicate about this listing and is never shared.</p>
 
-  <h3 style="margin-top:40px;">Important Disclosure</h3>
-  <p>
-    Submitting a tool is free. We do not charge for standard listings and do not sell rankings or
-    guaranteed placements. Any advertising displayed on the website is clearly separated from
-    editorial content and does not influence which tools are featured.
-  </p>
+      <button type="submit" class="submit-btn">Submit for Review →</button>
+    </form>
+  </div>
 
-  <h3>Why Submit Your AI Tool?</h3>
-  <ul style="margin: 15px 0 20px 20px; line-height: 1.8;">
-    <li>Reach users actively searching for AI solutions</li>
-    <li>Gain visibility among developers, students, and businesses</li>
-    <li>Be part of a growing, curated AI tools directory</li>
-  </ul>
+  <!-- Right: Info sidebar -->
+  <div style="display:grid;gap:20px;">
 
-  <p>
-    If you have questions about submissions, reviews, or listings, please contact us through the
-    Contact page.
-  </p>
-</section>
+    <div class="card">
+      <h2>Review Process</h2>
+      <div class="timeline">
+        <div class="step">
+          <div class="step-num">1</div>
+          <div class="step-text">
+            <strong>Submit the form</strong>
+            <span>Fill in all required fields and submit. You will receive a confirmation email.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">2</div>
+          <div class="step-text">
+            <strong>Manual review</strong>
+            <span>An editor reviews your tool for functionality, relevance, and quality within 3–5 business days.</span>
+          </div>
+        </div>
+        <div class="step">
+          <div class="step-num">3</div>
+          <div class="step-text">
+            <strong>Listed or declined</strong>
+            <span>Approved tools are added to the directory. We email you with the outcome either way.</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  <footer>
-    <p>&copy; 2025 AI Tools Directory</p>
-  </footer>
+    <div class="card">
+      <h2>Listing Criteria</h2>
+      <p>We accept tools that meet these standards:</p>
+      <ul class="criteria">
+        <li>Publicly accessible and functional</li>
+        <li>Clearly AI-powered or AI-related</li>
+        <li>Provides genuine value to users</li>
+        <li>Has an accurate, honest description</li>
+        <li>Not a duplicate of an existing listing</li>
+      </ul>
+      <p style="margin-top:14px;">We do not accept:</p>
+      <ul class="criteria">
+        <li class="no">Spam, scraper, or low-quality tools</li>
+        <li class="no">Tools with misleading or deceptive claims</li>
+        <li class="no">Paid or sponsored listings</li>
+        <li class="no">Tools that violate laws or misuse data</li>
+      </ul>
+    </div>
 
-<!-- ================= COOKIE CONSENT (GDPR + AdSense) ================= -->
-<style>
-  #cookie-banner {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 600px;
-    background: #111827;
-    color: #fff;
-    padding: 18px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    display: none;
-    z-index: 9999;
-    animation: slideUp 0.5s ease;
-  }
+    <div class="card">
+      <h2>Why Submit Here?</h2>
+      <div class="benefits">
+        <div class="benefit">
+          <div class="icon">👥</div>
+          <div>
+            <strong>Real audience</strong>
+            <span>Users visiting AI Tools Directory are actively looking for tools to use — high-intent traffic.</span>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="icon">🆓</div>
+          <div>
+            <strong>Always free</strong>
+            <span>Standard listings are free. We do not charge for inclusion or charge to stay listed.</span>
+          </div>
+        </div>
+        <div class="benefit">
+          <div class="icon">🔗</div>
+          <div>
+            <strong>Direct link</strong>
+            <span>Your listing links directly to your tool — no affiliate redirects or tracking wrappers.</span>
+          </div>
+        </div>
+      </div>
+    </div>
 
-  #cookie-banner button {
-    background: #2563eb;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
+  </div>
+</div>
 
-  #cookie-banner a {
-    color: #93c5fd;
-    text-decoration: underline;
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translate(-50%, 10px); }
-    to   { opacity: 1; transform: translate(-50%, 0); }
-  }
-</style>
+<footer>
+  <p>&copy; 2025 AI Tools Directory | All Rights Reserved</p>
+</footer>
 
 <div id="cookie-banner">
   We use cookies to improve your experience, analyse traffic, and show personalised ads (Google AdSense).
   Read our <a href="policy.html" target="_blank">Privacy & Terms</a>.
   <button id="cookie-accept">Accept</button>
 </div>
-
 <script>
-  // Show banner only if not accepted before
   if (!localStorage.getItem("cookie_consent")) {
     document.getElementById("cookie-banner").style.display = "block";
   }
-
   document.getElementById("cookie-accept").addEventListener("click", () => {
     localStorage.setItem("cookie_consent", "yes");
     document.getElementById("cookie-banner").style.display = "none";
   });
 </script>
-<!-- ================= END COOKIE CONSENT ================= -->
-
-
 </body>
 </html>

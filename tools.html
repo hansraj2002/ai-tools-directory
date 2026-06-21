@@ -1,83 +1,111 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Free AI Tools | Word Counter, Password Generator & More | AI Tools Directory</title>
+  <meta name="description" content="Use 6 free online AI tools instantly — word counter, password generator, keyword ideas, text summariser, LinkedIn message helper, and readability checker. No signup needed.">
+  <link rel="canonical" href="https://aitoolsdirectory.site/tools.html">
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
+  <meta property="og:title" content="Free AI Tools | AI Tools Directory">
+  <meta property="og:description" content="6 free browser-based tools: word counter, password generator, keyword ideas, summariser, readability checker, and LinkedIn helper.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aitoolsdirectory.site/tools.html">
+  <meta name="robots" content="index, follow">
 
-<title>AI Tools | Free Online Tools</title>
-<meta name="description" content="Use free AI tools like text generator, keyword generator, password generator and more.">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "CollectionPage",
+    "name": "Free AI Tools",
+    "url": "https://aitoolsdirectory.site/tools.html",
+    "description": "A collection of 6 free browser-based productivity tools including word counter, password generator, keyword ideas generator, text summariser, readability checker, and LinkedIn message helper.",
+    "publisher": { "@type": "Organization", "name": "AI Tools Directory", "url": "https://aitoolsdirectory.site/" }
+  }
+  </script>
 
-<link rel="stylesheet" href="style.css">
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-143GBNNFQE');
+  </script>
 
-<style>
-body {
-  font-family: Arial;
-  margin: 0;
-  background: #f5f5f5;
-}
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; }
 
-header {
-  text-align: center;
-  padding: 25px;
-  background: linear-gradient(90deg,#3b82f6,#1e3a8a);
-  color: white;
-}
+    header { text-align: center; padding: 28px 16px; background: #f5f3ff; border-radius: 0 0 20px 20px; box-shadow: 0 8px 25px rgba(99,102,241,.1); }
+    header h1 { font-size: 2rem; font-weight: 700; background: linear-gradient(90deg,#6366f1,#ec4899,#f472b6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    nav { display: flex; justify-content: center; gap: 16px; padding: 12px; background: linear-gradient(90deg,#60a5fa,#a78bfa,#f9a8d4); flex-wrap: wrap; }
+    nav a { color: #fff; text-decoration: none; font-size: 14px; font-weight: 500; padding: 5px 12px; border-radius: 16px; transition: .3s; }
+    nav a:hover { background: rgba(255,255,255,.25); }
 
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-}
+    .page-hero { background: linear-gradient(135deg,#6366f1,#a78bfa,#f472b6); color: #fff; text-align: center; padding: 56px 16px; }
+    .page-hero h2 { font-size: 2.1rem; font-weight: 700; margin-bottom: 10px; }
+    .page-hero p { font-size: 1.05rem; opacity: .92; max-width: 560px; margin: 0 auto 20px; }
+    .hero-badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .hero-badge { background: rgba(255,255,255,.2); backdrop-filter: blur(8px); padding: 7px 15px; border-radius: 20px; font-size: 13px; font-weight: 600; }
 
-/* GRID */
-.cards {
-  max-width: 1100px;
-  margin: 40px auto;
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-  gap: 20px;
-  padding: 0 20px;
-}
+    .tools-grid { max-width: 1100px; margin: 40px auto; padding: 0 16px; display: grid; grid-template-columns: repeat(auto-fit, minmax(320px,1fr)); gap: 24px; }
 
-/* CARD */
-.card {
-  background: white;
-  padding: 20px;
-  border-radius: 12px;
-  box-shadow: 0 8px 20px rgba(0,0,0,0.08);
-  text-align: center;
-}
+    .tool-card { background: #fff; border-radius: 20px; padding: 26px; box-shadow: 0 10px 28px rgba(99,102,241,.08); }
+    .tool-card .tool-header { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+    .tool-icon { font-size: 1.8rem; }
+    .tool-card h2 { font-size: 1.1rem; font-weight: 700; color: #1e293b; }
+    .tool-tag { display: inline-block; font-size: 11px; font-weight: 600; color: #4f46e5; background: #e0e7ff; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px; }
+    .tool-card > p { font-size: 13px; color: #64748b; line-height: 1.6; margin-bottom: 16px; }
 
-.card h3 {
-  margin-bottom: 10px;
-}
+    /* Shared input styles */
+    .tool-card textarea, .tool-card input[type=text], .tool-card input[type=number] {
+      width: 100%; padding: 10px 13px; border: 1.5px solid #e2e8f0; border-radius: 12px;
+      font-size: 13px; font-family: inherit; resize: vertical; transition: .3s;
+    }
+    .tool-card textarea:focus, .tool-card input:focus {
+      outline: none; border-color: #a78bfa; box-shadow: 0 0 0 3px rgba(167,139,250,.2);
+    }
+    .tool-btn {
+      display: inline-block; margin-top: 10px; padding: 9px 20px; border: none; border-radius: 12px;
+      background: linear-gradient(90deg,#6366f1,#a78bfa); color: #fff; font-size: 13px;
+      font-weight: 700; font-family: inherit; cursor: pointer; transition: .3s;
+    }
+    .tool-btn:hover { transform: translateY(-2px); opacity: .9; }
+    .tool-btn.secondary { background: linear-gradient(90deg,#22c55e,#4ade80); }
+    .result-box {
+      margin-top: 12px; padding: 12px 14px; background: #f5f3ff; border-radius: 12px;
+      font-size: 13px; line-height: 1.7; color: #334155; min-height: 44px;
+      word-break: break-word; white-space: pre-wrap;
+    }
+    .stats-row { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 10px; }
+    .stat-chip { background: #e0e7ff; color: #4f46e5; font-size: 12px; font-weight: 600; padding: 5px 12px; border-radius: 999px; }
+    .copy-btn { background: #f1f5f9; border: none; border-radius: 8px; padding: 5px 12px; font-size: 12px; cursor: pointer; color: #475569; margin-top: 6px; font-family: inherit; }
+    .copy-btn:hover { background: #e2e8f0; }
+    .pw-options { display: flex; gap: 10px; flex-wrap: wrap; margin: 10px 0; font-size: 13px; }
+    .pw-options label { display: flex; align-items: center; gap: 5px; cursor: pointer; color: #334155; }
 
-.card p {
-  font-size: 14px;
-  color: #555;
-}
+    /* SEO section */
+    .seo-wrap { max-width: 1100px; margin: 10px auto 40px; padding: 0 16px; display: grid; gap: 20px; }
+    .seo-card { background: #fff; border-radius: 20px; padding: 28px; box-shadow: 0 8px 24px rgba(99,102,241,.07); }
+    .seo-card h2 { font-size: 1.35rem; font-weight: 700; margin-bottom: 14px; background: linear-gradient(90deg,#6366f1,#ec4899); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+    .seo-card h3 { font-size: 1rem; font-weight: 600; color: #4f46e5; margin: 16px 0 7px; }
+    .seo-card p { font-size: 14px; line-height: 1.8; color: #334155; margin-bottom: 10px; }
+    .seo-card p:last-child { margin-bottom: 0; }
 
-.card a {
-  display: inline-block;
-  margin-top: 10px;
-  padding: 10px 15px;
-  background: #2563eb;
-  color: white;
-  text-decoration: none;
-  border-radius: 8px;
-}
+    footer { background: linear-gradient(90deg,#6366f1,#a78bfa,#f472b6); color: #fff; text-align: center; padding: 22px; font-size: 14px; margin-top: 20px; }
 
-.card a:hover {
-  background: #1d4ed8;
-}
-</style>
+    #cookie-banner { position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%); width: 90%; max-width: 600px; background: #111827; color: #fff; padding: 18px 20px; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,.25); font-size: 15px; display: none; z-index: 9999; }
+    #cookie-banner button { background: #2563eb; border: none; padding: 10px 18px; border-radius: 8px; color: #fff; font-size: 14px; cursor: pointer; margin-left: 10px; }
+    #cookie-banner a { color: #93c5fd; text-decoration: underline; }
 
+    @media(max-width:600px) { .page-hero h2 { font-size: 1.7rem; } .tools-grid { grid-template-columns: 1fr; } }
+  </style>
 </head>
-
 <body>
 
 <header>
-  <h1>🧰 AI Tools Library</h1>
+  <h1>🤖 AI Tools Directory</h1>
   <nav>
     <a href="/">Home</a>
     <a href="submit.html">Submit Idea</a>
@@ -89,45 +117,330 @@ nav a {
   </nav>
 </header>
 
-<section class="cards">
+<div class="page-hero">
+  <h2>🧰 Free Online Tools</h2>
+  <p>6 useful productivity tools that work directly in your browser. No signup, no downloads, completely free.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">🔧 6 Tools</span>
+    <span class="hero-badge">⚡ Instant Results</span>
+    <span class="hero-badge">🔒 No Data Stored</span>
+    <span class="hero-badge">🆓 Always Free</span>
+  </div>
+</div>
 
-  <div class="card">
-    <h3>Text Generator</h3>
-    <p>Generate simple AI text instantly.</p>
-    <a href="tools/text-generator.html">Use Tool</a>
+<div class="tools-grid">
+
+  <!-- ===== TOOL 1: WORD COUNTER ===== -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-icon">📝</span>
+      <div>
+        <h2>Word & Character Counter</h2>
+        <span class="tool-tag">Writing</span>
+      </div>
+    </div>
+    <p>Paste or type any text to instantly count words, characters, sentences, and estimated reading time.</p>
+    <textarea id="wc-input" rows="5" placeholder="Paste your text here…" oninput="countWords()"></textarea>
+    <div class="stats-row">
+      <span class="stat-chip" id="wc-words">0 words</span>
+      <span class="stat-chip" id="wc-chars">0 characters</span>
+      <span class="stat-chip" id="wc-sentences">0 sentences</span>
+      <span class="stat-chip" id="wc-read">~0 min read</span>
+    </div>
   </div>
 
-  <div class="card">
-    <h3>Keyword Generator</h3>
-    <p>Generate SEO keywords quickly.</p>
-    <a href="tools/keyword-generator.html">Use Tool</a>
+  <!-- ===== TOOL 2: PASSWORD GENERATOR ===== -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-icon">🔐</span>
+      <div>
+        <h2>Password Generator</h2>
+        <span class="tool-tag">Security</span>
+      </div>
+    </div>
+    <p>Generate a strong, random password instantly. Choose length and character types.</p>
+    <div style="display:flex;gap:10px;align-items:center;margin-bottom:4px;">
+      <label style="font-size:13px;color:#4f46e5;font-weight:600;">Length:</label>
+      <input type="number" id="pw-length" value="16" min="8" max="64" style="width:70px;min-height:0;resize:none;">
+    </div>
+    <div class="pw-options">
+      <label><input type="checkbox" id="pw-upper" checked> Uppercase</label>
+      <label><input type="checkbox" id="pw-lower" checked> Lowercase</label>
+      <label><input type="checkbox" id="pw-nums" checked> Numbers</label>
+      <label><input type="checkbox" id="pw-syms" checked> Symbols</label>
+    </div>
+    <button class="tool-btn" onclick="generatePassword()">Generate Password</button>
+    <div class="result-box" id="pw-result">Click "Generate Password" to create one.</div>
+    <button class="copy-btn" onclick="copyResult('pw-result')">📋 Copy Password</button>
   </div>
 
-  <div class="card">
+  <!-- ===== TOOL 3: KEYWORD IDEAS ===== -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-icon">🔍</span>
+      <div>
+        <h2>Keyword Ideas Generator</h2>
+        <span class="tool-tag">SEO</span>
+      </div>
+    </div>
+    <p>Enter a topic and instantly get a list of related keyword ideas for SEO, content planning, or research.</p>
+    <input type="text" id="kw-input" placeholder="e.g. AI writing tools" style="margin-bottom:4px;">
+    <button class="tool-btn" onclick="generateKeywords()">Generate Keywords</button>
+    <div class="result-box" id="kw-result">Enter a topic above and click Generate.</div>
+  </div>
+
+  <!-- ===== TOOL 4: READABILITY CHECKER ===== -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-icon">📊</span>
+      <div>
+        <h2>Readability Checker</h2>
+        <span class="tool-tag">Writing</span>
+      </div>
+    </div>
+    <p>Paste your text to check its reading level, average sentence length, and get suggestions to improve clarity.</p>
+    <textarea id="rb-input" rows="5" placeholder="Paste your content here…"></textarea>
+    <button class="tool-btn" onclick="checkReadability()">Check Readability</button>
+    <div class="result-box" id="rb-result">Paste text and click Check Readability.</div>
+  </div>
+
+  <!-- ===== TOOL 5: TEXT SUMMARISER ===== -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-icon">✂️</span>
+      <div>
+        <h2>Text Summariser</h2>
+        <span class="tool-tag">Productivity</span>
+      </div>
+    </div>
+    <p>Paste a long paragraph and get a condensed summary of the key points extracted automatically.</p>
+    <textarea id="sum-input" rows="5" placeholder="Paste a long paragraph or article excerpt…"></textarea>
+    <button class="tool-btn" onclick="summariseText()">Summarise Text</button>
+    <div class="result-box" id="sum-result">Paste text and click Summarise.</div>
+    <button class="copy-btn" onclick="copyResult('sum-result')">📋 Copy Summary</button>
+  </div>
+
+  <!-- ===== TOOL 6: LINKEDIN MESSAGE HELPER ===== -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <span class="tool-icon">💼</span>
+      <div>
+        <h2>LinkedIn Message Helper</h2>
+        <span class="tool-tag">Marketing</span>
+      </div>
+    </div>
+    <p>Enter the person's name, their role, and your goal to generate a professional, personalised LinkedIn connection message.</p>
+    <input type="text" id="li-name" placeholder="Their name (e.g. Sarah)" style="margin-bottom:8px;">
+    <input type="text" id="li-role" placeholder="Their role (e.g. Marketing Manager)" style="margin-bottom:8px;">
+    <input type="text" id="li-goal" placeholder="Your goal (e.g. discuss a collaboration)">
+    <button class="tool-btn" onclick="generateLinkedIn()" style="margin-top:10px;">Generate Message</button>
+    <div class="result-box" id="li-result">Fill in the fields above and click Generate.</div>
+    <button class="copy-btn" onclick="copyResult('li-result')">📋 Copy Message</button>
+  </div>
+
+</div>
+
+<!-- SEO Content -->
+<div class="seo-wrap">
+  <div class="seo-card">
+    <h2>About These Free Tools</h2>
+    <p>This page offers a set of practical browser-based utilities that work without any account, download, or data upload. Everything runs locally in your browser — your text is never sent to a server or stored anywhere.</p>
+
+    <h3>Word & Character Counter</h3>
+    <p>Writers, students, and content creators frequently need to know the word count of their text, especially when working within limits for essays, social media posts, or SEO content. Our counter also tracks sentence count and provides an estimated reading time based on an average reading speed of 200 words per minute.</p>
+
     <h3>Password Generator</h3>
-    <p>Create strong passwords.</p>
-    <a href="tools/password-generator.html">Use Tool</a>
-  </div>
+    <p>Weak passwords are one of the leading causes of account breaches. Our password generator creates cryptographically random passwords using the character sets you choose. Generated passwords are never transmitted or stored — they exist only in your browser for the duration of your session.</p>
 
-  <div class="card">
-    <h3>Word Counter</h3>
-    <p>Count words and characters.</p>
-    <a href="tools/word-counter.html">Use Tool</a>
-  </div>
+    <h3>Keyword Ideas Generator</h3>
+    <p>Before writing content or running an SEO campaign, knowing which keyword variations to target helps you reach the right audience. This tool generates a list of related long-tail and short-tail keyword ideas based on your input topic, giving you a starting point for research.</p>
 
-  <div class="card">
-    <h3>Text Summarizer</h3>
-    <p>Summarize long text instantly.</p>
-    <a href="tools/summarizer.html">Use Tool</a>
-  </div>
+    <h3>Readability Checker</h3>
+    <p>Clear writing communicates more effectively. Our readability checker analyses your text for average sentence length, word complexity indicators, and estimated reading grade level. Shorter sentences and simpler vocabulary typically lead to better engagement and comprehension.</p>
 
-  <div class="card">
+    <h3>Text Summariser</h3>
+    <p>When you need to quickly extract the key points from a long piece of text, our summariser identifies and extracts the most informative sentences automatically. It is useful for research, note-taking, and quickly digesting long articles.</p>
+
     <h3>LinkedIn Message Helper</h3>
-    <p>Improve your outreach messages.</p>
-    <a href="tools/linkedin-helper.html">Use Tool</a>
+    <p>Cold outreach on LinkedIn has a low response rate when messages are generic. Personalised, concise messages that clearly state your intent perform significantly better. This tool generates a tailored connection message based on the recipient's name, role, and your specific goal.</p>
   </div>
+</div>
 
-</section>
+<footer>
+  <p>&copy; 2025 AI Tools Directory | All Rights Reserved</p>
+</footer>
+
+<div id="cookie-banner">
+  We use cookies to improve your experience, analyse traffic, and show personalised ads (Google AdSense).
+  Read our <a href="policy.html" target="_blank">Privacy & Terms</a>.
+  <button id="cookie-accept">Accept</button>
+</div>
+
+<script>
+  // ===== Cookie =====
+  if (!localStorage.getItem("cookie_consent")) {
+    document.getElementById("cookie-banner").style.display = "block";
+  }
+  document.getElementById("cookie-accept").addEventListener("click", () => {
+    localStorage.setItem("cookie_consent", "yes");
+    document.getElementById("cookie-banner").style.display = "none";
+  });
+
+  // ===== TOOL 1: Word Counter =====
+  function countWords() {
+    const text = document.getElementById("wc-input").value.trim();
+    const words = text === "" ? 0 : text.split(/\s+/).filter(w => w.length > 0).length;
+    const chars = text.length;
+    const sentences = text === "" ? 0 : (text.match(/[.!?]+/g) || []).length;
+    const readTime = Math.max(1, Math.ceil(words / 200));
+    document.getElementById("wc-words").textContent = words + " words";
+    document.getElementById("wc-chars").textContent = chars + " characters";
+    document.getElementById("wc-sentences").textContent = sentences + " sentences";
+    document.getElementById("wc-read").textContent = "~" + readTime + " min read";
+  }
+
+  // ===== TOOL 2: Password Generator =====
+  function generatePassword() {
+    const len = parseInt(document.getElementById("pw-length").value) || 16;
+    const upper = document.getElementById("pw-upper").checked;
+    const lower = document.getElementById("pw-lower").checked;
+    const nums  = document.getElementById("pw-nums").checked;
+    const syms  = document.getElementById("pw-syms").checked;
+
+    let chars = "";
+    if (upper) chars += "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+    if (lower) chars += "abcdefghijklmnopqrstuvwxyz";
+    if (nums)  chars += "0123456789";
+    if (syms)  chars += "!@#$%^&*()-_=+[]{}|;:,.<>?";
+    if (!chars) { document.getElementById("pw-result").textContent = "Please select at least one character type."; return; }
+
+    let pw = "";
+    const arr = new Uint32Array(len);
+    crypto.getRandomValues(arr);
+    for (let i = 0; i < len; i++) {
+      pw += chars[arr[i] % chars.length];
+    }
+    document.getElementById("pw-result").textContent = pw;
+  }
+
+  // ===== TOOL 3: Keyword Ideas =====
+  function generateKeywords() {
+    const topic = document.getElementById("kw-input").value.trim();
+    if (!topic) { document.getElementById("kw-result").textContent = "Please enter a topic first."; return; }
+
+    const modifiers = [
+      "best", "free", "top", "how to use", "vs", "alternatives to", "for beginners",
+      "for business", "online", "2024", "2025", "tutorial", "guide", "review",
+      "tools for", "examples of", "benefits of", "what is", "how does work"
+    ];
+    const suffixes = ["tools", "software", "apps", "platforms", "solutions", "tips", "techniques"];
+
+    let keywords = [];
+    modifiers.slice(0, 8).forEach(m => keywords.push(m + " " + topic));
+    suffixes.slice(0, 4).forEach(s => keywords.push(topic + " " + s));
+    keywords.push(topic + " for small businesses");
+    keywords.push(topic + " free trial");
+    keywords.push("how to get started with " + topic);
+    keywords.push(topic + " comparison");
+
+    document.getElementById("kw-result").textContent = keywords.join("\n");
+  }
+
+  // ===== TOOL 4: Readability Checker =====
+  function checkReadability() {
+    const text = document.getElementById("rb-input").value.trim();
+    if (!text) { document.getElementById("rb-result").textContent = "Please paste some text first."; return; }
+
+    const words = text.split(/\s+/).filter(w => w.length > 0);
+    const sentences = (text.match(/[.!?]+/g) || []).length || 1;
+    const avgSentLen = (words.length / sentences).toFixed(1);
+    const longWords = words.filter(w => w.replace(/[^a-zA-Z]/g,"").length > 6).length;
+    const longWordPct = ((longWords / words.length) * 100).toFixed(0);
+
+    let level = "";
+    let advice = "";
+    const avgLen = parseFloat(avgSentLen);
+    if (avgLen < 12) { level = "Very Easy"; advice = "Great for broad audiences. Simple and clear."; }
+    else if (avgLen < 17) { level = "Easy"; advice = "Good readability. Suitable for most readers."; }
+    else if (avgLen < 22) { level = "Moderate"; advice = "Consider breaking up some longer sentences."; }
+    else if (avgLen < 28) { level = "Difficult"; advice = "Sentences are quite long. Break them into shorter ones to improve clarity."; }
+    else { level = "Very Difficult"; advice = "Text is hard to follow. Aim for sentences under 20 words on average."; }
+
+    const result = [
+      "📊 Readability Level: " + level,
+      "📏 Average sentence length: " + avgSentLen + " words",
+      "🔤 Long words (7+ letters): " + longWordPct + "% of total",
+      "📖 Total words: " + words.length,
+      "",
+      "💡 Advice: " + advice
+    ].join("\n");
+
+    document.getElementById("rb-result").textContent = result;
+  }
+
+  // ===== TOOL 5: Text Summariser =====
+  function summariseText() {
+    const text = document.getElementById("sum-input").value.trim();
+    if (!text || text.split(/\s+/).length < 20) {
+      document.getElementById("sum-result").textContent = "Please paste a longer text (at least 20 words) to summarise.";
+      return;
+    }
+
+    // Extract sentences and score by keyword frequency
+    const sentences = text.match(/[^.!?]+[.!?]+/g) || [text];
+    const words = text.toLowerCase().split(/\s+/);
+    const stopwords = new Set(["the","a","an","and","or","but","in","on","at","to","for","of","with","is","are","was","were","be","it","this","that","i","we","you","they","he","she","his","her","their","our","its","by","from","as","have","has","had","not","what","which","who","how","when","where","there","so","if","do","does","did","will","would","could","should","may","might","than","then","also","more","very"]);
+    const freq = {};
+    words.forEach(w => {
+      const clean = w.replace(/[^a-z]/g, "");
+      if (clean && !stopwords.has(clean)) freq[clean] = (freq[clean] || 0) + 1;
+    });
+
+    const scored = sentences.map(s => {
+      const sWords = s.toLowerCase().split(/\s+/).map(w => w.replace(/[^a-z]/g,"")).filter(w => w && !stopwords.has(w));
+      const score = sWords.reduce((sum, w) => sum + (freq[w] || 0), 0);
+      return { s: s.trim(), score };
+    });
+
+    const topCount = Math.max(2, Math.min(4, Math.ceil(sentences.length * 0.35)));
+    const top = scored.sort((a,b) => b.score - a.score).slice(0, topCount);
+    // Restore original order
+    const ordered = sentences.filter(s => top.find(t => t.s === s.trim())).map(s => s.trim());
+
+    document.getElementById("sum-result").textContent = ordered.join(" ");
+  }
+
+  // ===== TOOL 6: LinkedIn Message Helper =====
+  function generateLinkedIn() {
+    const name = document.getElementById("li-name").value.trim();
+    const role = document.getElementById("li-role").value.trim();
+    const goal = document.getElementById("li-goal").value.trim();
+
+    if (!name || !role || !goal) {
+      document.getElementById("li-result").textContent = "Please fill in all three fields.";
+      return;
+    }
+
+    const templates = [
+      `Hi ${name},\n\nI came across your profile and was really impressed by your work as a ${role}. I'd love to connect and ${goal}.\n\nLooking forward to connecting!\n\nBest regards`,
+      `Hi ${name},\n\nAs a ${role}, your experience caught my attention. I'm reaching out because I'd like to ${goal} — would love to connect if you're open to it.\n\nThanks for considering!`,
+      `Hello ${name},\n\nI noticed your profile as a ${role} and thought it would be great to connect. I'm keen to ${goal} and think we could have a valuable conversation.\n\nHope to connect soon!`
+    ];
+
+    const chosen = templates[Math.floor(Math.random() * templates.length)];
+    document.getElementById("li-result").textContent = chosen;
+  }
+
+  // ===== Copy helper =====
+  function copyResult(id) {
+    const text = document.getElementById(id).textContent;
+    navigator.clipboard.writeText(text).then(() => {
+      const btn = event.target;
+      btn.textContent = "✅ Copied!";
+      setTimeout(() => btn.textContent = "📋 Copy", 2000);
+    });
+  }
+</script>
 
 </body>
 </html>

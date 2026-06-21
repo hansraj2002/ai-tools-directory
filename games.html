@@ -2,462 +2,366 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-  <!-- SEO -->
-  <title>AI Games Collection | Play Free Browser Games</title>
-  <meta name="description" content="Play free online AI-themed games directly in your browser. Enjoy puzzle, strategy, typing, and reaction games — no downloads required.">
-  <meta name="keywords" content="AI games, browser games, online games, free AI games, play games online">
-
+  <title>Free AI Games | Play Online Browser Games | AI Tools Directory</title>
+  <meta name="description" content="Play 11 free online games directly in your browser — no downloads, no signup. Puzzle, typing, reaction, racing, and strategy games for all ages.">
   <link rel="canonical" href="https://aitoolsdirectory.site/games.html">
   <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/x-icon" href="favicon.ico">
 
-  <!-- Open Graph -->
-  <meta property="og:title" content="AI Games Collection | Free Browser Games">
-  <meta property="og:description" content="Play free online AI-themed games with no downloads or signup.">
+  <meta property="og:title" content="Free AI Games | AI Tools Directory">
+  <meta property="og:description" content="Play 11 free browser games instantly. No downloads, no signup required.">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://aitoolsdirectory.site/games.html">
+  <meta name="robots" content="index, follow">
 
-  <!-- Schema -->
   <script type="application/ld+json">
   {
     "@context": "https://schema.org",
     "@type": "CollectionPage",
-    "name": "AI Games",
+    "name": "Free AI Browser Games",
     "url": "https://aitoolsdirectory.site/games.html",
-    "description": "A collection of free online AI-themed browser games.",
-    "genre": "Casual Browser Games",
-    "creator": {
+    "description": "A curated collection of 11 free browser games including puzzle, typing, reaction, and racing games. No downloads or account required.",
+    "publisher": {
       "@type": "Organization",
-      "name": "AI Tools Directory"
+      "name": "AI Tools Directory",
+      "url": "https://aitoolsdirectory.site/"
     }
   }
   </script>
 
-  <!-- Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
   <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-143GBNNFQE');
+    function trackGame(gameName) {
+      gtag("event", "game_click", { "event_category": "Games", "event_label": gameName });
+    }
   </script>
-<style>
-  /* ===== Header Container ===== */
-header {
-    background: linear-gradient(90deg, #3b82f6, #1e3a8a); /* Bright AI-blue gradient */
-    color: #ffffff;
-    padding: 20px 40px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-    border-radius: 10px;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-}
 
-/* ===== Site Title ===== */
-header h1 {
-    font-size: 2rem;
-    font-weight: 700;
-    margin-bottom: 15px;
-    letter-spacing: 1px;
-    text-align: center;
-    color: #ffffff;
-}
+  <style>
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: system-ui, 'Segoe UI', sans-serif; background: #f8fafc; color: #1e293b; }
 
-/* ===== Navigation Menu ===== */
-header nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 20px;
-}
-
-/* ===== Nav Links ===== */
-header nav a {
-    text-decoration: none;
-    color: #dbeafe; /* Light blue text */
-    font-weight: 500;
-    padding: 10px 18px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-    position: relative;
-    background-color: rgba(255,255,255,0.05); /* subtle hover background */
-}
-
-/* ===== Hover Effect ===== */
-header nav a::after {
-    content: '';
-    display: block;
-    height: 3px;
-    background-color: #60a5fa; /* cyan underline */
-    width: 0%;
-    transition: width 0.3s;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-}
-
-header nav a:hover::after {
-    width: 100%;
-}
-
-header nav a:hover {
-    background-color: rgba(255,255,255,0.15);
-    color: #ffffff; /* bright white on hover */
-}
-
-/* ===== Responsive Styling ===== */
-@media (max-width: 768px) {
+    header {
+      text-align: center; padding: 28px 16px;
+      background: #f5f3ff; border-radius: 0 0 20px 20px;
+      box-shadow: 0 8px 25px rgba(99,102,241,.1);
+    }
     header h1 {
-        font-size: 1.6rem;
+      font-size: 2rem; font-weight: 700;
+      background: linear-gradient(90deg,#6366f1,#ec4899,#f472b6);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    nav {
+      display: flex; justify-content: center; gap: 16px; padding: 12px;
+      background: linear-gradient(90deg,#60a5fa,#a78bfa,#f9a8d4); flex-wrap: wrap;
+    }
+    nav a {
+      color: #fff; text-decoration: none; font-size: 14px; font-weight: 500;
+      padding: 5px 12px; border-radius: 16px; transition: .3s;
+    }
+    nav a:hover { background: rgba(255,255,255,.25); }
+
+    /* Hero */
+    .page-hero {
+      background: linear-gradient(135deg,#6366f1,#a78bfa,#f472b6);
+      color: #fff; text-align: center; padding: 60px 16px;
+    }
+    .page-hero h2 { font-size: 2.2rem; font-weight: 700; margin-bottom: 10px; }
+    .page-hero p { font-size: 1.05rem; opacity: .92; max-width: 560px; margin: 0 auto 22px; }
+    .hero-badges { display: flex; justify-content: center; gap: 12px; flex-wrap: wrap; }
+    .hero-badge {
+      background: rgba(255,255,255,.2); backdrop-filter: blur(8px);
+      padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600;
     }
 
-    header nav {
-        flex-direction: column;
-        gap: 12px;
+    /* Category filter */
+    .game-filter {
+      display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
+      padding: 24px 16px; max-width: 900px; margin: 0 auto;
+    }
+    .filter-btn {
+      background: linear-gradient(90deg,#6366f1,#a78bfa); color: #fff;
+      border: none; padding: 8px 18px; border-radius: 20px; font-size: 13px;
+      font-weight: 600; cursor: pointer; transition: .3s; font-family: inherit;
+    }
+    .filter-btn:hover, .filter-btn.active {
+      background: linear-gradient(90deg,#22c55e,#4ade80);
+      transform: translateY(-2px);
     }
 
-    header nav a {
-        text-align: center;
-    }
-}
-/* ===== Intro Section ===== */
-.intro {
-    max-width: 900px;
-    margin: 50px auto;
-    padding: 35px 25px;
-    background: rgba(59, 130, 246, 0.05); /* subtle bright AI-blue tint */
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #1e293b; /* soft dark text for readability */
-    line-height: 1.8;
-    text-align: center;
-}
-
-/* ===== Headings ===== */
-.intro h2 {
-    font-size: 2rem;
-    color: #1e3a8a; /* deep AI blue */
-    font-weight: 700;
-    margin-bottom: 15px;
-}
-
-/* ===== Paragraphs ===== */
-.intro p {
-    font-size: 1.1rem;
-    margin-bottom: 15px;
-    color: #334155;
-}
-
-/* ===== Responsive Styling ===== */
-@media (max-width: 768px) {
-    .intro {
-        padding: 25px 15px;
+    /* Games grid */
+    .games-grid {
+      max-width: 1100px; margin: 10px auto 40px; padding: 0 16px;
+      display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 20px;
     }
 
-    .intro h2 {
-        font-size: 1.7rem;
+    .game-card {
+      background: #fff; border-radius: 20px; padding: 24px;
+      box-shadow: 0 10px 28px rgba(99,102,241,.08);
+      transition: transform .3s, box-shadow .3s;
+      position: relative; overflow: hidden;
+    }
+    .game-card::before {
+      content: ""; position: absolute; inset: 0; padding: 2px; border-radius: 20px;
+      background: linear-gradient(135deg,#60a5fa,#a78bfa,#f9a8d4);
+      -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      -webkit-mask-composite: xor; mask-composite: exclude;
+    }
+    .game-card:hover { transform: translateY(-5px); box-shadow: 0 18px 40px rgba(99,102,241,.18); }
+
+    .game-emoji { font-size: 2.2rem; margin-bottom: 12px; display: block; }
+    .game-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 6px; color: #1e293b; }
+    .game-tag {
+      display: inline-block; font-size: 11px; font-weight: 600; color: #4f46e5;
+      background: #e0e7ff; padding: 3px 10px; border-radius: 999px; margin-bottom: 10px;
+    }
+    .game-card p { font-size: 13px; line-height: 1.65; color: #475569; margin-bottom: 16px; }
+    .play-btn {
+      display: inline-block; background: linear-gradient(90deg,#6366f1,#a78bfa);
+      color: #fff; padding: 9px 20px; border-radius: 12px; font-weight: 700;
+      font-size: 13px; text-decoration: none; transition: .3s;
+    }
+    .play-btn:hover { transform: translateY(-2px); opacity: .9; }
+
+    /* SEO sections */
+    .seo-wrap { max-width: 1100px; margin: 0 auto 40px; padding: 0 16px; display: grid; gap: 24px; }
+    .seo-card {
+      background: #fff; border-radius: 20px; padding: 30px;
+      box-shadow: 0 8px 24px rgba(99,102,241,.07);
+    }
+    .seo-card h2 {
+      font-size: 1.4rem; font-weight: 700; margin-bottom: 14px;
+      background: linear-gradient(90deg,#6366f1,#ec4899);
+      -webkit-background-clip: text; -webkit-text-fill-color: transparent;
+    }
+    .seo-card h3 { font-size: 1.05rem; font-weight: 600; color: #4f46e5; margin: 18px 0 8px; }
+    .seo-card p { font-size: 14px; line-height: 1.8; color: #334155; margin-bottom: 12px; }
+    .seo-card p:last-child { margin-bottom: 0; }
+
+    .benefits-grid {
+      display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 14px; margin-top: 14px;
+    }
+    .benefit {
+      background: #f5f3ff; border-radius: 14px; padding: 16px; text-align: center;
+    }
+    .benefit .icon { font-size: 1.8rem; margin-bottom: 8px; }
+    .benefit strong { display: block; font-size: 13px; font-weight: 600; color: #4f46e5; margin-bottom: 4px; }
+    .benefit span { font-size: 12px; color: #64748b; line-height: 1.5; }
+
+    footer {
+      background: linear-gradient(90deg,#6366f1,#a78bfa,#f472b6);
+      color: #fff; text-align: center; padding: 22px; font-size: 14px;
     }
 
-    .intro p {
-        font-size: 1rem;
+    #cookie-banner {
+      position: fixed; bottom: 20px; left: 50%; transform: translateX(-50%);
+      width: 90%; max-width: 600px; background: #111827; color: #fff;
+      padding: 18px 20px; border-radius: 12px; box-shadow: 0 4px 18px rgba(0,0,0,.25);
+      font-size: 15px; display: none; z-index: 9999;
     }
-}
-/* ===== SEO Content Section ===== */
-.seo-content {
-    max-width: 1100px;
-    margin: 30px auto;
-    padding: 30px 25px;
-    background: rgba(59, 130, 246, 0.03); /* subtle AI-blue tint */
-    border-radius: 15px;
-    box-shadow: 0 10px 25px rgba(0,0,0,0.05);
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    color: #1e293b; /* soft dark text for readability */
-    line-height: 1.75;
-}
-
-/* ===== Headings ===== */
-.seo-content h2 {
-    font-size: 1.9rem;
-    font-weight: 600;
-    color: #1e3a8a; /* deep AI blue */
-    margin-bottom: 12px;
-}
-
-.seo-content h3 {
-    font-size: 1.4rem;
-    font-weight: 600;
-    color: #2563eb; /* medium AI blue */
-    margin-top: 20px;
-    margin-bottom: 8px;
-}
-
-/* ===== Paragraphs ===== */
-.seo-content p {
-    font-size: 1.1rem;
-    margin-bottom: 18px;
-    color: #334155;
-}
-
-/* ===== Footer Styling ===== */
-footer {
-    background: linear-gradient(90deg, #3b82f6, #1e3a8a); /* matches header/nav gradient */
-    color: #ffffff;
-    text-align: center;
-    padding: 25px 15px;
-    font-family: 'Inter', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    box-shadow: 0 -4px 15px rgba(0,0,0,0.1);
-    border-radius: 10px 10px 0 0;
-}
-
-footer p {
-    margin: 0;
-    font-weight: 500;
-    font-size: 1rem;
-}
-
-/* ===== Responsive Styling ===== */
-@media (max-width: 768px) {
-    .seo-content {
-        padding: 20px 15px;
+    #cookie-banner button {
+      background: #2563eb; border: none; padding: 10px 18px; border-radius: 8px;
+      color: #fff; font-size: 14px; cursor: pointer; margin-left: 10px;
     }
+    #cookie-banner a { color: #93c5fd; text-decoration: underline; }
 
-    .seo-content h2 {
-        font-size: 1.6rem;
+    @media(max-width:600px) {
+      .page-hero h2 { font-size: 1.7rem; }
+      .games-grid { grid-template-columns: 1fr; }
     }
-
-    .seo-content h3 {
-        font-size: 1.3rem;
-    }
-
-    .seo-content p {
-        font-size: 1rem;
-    }
-
-    footer p {
-        font-size: 0.9rem;
-    }
-}
-</style>
-
+  </style>
 </head>
-
 <body>
 
-  <header>
-    <h1>🎮 AI Games Library</h1>
-    <nav>
-      <a href="/">Home</a>
-      <a href="submit.html">Submit Idea</a>
-      <a href="about.html">About</a>
-      <a href="contact.html">Contact</a>
-      <a href="policy.html">Privacy & Terms</a>
-      <a href="tools.html">Tools</a>
-      <a href="games.html">Games</a>
-    </nav>
-  </header>
+<header>
+  <h1>🤖 AI Tools Directory</h1>
+  <nav>
+    <a href="/">Home</a>
+    <a href="submit.html">Submit Idea</a>
+    <a href="about.html">About</a>
+    <a href="contact.html">Contact</a>
+    <a href="policy.html">Privacy & Terms</a>
+    <a href="tools.html">Tools</a>
+    <a href="games.html">Games</a>
+  </nav>
+</header>
 
-  <section class="intro">
-    <h2>Play Free AI Games Online</h2>
-    <p>Enjoy a curated collection of simple and fun games that run directly in your browser. No downloads, no signup — just play instantly.</p>
-    <p>New games are added frequently!</p>
-  </section>
+<div class="page-hero">
+  <h2>🎮 Free Browser Games</h2>
+  <p>11 games that run instantly in your browser. No downloads, no accounts, no installs — just play.</p>
+  <div class="hero-badges">
+    <span class="hero-badge">🕹️ 11 Games</span>
+    <span class="hero-badge">📱 Mobile Friendly</span>
+    <span class="hero-badge">⚡ Instant Play</span>
+    <span class="hero-badge">🆓 Always Free</span>
+  </div>
+</div>
 
-<!-- EDUCATIONAL & EDITORIAL CONTENT -->
+<div class="game-filter">
+  <button class="filter-btn active" onclick="filterGames('all', this)">All Games</button>
+  <button class="filter-btn" onclick="filterGames('puzzle', this)">Puzzle</button>
+  <button class="filter-btn" onclick="filterGames('reaction', this)">Reaction</button>
+  <button class="filter-btn" onclick="filterGames('racing', this)">Racing</button>
+  <button class="filter-btn" onclick="filterGames('skill', this)">Skill</button>
+</div>
 
-  <!-- AI GAMES GRID -->
-  <section class="cards" id="games-container">
+<div class="games-grid" id="games-grid">
 
-    <!-- Game Card Template -->
-    <script>
-      function trackGame(gameName){
-        gtag("event", "game_click", {
-          "event_category": "Games",
-          "event_label": gameName
-        });
-      }
-    </script>
+  <div class="game-card" data-cat="puzzle">
+    <span class="game-emoji">🔢</span>
+    <span class="game-tag">Puzzle</span>
+    <h3>AI Guessing Game</h3>
+    <p>A quick logic challenge where you guess the hidden number in as few attempts as possible. Each wrong guess gives you a hint — higher or lower.</p>
+    <a href="games/guess.html" class="play-btn" onclick="trackGame('AI Guessing Game')">▶ Play Now</a>
+  </div>
 
-    <!-- Game 1 -->
-    <div class="card">
-      <h3>AI Guessing Game</h3>
-      <p>A quick logic challenge where you try to guess the hidden number in as few attempts as possible.</p>
-      <a href="games/guess.html" target="_blank" onclick="trackGame('AI Guessing Game')">Play Now</a>
-    </div>
+  <div class="game-card" data-cat="skill">
+    <span class="game-emoji">⌨️</span>
+    <span class="game-tag">Skill</span>
+    <h3>Word Speed Challenge</h3>
+    <p>Test your typing accuracy and speed in real time. A live WPM counter and accuracy tracker shows how you improve over multiple rounds.</p>
+    <a href="games/typing.html" class="play-btn" onclick="trackGame('Word Speed Challenge')">▶ Play Now</a>
+  </div>
 
-    <!-- Game 2 -->
-    <div class="card">
-      <h3>Word Speed Challenge</h3>
-      <p>Test your typing accuracy and speed in real-time with a live WPM and accuracy tracker.</p>
-      <a href="games/typing.html" target="_blank" onclick="trackGame('Word Speed Challenge')">Play Now</a>
-    </div>
+  <div class="game-card" data-cat="reaction">
+    <span class="game-emoji">⚡</span>
+    <span class="game-tag">Reaction</span>
+    <h3>Reaction Time Test</h3>
+    <p>Measure how fast your brain responds. Click or tap the moment the signal appears and see your reaction time in milliseconds. Can you beat 200ms?</p>
+    <a href="games/reaction.html" class="play-btn" onclick="trackGame('Reaction Time Test')">▶ Play Now</a>
+  </div>
 
-    <!-- Game 3 -->
-    <div class="card">
-      <h3>Reaction Time Test</h3>
-      <p>Measure how fast your brain responds. Tap the screen or click instantly when the signal appears.</p>
-      <a href="games/reaction.html" target="_blank" onclick="trackGame('Reaction Time Test')">Play Now</a>
-    </div>
+  <div class="game-card" data-cat="puzzle">
+    <span class="game-emoji">🧩</span>
+    <span class="game-tag">Puzzle</span>
+    <h3>2048 AI Edition</h3>
+    <p>Swipe and merge tiles to reach the legendary 2048 tile. A deceptively simple concept that requires forward planning and strategic thinking to master.</p>
+    <a href="games/2048.html" class="play-btn" onclick="trackGame('2048 AI Edition')">▶ Play Now</a>
+  </div>
 
-    <!-- Game 4 -->
-    <div class="card">
-      <h3>2048 AI Edition</h3>
-      <p>Swipe, merge tiles, and strategise your way to the legendary 2048 tile — simple but addictive.</p>
-      <a href="games/2048.html" target="_blank" onclick="trackGame('2048 AI Edition')">Play Now</a>
-    </div>
+  <div class="game-card" data-cat="puzzle">
+    <span class="game-emoji">🃏</span>
+    <span class="game-tag">Puzzle</span>
+    <h3>Memory Match</h3>
+    <p>A classic card-matching puzzle. Flip cards to find matching pairs before the timer runs out. Great for training focus and short-term memory.</p>
+    <a href="games/memory.html" class="play-btn" onclick="trackGame('Memory Match')">▶ Play Now</a>
+  </div>
 
-    <!-- Game 5 -->
-    <div class="card">
-      <h3>Memory Match</h3>
-      <p>A classic card-matching puzzle that strengthens your focus, memory, and concentration skills.</p>
-      <a href="games/memory.html" target="_blank" onclick="trackGame('Memory Match')">Play Now</a>
-    </div>
+  <div class="game-card" data-cat="skill">
+    <span class="game-emoji">🐍</span>
+    <span class="game-tag">Skill</span>
+    <h3>Snake Neo</h3>
+    <p>A modern version of the classic snake arcade game. Eat food to grow longer, avoid hitting the walls or your own tail, and beat your high score.</p>
+    <a href="games/snake.html" class="play-btn" onclick="trackGame('Snake Neo')">▶ Play Now</a>
+  </div>
 
-    <!-- Game 6 -->
-    <div class="card">
-      <h3>Snake Neo</h3>
-      <p>A modern version of the classic snake arcade game. Eat food to grow and avoid hitting the walls.</p>
-      <a href="games/snake.html" target="_blank" onclick="trackGame('Snake Neo')">Play Now</a>
-    </div>
+  <div class="game-card" data-cat="puzzle">
+    <span class="game-emoji">🌀</span>
+    <span class="game-tag">Puzzle</span>
+    <h3>AI Maze Runner</h3>
+    <p>Navigate through randomly generated mazes and find the exit before time runs out. Each playthrough creates a new maze, so no two games are the same.</p>
+    <a href="games/maze.html" class="play-btn" onclick="trackGame('Maze Runner')">▶ Play Now</a>
+  </div>
 
-    <!-- Game 7 -->
-    <div class="card">
-      <h3>AI Maze Runner</h3>
-      <p>Navigate through randomly generated mazes and find your way to the exit before time runs out.</p>
-      <a href="games/maze.html" target="_blank" onclick="trackGame('Maze Runner')">Play Now</a>
-    </div>
+  <div class="game-card" data-cat="reaction">
+    <span class="game-emoji">🟦</span>
+    <span class="game-tag">Reaction</span>
+    <h3>Jump Cube</h3>
+    <p>A fast-paced obstacle runner where perfectly timed jumps are the key to survival. Reflexes and rhythm are everything in this minimalist challenge.</p>
+    <a href="games/jump.html" class="play-btn" onclick="trackGame('Jump Cube')">▶ Play Now</a>
+  </div>
 
-    <!-- Game 8 -->
-    <div class="card">
-      <h3>Jump Cube</h3>
-      <p>A fast-paced obstacle-runner where timing your jumps is the key to survival.</p>
-      <a href="games/jump.html" target="_blank" onclick="trackGame('Jump Cube')">Play Now</a>
-    </div>
-
-    <!-- Game: Car Racer -->
-    <div class="card">
+  <div class="game-card" data-cat="racing">
+    <span class="game-emoji">🚗</span>
+    <span class="game-tag">Racing</span>
     <h3>Car Racer</h3>
-    <p>A top-down racing game featuring smooth controls, traffic obstacles, and high-speed drifting. Play on mobile or desktop and beat your best distance.</p>
-    <a href="games/car-racer.html" target="_blank" onclick="trackGame('Car Racer')">Play Now</a>
+    <p>A top-down racing game with smooth controls, traffic obstacles, and high-speed drifting. Works on mobile and desktop. Try to beat your best distance.</p>
+    <a href="games/car-racer.html" class="play-btn" onclick="trackGame('Car Racer')">▶ Play Now</a>
+  </div>
+
+  <div class="game-card" data-cat="reaction">
+    <span class="game-emoji">🚁</span>
+    <span class="game-tag">Reaction</span>
+    <h3>Helicopter 2</h3>
+    <p>Fly your helicopter through moving obstacles and survive as long as you can. Keyboard controls on desktop, touch controls on mobile. How far can you go?</p>
+    <a href="games/helicopter2.html" class="play-btn" onclick="trackGame('Helicopter 2')">▶ Play Now</a>
+  </div>
+
+  <div class="game-card" data-cat="racing">
+    <span class="game-emoji">🛣️</span>
+    <span class="game-tag">Racing</span>
+    <h3>Drive</h3>
+    <p>A forward-driving challenge with dynamic road obstacles and lane-switch controls. The speed increases as you progress — how long can you last?</p>
+    <a href="games/drive.html" class="play-btn" onclick="trackGame('Drive')">▶ Play Now</a>
+  </div>
+
+</div>
+
+<!-- Editorial SEO Content -->
+<div class="seo-wrap">
+
+  <div class="seo-card">
+    <h2>Why Play Browser Games on AI Tools Directory?</h2>
+    <p>Our games collection offers a break from the serious world of AI productivity tools. Every game on this page runs directly in your browser with no installation, no account creation, and no cost. They are designed to be quick to start and genuinely enjoyable to play, whether you have two minutes or twenty.</p>
+    <p>All 11 games are tested on both desktop and mobile browsers, so you can play comfortably regardless of your device. Keyboard controls work on desktop; touch controls are enabled on mobile for seamless play on phones and tablets.</p>
+
+    <div class="benefits-grid">
+      <div class="benefit">
+        <div class="icon">⚡</div>
+        <strong>Instant Play</strong>
+        <span>No downloads, installs, or account signup needed.</span>
+      </div>
+      <div class="benefit">
+        <div class="icon">📱</div>
+        <strong>Mobile Ready</strong>
+        <span>Touch controls on every game. Play on any device.</span>
+      </div>
+      <div class="benefit">
+        <div class="icon">🆓</div>
+        <strong>Always Free</strong>
+        <span>All games are and will remain free to play.</span>
+      </div>
+      <div class="benefit">
+        <div class="icon">🔒</div>
+        <strong>No Tracking</strong>
+        <span>Games don't ask for your data or personal information.</span>
+      </div>
     </div>
+  </div>
 
-    <!-- Game: Helicopter 2 -->
-    <div class="card">
-      <h3>Helicopter 2</h3>
-      <p>Fly your helicopter through moving obstacles, dodge danger, and survive as long as you can. Fully optimised for both desktop (keyboard) and mobile (touch).</p>
-      <a href="games/helicopter2.html" target="_blank" onclick="trackGame('Helicopter 2')">Play Now</a>
-    </div>
+  <div class="seo-card">
+    <h2>Games That Train Your Brain</h2>
+    <p>While these games are fun, many of them also offer genuine cognitive benefits. Here is what each type of game can help you improve:</p>
 
-    <!-- Game: Drive -->
-    <div class="card">
-      <h3>Drive</h3>
-      <p>A realistic forward-driving challenge with dynamic road obstacles and smooth lane-switch controls. Test your reflexes and stay alive as the speed increases.</p>
-      <a href="games/drive.html" target="_blank" onclick="trackGame('Drive')">Play Now</a>
-    </div>
+    <h3>Puzzle Games (2048, Memory Match, Maze Runner, Guessing Game)</h3>
+    <p>Puzzle games require forward thinking, pattern recognition, and working memory. Regular play has been associated with improved problem-solving skills and better short-term memory recall. They are an excellent mental workout disguised as entertainment.</p>
 
+    <h3>Reaction & Reflex Games (Reaction Time Test, Jump Cube, Helicopter 2)</h3>
+    <p>These games measure and train your neuromuscular response time — how quickly your brain processes a signal and triggers a physical action. Athletes, gamers, and professionals in fast-paced environments often use reaction training to maintain peak performance.</p>
 
+    <h3>Skill Games (Snake Neo, Word Speed Challenge)</h3>
+    <p>Skill-based games reward practice and consistency. The Word Speed Challenge directly improves typing speed and accuracy, which is a practical skill for anyone who works on a computer. Snake builds spatial awareness and fine motor control.</p>
 
-  </section>
-  <section class="seo-content" style="max-width:1100px;margin:30px auto;padding:10px 20px;line-height:1.75;">
-  <h2 style="font-size:1.9rem;margin-bottom:12px;font-weight:600;">
-    Why Play Browser-Based AI Games?
-  </h2>
+    <h3>Racing Games (Car Racer, Drive)</h3>
+    <p>Racing games develop decision-making speed, focus under pressure, and hand-eye coordination. They require you to process visual information quickly and react accordingly, making them both engaging and mentally stimulating.</p>
+  </div>
 
-  <p>
-    Browser-based games offer instant entertainment without downloads, installations, or accounts.
-    At AI Tools Directory, our games collection focuses on lightweight, accessible experiences that
-    challenge the mind, improve cognitive skills, and provide quick entertainment for users of all ages.
-  </p>
+  <div class="seo-card">
+    <h2>How This Games Section Fits AI Tools Directory</h2>
+    <p>AI Tools Directory is primarily a resource for discovering artificial intelligence tools across categories like coding, writing, image generation, and automation. The games section complements this by offering a lighter, interactive experience within the same platform.</p>
+    <p>Many visitors come to explore AI tools for work and productivity. The games library gives those same visitors a space to take a short break, try something fun, and return to their research refreshed. It also demonstrates the range of browser-based interactive experiences that modern web technology makes possible.</p>
+    <p>We plan to expand this collection over time with more AI-adjacent games, including challenges that demonstrate machine learning concepts, logic puzzles inspired by algorithmic thinking, and interactive experiences that make AI ideas approachable and enjoyable.</p>
+  </div>
 
-  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
-    Skill-Based Games That Train Your Brain
-  </h3>
-  <p>
-    Many of the games featured on this page are designed to improve reaction time, memory, logic,
-    and hand-eye coordination. Typing challenges enhance speed and accuracy, puzzle games strengthen
-    problem-solving skills, and reaction tests measure cognitive responsiveness.
-  </p>
+</div>
 
-  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
-    Mobile and Desktop Friendly Gameplay
-  </h3>
-  <p>
-    All games are optimised for both desktop and mobile devices. Whether you are using a keyboard,
-    mouse, or touch screen, each game is designed to run smoothly across modern browsers.
-    This makes the games suitable for short breaks, casual play, or focused skill improvement.
-  </p>
-
-  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
-    Safe, Free, and Easy to Play
-  </h3>
-  <p>
-    Our games are completely free to play and do not require account creation or personal information.
-    We prioritise simple gameplay mechanics, fast loading times, and a distraction-free experience.
-    This ensures users can enjoy games safely while exploring other AI-related tools on our platform.
-  </p>
-
-  <h3 style="font-size:1.4rem;margin-top:20px;font-weight:600;">
-    How This Games Library Fits Into AI Tools Directory
-  </h3>
-  <p>
-    While AI Tools Directory primarily focuses on discovering useful AI applications,
-    this games section offers a lighter, interactive experience for users.
-    It complements our educational mission by showcasing logic, pattern recognition,
-    and skill-based challenges in an engaging format.
-  </p>
-</section>
-
-
-  <footer>
-    <p>&copy; 2025 AI Tools Directory</p>
-  </footer>
-
-<!-- ================= COOKIE CONSENT (GDPR + AdSense) ================= -->
-<style>
-  #cookie-banner {
-    position: fixed;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 90%;
-    max-width: 600px;
-    background: #111827;
-    color: #fff;
-    padding: 18px 20px;
-    border-radius: 12px;
-    box-shadow: 0 4px 18px rgba(0,0,0,0.25);
-    font-family: Arial, sans-serif;
-    font-size: 15px;
-    display: none;
-    z-index: 9999;
-    animation: slideUp 0.5s ease;
-  }
-
-  #cookie-banner button {
-    background: #2563eb;
-    border: none;
-    padding: 10px 18px;
-    border-radius: 8px;
-    color: #fff;
-    font-size: 14px;
-    cursor: pointer;
-    margin-left: 10px;
-  }
-
-  #cookie-banner a {
-    color: #93c5fd;
-    text-decoration: underline;
-  }
-
-  @keyframes slideUp {
-    from { opacity: 0; transform: translate(-50%, 10px); }
-    to   { opacity: 1; transform: translate(-50%, 0); }
-  }
-</style>
+<footer>
+  <p>&copy; 2025 AI Tools Directory | All Rights Reserved</p>
+</footer>
 
 <div id="cookie-banner">
   We use cookies to improve your experience, analyse traffic, and show personalised ads (Google AdSense).
@@ -466,18 +370,22 @@ footer p {
 </div>
 
 <script>
-  // Show banner only if not accepted before
   if (!localStorage.getItem("cookie_consent")) {
     document.getElementById("cookie-banner").style.display = "block";
   }
-
   document.getElementById("cookie-accept").addEventListener("click", () => {
     localStorage.setItem("cookie_consent", "yes");
     document.getElementById("cookie-banner").style.display = "none";
   });
-</script>
-<!-- ================= END COOKIE CONSENT ================= -->
 
+  function filterGames(cat, btn) {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    document.querySelectorAll('.game-card').forEach(card => {
+      card.style.display = (cat === 'all' || card.dataset.cat === cat) ? 'block' : 'none';
+    });
+  }
+</script>
 
 </body>
 </html>
