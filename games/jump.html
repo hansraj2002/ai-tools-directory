@@ -1,291 +1,116 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>Jump Cube – Online Reflex Game</title>
-<meta name="description" content="Play Jump Cube! Tap or press Space to jump and avoid red obstacles. Fast, fun, mobile-friendly reflex game.">
-<link rel="canonical" href="https://aitoolsdirectory.site/games/jump.html">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Jump Cube – Reflex Game">
-<meta property="og:description" content="Tap to jump and avoid obstacles. A fast reflex browser game.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://aitoolsdirectory.site/games/jump.html">
-
-<!-- Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-143GBNNFQE');
-</script>
-
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jump Cube | AI Tools Directory</title>
+<link rel="icon" href="../favicon.ico">
 <style>
-
-/* ===== HEADER ===== */
-header {
-  background: linear-gradient(90deg, #3b82f6, #1e3a8a);
-  color: white;
-  padding: 20px;
-  text-align: center;
-}
-
-header h1 {
-  margin-bottom: 10px;
-}
-
-nav a {
-  color: #dbeafe;
-  margin: 0 10px;
-  text-decoration: none;
-}
-
-nav a:hover {
-  color: white;
-}
-
-/* ===== GAME UI ===== */
-body{
-  font-family: Arial;
-  background:#f3f4f6;
-  margin:0;
-}
-
-.container{
-  max-width:700px;
-  margin:30px auto;
-  text-align:center;
-}
-
-.card{
-  background:#fff;
-  padding:20px;
-  border-radius:12px;
-  box-shadow:0 5px 20px rgba(0,0,0,0.1);
-}
-
-#stage{
-  position:relative;
-  margin:20px auto;
-  background:#0f172a;
-  width:320px;
-  height:160px;
-  border-radius:8px;
-  overflow:hidden;
-}
-
-/* PLAYER */
-#cube{
-  position:absolute;
-  width:28px;
-  height:28px;
-  background:#10b981;
-  left:40px;
-  bottom:20px;
-  border-radius:5px;
-}
-
-/* OBSTACLES */
-.ob{
-  position:absolute;
-  width:22px;
-  height:30px;
-  background:#ef4444;
-  bottom:20px;
-  right:-40px;
-}
-
-/* BUTTONS */
-button{
-  padding:10px 16px;
-  margin:6px;
-  border:none;
-  border-radius:8px;
-  background:#2563eb;
-  color:white;
-  cursor:pointer;
-}
-
-button:hover{
-  background:#1e40af;
-}
-
-#start{background:#10b981;}
-#restart{background:#ef4444;}
-
-#score{
-  font-weight:700;
-  margin-left:10px;
-}
-
-/* GAME OVER */
-#gameOver{
-  display:none;
-  margin-top:15px;
-  font-size:18px;
-  color:#ef4444;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:linear-gradient(135deg,#6366f1,#a78bfa,#f472b6);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.card{background:#fff;border-radius:24px;padding:24px;max-width:480px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+h1{font-size:1.5rem;font-weight:700;margin-bottom:12px;background:linear-gradient(90deg,#6366f1,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.scores{display:flex;justify-content:center;gap:16px;margin-bottom:12px}
+.sc{background:#f5f3ff;border-radius:10px;padding:8px 16px}
+.sc-val{font-size:1.2rem;font-weight:700;color:#6366f1}
+.sc-label{font-size:11px;color:#64748b}
+canvas{border-radius:16px;display:block;margin:0 auto;max-width:100%;cursor:pointer}
+.hint{font-size:13px;color:#94a3b8;margin-top:10px}
+.back{display:inline-block;margin-top:20px;color:#fff;text-decoration:none;font-size:14px;opacity:.85}
 </style>
 </head>
-
 <body>
-
-<header>
-  <h1>🎮 Jump Cube</h1>
-  <nav>
-    <a href="/">Home</a>
-    <a href="../submit.html">Submit Idea</a>
-    <a href="../about.html">About</a>
-    <a href="../contact.html">Contact</a>
-    <a href="../policy.html">Privacy & Terms</a>
-    <a href="../tools.html">Tools</a>
-    <a href="../games.html">Games</a>
-  </nav>
-</header>
-
-<div class="container">
-
-  <div class="card">
-
-    <p>📱 Tap, click, or press <b>Space</b> to jump and avoid obstacles.</p>
-
-    <div id="stage">
-      <div id="cube"></div>
-    </div>
-
-    <div>
-      <button id="start">Start</button>
-      <button id="restart">Restart</button>
-      <span id="score">Score: 0</span>
-    </div>
-
-    <div id="gameOver">Game Over!</div>
-
+<div class="card">
+  <h1>🟦 Jump Cube</h1>
+  <div class="scores">
+    <div class="sc"><div class="sc-val" id="score">0</div><div class="sc-label">Score</div></div>
+    <div class="sc"><div class="sc-val" id="best">0</div><div class="sc-label">Best</div></div>
   </div>
-
+  <canvas id="c" width="440" height="180"></canvas>
+  <p class="hint">Press Space, click, or tap to jump</p>
 </div>
+<a href="../games.html" class="back">← Back to Games</a>
 
 <script>
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+const GH=160,GROUND=GH-30;
+let player,obstacles,score,best=0,speed,frame,raf,started=false,dead=false;
 
-const stage = document.getElementById("stage");
-const cube = document.getElementById("cube");
-
-let cubeBottom = 20;
-let velocity = 0;
-let gravity = -0.6;
-
-let score = 0;
-let speed = 3;
-
-let gameInterval, spawnInterval;
-let obstacles = [];
-let running = false;
-
-// CONTROLS
-document.getElementById("start").onclick = startGame;
-document.getElementById("restart").onclick = startGame;
-
-document.addEventListener("keydown", e => {
-  if(e.code === "Space") jump();
-});
-
-stage.addEventListener("click", jump);
-
-// START GAME
-function startGame(){
-  reset();
-  running = true;
-
-  gameInterval = setInterval(gameLoop, 20);
-  spawnInterval = setInterval(spawnObstacle, 1200);
+function init(){
+  player={x:60,y:GROUND,w:28,h:28,vy:0,onGround:true};
+  obstacles=[];score=0;speed=4;frame=0;dead=false;started=false;
+  document.getElementById('score').textContent='0';
+  cancelAnimationFrame(raf);
+  drawIdle();
 }
 
-// RESET
-function reset(){
-  obstacles.forEach(o=>o.remove());
-  obstacles=[];
-
-  cubeBottom=20;
-  velocity=0;
-  score=0;
-  speed=3;
-
-  document.getElementById("score").innerText="Score: 0";
-  document.getElementById("gameOver").style.display="none";
-
-  clearInterval(gameInterval);
-  clearInterval(spawnInterval);
-}
-
-// JUMP
 function jump(){
-  if(!running) return;
-
-  if(cubeBottom <= 21){
-    velocity = 10;
-  }
+  if(!started){started=true;loop();return;}
+  if(dead){init();return;}
+  if(player.onGround){player.vy=-11;player.onGround=false;}
 }
 
-// SPAWN OBSTACLE
-function spawnObstacle(){
-  const ob = document.createElement("div");
-  ob.className = "ob";
-  ob.style.right = "-40px";
-  stage.appendChild(ob);
-  obstacles.push(ob);
+function loop(){
+  frame++;
+  // Spawn obstacles
+  if(frame%(Math.max(60,90-Math.floor(score/5)))===0){
+    const h=30+Math.random()*30;
+    obstacles.push({x:cv.width,y:GROUND+28-h,w:22,h});
+  }
+  // Physics
+  player.vy+=0.55;player.y+=player.vy;
+  if(player.y>=GROUND){player.y=GROUND;player.vy=0;player.onGround=true;}
+  // Move obstacles
+  obstacles.forEach(o=>o.x-=speed);
+  obstacles=obstacles.filter(o=>o.x+o.w>0);
+  // Collision
+  for(const o of obstacles){
+    if(player.x+player.w-4>o.x&&player.x+4<o.x+o.w&&player.y+player.h-4>o.y&&player.y+4<o.y+o.h){
+      dead=true;if(score>best){best=score;document.getElementById('best').textContent=best;}
+      drawDead();return;
+    }
+  }
+  score++;if(score%10===0)speed=Math.min(10,speed+0.2);
+  document.getElementById('score').textContent=score;
+  if(score%50===0)speed+=0.3;
+  draw();
+  raf=requestAnimationFrame(loop);
 }
 
-// GAME LOOP
-function gameLoop(){
-
-  cubeBottom += velocity;
-  velocity += gravity;
-
-  if(cubeBottom <= 20){
-    cubeBottom = 20;
-  }
-
-  cube.style.bottom = cubeBottom + "px";
-
-  obstacles.forEach((o,i)=>{
-
-    let r = parseFloat(o.style.right);
-    o.style.right = (r + speed) + "px";
-
-    let obX = stage.offsetWidth - (r + o.offsetWidth);
-
-    // COLLISION
-    if(obX < 80 && obX > 40 && cubeBottom < 50){
-      gameOver();
-    }
-
-    // SCORE
-    if(r > stage.offsetWidth){
-      o.remove();
-      obstacles.splice(i,1);
-      score++;
-      speed += 0.1; // increase difficulty
-
-      document.getElementById("score").innerText="Score: "+score;
-    }
-
+function draw(){
+  ctx.fillStyle='#f8fafc';ctx.fillRect(0,0,cv.width,cv.height);
+  // Ground
+  ctx.fillStyle='#e0e7ff';ctx.fillRect(0,GROUND+28,cv.width,cv.height);
+  ctx.strokeStyle='#a78bfa';ctx.lineWidth=2;ctx.beginPath();ctx.moveTo(0,GROUND+28);ctx.lineTo(cv.width,GROUND+28);ctx.stroke();
+  // Player
+  const p=player;
+  ctx.fillStyle='#6366f1';ctx.beginPath();ctx.roundRect(p.x,p.y,p.w,p.h,6);ctx.fill();
+  ctx.fillStyle='#fff';ctx.font='16px serif';ctx.textAlign='center';ctx.fillText('🟦',p.x+p.w/2,p.y+p.h-4);
+  // Obstacles
+  obstacles.forEach(o=>{
+    ctx.fillStyle='#ec4899';ctx.beginPath();ctx.roundRect(o.x,o.y,o.w,o.h,4);ctx.fill();
   });
 }
 
-// GAME OVER
-function gameOver(){
-  running = false;
-  clearInterval(gameInterval);
-  clearInterval(spawnInterval);
-
-  document.getElementById("gameOver").style.display="block";
+function drawIdle(){
+  ctx.fillStyle='#f8fafc';ctx.fillRect(0,0,cv.width,cv.height);
+  ctx.fillStyle='#e0e7ff';ctx.fillRect(0,GROUND+28,cv.width,cv.height);
+  ctx.fillStyle='#6366f1';ctx.beginPath();ctx.roundRect(player.x,player.y,player.w,player.h,6);ctx.fill();
+  ctx.fillStyle='#6366f1';ctx.font='bold 18px system-ui';ctx.textAlign='center';
+  ctx.fillText('Tap or press Space to start',cv.width/2,GH/2-10);
 }
 
-</script>
+function drawDead(){
+  draw();
+  ctx.fillStyle='rgba(0,0,0,.5)';ctx.fillRect(0,0,cv.width,cv.height);
+  ctx.fillStyle='#fff';ctx.font='bold 20px system-ui';ctx.textAlign='center';
+  ctx.fillText(`Game Over! Score: ${score}`,cv.width/2,GH/2-10);
+  ctx.font='14px system-ui';ctx.fillText('Tap or Space to restart',cv.width/2,GH/2+20);
+}
 
+document.addEventListener('keydown',e=>{if(e.code==='Space'){e.preventDefault();jump();}});
+cv.addEventListener('click',jump);
+cv.addEventListener('touchstart',e=>{e.preventDefault();jump();},{passive:false});
+init();
+</script>
 </body>
 </html>

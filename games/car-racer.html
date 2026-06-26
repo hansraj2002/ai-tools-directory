@@ -1,239 +1,127 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-
-<title>Turbo Drift — Free Online Car Racing Game</title>
-<meta name="description" content="Play Turbo Drift online. A fast-paced top-down racing game with smooth controls, traffic obstacles, and mobile support.">
-<link rel="canonical" href="https://aitoolsdirectory.site/games/car-racer.html">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Turbo Drift — Car Racing Game">
-<meta property="og:description" content="Play a smooth top-down racing game with keyboard and mobile controls.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://aitoolsdirectory.site/games/car-racer.html">
-
-<!-- Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){dataLayer.push(arguments);}
-gtag('js', new Date());
-gtag('config', 'G-143GBNNFQE');
-</script>
-
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Car Racer | AI Tools Directory</title>
+<link rel="icon" href="../favicon.ico">
 <style>
-
-/* ===== NAVBAR ===== */
-header {
-  background: linear-gradient(90deg,#3b82f6,#1e3a8a);
-  padding:20px;
-  text-align:center;
-  color:white;
-}
-nav {
-  display:flex;
-  justify-content:center;
-  gap:15px;
-  flex-wrap:wrap;
-}
-nav a {
-  color:#dbeafe;
-  text-decoration:none;
-  padding:8px 14px;
-  border-radius:6px;
-}
-nav a:hover {
-  background:rgba(255,255,255,0.15);
-}
-
-/* ===== PAGE ===== */
-body {
-  margin:0;
-  font-family:Arial;
-  background:#0f1724;
-  color:white;
-}
-
-.container {
-  max-width:1100px;
-  margin:auto;
-  padding:20px;
-}
-
-/* ===== GAME ===== */
-canvas {
-  width:100%;
-  background:#111;
-  border-radius:10px;
-}
-
-.overlay {
-  position:absolute;
-  top:50%;
-  left:50%;
-  transform:translate(-50%,-50%);
-  background:rgba(0,0,0,0.8);
-  padding:20px;
-  border-radius:10px;
-  display:none;
-  text-align:center;
-}
-
-button {
-  padding:10px 16px;
-  border:none;
-  border-radius:8px;
-  background:#2563eb;
-  color:white;
-  cursor:pointer;
-}
-
-/* ===== SECTIONS ===== */
-.section {
-  margin-top:30px;
-  line-height:1.6;
-}
-
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:linear-gradient(135deg,#6366f1,#a78bfa,#f472b6);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.card{background:#fff;border-radius:24px;padding:24px;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+h1{font-size:1.5rem;font-weight:700;margin-bottom:12px;background:linear-gradient(90deg,#6366f1,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.scores{display:flex;justify-content:center;gap:16px;margin-bottom:12px}
+.sc{background:#f5f3ff;border-radius:10px;padding:8px 16px}
+.sc-val{font-size:1.2rem;font-weight:700;color:#6366f1}
+.sc-label{font-size:11px;color:#64748b}
+canvas{border-radius:16px;display:block;margin:0 auto;max-width:100%}
+.hint{font-size:13px;color:#94a3b8;margin-top:10px}
+.ctrl{display:flex;justify-content:center;gap:10px;margin-top:10px}
+.ctrl button{width:52px;height:52px;border:none;border-radius:12px;background:linear-gradient(135deg,#6366f1,#a78bfa);color:#fff;font-size:1.3rem;cursor:pointer}
+.back{display:inline-block;margin-top:20px;color:#fff;text-decoration:none;font-size:14px;opacity:.85}
 </style>
 </head>
-
 <body>
-
-<header>
-  <h1>🏁 Turbo Drift</h1>
-  <nav>
-    <a href="/">Home</a>
-    <a href="../submit.html">Submit Idea</a>
-    <a href="../about.html">About</a>
-    <a href="../contact.html">Contact</a>
-    <a href="../policy.html">Privacy & Terms</a>
-    <a href="../tools.html">Tools</a>
-    <a href="../games.html">Games</a>
-  </nav>
-</header>
-
-<div class="container">
-
-<h2>Play Turbo Drift Online</h2>
-<p>Turbo Drift is a fast-paced car racing game where you dodge traffic, build speed, and survive as long as possible.</p>
-
-<div style="position:relative;">
-  <canvas id="gameCanvas" width="900" height="500"></canvas>
-
-  <div class="overlay" id="startScreen">
-    <h2>Ready to Race?</h2>
-    <button onclick="startGame()">Start Game</button>
+<div class="card">
+  <h1>🚗 Car Racer</h1>
+  <div class="scores">
+    <div class="sc"><div class="sc-val" id="score">0</div><div class="sc-label">Score</div></div>
+    <div class="sc"><div class="sc-val" id="best">0</div><div class="sc-label">Best</div></div>
   </div>
-
-  <div class="overlay" id="gameOver">
-    <h2>Game Over</h2>
-    <button onclick="startGame()">Play Again</button>
+  <canvas id="c" width="340" height="480"></canvas>
+  <p class="hint">← → Arrow keys or buttons to steer</p>
+  <div class="ctrl">
+    <button onpointerdown="keys.left=true" onpointerup="keys.left=false">◀</button>
+    <button onpointerdown="keys.right=true" onpointerup="keys.right=false">▶</button>
   </div>
 </div>
-
-<h3 id="score">Score: 0</h3>
-
-<!-- HOW TO PLAY -->
-<div class="section">
-<h2>How to Play</h2>
-<ul>
-<li>Use Arrow Keys or WASD to control your car</li>
-<li>On mobile, use touch controls</li>
-<li>Avoid obstacles and other vehicles</li>
-<li>The longer you survive, the higher your score</li>
-</ul>
-</div>
-
-<!-- SEO CONTENT -->
-<div class="section">
-<h2>About Turbo Drift</h2>
-<p>
-Turbo Drift is a browser-based racing game designed for both desktop and mobile players.
-It features smooth physics, responsive controls, and endless gameplay that challenges your reflexes.
-</p>
-</div>
-
-</div>
-
-<footer style="text-align:center;padding:20px;">
-© 2025 AI Tools Directory
-</footer>
-
+<a href="../games.html" class="back">← Back to Games</a>
 <script>
-const canvas = document.getElementById("gameCanvas");
-const ctx = canvas.getContext("2d");
+const cv=document.getElementById('c'),ctx=cv.getContext('2d');
+const W=340,H=480,LANES=[60,130,200,270];
+let player,enemies,score,best=0,speed,frame,raf,running=false,dead=false,keys={left:false,right:false};
 
-let car = {x:450, y:400, speed:5};
-let obstacles = [];
-let score = 0;
-let running = false;
-
-/* START */
-function startGame(){
-  obstacles = [];
-  score = 0;
-  running = true;
-  document.getElementById("startScreen").style.display="none";
-  document.getElementById("gameOver").style.display="none";
-  loop();
+function init(){
+  player={x:W/2-18,y:H-100,w:36,h:60,lane:1};
+  enemies=[];score=0;speed=3;frame=0;dead=false;running=false;
+  cancelAnimationFrame(raf);drawIdle();
 }
 
-/* SPAWN */
-setInterval(()=>{
-  if(running){
-    obstacles.push({x:Math.random()*850, y:-50});
-  }
-},1000);
+function start(){running=true;loop();}
 
-/* LOOP */
 function loop(){
-  if(!running) return;
-
-  ctx.clearRect(0,0,900,500);
-
-  // car
-  ctx.fillStyle="lime";
-  ctx.fillRect(car.x,car.y,40,60);
-
-  // obstacles
-  ctx.fillStyle="red";
-  obstacles.forEach((o,i)=>{
-    o.y += 5;
-    ctx.fillRect(o.x,o.y,40,60);
-
-    if(o.y > 500){
-      obstacles.splice(i,1);
-      score++;
+  if(!running)return;
+  frame++;
+  // Spawn enemy
+  if(frame%Math.max(35,55-Math.floor(score/20))===0){
+    const lane=Math.floor(Math.random()*4);
+    enemies.push({x:LANES[lane]-18,y:-70,w:36,h:60,lane,color:`hsl(${Math.random()*360},70%,55%)`});
+  }
+  // Move
+  enemies.forEach(e=>e.y+=speed);
+  enemies=enemies.filter(e=>e.y<H+80);
+  // Steer
+  const targetX=LANES[player.lane]-18;
+  if(keys.left&&player.lane>0){player.lane--;keys.left=false;}
+  if(keys.right&&player.lane<3){player.lane++;keys.right=false;}
+  player.x+=(LANES[player.lane]-18-player.x)*0.18;
+  // Collision
+  for(const e of enemies){
+    if(player.x+4<e.x+e.w-4&&player.x+player.w-4>e.x+4&&player.y+4<e.y+e.h-4&&player.y+player.h-4>e.y+4){
+      dead=true;running=false;
+      if(score>best){best=score;document.getElementById('best').textContent=best;}
+      drawDead();return;
     }
+  }
+  score++;if(score%50===0)speed=Math.min(10,speed+0.4);
+  document.getElementById('score').textContent=score;
+  draw();raf=requestAnimationFrame(loop);
+}
 
-    if(o.x < car.x+40 && o.x+40 > car.x &&
-       o.y < car.y+60 && o.y+60 > car.y){
-      gameOver();
-    }
+function draw(){
+  // Road
+  ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+  // Lane lines
+  ctx.strokeStyle='#fbbf24';ctx.lineWidth=3;ctx.setLineDash([30,20]);
+  [95,165,235].forEach(x=>{ctx.beginPath();ctx.moveTo(x,0);ctx.lineTo(x,H);ctx.stroke();});
+  ctx.setLineDash([]);
+  // Enemies
+  enemies.forEach(e=>{
+    ctx.fillStyle=e.color;ctx.beginPath();ctx.roundRect(e.x,e.y,e.w,e.h,8);ctx.fill();
+    ctx.font='28px serif';ctx.textAlign='center';ctx.fillText('🚙',e.x+e.w/2,e.y+e.h-8);
   });
-
-  document.getElementById("score").innerText = "Score: " + score;
-
-  requestAnimationFrame(loop);
+  // Player
+  ctx.fillStyle='#6366f1';ctx.beginPath();ctx.roundRect(player.x,player.y,player.w,player.h,8);ctx.fill();
+  ctx.font='28px serif';ctx.textAlign='center';ctx.fillText('🚗',player.x+player.w/2,player.y+player.h-8);
+  // Score
+  ctx.fillStyle='rgba(255,255,255,.85)';ctx.font='bold 16px system-ui';ctx.textAlign='left';
+  ctx.fillText('Score: '+score,10,24);
 }
 
-/* GAME OVER */
-function gameOver(){
-  running=false;
-  document.getElementById("gameOver").style.display="block";
+function drawIdle(){
+  ctx.fillStyle='#1e293b';ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='rgba(255,255,255,.9)';ctx.font='bold 18px system-ui';ctx.textAlign='center';
+  ctx.fillText('🚗 Car Racer',W/2,H/2-30);
+  ctx.font='14px system-ui';ctx.fillText('Tap or press any arrow key to start',W/2,H/2+10);
 }
 
-/* CONTROLS */
-document.addEventListener("keydown",e=>{
-  if(e.key==="ArrowLeft") car.x -= 20;
-  if(e.key==="ArrowRight") car.x += 20;
+function drawDead(){
+  draw();
+  ctx.fillStyle='rgba(0,0,0,.55)';ctx.fillRect(0,0,W,H);
+  ctx.fillStyle='#fff';ctx.font='bold 22px system-ui';ctx.textAlign='center';
+  ctx.fillText('💥 Crashed!',W/2,H/2-20);
+  ctx.font='16px system-ui';ctx.fillText('Score: '+score,W/2,H/2+15);
+  ctx.font='13px system-ui';ctx.fillText('Tap to restart',W/2,H/2+45);
+}
+
+document.addEventListener('keydown',e=>{
+  if(!running&&!dead)start();
+  else if(dead)init();
+  if(e.key==='ArrowLeft'){e.preventDefault();if(player.lane>0)player.lane--;}
+  if(e.key==='ArrowRight'){e.preventDefault();if(player.lane<3)player.lane++;}
 });
-
-/* INIT */
-document.getElementById("startScreen").style.display="block";
+cv.addEventListener('click',()=>{if(!running&&!dead)start();else if(dead)init();});
+cv.addEventListener('touchstart',e=>{e.preventDefault();if(!running&&!dead)start();else if(dead)init();},{passive:false});
+init();
 </script>
-
 </body>
 </html>

@@ -1,206 +1,96 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width,initial-scale=1" />
-
-<title>AI Guessing Game — Think of a Number (1–100)</title>
-<meta name="description" content="Play the AI Guessing Game! Think of a number between 1 and 100 and let the AI guess it using smart logic. Fast, fun, mobile-friendly, and no signup required.">
-<meta name="keywords" content="AI guessing game, number guesser, guess my number, online game, brain games, logic games, play free games">
-
-<link rel="canonical" href="https://aitoolsdirectory.site/games/guess.html">
-
-<!-- Open Graph -->
-<meta property="og:title" content="AI Guessing Game — Think of a Number">
-<meta property="og:description" content="Think of a number 1–100. AI will guess it! Fun & fast logic game.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://aitoolsdirectory.site/games/guess.html">
-<meta property="og:image" content="https://aitoolsdirectory.site/assets/og-guess.png">
-
-<!-- Twitter -->
-<meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="AI Guessing Game — Online Logic Game">
-<meta name="twitter:description" content="AI tries to guess your secret number. Fun, fast, and mobile-friendly.">
-<meta name="twitter:image" content="https://aitoolsdirectory.site/assets/og-guess.png">
-
-<!-- JSON-LD Schema -->
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Game",
-  "name": "AI Guessing Game",
-  "description": "Think of a number between 1 and 100 and let the AI guess it using binary logic.",
-  "genre": ["Logic","Brain Game","Puzzle"],
-  "applicationCategory": "Game",
-  "operatingSystem": "Web Browser",
-  "url": "https://aitoolsdirectory.site/games/guess.html"
-}
-</script>
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-143GBNNFQE');
-</script>
-
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AI Guessing Game | AI Tools Directory</title>
+<link rel="icon" href="../favicon.ico">
 <style>
-  /* NAVBAR */
-header {
-  background: #6366f1;
-  color: white;
-  padding: 15px;
-}
-
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-}
-  body{
-    font-family:"Poppins",Arial,sans-serif;
-    background:#f3f4f6;
-    color:#111;
-    padding:24px;
-    text-align:center;
-  }
-
-  .card{
-    max-width:600px;
-    margin:20px auto;
-    padding:25px;
-    background:#fff;
-    border-radius:14px;
-    box-shadow:0 5px 20px rgba(0,0,0,0.08);
-    animation:fadeIn .5s ease;
-  }
-
-  h1{font-size:2rem;margin-bottom:10px;}
-
-  .tags{
-    display:flex;
-    justify-content:center;
-    gap:8px;
-    margin-bottom:18px;
-  }
-  .tag{
-    padding:4px 10px;
-    font-size:12px;
-    border-radius:20px;
-    background:#e5e7eb;
-    font-weight:600;
-  }
-
-  #guess{
-    font-size:2.8rem;
-    margin:18px 0;
-    font-weight:700;
-    color:#1e3a8a;
-  }
-
-  button{
-    padding:12px 18px;
-    border-radius:10px;
-    border:none;
-    background:#2563eb;
-    color:white;
-    cursor:pointer;
-    font-size:16px;
-    margin:6px;
-    font-weight:600;
-    transition:.2s;
-  }
-
-  button:hover{background:#1d4ed8;}
-
-  #start{background:#10b981;}
-  #start:hover{background:#0d946b;}
-
-  #steps{
-    margin-top:12px;
-    font-weight:600;
-    color:#444;
-  }
-
-  @keyframes fadeIn {from{opacity:0;transform:translateY(10px);} to{opacity:1;}}
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:linear-gradient(135deg,#6366f1,#a78bfa,#f472b6);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.card{background:#fff;border-radius:24px;padding:36px 32px;max-width:420px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:6px;background:linear-gradient(90deg,#6366f1,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{font-size:14px;color:#64748b;margin-bottom:24px}
+.emoji{font-size:3rem;margin-bottom:16px;display:block}
+input{width:100%;padding:14px;border:2px solid #e2e8f0;border-radius:14px;font-size:1.1rem;text-align:center;outline:none;transition:.3s;margin-bottom:12px}
+input:focus{border-color:#a78bfa;box-shadow:0 0 0 3px rgba(167,139,250,.2)}
+button{width:100%;padding:13px;border:none;border-radius:14px;background:linear-gradient(90deg,#6366f1,#a78bfa);color:#fff;font-size:1rem;font-weight:700;cursor:pointer;transition:.3s;margin-bottom:8px}
+button:hover{transform:translateY(-2px);opacity:.9}
+.btn-secondary{background:linear-gradient(90deg,#64748b,#94a3b8)}
+.hint{font-size:1.1rem;font-weight:600;padding:12px;border-radius:12px;margin:12px 0;min-height:44px}
+.hint.low{background:#fef3c7;color:#d97706}
+.hint.high{background:#dbeafe;color:#2563eb}
+.hint.win{background:#dcfce7;color:#16a34a}
+.hint.lose{background:#fee2e2;color:#dc2626}
+.attempts{font-size:13px;color:#94a3b8;margin-top:8px}
+.history{margin-top:16px;text-align:left;max-height:120px;overflow-y:auto}
+.history-item{font-size:13px;padding:4px 8px;background:#f5f3ff;border-radius:8px;margin-bottom:4px;color:#4f46e5}
+.back{display:inline-block;margin-top:20px;color:#fff;text-decoration:none;font-size:14px;opacity:.85}
+.back:hover{opacity:1}
 </style>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5221741784747764"
-     crossorigin="anonymous"></script>
-
 </head>
-
 <body>
-  <header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="../submit.html">Submit Idea</a>
-    <a href="../about.html">About</a>
-    <a href="../contact.html">Contact</a>
-    <a href="../policy.html">Privacy & Terms</a>
-    <a href="../tools.html">Tools</a>
-    <a href="../games.html">Games</a>
-  </nav>
-</header>
-  <div class="card">
-    <h1>AI Guessing Game</h1>
-
-    <div class="tags">
-      <div class="tag">Logic</div>
-      <div class="tag">Brain Game</div>
-      <div class="tag">Guessing</div>
-    </div>
-
-    <p>Think of a number between <strong>1 and 100</strong>. I will guess it.</p>
-
-    <div id="guess">—</div>
-
-    <div>
-      <button id="higher">Higher ⬆️</button>
-      <button id="correct">Correct ✅</button>
-      <button id="lower">Lower ⬇️</button>
-    </div>
-
-    <p id="steps"></p>
-
-    <button id="start">Start New Game</button>
-  </div>
+<div class="card">
+  <span class="emoji">🔢</span>
+  <h1>AI Guessing Game</h1>
+  <p class="subtitle">I'm thinking of a number between 1 and 100</p>
+  <input type="number" id="guess" placeholder="Enter your guess..." min="1" max="100" onkeydown="if(event.key==='Enter')checkGuess()">
+  <button onclick="checkGuess()">Guess!</button>
+  <button class="btn-secondary" onclick="resetGame()">New Game</button>
+  <div class="hint" id="hint"></div>
+  <div class="attempts" id="attempts"></div>
+  <div class="history" id="history"></div>
+</div>
+<a href="../games.html" class="back">← Back to Games</a>
 
 <script>
-let low, high, mid, steps;
+let secret, attempts, maxAttempts = 7, gameOver = false;
 
-const gEl = document.getElementById("guess");
-const sEl = document.getElementById("steps");
-
-function start(){
-  low = 1;
-  high = 100;
-  steps = 0;
-  next();
+function resetGame() {
+  secret = Math.floor(Math.random() * 100) + 1;
+  attempts = 0;
+  gameOver = false;
+  document.getElementById('hint').className = 'hint';
+  document.getElementById('hint').textContent = '';
+  document.getElementById('attempts').textContent = `You have ${maxAttempts} attempts`;
+  document.getElementById('history').innerHTML = '';
+  document.getElementById('guess').value = '';
+  document.getElementById('guess').disabled = false;
 }
 
-function next(){
-  if(low > high){
-    gEl.textContent = "Impossible — maybe you clicked wrong 😅";
-    return;
+function checkGuess() {
+  if (gameOver) return;
+  const val = parseInt(document.getElementById('guess').value);
+  if (!val || val < 1 || val > 100) { alert('Please enter a number between 1 and 100'); return; }
+  attempts++;
+  const hintEl = document.getElementById('hint');
+  const hist = document.getElementById('history');
+  hist.innerHTML = `<div class="history-item">Guess ${attempts}: ${val}</div>` + hist.innerHTML;
+
+  if (val === secret) {
+    hintEl.className = 'hint win';
+    hintEl.textContent = `🎉 Correct! You got it in ${attempts} attempt${attempts>1?'s':''}!`;
+    document.getElementById('attempts').textContent = '';
+    document.getElementById('guess').disabled = true;
+    gameOver = true;
+  } else if (attempts >= maxAttempts) {
+    hintEl.className = 'hint lose';
+    hintEl.textContent = `😢 Game over! The number was ${secret}`;
+    document.getElementById('attempts').textContent = '';
+    document.getElementById('guess').disabled = true;
+    gameOver = true;
+  } else if (val < secret) {
+    hintEl.className = 'hint low';
+    hintEl.textContent = `📈 Too low! Go higher.`;
+    document.getElementById('attempts').textContent = `${maxAttempts - attempts} attempt${maxAttempts-attempts!==1?'s':''} remaining`;
+  } else {
+    hintEl.className = 'hint high';
+    hintEl.textContent = `📉 Too high! Go lower.`;
+    document.getElementById('attempts').textContent = `${maxAttempts - attempts} attempt${maxAttempts-attempts!==1?'s':''} remaining`;
   }
-  mid = Math.floor((low + high) / 2);
-  steps++;
-  gEl.textContent = mid;
-  sEl.textContent = "Attempts: " + steps;
+  document.getElementById('guess').value = '';
 }
 
-document.getElementById("higher").onclick = ()=>{ low = mid + 1; next(); };
-document.getElementById("lower").onclick = ()=>{ high = mid - 1; next(); };
-document.getElementById("correct").onclick = ()=>{
-  gEl.textContent = `🎉 I guessed ${mid} in ${steps} tries!`;
-};
-
-document.getElementById("start").onclick = start;
-
-start();
+resetGame();
 </script>
 </body>
 </html>

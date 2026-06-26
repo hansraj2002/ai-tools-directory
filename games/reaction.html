@@ -1,215 +1,94 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-
-<title>Reaction Time Test – How Fast Are You?</title>
-<meta name="description" content="Test your reaction speed! Wait for the screen to turn green and tap as fast as you can. Works on mobile and desktop.">
-<link rel="canonical" href="https://aitoolsdirectory.site/games/reaction.html">
-
-<!-- Open Graph -->
-<meta property="og:title" content="Reaction Time Test – Play Online">
-<meta property="og:description" content="Tap when the screen turns green and measure your reaction speed. Play free on any device.">
-<meta property="og:type" content="website">
-<meta property="og:url" content="https://aitoolsdirectory.site/games/reaction.html">
-<meta property="og:image" content="https://aitoolsdirectory.site/assets/og-reaction.png">
-
-<!-- Schema Markup -->
-<script type="application/ld+json">
-{
-  "@context":"https://schema.org",
-  "@type":"Game",
-  "name":"Reaction Time Test",
-  "genre":["Reflex","Reaction","Speed Test"],
-  "url":"https://aitoolsdirectory.site/games/reaction.html",
-  "applicationCategory":"Game"
-}
-</script>
-
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-143GBNNFQE"></script>
-<script>
-window.dataLayer = window.dataLayer || [];
-function gtag(){ dataLayer.push(arguments); }
-gtag('js', new Date());
-gtag('config', 'G-143GBNNFQE');
-</script>
-
+<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Reaction Time Test | AI Tools Directory</title>
+<link rel="icon" href="../favicon.ico">
 <style>
-  /* NAVBAR */
-header {
-  background: #6366f1;
-  color: white;
-  padding: 15px;
-}
-
-nav a {
-  color: white;
-  margin: 0 10px;
-  text-decoration: none;
-}
-  body{
-    font-family: "Poppins", Arial, sans-serif;
-    background:#f3f4f6;
-    margin:0;
-    padding:20px;
-    text-align:center;
-  }
-
-  .card{
-    max-width:650px;
-    margin:auto;
-    padding:20px;
-    background:#fff;
-    border-radius:12px;
-    box-shadow:0 6px 20px rgba(0,0,0,0.08);
-  }
-
-  .tags span{
-    background:#e5e7eb;
-    padding:6px 12px;
-    border-radius:20px;
-    font-size:12px;
-    margin:4px;
-    display:inline-block;
-  }
-
-  #box{
-    width:100%;
-    height:240px;
-    border-radius:12px;
-    margin-top:18px;
-    background:#ef4444;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    color:#fff;
-    font-size:1.6rem;
-    user-select:none;
-    transition:background 0.25s;
-    cursor:pointer;
-  }
-
-  @media(max-width:600px){
-    #box{
-      height:200px;
-      font-size:1.4rem;
-    }
-  }
-
-  button{
-    padding:10px 16px;
-    margin-top:14px;
-    border:none;
-    border-radius:8px;
-    background:#2563eb;
-    color:white;
-    cursor:pointer;
-    font-size:15px;
-  }
+*{box-sizing:border-box;margin:0;padding:0}
+body{font-family:system-ui,sans-serif;background:linear-gradient(135deg,#6366f1,#a78bfa,#f472b6);min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:20px}
+.card{background:#fff;border-radius:24px;padding:32px;max-width:480px;width:100%;text-align:center;box-shadow:0 20px 60px rgba(0,0,0,.2)}
+h1{font-size:1.6rem;font-weight:700;margin-bottom:6px;background:linear-gradient(90deg,#6366f1,#ec4899);-webkit-background-clip:text;-webkit-text-fill-color:transparent}
+.subtitle{font-size:14px;color:#64748b;margin-bottom:24px}
+#arena{width:100%;height:220px;border-radius:20px;display:flex;align-items:center;justify-content:center;cursor:pointer;font-size:1.2rem;font-weight:600;transition:background .2s;user-select:none;margin-bottom:20px;border:3px solid #e2e8f0}
+#arena.wait{background:#fef3c7;color:#92400e;border-color:#fcd34d}
+#arena.ready{background:#dcfce7;color:#15803d;border-color:#4ade80;animation:pulse .5s infinite alternate}
+#arena.clicked-early{background:#fee2e2;color:#dc2626;border-color:#f87171}
+@keyframes pulse{from{transform:scale(1)}to{transform:scale(1.02)}}
+.results{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:16px}
+.res-box{background:#f5f3ff;border-radius:12px;padding:12px}
+.res-val{font-size:1.4rem;font-weight:700;color:#6366f1}
+.res-label{font-size:11px;color:#64748b;margin-top:2px}
+.history{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:16px;min-height:32px}
+.hist-chip{background:#e0e7ff;color:#4f46e5;font-size:12px;font-weight:600;padding:4px 12px;border-radius:999px}
+button{width:100%;padding:12px;border:none;border-radius:14px;background:linear-gradient(90deg,#6366f1,#a78bfa);color:#fff;font-size:1rem;font-weight:700;cursor:pointer;transition:.3s}
+button:hover{transform:translateY(-2px);opacity:.9}
+.back{display:inline-block;margin-top:20px;color:#fff;text-decoration:none;font-size:14px;opacity:.85}
 </style>
-
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-5221741784747764"
-     crossorigin="anonymous"></script>
-
 </head>
-
 <body>
-<header>
-  <nav>
-    <a href="/">Home</a>
-    <a href="../submit.html">Submit Idea</a>
-    <a href="../about.html">About</a>
-    <a href="../contact.html">Contact</a>
-    <a href="../policy.html">Privacy & Terms</a>
-    <a href="../tools.html">Tools</a>
-    <a href="../games.html">Games</a>
-  </nav>
-</header>
 <div class="card">
-  <h1>Reaction Time Test</h1>
-
-  <div class="tags">
-    <span>Reaction</span>
-    <span>Reflex</span>
-    <span>Speed Test</span>
+  <h1>⚡ Reaction Time Test</h1>
+  <p class="subtitle">Click the green box the moment it appears</p>
+  <div id="arena" class="wait" onclick="handleClick()">Click to Start</div>
+  <div class="results">
+    <div class="res-box"><div class="res-val" id="last">—</div><div class="res-label">Last (ms)</div></div>
+    <div class="res-box"><div class="res-val" id="best">—</div><div class="res-label">Best (ms)</div></div>
+    <div class="res-box"><div class="res-val" id="avg">—</div><div class="res-label">Avg (ms)</div></div>
   </div>
-
-  <p>Wait for the screen to turn green, then tap as fast as you can!</p>
-
-  <div id="box" data-state="">Click to start</div>
-
-  <div id="result" style="margin-top:14px;font-size:1.2rem;font-weight:700"></div>
-
-  <button id="reset" style="display:none">Try Again</button>
+  <div class="history" id="history"></div>
+  <button onclick="resetAll()">Reset Scores</button>
 </div>
+<a href="../games.html" class="back">← Back to Games</a>
 
 <script>
-let startTime = 0;
-let waitTimeout = null;
+let state='idle', startTime, timeout, times=[];
 
-const box = document.getElementById("box");
-const result = document.getElementById("result");
-const resetBtn = document.getElementById("reset");
-
-function startTest(){
-  box.dataset.state = "waiting";
-  box.style.background = "#f59e0b";
-  box.textContent = "Get ready...";
-
-  const delay = Math.random() * 2000 + 1200;
-
-  waitTimeout = setTimeout(()=>{
-    box.dataset.state = "go";
-    startTime = performance.now();
-    box.style.background = "#10b981";
-    box.textContent = "TAP NOW!";
-  }, delay);
+function handleClick(){
+  if(state==='idle'||state==='done'){
+    state='waiting';
+    document.getElementById('arena').className='arena wait';
+    document.getElementById('arena').textContent='Wait for green...';
+    const delay = 1500 + Math.random()*3000;
+    timeout = setTimeout(()=>{
+      state='ready';
+      startTime=Date.now();
+      document.getElementById('arena').className='arena ready';
+      document.getElementById('arena').textContent='CLICK NOW!';
+    }, delay);
+  } else if(state==='waiting'){
+    clearTimeout(timeout);
+    state='done';
+    document.getElementById('arena').className='arena clicked-early';
+    document.getElementById('arena').textContent='Too early! Click to try again.';
+  } else if(state==='ready'){
+    const ms = Date.now()-startTime;
+    times.push(ms);
+    state='done';
+    const best=Math.min(...times);
+    const avg=Math.round(times.reduce((a,b)=>a+b,0)/times.length);
+    document.getElementById('last').textContent=ms;
+    document.getElementById('best').textContent=best;
+    document.getElementById('avg').textContent=avg;
+    const rating = ms<150?'⚡ Superhuman':ms<200?'🏆 Excellent':ms<250?'👍 Good':ms<350?'😊 Average':'🐢 Keep practising';
+    document.getElementById('arena').className='arena wait';
+    document.getElementById('arena').textContent=`${ms}ms — ${rating}\nClick to go again`;
+    const chip=document.createElement('span');
+    chip.className='hist-chip';
+    chip.textContent=ms+'ms';
+    document.getElementById('history').prepend(chip);
+  }
 }
 
-box.onclick = () => {
-  const state = box.dataset.state;
-
-  if(state === ""){
-    // Start new test
-    result.textContent = "";
-    resetBtn.style.display = "none";
-    startTest();
-    return;
-  }
-
-  if(state === "waiting"){
-    // Clicked too early
-    clearTimeout(waitTimeout);
-    box.dataset.state = "";
-    box.style.background = "#ef4444";
-    box.textContent = "Too soon!";
-    result.textContent = "You clicked too early. Wait for green.";
-    resetBtn.style.display = "inline-block";
-    return;
-  }
-
-  if(state === "go"){
-    // Calculate reaction time
-    const reaction = Math.floor(performance.now() - startTime);
-    result.textContent = `⚡ Reaction Time: ${reaction} ms`;
-    box.dataset.state = "";
-    box.style.background = "#ef4444";
-    box.textContent = "Click to start";
-    resetBtn.style.display = "inline-block";
-  }
-};
-
-resetBtn.onclick = () => {
-  box.dataset.state = "";
-  box.style.background = "#ef4444";
-  box.textContent = "Click to start";
-  result.textContent = "";
-  resetBtn.style.display = "none";
-  clearTimeout(waitTimeout);
-};
+function resetAll(){
+  times=[];state='idle';
+  document.getElementById('last').textContent='—';
+  document.getElementById('best').textContent='—';
+  document.getElementById('avg').textContent='—';
+  document.getElementById('history').innerHTML='';
+  document.getElementById('arena').className='arena wait';
+  document.getElementById('arena').textContent='Click to Start';
+}
 </script>
-
 </body>
 </html>
