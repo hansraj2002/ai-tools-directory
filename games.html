@@ -8,7 +8,6 @@
   <link rel="canonical" href="https://aitoolsdirectory.site/games.html">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" type="image/x-icon" href="favicon.ico">
-
   <meta property="og:title" content="Free AI Games | AI Tools Directory">
   <meta property="og:description" content="Play 11 free browser games instantly. No downloads, no signup required.">
   <meta property="og:type" content="website">
@@ -36,9 +35,6 @@
     function gtag(){dataLayer.push(arguments);}
     gtag('js', new Date());
     gtag('config', 'G-143GBNNFQE');
-    function trackGame(gameName) {
-      gtag("event", "game_click", { "event_category": "Games", "event_label": gameName });
-    }
   </script>
 
   <style>
@@ -65,7 +61,6 @@
     }
     nav a:hover { background: rgba(255,255,255,.25); }
 
-    /* Hero */
     .page-hero {
       background: linear-gradient(135deg,#6366f1,#a78bfa,#f472b6);
       color: #fff; text-align: center; padding: 60px 16px;
@@ -78,7 +73,6 @@
       padding: 8px 16px; border-radius: 20px; font-size: 14px; font-weight: 600;
     }
 
-    /* Category filter */
     .game-filter {
       display: flex; justify-content: center; gap: 10px; flex-wrap: wrap;
       padding: 24px 16px; max-width: 900px; margin: 0 auto;
@@ -93,7 +87,6 @@
       transform: translateY(-2px);
     }
 
-    /* Games grid */
     .games-grid {
       max-width: 1100px; margin: 10px auto 40px; padding: 0 16px;
       display: grid; grid-template-columns: repeat(auto-fit, minmax(280px,1fr)); gap: 20px;
@@ -127,7 +120,6 @@
     }
     .play-btn:hover { transform: translateY(-2px); opacity: .9; }
 
-    /* SEO sections */
     .seo-wrap { max-width: 1100px; margin: 0 auto 40px; padding: 0 16px; display: grid; gap: 24px; }
     .seo-card {
       background: #fff; border-radius: 20px; padding: 30px;
@@ -145,9 +137,7 @@
     .benefits-grid {
       display: grid; grid-template-columns: repeat(auto-fit,minmax(200px,1fr)); gap: 14px; margin-top: 14px;
     }
-    .benefit {
-      background: #f5f3ff; border-radius: 14px; padding: 16px; text-align: center;
-    }
+    .benefit { background: #f5f3ff; border-radius: 14px; padding: 16px; text-align: center; }
     .benefit .icon { font-size: 1.8rem; margin-bottom: 8px; }
     .benefit strong { display: block; font-size: 13px; font-weight: 600; color: #4f46e5; margin-bottom: 4px; }
     .benefit span { font-size: 12px; color: #64748b; line-height: 1.5; }
@@ -216,7 +206,7 @@
     <span class="game-tag">Puzzle</span>
     <h3>AI Guessing Game</h3>
     <p>A quick logic challenge where you guess the hidden number in as few attempts as possible. Each wrong guess gives you a hint — higher or lower.</p>
-    <a href="games/guess.html" class="play-btn" onclick="trackGame('AI Guessing Game')">▶ Play Now</a>
+    <a href="games/guess.html" class="play-btn">▶ Play Now</a>
   </div>
 
   <div class="game-card" data-cat="skill">
@@ -224,7 +214,7 @@
     <span class="game-tag">Skill</span>
     <h3>Word Speed Challenge</h3>
     <p>Test your typing accuracy and speed in real time. A live WPM counter and accuracy tracker shows how you improve over multiple rounds.</p>
-    <a href="games/typing.html" class="play-btn" onclick="trackGame('Word Speed Challenge')">▶ Play Now</a>
+    <a href="games/typing.html" class="play-btn">▶ Play Now</a>
   </div>
 
   <div class="game-card" data-cat="reaction">
@@ -232,7 +222,7 @@
     <span class="game-tag">Reaction</span>
     <h3>Reaction Time Test</h3>
     <p>Measure how fast your brain responds. Click or tap the moment the signal appears and see your reaction time in milliseconds. Can you beat 200ms?</p>
-    <a href="games/reaction.html" class="play-btn" onclick="trackGame('Reaction Time Test')">▶ Play Now</a>
+    <a href="games/reaction.html" class="play-btn">▶ Play Now</a>
   </div>
 
   <div class="game-card" data-cat="puzzle">
@@ -240,7 +230,7 @@
     <span class="game-tag">Puzzle</span>
     <h3>2048 AI Edition</h3>
     <p>Swipe and merge tiles to reach the legendary 2048 tile. A deceptively simple concept that requires forward planning and strategic thinking to master.</p>
-    <a href="games/2048.html" class="play-btn" onclick="trackGame('2048 AI Edition')">▶ Play Now</a>
+    <a href="games/2048.html" class="play-btn">▶ Play Now</a>
   </div>
 
   <div class="game-card" data-cat="puzzle">
@@ -248,7 +238,7 @@
     <span class="game-tag">Puzzle</span>
     <h3>Memory Match</h3>
     <p>A classic card-matching puzzle. Flip cards to find matching pairs before the timer runs out. Great for training focus and short-term memory.</p>
-    <a href="games/memory.html" class="play-btn" onclick="trackGame('Memory Match')">▶ Play Now</a>
+    <a href="games/memory.html" class="play-btn">▶ Play Now</a>
   </div>
 
   <div class="game-card" data-cat="skill">
@@ -256,7 +246,7 @@
     <span class="game-tag">Skill</span>
     <h3>Snake Neo</h3>
     <p>A modern version of the classic snake arcade game. Eat food to grow longer, avoid hitting the walls or your own tail, and beat your high score.</p>
-    <a href="games/snake.html" class="play-btn" onclick="trackGame('Snake Neo')">▶ Play Now</a>
+    <a href="games/snake.html" class="play-btn">▶ Play Now</a>
   </div>
 
   <div class="game-card" data-cat="puzzle">
@@ -264,7 +254,7 @@
     <span class="game-tag">Puzzle</span>
     <h3>AI Maze Runner</h3>
     <p>Navigate through randomly generated mazes and find the exit before time runs out. Each playthrough creates a new maze, so no two games are the same.</p>
-    <a href="games/maze.html" class="play-btn" onclick="trackGame('Maze Runner')">▶ Play Now</a>
+    <a href="games/maze.html" class="play-btn">▶ Play Now</a>
   </div>
 
   <div class="game-card" data-cat="reaction">
@@ -272,7 +262,7 @@
     <span class="game-tag">Reaction</span>
     <h3>Jump Cube</h3>
     <p>A fast-paced obstacle runner where perfectly timed jumps are the key to survival. Reflexes and rhythm are everything in this minimalist challenge.</p>
-    <a href="games/jump.html" class="play-btn" onclick="trackGame('Jump Cube')">▶ Play Now</a>
+    <a href="games/jump.html" class="play-btn">▶ Play Now</a>
   </div>
 
   <div class="game-card" data-cat="racing">
@@ -280,7 +270,7 @@
     <span class="game-tag">Racing</span>
     <h3>Car Racer</h3>
     <p>A top-down racing game with smooth controls, traffic obstacles, and high-speed drifting. Works on mobile and desktop. Try to beat your best distance.</p>
-    <a href="games/car-racer.html" class="play-btn" onclick="trackGame('Car Racer')">▶ Play Now</a>
+    <a href="games/car-racer.html" class="play-btn">▶ Play Now</a>
   </div>
 
   <div class="game-card" data-cat="reaction">
@@ -288,7 +278,7 @@
     <span class="game-tag">Reaction</span>
     <h3>Helicopter 2</h3>
     <p>Fly your helicopter through moving obstacles and survive as long as you can. Keyboard controls on desktop, touch controls on mobile. How far can you go?</p>
-    <a href="games/helicopter2.html" class="play-btn" onclick="trackGame('Helicopter 2')">▶ Play Now</a>
+    <a href="games/helicopter2.html" class="play-btn">▶ Play Now</a>
   </div>
 
   <div class="game-card" data-cat="racing">
@@ -296,56 +286,33 @@
     <span class="game-tag">Racing</span>
     <h3>Drive</h3>
     <p>A forward-driving challenge with dynamic road obstacles and lane-switch controls. The speed increases as you progress — how long can you last?</p>
-    <a href="games/drive.html" class="play-btn" onclick="trackGame('Drive')">▶ Play Now</a>
+    <a href="games/drive.html" class="play-btn">▶ Play Now</a>
   </div>
 
 </div>
 
-<!-- Editorial SEO Content -->
 <div class="seo-wrap">
-
   <div class="seo-card">
     <h2>Why Play Browser Games on AI Tools Directory?</h2>
     <p>Our games collection offers a break from the serious world of AI productivity tools. Every game on this page runs directly in your browser with no installation, no account creation, and no cost. They are designed to be quick to start and genuinely enjoyable to play, whether you have two minutes or twenty.</p>
     <p>All 11 games are tested on both desktop and mobile browsers, so you can play comfortably regardless of your device. Keyboard controls work on desktop; touch controls are enabled on mobile for seamless play on phones and tablets.</p>
-
     <div class="benefits-grid">
-      <div class="benefit">
-        <div class="icon">⚡</div>
-        <strong>Instant Play</strong>
-        <span>No downloads, installs, or account signup needed.</span>
-      </div>
-      <div class="benefit">
-        <div class="icon">📱</div>
-        <strong>Mobile Ready</strong>
-        <span>Touch controls on every game. Play on any device.</span>
-      </div>
-      <div class="benefit">
-        <div class="icon">🆓</div>
-        <strong>Always Free</strong>
-        <span>All games are and will remain free to play.</span>
-      </div>
-      <div class="benefit">
-        <div class="icon">🔒</div>
-        <strong>No Tracking</strong>
-        <span>Games don't ask for your data or personal information.</span>
-      </div>
+      <div class="benefit"><div class="icon">⚡</div><strong>Instant Play</strong><span>No downloads, installs, or account signup needed.</span></div>
+      <div class="benefit"><div class="icon">📱</div><strong>Mobile Ready</strong><span>Touch controls on every game. Play on any device.</span></div>
+      <div class="benefit"><div class="icon">🆓</div><strong>Always Free</strong><span>All games are and will remain free to play.</span></div>
+      <div class="benefit"><div class="icon">🔒</div><strong>No Tracking</strong><span>Games don't ask for your data or personal information.</span></div>
     </div>
   </div>
 
   <div class="seo-card">
     <h2>Games That Train Your Brain</h2>
     <p>While these games are fun, many of them also offer genuine cognitive benefits. Here is what each type of game can help you improve:</p>
-
     <h3>Puzzle Games (2048, Memory Match, Maze Runner, Guessing Game)</h3>
     <p>Puzzle games require forward thinking, pattern recognition, and working memory. Regular play has been associated with improved problem-solving skills and better short-term memory recall. They are an excellent mental workout disguised as entertainment.</p>
-
     <h3>Reaction & Reflex Games (Reaction Time Test, Jump Cube, Helicopter 2)</h3>
     <p>These games measure and train your neuromuscular response time — how quickly your brain processes a signal and triggers a physical action. Athletes, gamers, and professionals in fast-paced environments often use reaction training to maintain peak performance.</p>
-
     <h3>Skill Games (Snake Neo, Word Speed Challenge)</h3>
     <p>Skill-based games reward practice and consistency. The Word Speed Challenge directly improves typing speed and accuracy, which is a practical skill for anyone who works on a computer. Snake builds spatial awareness and fine motor control.</p>
-
     <h3>Racing Games (Car Racer, Drive)</h3>
     <p>Racing games develop decision-making speed, focus under pressure, and hand-eye coordination. They require you to process visual information quickly and react accordingly, making them both engaging and mentally stimulating.</p>
   </div>
@@ -356,7 +323,6 @@
     <p>Many visitors come to explore AI tools for work and productivity. The games library gives those same visitors a space to take a short break, try something fun, and return to their research refreshed. It also demonstrates the range of browser-based interactive experiences that modern web technology makes possible.</p>
     <p>We plan to expand this collection over time with more AI-adjacent games, including challenges that demonstrate machine learning concepts, logic puzzles inspired by algorithmic thinking, and interactive experiences that make AI ideas approachable and enjoyable.</p>
   </div>
-
 </div>
 
 <footer>
